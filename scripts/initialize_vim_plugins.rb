@@ -17,3 +17,15 @@ bundle.each do |plugin|
   end
 end
 
+puts <<INIT_CMD_T
+
+=================================================================
+
+Done. Now perform the following commands to initialize Command-T:
+cd ~/.vim/bundle/Command-T/ruby/command-t
+rvm use system # If you're using RVM
+ruby extconf.rb
+make
+sudo make install
+
+INIT_CMD_T
