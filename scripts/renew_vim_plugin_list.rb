@@ -1,14 +1,14 @@
-require 'json'
+require 'yaml'
 
 current_path = File.expand_path(File.dirname(__FILE__))
-OUTPUT_PATH = File.join(current_path, "vim_bundle.json" )
+OUTPUT_PATH = File.join(current_path, "vim_bundle.yml" )
 
 VIM_BUNDLE_DIR = File.expand_path(File.join(File.dirname(__FILE__), "../vim/bundle"))
 
 def main
   entries = scan_bundle_directory( VIM_BUNDLE_DIR )
 
-  js = JSON.pretty_generate( entries )
+  js = entries.to_yaml
 
   File.open( OUTPUT_PATH, "w") do |file|
     file.write(js)
@@ -43,7 +43,7 @@ def entry_for( path, name )
     remote = remote_default_line.match( /default = (.*)/ ).captures.first
   end
 
-  { :name => name, :repo_type => repo_type, :remote => remote }
+  { name => {"repo_type" => repo_type, "remote" => remote }}
 end
 
 main()

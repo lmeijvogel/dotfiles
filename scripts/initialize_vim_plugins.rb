@@ -1,19 +1,22 @@
-require 'json'
+require 'yaml'
 
 BUNDLE_DIR = File.expand_path( File.join( File.dirname( __FILE__), "../vim/bundle" ) )
 
 Dir.mkdir(BUNDLE_DIR) unless Dir.exists?(BUNDLE_DIR)
 
-bundle = JSON.parse(File.read( "vim_bundle.json" ))
+bundle = YAML.load(File.read( "vim_bundle.yml" ))
 
 Dir.chdir( BUNDLE_DIR )
 
 bundle.each do |plugin|
-  puts "Current plugin: #{plugin["name"]}"
-  if plugin["repo_type"] == "git"
-    `git clone #{plugin["remote"]}`
-  elsif plugin["repo_type"] == "hg"
-    `hg clone #{plugin["remote"]}`
+  name = plugin.keys[0]
+  data = plugin.values[0]
+
+  puts "Current plugin: #{name}"
+  if data["repo_type"] == "git"
+    `git clone #{data["remote"]}`
+  elsif data["repo_type"] == "hg"
+    `hg clone #{data["remote"]}`
   end
 end
 
