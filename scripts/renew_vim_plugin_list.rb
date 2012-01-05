@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'yaml'
 
 current_path = File.expand_path(File.dirname(__FILE__))
