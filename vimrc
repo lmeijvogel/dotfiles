@@ -17,6 +17,7 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <leader>sv :so $MYVIMRC<CR>
 
 nmap <silent> <leader>nt :NERDTreeToggle<CR>
+nmap <silent> <leader>nf :NERDTreeFind<CR>
 
 let g:NERDTreeShowRelativeLineNumbers=1
 
