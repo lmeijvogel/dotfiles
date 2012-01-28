@@ -25,7 +25,7 @@
     remote: https://github.com/scrooloose/nerdcommenter.git
 - nerdtree: 
     repo_type: git
-    remote: https://github.com/lmeijvogel/nerdtree.git
+    remote: https://github.com/scrooloose/nerdtree.git
 - snipmate.vim: 
     repo_type: git
     remote: https://github.com/msanders/snipmate.vim.git
