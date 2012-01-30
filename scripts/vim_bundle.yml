@@ -20,6 +20,9 @@
 - file-line:
     repo_type: git
     remote: https://github.com/bogado/file-line.git
+- mayansmoke:
+    repo_type: git
+    remote: https://github.com/vim-scripts/mayansmoke.git
 - nerdcommenter:
     repo_type: git
     remote: https://github.com/scrooloose/nerdcommenter.git

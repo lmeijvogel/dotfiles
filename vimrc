@@ -149,7 +149,7 @@ set laststatus=2 " Always show status line
 set statusline=[%n]\ %f\ %m\ %{fugitive#statusline()}\ %y%=%l,%c\ %P
 
 if has("gui_running")
-  colorscheme railscasts
+  colorscheme mayansmoke
 
   if has("x11")
     set guifont=Liberation\ Mono\ 10
@@ -157,7 +157,7 @@ if has("gui_running")
     set guifont=Consolas:h11:cANSI
   end
 else
-  set background=dark
+  set background=light
 endif
 
 " Experimental: rails.vim shortcuts
