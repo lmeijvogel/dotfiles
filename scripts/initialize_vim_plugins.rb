@@ -1,10 +1,16 @@
 #!/usr/bin/env ruby
 
 require 'yaml'
+require 'fileutils'
 
 BUNDLE_DIR = File.expand_path( File.join( File.dirname( __FILE__), "../vim/bundle" ) )
 
-Dir.mkdir(BUNDLE_DIR) unless Dir.exists?(BUNDLE_DIR)
+# Just to be sure: do not do a rm -rf on any bundle dir
+unless BUNDLE_DIR.size < 5
+  FileUtils.rm_rf(BUNDLE_DIR)
+end
+
+Dir.mkdir(BUNDLE_DIR)
 
 bundle = YAML.load(File.read( "vim_bundle.yml" ))
 
