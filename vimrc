@@ -116,7 +116,6 @@ map <silent> <leader>ff :let @+ = expand("%:p")<CR>
 " Easily create splits
 nmap <silent> ss <C-w>s
 nmap <silent> vv <C-w>v
-let g:spec_height=12
 
 " Tag list
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
