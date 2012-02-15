@@ -71,3 +71,6 @@
 - vim-yankring:
     repo_type: git
     remote: https://github.com/chrismetcalf/vim-yankring.git
+- zencoding-vim:
+    repo_type: git
+    remote: https://github.com/mattn/zencoding-vim.git
