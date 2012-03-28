@@ -146,6 +146,9 @@ nmap <leader>j :LustyJuggler<CR>
 " Start LustyJuggler on the second (MRU) buffer
 let g:LustyJugglerAltTabMode = 1
 
+" Gundo
+nnoremap <F5> :GundoToggle<CR>
+
 " Statusline
 set laststatus=2 " Always show status line
 set statusline=[%n]\ %f\ %m\ %{fugitive#statusline()}\ %y%=%l,%c\ %P

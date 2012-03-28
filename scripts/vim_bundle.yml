@@ -20,6 +20,9 @@
 - file-line:
     repo_type: git
     remote: https://github.com/bogado/file-line.git
+- gundo.vim:
+    repo_type: hg
+    remote: https://bitbucket.org/sjl/gundo.vim
 - mayansmoke:
     repo_type: git
     remote: https://github.com/vim-scripts/mayansmoke.git
