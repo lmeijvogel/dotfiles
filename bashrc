@@ -223,3 +223,5 @@ if [ -d "$HOME/.rvm" ]; then
 fi
 
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && . "$HOME/.scm_breeze/scm_breeze.sh"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
