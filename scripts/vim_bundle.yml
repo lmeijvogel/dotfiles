@@ -1,4 +1,7 @@
 ---
+- Buffet.vim:
+    repo_type: git
+    remote: https://github.com/sandeepcr529/Buffet.vim.git
 - Command-T:
     repo_type: git
     remote: https://github.com/wincent/Command-T.git
@@ -11,9 +14,6 @@
 - argtextobj.vim:
     repo_type: git
     remote: https://github.com/vim-scripts/argtextobj.vim.git
-- bufexplorer.zip:
-    repo_type: git
-    remote: https://github.com/vim-scripts/bufexplorer.zip.git
 - bufkill.vim:
     repo_type: git
     remote: https://github.com/vim-scripts/bufkill.vim.git

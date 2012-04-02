@@ -154,6 +154,9 @@ nmap <silent> <leader>u :YamlGoToParent<CR>
 nmap <leader>y :YamlGetFullPath<CR>
 nmap <leader>Y :YamlGoToKey 
 
+" Buffet
+nmap <silent> <leader>be :Bufferlist<CR>
+
 " Statusline
 set laststatus=2 " Always show status line
 set statusline=[%n]\ %f\ %m\ %{fugitive#statusline()}\ %y%=%l,%c\ %P
