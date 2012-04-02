@@ -13,11 +13,11 @@ cl() {    if [ -d "$1" ]; then       cd "$1";       ls -l;    fi; }
 # User specific aliases and functions
 alias yum='sudo yum'
 
-alias rtst='RAILS_ENV=test rake test'
-alias rdfl='rake db:fixtures:load'
-alias rdsl='rake db:schema:load'
-alias trdsl='RAILS_ENV=test rake db:schema:load'
-alias rdtp='rake db:test:prepare'
+alias rtst='RAILS_ENV=test bundle exec rake test'
+alias rdfl='bundle exec rake db:fixtures:load'
+alias rdsl='bundle exec rake db:schema:load'
+alias trdsl='RAILS_ENV=test bundle exec rake db:schema:load'
+alias rdtp='bundle exec rake db:test:prepare'
 
 alias serv='rails s'
 alias dserv='rdebug rails s'
