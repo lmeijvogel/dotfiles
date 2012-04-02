@@ -71,6 +71,9 @@
 - vim-surround:
     repo_type: git
     remote: https://github.com/tpope/vim-surround.git
+- vim-yaml-helper:
+    repo_type: git
+    remote: git@github.com:lmeijvogel/vim-yaml-helper.git
 - vim-yankring:
     repo_type: git
     remote: https://github.com/chrismetcalf/vim-yankring.git

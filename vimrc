@@ -149,6 +149,11 @@ let g:LustyJugglerAltTabMode = 1
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
 
+" Yaml tools
+nmap <silent> <leader>u :YamlGoToParent<CR>
+nmap <leader>y :YamlGetFullPath<CR>
+nmap <leader>Y :YamlGoToKey 
+
 " Statusline
 set laststatus=2 " Always show status line
 set statusline=[%n]\ %f\ %m\ %{fugitive#statusline()}\ %y%=%l,%c\ %P
