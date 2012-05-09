@@ -184,7 +184,7 @@ nmap <silent> <leader>be :Bufferlist<CR>
 
 " Statusline
 set laststatus=2 " Always show status line
-set statusline=[%n]\ %f\ %m\ %{fugitive#statusline()}\ %y%=%l,%c\ %P
+set statusline=[%n]\ %f\ %m\ %y%=%l,%c\ %P
 
 if has("gui_running")
   colorscheme mayansmoke
