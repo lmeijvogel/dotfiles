@@ -23,9 +23,6 @@
 - gundo.vim:
     repo_type: hg
     remote: https://bitbucket.org/sjl/gundo.vim
-- mayansmoke:
-    repo_type: git
-    remote: https://github.com/vim-scripts/mayansmoke.git
 - nerdcommenter:
     repo_type: git
     remote: https://github.com/scrooloose/nerdcommenter.git
