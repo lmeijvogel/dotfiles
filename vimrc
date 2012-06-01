@@ -181,7 +181,7 @@ if has("gui_running")
     set guifont=Consolas:h11:cANSI
   end
 else
-  set background=light
+  set background=dark
 endif
 
 " Experimental: rails.vim shortcuts
