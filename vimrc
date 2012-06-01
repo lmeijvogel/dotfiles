@@ -127,21 +127,6 @@ nmap <silent> <S-Down> <C-w>8-
 nmap <silent> <S-Left> <C-w>8<
 nmap <silent> <S-Right> <C-w>8>
 
-if has("gui_running")
-  " Easily copy from/to system clipboard
-  " Note that this wouldn't work very well in a terminal window
-  " since C-S-[xcv] already have meaning there.
-  nmap <C-S-x> "+dd
-  nmap <C-S-c> "+yy
-  nmap <C-S-v> "+P
-
-  imap <C-S-v> <C-r>"
-
-  vmap <C-S-x> "+x
-  vmap <C-S-c> "+y
-  vmap <C-S-v> "+gP
-end
-
 " Tag list
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_WinWidth = 50
