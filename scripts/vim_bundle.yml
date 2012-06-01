@@ -53,6 +53,9 @@
 - vim-matchit:
     repo_type: git
     remote: https://github.com/wzzrd/vim-matchit.git
+- vim-numbertoggle:
+    repo_type: git
+    remote: https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
 - vim-rails:
     repo_type: git
     remote: git://github.com/tpope/vim-rails.git
