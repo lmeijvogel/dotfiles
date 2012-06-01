@@ -5,9 +5,6 @@
 - Command-T:
     repo_type: git
     remote: https://github.com/wincent/Command-T.git
-- LustyJuggler:
-    repo_type: git
-    remote: https://github.com/vim-scripts/LustyJuggler.git
 - ack.vim:
     repo_type: git
     remote: https://github.com/mileszs/ack.vim.git
@@ -23,6 +20,9 @@
 - gundo.vim:
     repo_type: hg
     remote: https://bitbucket.org/sjl/gundo.vim
+- lusty:
+    repo_type: git
+    remote: git@github.com:lmeijvogel/lusty.git
 - nerdcommenter:
     repo_type: git
     remote: https://github.com/scrooloose/nerdcommenter.git
