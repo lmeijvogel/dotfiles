@@ -147,7 +147,7 @@ nmap <leader>a :Ack
 nmap <leader>A :Ack! <C-R><C-W><CR>
 "
 " Save all files when Vim loses focus
-au FocusLost * :wa
+au FocusLost * silent! :wa
 
 " LustyJuggler
 let g:LustyJugglerKeyboardLayout = "colemak"
