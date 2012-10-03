@@ -161,7 +161,6 @@ nmap <leader>A :Ack! <C-R><C-W><CR>
 au FocusLost * silent! :wa
 
 " LustyJuggler
-let g:LustyJugglerKeyboardLayout = "colemak"
 let g:LustyJugglerShowKeys = 'a' " Show alphabetic keys
 nmap <leader>j :LustyJuggler<CR>
 
