@@ -105,7 +105,7 @@ function prompt_command {
 }
 
 function rsp {
-  DEFER_GC=1 RAILS_ENV=test rspec --format Fuubar ${@:-spec}
+  DEFER_GC=1 RAILS_ENV=test bundle exec rspec --format Fuubar ${@:-spec}
 }
 
 function make_git_prompt {
