@@ -21,11 +21,18 @@
 
         ; push ref (if specified) to origin. Rewrite refs/heads/* => refs/for/*
         review = "!f() { git push origin ${1:-HEAD}:`git rev-parse --symbolic-full-name HEAD | sed 's/refs\\/heads/refs\\/for/'`; }; f"
+        back = "!f() { if [ \"`git status --untracked-files=no --porcelain | wc -l`\" == \"0\" ]; then git reset --hard origin/`git rev-parse --symbolic-full-name HEAD | sed 's#refs/heads/##'`; else echo 'There are modified files in the working dir'; fi }; f"
+        uppa = "!f() { echo 'Git on up\n' && git up; }; f"
         wtf = !git-wtf
-        cia = commit --amend
+        onorigin = "!f() { ssh git.ogd.nl \"cd /git/terminal-codebase && git log -n 1 `git rev-parse --symbolic-full-name HEAD`\"; }; f"
+        cia = commit --amend --no-edit
+        ciam = commit --amend
 
         in  = !"git fetch -q && git log --format=\"%h %aN     %s\" HEAD..@{upstream}"
         out = log --format=\"%h   %s\" @{upstream}..HEAD
+	ap = add -p
+	rc = rebase --continue
+	ra = rebase --abort
 
 [mergetool]
         keepBackup = false
@@ -35,3 +42,5 @@
 	detachedHead = false
 [push]
 	default = tracking
+[interactive]
+	singlekey = true
