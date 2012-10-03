@@ -191,6 +191,9 @@ let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'passive_filetypes': ['puppet'] }
 let g:syntastic_check_on_open=1
 
+" Tagbar
+nnoremap <F9> :TagbarToggle<CR>
+
 if has("gui_running")
   colorscheme railscasts
 
