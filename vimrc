@@ -172,6 +172,12 @@ nmap <silent> <leader>be :Bufferlist<CR>
 set laststatus=2 " Always show status line
 set statusline=[%n]\ %f\ %m\ %y%=%l,%c\ %P
 
+" Syntastic
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': ['ruby', 'javascript'],
+                           \ 'passive_filetypes': ['puppet'] }
+let g:syntastic_check_on_open=1
+
 if has("gui_running")
   colorscheme railscasts
 

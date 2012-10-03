@@ -5,6 +5,9 @@
 - Command-T:
     repo_type: git
     remote: https://github.com/wincent/Command-T.git
+- YankRing.vim:
+    repo_type: git
+    remote: https://github.com/vim-scripts/YankRing.vim.git
 - ack.vim:
     repo_type: git
     remote: https://github.com/mileszs/ack.vim.git
@@ -28,22 +31,19 @@
     remote: https://github.com/scrooloose/nerdcommenter.git
 - nerdtree:
     repo_type: git
-    remote: https://github.com/scrooloose/nerdtree.git
-- snipmate.vim:
+    remote: git://github.com/scrooloose/nerdtree.git
+- syntastic:
     repo_type: git
-    remote: https://github.com/msanders/snipmate.vim.git
-- vim-coffee-script:
+    remote: https://github.com/scrooloose/syntastic.git
+- tagbar:
     repo_type: git
-    remote: https://github.com/kchmck/vim-coffee-script.git
-- vim-easymotion:
+    remote: git://github.com/majutsushi/tagbar
+- ultisnips:
     repo_type: git
-    remote: https://github.com/Lokaltog/vim-easymotion.git
+    remote: git://github.com/SirVer/ultisnips.git
 - vim-endwise:
     repo_type: git
     remote: https://github.com/tpope/vim-endwise.git
-- vim-fugitive:
-    repo_type: git
-    remote: https://github.com/tpope/vim-fugitive.git
 - vim-haml:
     repo_type: git
     remote: https://github.com/tpope/vim-haml.git
@@ -53,15 +53,12 @@
 - vim-matchit:
     repo_type: git
     remote: https://github.com/wzzrd/vim-matchit.git
-- vim-numbertoggle:
-    repo_type: git
-    remote: https://github.com/jeffkreeftmeijer/vim-numbertoggle.git
 - vim-rails:
     repo_type: git
     remote: git://github.com/tpope/vim-rails.git
-- vim-railscasts:
+- vim-railscasts-theme:
     repo_type: git
-    remote: git://github.com/lmeijvogel/vim-railscasts.git
+    remote: https://github.com/jpo/vim-railscasts-theme.git
 - vim-repeat:
     repo_type: git
     remote: https://github.com/tpope/vim-repeat.git
@@ -71,12 +68,15 @@
 - vim-surround:
     repo_type: git
     remote: https://github.com/tpope/vim-surround.git
+- vim-textobj-rubyblock:
+    repo_type: git
+    remote: https://github.com/nelstrom/vim-textobj-rubyblock.git
+- vim-textobj-user:
+    repo_type: git
+    remote: https://github.com/kana/vim-textobj-user.git
 - vim-yaml-helper:
     repo_type: git
     remote: git@github.com:lmeijvogel/vim-yaml-helper.git
-- vim-yankring:
-    repo_type: git
-    remote: https://github.com/chrismetcalf/vim-yankring.git
 - zencoding-vim:
     repo_type: git
     remote: https://github.com/mattn/zencoding-vim.git
