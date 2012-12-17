@@ -194,6 +194,12 @@ let g:syntastic_check_on_open=1
 " Tagbar
 nnoremap <F9> :TagbarToggle<CR>
 
+" Screen
+let g:ScreenImpl = 'Tmux'
+let g:ScreenShellTmuxInitArgs = '-2'
+let g:ScreenShellInitialFocus = 'shell'
+let g:ScreenShellQuitOnVimExit = 0
+
 if has("gui_running")
   colorscheme railscasts
 
@@ -206,7 +212,19 @@ else
   set background=dark
 endif
 
+" Screen
+let g:ScreenImpl = 'Tmux'
+let g:ScreenShellTmuxInitArgs = '-2'
+let g:ScreenShellInitialFocus = 'vim'
+let g:ScreenShellQuitOnVimExit = 0
+let g:ScreenShellTerminal = 'terminal'
+map <F6> :ScreenShell<CR>
+
 " Experimental: rails.vim shortcuts
 inoremap <C-s> ^X^U
 " Add tab number to tab
 set guitablabel=%N)\ %t\ %M
+
+nmap <leader>S :call RunCurrentTest()<CR>
+nmap <leader>s :call RunCurrentLineInTest()<CR>
+imap <C-s> <Esc>:call RunCurrentLineInTest()<CR>a

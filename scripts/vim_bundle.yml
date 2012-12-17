@@ -32,6 +32,9 @@
 - nerdtree:
     repo_type: git
     remote: git://github.com/scrooloose/nerdtree.git
+- screen:
+    repo_type: git
+    remote: git://github.com/ervandew/screen.git
 - syntastic:
     repo_type: git
     remote: https://github.com/scrooloose/syntastic.git
@@ -65,6 +68,9 @@
 - vim-ruby:
     repo_type: git
     remote: https://github.com/vim-ruby/vim-ruby.git
+- vim-screen-test-runner:
+    repo_type: git
+    remote: git@github.com:lmeijvogel/vim-screen-test-runner.git
 - vim-surround:
     repo_type: git
     remote: https://github.com/tpope/vim-surround.git
