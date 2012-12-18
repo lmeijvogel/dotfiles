@@ -30,9 +30,22 @@
 
         in  = !"git fetch -q && git log --format=\"%h %aN     %s\" HEAD..@{upstream}"
         out = log --format=\"%h   %s\" @{upstream}..HEAD
-	ap = add -p
-	rc = rebase --continue
-	ra = rebase --abort
+
+        r = reset
+        r1 = reset HEAD^
+        r2 = reset HEAD^^
+        rh = reset --hard
+        rh1 = reset HEAD^ --hard
+        rh2 = reset HEAD^^ --hard
+
+        sl = stash list
+        sa = stash apply
+        sp = stash pop
+        sd = stash drop
+
+        ap = add -p
+        rc = rebase --continue
+        ra = rebase --abort
 
 [mergetool]
         keepBackup = false
@@ -40,7 +53,5 @@
 	statusHints = false
 	pushNonFastForward = false
 	detachedHead = false
-[push]
-	default = tracking
 [interactive]
 	singlekey = true
