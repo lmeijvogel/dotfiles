@@ -16,6 +16,9 @@ function cgem {
 # Private settings can be stored in .bashrc_private (see example file)
 
 # User specific aliases and functions
+alias sdf='git add -p'
+alias lkj='gs'
+
 alias yum='sudo yum'
 
 alias rtst='RAILS_ENV=test bundle exec rake test'
@@ -28,6 +31,7 @@ alias serv='rails s'
 alias dserv='rdebug rails s'
 
 alias cons='rails c'
+alias gti='git'
 
 export VISUAL='vim'
 
