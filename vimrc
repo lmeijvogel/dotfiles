@@ -137,13 +137,6 @@ nmap <silent> <S-Right> <C-w>8>
 " Map space to : in normal mode
 nmap <Space> :
 
-" Map <Tab> to <Esc>
-nnoremap <Tab> <Esc>
-vnoremap <Tab> <Esc>gV
-onoremap <Tab> <Esc>
-inoremap <Tab> <Esc>`^
-inoremap <Leader><Tab> <Tab>
-
 " Tag list
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_WinWidth = 50
