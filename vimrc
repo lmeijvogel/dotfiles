@@ -189,7 +189,7 @@ set laststatus=2 " Always show status line
 set statusline=[%n]\ %f\ %m\ %y%=%l,%c\ %P
 
 " Replace Ruby rocket syntax with keyvalue syntax
-nmap <leader>r :%s/:\([a-z0-9_]\{1,\}[!?]\?\) \?=>/\1:/g<CR>
+nmap <leader>h :%s/:\([a-z0-9_]\{1,\}[!?]\?\) \?=>/\1:/g<CR>
 
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
