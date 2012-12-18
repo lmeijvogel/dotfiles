@@ -33,6 +33,12 @@ nmap <silent> <leader>/ :nohlsearch<CR>
 nmap <silent> <C-A-n> :cn<CR>
 nmap <silent> <C-A-p> :cp<CR>
 
+" Add aliases to catch typos
+command! W w
+command! Wq w
+command! WQ w
+command! Q q
+
 " Sudo write current file
 cmap w!! w !sudo tee % >/dev/null
 set nowrap
