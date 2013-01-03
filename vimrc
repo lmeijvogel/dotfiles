@@ -227,3 +227,6 @@ set guitablabel=%N)\ %t\ %M
 nmap <leader>S :call RunCurrentTest()<CR>
 nmap <leader>s :call RunCurrentLineInTest()<CR>
 imap <C-s> <Esc>:call RunCurrentLineInTest()<CR>a
+
+nmap <leader>r ::call RunCurrentFile()<CR>
+imap <C-r> <Esc>:call RunCurrentFile()<CR>a
