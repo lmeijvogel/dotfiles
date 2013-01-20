@@ -59,3 +59,7 @@ imap <C-s> <Esc>:call RunCurrentLineInTest()<CR>a
 nmap <leader>r :call RunCurrentFile()<CR>
 
 let g:TestRunnerStartScreenShell = 1
+
+" Control-P
+
+nmap <leader>p :CtrlP<CR>
