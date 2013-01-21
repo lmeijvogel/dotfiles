@@ -14,6 +14,7 @@ map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 nmap <leader>a :Ack 
 " Ack word under cursor
 nmap <leader>A :Ack! <C-R><C-W><CR>
+let g:ackprg = 'ag --nogroup --nocolor --column'
 
 " LustyJuggler
 let g:LustyJugglerShowKeys = 'a' " Show alphabetic keys
@@ -32,9 +33,6 @@ nmap <leader>Y :YamlGoToKey
 
 " Buffet
 nmap <silent> <leader>be :Bufferlist<CR>
-
-" Replace Ruby rocket syntax with keyvalue syntax
-nmap <leader>h :%s/:\([a-z0-9_]\{1,\}[!?]\?\) \?=>/\1:/g<CR>
 
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
