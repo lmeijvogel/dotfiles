@@ -58,6 +58,5 @@ nmap <leader>r :call RunCurrentFile()<CR>
 
 let g:TestRunnerStartScreenShell = 1
 
-" Control-P
-
-nmap <leader>p :CtrlP<CR>
+" Command-T
+let g:CommandTCancelMap=['<Esc>', '<C-c>']

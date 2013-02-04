@@ -17,9 +17,6 @@
 - bufkill.vim:
     repo_type: git
     remote: https://github.com/vim-scripts/bufkill.vim.git
-- ctrlp.vim:
-    repo_type: git
-    remote: git://github.com/kien/ctrlp.vim.git
 - file-line:
     repo_type: git
     remote: https://github.com/bogado/file-line.git
