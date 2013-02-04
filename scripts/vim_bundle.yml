@@ -77,6 +77,9 @@
 - vim-ruby:
     repo_type: git
     remote: https://github.com/vim-ruby/vim-ruby.git
+- vim-scratch:
+    repo_type: git
+    remote: git://github.com/duff/vim-scratch.git
 - vim-screen-test-runner:
     repo_type: git
     remote: git@github.com:lmeijvogel/vim-screen-test-runner.git
