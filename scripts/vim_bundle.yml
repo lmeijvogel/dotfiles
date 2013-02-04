@@ -44,12 +44,18 @@
 - ultisnips:
     repo_type: git
     remote: git://github.com/SirVer/ultisnips.git
+- vim-coffee-script:
+    repo_type: git
+    remote: git://github.com/kchmck/vim-coffee-script.git
 - vim-endwise:
     repo_type: git
     remote: https://github.com/tpope/vim-endwise.git
 - vim-haml:
     repo_type: git
     remote: https://github.com/tpope/vim-haml.git
+- vim-handlebars:
+    repo_type: git
+    remote: https://github.com/nono/vim-handlebars.git
 - vim-l9:
     repo_type: hg
     remote: https://bitbucket.org/ns9tks/vim-l9
