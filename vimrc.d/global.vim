@@ -53,7 +53,7 @@ set copyindent " Copy the previous indentation on autoindenting
 set t_vb=
 set noerrorbells " don't beep
 
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.orig,*.scssc
+set wildignore=*.swp,*.bak,*.pyc,*.class,*.orig,*.scssc,*.gif,*.png,*.jpg,*.jpeg
 set wildignore+=public/drive/**,private/**,webdav/private/**,webdav/public/drive/**
 
 set history=1000
