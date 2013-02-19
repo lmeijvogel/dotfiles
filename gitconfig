@@ -16,6 +16,10 @@
         l = log --decorate --oneline
         diffr = log -p -1
         mylog = log --date-order --author=Lennaert
+
+        ; Remove a commit from the history: Default is the last commit
+        uncommit = "!f() { git rebase --onto ${1:-HEAD}^ ${1:-HEAD}; }; f"
+
         rup = "!f() { git rebase -i `git rev-parse --symbolic-full-name @{upstream}`; }; f"
         puc = "!f() { git push origin $1:`git rev-parse --symbolic-full-name HEAD`; }; f"
 
