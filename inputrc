@@ -1,0 +1,33 @@
+# History search searches the history for commands
+# starting with anything preceding the cursor, so
+# if the prompt looks like this (_ is the cursor)
+# $ cd .s_
+#
+# And I do a history search, I can cycle though all
+# previously entered commands that start with "cd .s",
+# e.g. "cd .ssh", "cd .shotwell", "cd .shutter"
+#
+# With forward-char and backward-char, I move the cursor
+# left or right, to match more or less specific strings.
+
+# Arrow up
+"\e0A": history-search-backward
+"\e[A": history-search-backward
+
+# Arrow down
+"\e0B": history-search-forward
+"\e[B": history-search-forward
+
+# Arrow right
+"\e0C": forward-char
+"\e[C": forward-char
+
+# Arrow left
+"\e0D": backward-char
+"\e[D": backward-char
+
+# Same as above, but with more vim-like traversal
+"\C-k": history-search-backward
+"\C-j": history-search-forward
+"\C-h": backward-char
+"\C-l": forward-char
