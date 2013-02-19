@@ -53,6 +53,9 @@ nmap <silent> <S-Right> <C-w>8>
 " Map space to : in normal mode
 nmap <Space> :
 
+" Map jj to <Esc> in insert mode
+imap jj <Esc>
+
 " Delete trailing whitespace
 nmap <silent> <leader>dtw :s/\s*$//<CR>:noh<CR>
 nmap <silent> <leader>gdtw :%s/\s*$//<CR>:noh<CR>
