@@ -28,7 +28,9 @@
         back = "!f() { if [ \"`git status --untracked-files=no --porcelain | wc -l`\" == \"0\" ]; then git reset --hard origin/`git rev-parse --symbolic-full-name HEAD | sed 's#refs/heads/##'`; else echo 'There are modified files in the working dir'; fi }; f"
         uppa = "!f() { echo 'Git on up\n' && git up; }; f"
         wtf = !git-wtf
-        onorigin = "!f() { ssh git.ogd.nl \"cd /git/terminal-codebase && git log -n 1 `git rev-parse --symbolic-full-name HEAD`\"; }; f"
+
+        ; Test whether the given commit (HEAD if none given) exists on git.ogd.nl
+        onorigin = "!f() { COMMIT=`git rev-parse ${1:-HEAD}`; ssh git.ogd.nl \"cd /git/terminal-codebase && git log -1 $COMMIT\"; }; f"
         cia = commit --amend --no-edit
         ciam = commit --amend
 
