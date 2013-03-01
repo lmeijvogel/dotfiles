@@ -93,3 +93,10 @@ endif
 
 " Add tab number to tab
 set guitablabel=%N)\ %t\ %M
+
+" Highlight whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
