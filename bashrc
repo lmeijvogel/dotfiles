@@ -27,10 +27,6 @@ alias rdsl='bundle exec rake db:schema:load'
 alias trdsl='RAILS_ENV=test bundle exec rake db:schema:load'
 alias rdtp='bundle exec rake db:test:prepare'
 
-alias serv='rails s'
-alias dserv='rdebug rails s'
-
-alias cons='rails c'
 alias gti='git'
 
 export VISUAL='vim'
