@@ -21,8 +21,8 @@
         ; Remove a commit from the history: Default is the last commit
         uncommit = "!f() { git rebase --onto ${1:-HEAD}^ ${1:-HEAD}; }; f"
 
-        rup = "!f() { git rebase -i `git rev-parse --symbolic-full-name @{upstream}`; }; f"
-        puc = "!f() { git push origin $1:`git rev-parse --symbolic-full-name HEAD`; }; f"
+        rup    = "!f() { git rebase --autosquash -i `git rev-parse --symbolic-full-name @{upstream}`; }; f"
+        puc    = "!f() { git push origin $1:`git rev-parse --symbolic-full-name HEAD`; }; f"
 
         ; push ref (if specified) to origin. Rewrite refs/heads/* => refs/for/*
         review = "!f() { git push origin ${1:-HEAD}:`git rev-parse --symbolic-full-name HEAD | sed 's/refs\\/heads/refs\\/for/'`; }; f"
