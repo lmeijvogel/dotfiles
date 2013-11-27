@@ -13,7 +13,8 @@
         mt = mergetool
         dt = difftool
         lol = log --format=oneline
-        l = log --decorate --oneline
+        l = log --decorate --oneline -n 10
+        ll = log --decorate --oneline
         diffr = log -p -1
         mylog = log --date-order --author=Lennaert
 
