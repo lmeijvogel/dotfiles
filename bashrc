@@ -27,6 +27,8 @@ alias rdsl='bundle exec rake db:schema:load'
 alias trdsl='RAILS_ENV=test bundle exec rake db:schema:load'
 alias rdtp='bundle exec rake db:test:prepare'
 
+alias orig='find . -regex "\\(.*\\.\\(BACKUP\\|BASE\\|LOCAL\\|REMOTE\\)\\..*\\)\\|.*\\.orig" -delete'
+
 alias gti='git'
 
 export VISUAL='vim'
