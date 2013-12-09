@@ -54,3 +54,9 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 if [ -e "$HOME/.custom_bash_prompt.bash" ]; then
   . "$HOME/.custom_bash_prompt.bash"
 fi
+
+if [ -f /usr/share/terminfo/x/xterm+256color ]; then
+  export TERM='xterm-256color'
+else
+  export TERM='xterm-color'
+fi
