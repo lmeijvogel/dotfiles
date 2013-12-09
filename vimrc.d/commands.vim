@@ -51,7 +51,7 @@ nmap <silent> <S-Left> <C-w>8<
 nmap <silent> <S-Right> <C-w>8>
 
 " Map space to : in normal mode
-nmap <Space> :
+nmap <leader><leader> :
 
 " Map jj to <Esc> in insert mode
 imap jj <Esc>

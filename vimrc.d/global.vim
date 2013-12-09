@@ -5,7 +5,7 @@ set mouse=a
 " Hide menubar and toolbar in gvim
 set guioptions-=m
 set guioptions-=T
-let mapleader=","
+let mapleader=" "
 
 " No beeps or flashes on errors
 set noerrorbells
