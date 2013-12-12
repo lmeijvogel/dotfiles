@@ -57,7 +57,9 @@
 
 	bg = bisect good
 	bb = bisect bad
-
+	rs = reset --soft
+	rs1 = reset --soft HEAD^
+	rs2 = reset --soft HEAD^^
 [mergetool]
         keepBackup = false
 [advice]
