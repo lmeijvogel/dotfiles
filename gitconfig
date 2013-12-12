@@ -55,6 +55,9 @@
         rc = rebase --continue
         ra = rebase --abort
 
+	bg = bisect good
+	bb = bisect bad
+
 [mergetool]
         keepBackup = false
 [advice]
