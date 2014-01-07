@@ -32,6 +32,8 @@ alias orig='find . -regex "\\(.*\\.\\(BACKUP\\|BASE\\|LOCAL\\|REMOTE\\)\\..*\\)\
 alias gti='git'
 
 export VISUAL='vim'
+export EDITOR='vim'
+
 
 if [ -f "$HOME/.bashrc_private" ]; then
   if [ -x "$HOME/.bashrc_private" ]; then
