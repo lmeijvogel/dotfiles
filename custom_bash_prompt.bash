@@ -81,7 +81,8 @@ function make_git_prompt {
 function make_git_current_branch {
     local GIT_STATUS=$1
 
-    GIT_CURRENT_BRANCH=$(git symbolic-ref HEAD 2>/dev/null)
+    GIT_CURRENT_BRANCH="$(git symbolic-ref HEAD 2>/dev/null)"
+
     GIT_CURRENT_BRANCH="$GIT_BRANCH_COLOR${GIT_CURRENT_BRANCH#refs/heads/}"
 }
 
