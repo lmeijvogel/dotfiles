@@ -20,22 +20,39 @@ function shell_for_prompt {
 function prompt_command {
     local RETURN_CODE="$?"
 
-    ASCII_RESET="\e[0m"
+    if [[ "$SHELL_FOR_PROMPT" == "zsh" ]]; then
+      ASCII_RESET="%{$reset_color%}"
 
-    local GREEN="\e[0;32m"
-    local GREEN_BOLD="\e[1;32m"
-    local RED="\e[0;31m"
-    local RED_BOLD="\e[1;31m"
-    local BLUE="\e[0;34m"
-    local BLUE_BOLD="\e[1;34m"
-    local CYAN="\e[0;36m"
-    local CYAN_BOLD="\e[1;36m"
-    local YELLOW="\e[0;33m"
-    local YELLOW_BOLD="\e[1;33m"
-    local PURPLE="\e[0;35m"
-    local PURPLE_BOLD="\e[1;35m"
+      GREEN="%{$fg[green]%}"
+      RED="%{$fg[red]%}"
+      BLUE="%{$fg[blue]%}"
+      CYAN="%{$fg[cyan]%}"
+      YELLOW="%{$fg[yellow]%}"
+      PURPLE="%{$fg[magenta]%}"
+      GREEN_BOLD="%{$fg_bold[green]%}"
+      RED_BOLD="%{$fg_bold[red]%}"
+      BLUE_BOLD="%{$fg_bold[blue]%}"
+      CYAN_BOLD="%{$fg_bold[cyan]%}"
+      YELLOW_BOLD="%{$fg_bold[yellow]%}"
+      PURPLE_BOLD="%{$fg_bold[magenta]%}"
+    else
+      ASCII_RESET="\e[0m"
+      GREEN="\e[0;32m"
+      GREEN_BOLD="\e[1;32m"
+      RED="\e[0;31m"
+      RED_BOLD="\e[1;31m"
+      BLUE="\e[0;34m"
+      BLUE_BOLD="\e[1;34m"
+      CYAN="\e[0;36m"
+      CYAN_BOLD="\e[1;36m"
+      YELLOW="\e[0;33m"
+      YELLOW_BOLD="\e[1;33m"
+      PURPLE="\e[0;35m"
+      PURPLE_BOLD="\e[1;35m"
 
-    local ASCII_BOLD="\e[1m"
+      ASCII_BOLD="\e[1m"
+    fi
+
 
     local USERNAME_COLOR=$GREEN
 
