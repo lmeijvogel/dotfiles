@@ -59,3 +59,7 @@ let g:TestRunnerStartScreenShell = 1
 
 " Command-T
 let g:CommandTCancelMap=['<Esc>', '<C-c>']
+
+" MiniBufExpl
+nmap <C-A-j> :MBEbn<CR>
+nmap <C-A-k> :MBEbp<CR>
