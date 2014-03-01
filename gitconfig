@@ -25,7 +25,7 @@
         puc    = "!f() { git push origin $1:`git rev-parse --symbolic-full-name HEAD`; }; f"
 
         ; push ref (if specified) to origin. Rewrite refs/heads/* => refs/for/*
-        review = "!f() { git push origin ${1:-HEAD}:`git rev-parse --symbolic-full-name HEAD | sed 's/refs\\/heads/refs\\/for/'`; }; f"
+	review = "!f() { git push gerrit ${1:-HEAD}:`git rev-parse --symbolic-full-name HEAD | sed \"s/refs\\/heads/refs\\/for/\"`; }; f"
         back = "!f() { if [ \"`git status --untracked-files=no --porcelain | wc -l`\" == \"0\" ]; then git reset --hard origin/`git rev-parse --symbolic-full-name HEAD | sed 's#refs/heads/##'`; else echo 'There are modified files in the working dir'; fi }; f"
         uppa = "!f() { echo 'Git on up\n' && git up; }; f"
         wtf = !git-wtf
