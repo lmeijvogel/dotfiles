@@ -2,9 +2,8 @@ source $HOME/.git_prompt.sh
 
 function shell_for_prompt {
   if [[ "$1" == "bash" ]]; then
-    export SHELL_FOR_PROMPT="bash"
-
-    export PROMPT_COMMAND=prompt_command
+    echo "Bash prompt: No custom prompt"
+    # Do nothing
   elif [[ "$1" == "zsh" ]]; then
     export SHELL_FOR_PROMPT="zsh"
 
