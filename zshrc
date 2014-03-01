@@ -77,8 +77,23 @@ else
   export IS_SAFE_HOST="false"
 fi
 
+if [ -d "$HOME/.rvm" ]; then
+  [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
+fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
 IS_SAFE_HOST="true"
 
 source $HOME/.custom_bash_prompt.bash
 
 shell_for_prompt "zsh"
+
+# If nomatch is set, zsh will try to match parameters and will show
+# an error if it cannot match them. This will make e.g.
+#
+#   git show HEAD^
+#
+# fail due to the the ^ at the end. Unsetting the option will make zsh
+# pass unmatched arguments anyway
+unsetopt nomatch
