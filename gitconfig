@@ -68,3 +68,7 @@
 	detachedHead = false
 [interactive]
 	singlekey = true
+[help]
+	autocorrect = 15
+[push]
+	default = current
