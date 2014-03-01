@@ -73,7 +73,6 @@ function prompt_command {
     GIT_DELETED_COLOR=$RED_BOLD
     GIT_UNCHANGED_COLOR=$GREEN_BOLD
 
-    local HOST_COLOR=$GREEN_BOLD
     local RETURN_CODE_COLOR=$RED_BOLD
 
     local PROMPT_RETURN_CODE=""
@@ -85,18 +84,16 @@ function prompt_command {
     make_git_prompt
 
     if [[ "$SHELL_FOR_PROMPT" == "zsh" ]]; then
-      PROMPT_HOST="%m"
       PROMPT_DIR="%."
 
       PREFIX="Z"
     else
-      PROMPT_HOST="\h"
       PROMPT_DIR="\w"
 
       PREFIX="B"
     fi
     # To prevent an error, split the string after $ASCII_BOLD
-    local FIRST_LINE="$ASCII_BOLD$PREFIX [$HOST_COLOR$PROMPT_HOST$ASCII_RESET $RVM_VERSION_COLOR`rvm-prompt i v g`$ASCII_RESET$PROMPT_GIT_STATUS$PROMPT_RETURN_CODE $ASCII_RESET$PROMPT_DIR$ASCII_BOLD]$ASCII_RESET"
+    local FIRST_LINE="$ASCII_BOLD$PREFIX [$RVM_VERSION_COLOR`rvm-prompt i v g`$ASCII_RESET$PROMPT_GIT_STATUS$PROMPT_RETURN_CODE $ASCII_RESET$PROMPT_DIR$ASCII_BOLD]$ASCII_RESET"
     local PROMPT_LINE="$LOCAL_GIT_STATUS$PROMPT_COLOR\\\$$ASCII_RESET "
 
     PS1="$FIRST_LINE\n$PROMPT_LINE"
