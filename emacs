@@ -20,6 +20,16 @@
 (evil-leader/set-key "a" 'projectile-ack)
 (evil-leader/set-key "g" 'align-regexp)
 
+(defun my-move-key (keymap-from keymap-to key)
+  "Moves key binding from one keymap to another, deleting from the old location. "
+  (define-key keymap-to key (lookup-key keymap-from key))
+  (define-key keymap-from key nil))
+
+; Do not remap enter and space to vim defaults, since they are kind of useless and have meaning in Emacs
+(my-move-key evil-motion-state-map evil-normal-state-map (kbd "RET"))
+(my-move-key evil-motion-state-map evil-normal-state-map " ")
+
+
 (setq tab-width 2)
 (setq-default tab-width 2)
 (defvaralias 'coffee-tab-width 'tab-width)
