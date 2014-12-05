@@ -56,8 +56,9 @@
 (setq neo-dont-be-alone t)
 (setq neo-smart-open t)
 
-; = Disable annoying GPL hotkey
+; = Disable annoying GPL hotkeys
 (global-set-key (kbd "C-h C-c") 'ignore)
+(global-set-key (kbd "C-h C-w") 'ignore)
 
 ; = Enter_Open_File_anywhere (Evil) --
 (define-key neotree-mode-map [return] 'neotree-enter)
