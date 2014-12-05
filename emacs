@@ -94,6 +94,12 @@
 (global-evil-surround-mode 1)
 (global-evil-matchit-mode 1)
 
+; Automatically save all buffers when losing focus
+(defun save-all ()
+  (interactive)
+  (save-some-buffers t))
+(add-hook 'focus-out-hook 'save-all)
+
 ;;; esc quits
 (defun minibuffer-keyboard-quit ()
   "Abort recursive edit.
