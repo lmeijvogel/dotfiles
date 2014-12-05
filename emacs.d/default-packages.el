@@ -2,10 +2,33 @@
 
 (defvar default-packages
 
-  '(ack-and-a-half coffee-mode evil-leader inf-ruby evil-matchit js2-mode
-    pomodoro scala-mode2 enh-ruby-mode evil-nerd-commenter haskell-mode
-    linum-relative undo-tree evil-surround helm neotree projectile
-    clippy evil helm-projectile org rspec-mode
+  '(ack-and-a-half
+    evil
+    evil-surround
+    evil-nerd-commenter
+    evil-leader
+    evil-matchit
+
+    pomodoro
+
+    helm
+    projectile
+    helm-projectile
+    neotree
+
+    linum-relative
+    undo-tree
+    clippy
+    org
+    magit
+
+    coffee-mode
+    inf-ruby
+    enh-ruby-mode
+    rspec-mode
+    haskell-mode
+    scala-mode2
+    js2-mode
 )
   "A list of packages to ensure are installed at launch.")
 
