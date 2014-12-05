@@ -29,6 +29,7 @@
     haskell-mode
     scala-mode2
     js2-mode
+    handlebars-mode
 )
   "A list of packages to ensure are installed at launch.")
 
