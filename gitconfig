@@ -38,12 +38,21 @@
         in  = !"git fetch -q && git log --format=\"%h %aN     %s\" HEAD..@{upstream}"
         out = log --format=\"%h   %s\" @{upstream}..HEAD
 
+        rs = reset --soft
+        rs1 = reset --soft HEAD^
+        rs2 = reset --soft HEAD^^
         r = reset
         r1 = reset HEAD^
         r2 = reset HEAD^^
         rh = reset --hard
         rh1 = reset HEAD^ --hard
         rh2 = reset HEAD^^ --hard
+
+        rup1 = rebase --interactive --autosquash HEAD~1
+        rup2 = rebase --interactive --autosquash HEAD~2
+        rup3 = rebase --interactive --autosquash HEAD~3
+        rup4 = rebase --interactive --autosquash HEAD~4
+        rup5 = rebase --interactive --autosquash HEAD~5
 
         ss = stash save
         sl = stash list
@@ -57,9 +66,14 @@
 
 	bg = bisect good
 	bb = bisect bad
-	rs = reset --soft
-	rs1 = reset --soft HEAD^
-	rs2 = reset --soft HEAD^^
+	cif = commit --fixup
+	brr = branch --remote
+	brrr = branch --remote
+	brrrr = branch --remote
+	brrrrr = branch --remote
+	brrrrrr = branch --remote
+	clena = clean
+	cop = checkout --patch
 [mergetool]
         keepBackup = false
 [advice]
