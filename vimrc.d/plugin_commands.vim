@@ -60,6 +60,7 @@ let g:TestRunnerStartScreenShell = 1
 " Command-T
 let g:CommandTCancelMap=['<Esc>', '<C-c>']
 
-" MiniBufExpl
-nmap <C-A-j> :MBEbn<CR>
-nmap <C-A-k> :MBEbp<CR>
+" The order is "reversed" (j is previous, k is next) to look more like
+" left <-> right
+nmap <C-A-k> :MBEbn<CR>
+nmap <C-A-j> :MBEbp<CR>
