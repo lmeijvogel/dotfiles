@@ -15,6 +15,10 @@ command! Wq w
 command! WQ w
 command! Q q
 
+command! Qa qa
+command! -bang Qa qa<bang>
+command! -bang QA qa<bang>
+
 " Sudo write current file
 cmap w!! w !sudo tee % >/dev/null
 
