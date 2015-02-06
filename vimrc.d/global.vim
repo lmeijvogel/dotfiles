@@ -79,18 +79,6 @@ au FocusLost * silent! :wa
 set laststatus=2 " Always show status line
 set statusline=[%n]\ %f\ %m\ %y%=%l,%c\ %P
 
-if has("gui_running")
-  colorscheme railscasts
-
-  if has("x11")
-    set guifont=Liberation\ Mono\ 10
-  else
-    set guifont=Consolas:h11:cANSI
-  end
-else
-  set background=dark
-endif
-
 " Add tab number to tab
 set guitablabel=%N)\ %t\ %M
 

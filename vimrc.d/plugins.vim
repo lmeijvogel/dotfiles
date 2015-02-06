@@ -37,4 +37,5 @@ Plugin 'gmarik/Vundle'
 Plugin 'tpope/vim-endwise.git'
 
 call vundle#end()
+filetype off
 filetype plugin indent on

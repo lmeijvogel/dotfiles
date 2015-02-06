@@ -57,6 +57,18 @@ nmap <leader>r :call RunCurrentFile()<CR>
 
 let g:TestRunnerStartScreenShell = 1
 
+if has("gui_running")
+  colorscheme railscasts
+
+  if has("x11")
+    set guifont=Liberation\ Mono\ 10
+  else
+    set guifont=Consolas:h11:cANSI
+  end
+else
+  set background=dark
+endif
+
 " Command-T
 let g:CommandTCancelMap=['<Esc>', '<C-c>']
 
