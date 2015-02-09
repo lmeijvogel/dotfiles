@@ -35,6 +35,7 @@ Plugin 'vim-scripts/bufkill.vim.git'
 Plugin 'vim-ruby/vim-ruby.git'
 Plugin 'gmarik/Vundle'
 Plugin 'tpope/vim-endwise.git'
+Plugin 'tyok/nerdtree-ack.git'
 
 call vundle#end()
 filetype off
