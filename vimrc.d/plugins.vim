@@ -5,7 +5,6 @@ call vundle#begin()
 " Load all plugins
 Plugin 'mustache/vim-mode.git'
 Plugin 'sandeepcr529/Buffet.vim.git'
-Plugin 'wincent/Command-T.git'
 Plugin 'lmeijvogel/vim-yaml-helper.git'
 Plugin 'wzzrd/vim-matchit.git'
 Plugin 'majutsushi/tagbar'
@@ -38,6 +37,7 @@ Plugin 'tpope/vim-endwise.git'
 Plugin 'tyok/nerdtree-ack.git'
 Plugin 'tpope/vim-unimpaired.git'
 Plugin 'tpope/vim-rsi.git'
+Plugin 'kien/ctrlp.vim.git'
 
 call vundle#end()
 filetype off

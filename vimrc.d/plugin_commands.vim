@@ -76,3 +76,6 @@ let g:CommandTCancelMap=['<Esc>', '<C-c>']
 " left <-> right
 nmap <C-A-k> :MBEbn<CR>
 nmap <C-A-j> :MBEbp<CR>
+
+let g:ctrlp_map = ''
+nnoremap <leader>t :CtrlP<CR>
