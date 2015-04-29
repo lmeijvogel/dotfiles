@@ -79,5 +79,5 @@ nmap <C-A-k> :bn<CR>
 nmap <C-A-j> :bp<CR>
 
 let g:ctrlp_map = ''
-nnoremap <leader>t :CtrlP<CR>
+nnoremap <leader>t :CtrlPCurWD<CR>
 
