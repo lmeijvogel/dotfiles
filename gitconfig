@@ -25,7 +25,7 @@
         puc    = "!f() { git push origin $1:`git rev-parse --symbolic-full-name HEAD`; }; f"
 
         ; push ref (if specified) to origin. Rewrite refs/heads/* => refs/for/*
-	review = "!f() { git push gerrit ${1:-HEAD}:`git rev-parse --symbolic-full-name HEAD | sed \"s/refs\\/heads/refs\\/for/\"`; }; f"
+        review = "!f() { git push gerrit ${1:-HEAD}:`git rev-parse --symbolic-full-name HEAD | sed \"s/refs\\/heads/refs\\/for/\"`; }; f"
         back = "!f() { if [ \"`git status --untracked-files=no --porcelain | wc -l`\" == \"0\" ]; then git reset --hard origin/`git rev-parse --symbolic-full-name HEAD | sed 's#refs/heads/##'`; else echo 'There are modified files in the working dir'; fi }; f"
         uppa = "!f() { echo 'Git on up\n' && git up; }; f"
         wtf = !git-wtf
@@ -64,25 +64,25 @@
         rc = rebase --continue
         ra = rebase --abort
 
-	bg = bisect good
-	bb = bisect bad
-	cif = commit --fixup
-	brr = branch --remote
-	brrr = branch --remote
-	brrrr = branch --remote
-	brrrrr = branch --remote
-	brrrrrr = branch --remote
-	clena = clean
-	cop = checkout --patch
+        bg = bisect good
+        bb = bisect bad
+        cif = commit --fixup
+        brr = branch --remote
+        brrr = branch --remote
+        brrrr = branch --remote
+        brrrrr = branch --remote
+        brrrrrr = branch --remote
+        clena = clean
+        cop = checkout --patch
 [mergetool]
         keepBackup = false
 [advice]
-	statusHints = false
-	pushNonFastForward = false
-	detachedHead = false
+        statusHints = false
+        pushNonFastForward = false
+        detachedHead = false
 [interactive]
-	singlekey = true
+        singlekey = true
 [help]
-	autocorrect = 15
+        autocorrect = 15
 [push]
-	default = current
+        default = current
