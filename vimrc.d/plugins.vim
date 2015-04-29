@@ -28,7 +28,6 @@ Plugin 'tpope/vim-surround.git'
 Plugin 'vim-scripts/YankRing.vim.git'
 Plugin 'scrooloose/syntastic.git'
 Plugin 'mileszs/ack.vim.git'
-Plugin 'jpo/vim-railscasts-theme.git'
 Plugin 'mattn/emmet-vim.git'
 Plugin 'vim-scripts/bufkill.vim.git'
 Plugin 'vim-ruby/vim-ruby.git'
@@ -38,6 +37,8 @@ Plugin 'tyok/nerdtree-ack.git'
 Plugin 'tpope/vim-unimpaired.git'
 Plugin 'tpope/vim-rsi.git'
 Plugin 'kien/ctrlp.vim.git'
+Plugin 'freeo/vim-kalisi.git'
+
 
 call vundle#end()
 filetype off
