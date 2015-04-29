@@ -74,8 +74,9 @@ let g:CommandTCancelMap=['<Esc>', '<C-c>']
 
 " The order is "reversed" (j is previous, k is next) to look more like
 " left <-> right
-nmap <C-A-k> :MBEbn<CR>
-nmap <C-A-j> :MBEbp<CR>
+nmap <C-A-k> :bn<CR>
+nmap <C-A-j> :bp<CR>
 
 let g:ctrlp_map = ''
 nnoremap <leader>t :CtrlP<CR>
+
