@@ -38,6 +38,7 @@ Plugin 'tpope/vim-unimpaired.git'
 Plugin 'tpope/vim-rsi.git'
 Plugin 'kien/ctrlp.vim.git'
 Plugin 'freeo/vim-kalisi.git'
+Plugin 'mhinz/vim-startify.git'
 
 
 call vundle#end()
