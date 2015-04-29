@@ -36,8 +36,6 @@ set scrolloff=3 " Always show 3 lines above and below cursor
 set sidescrolloff=20
 set sidescroll=15
 
-set key= " Disable encryption
-
 " Add WildMenu for easier tab completion of filenames
 set wildmenu
 
