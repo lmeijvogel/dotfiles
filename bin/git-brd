@@ -1,0 +1,96 @@
+#!/usr/bin/ruby
+
+require 'date'
+require 'open3'
+
+BranchNotFullyMerged = Class.new(RuntimeError)
+BranchDoesNotExist   = Class.new(RuntimeError)
+
+class DeleteBranch
+  attr_reader :branch
+
+  def initialize(branch)
+    @branch = branch
+  end
+
+  def call
+    if first_attempt?
+      delete_branch
+    else
+      delete_branch(force: true)
+    end
+  end
+
+  def first_attempt?
+    return true if tempfile_absent?
+
+    timediff = (Time.now - File.mtime(tmp_filename))
+    two_minutes = 120
+
+    # If the last try was long ago, don't count it for now
+    return timediff > two_minutes
+  end
+
+  def delete_branch(force: false)
+    flag = force ? "-D" : "-d"
+    commandline = "git branch #{flag} #{branch}"
+
+    stdout, stderr, status = Open3.capture3(commandline)
+
+    puts stdout if !stdout.empty?
+
+    success = status == 0
+
+    if success
+      cleanup_tempfile
+    else
+      case stderr
+      when /not fully merged/
+        create_tempfile
+        raise BranchNotFullyMerged
+      when /not found/
+        cleanup_tempfile
+        raise BranchDoesNotExist
+      else
+        puts stderr if !stderr.empty?
+
+        raise "Unknown Error occurred"
+      end
+    end
+  end
+
+  def tempfile_absent?
+    !File.exist?(tmp_filename)
+  end
+
+  def create_tempfile
+    `touch #{tmp_filename}`
+  end
+
+  def cleanup_tempfile
+    File.unlink(tmp_filename) unless tempfile_absent?
+  end
+
+  def tmp_filename
+    @tmp_filename ||= proc {
+      # Not path-traversal safe, but usable for branches that contain slashes
+      safe_branch_name = branch.gsub(/\//, "--")
+      "/tmp/git-brd-attempt-#{safe_branch_name}"
+    }.call
+  end
+end
+
+branch = ARGV.fetch(0) do puts "No branch given" ; exit 1 end
+
+begin
+  DeleteBranch.new(branch).call
+rescue BranchDoesNotExist
+  puts "Branch #{branch} does not exist!"
+  exit 1
+rescue BranchNotFullyMerged
+  puts "Not fully merged. Re-run to really delete"
+  exit 1
+rescue
+  puts "Unknown Error occurred"
+  exit 1
+end

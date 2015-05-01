@@ -1,0 +1,7 @@
+#!/bin/ruby
+branch_name = `git rev-parse --symbolic-full-name HEAD`.strip.gsub(%r[refs/heads/], "")
+
+upstream_branch = "origin/#{branch_name}"
+
+`git branch --set-upstream-to=#{upstream_branch} #{branch_name}`
+

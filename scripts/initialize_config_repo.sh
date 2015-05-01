@@ -5,7 +5,7 @@
 # link .vimrc and .vim to vimrc and vim in the parent directory.
 
 # Create links for everything, except the scripts dir
-for file in `ls -A ../ | grep -vP "^scripts|.git|.gitignore|README$"`; do
+for file in `ls -A ../ | grep -vP "^(bin|scripts|.git|.gitignore|README)$"`; do
   CURRENT_TARGET_PATH=$(readlink -f "../$file")
 
   # Remove any file that was previously there
@@ -13,4 +13,16 @@ for file in `ls -A ../ | grep -vP "^scripts|.git|.gitignore|README$"`; do
 
   # Create a softlink in the homedir to the version controlled file/dir
   ln -s "$CURRENT_TARGET_PATH" "$HOME/.$file"
+done
+
+mkdir -p $HOME/bin
+
+for file in `ls -A ../bin/`; do
+  CURRENT_TARGET_PATH=$(readlink -f "../bin/$file")
+
+  # Remove any file that was previously there
+  rm -i "$HOME/bin/$file"
+
+  # Create a softlink in the homedir to the version controlled file/dir
+  ln -s "$CURRENT_TARGET_PATH" "$HOME/bin/$file"
 done
