@@ -70,3 +70,7 @@ nmap <silent> <leader>gb :!git gui blame %<CR>
 
 " Replace Ruby rocket syntax with keyvalue syntax
 nmap <leader>h :%s/:\([a-z3-9_]\{1,\}[!?]\?\) \?=>/\1:/g<CR>
+
+" Disable Q (Ex mode) and K (man lookup)
+nmap Q <Nop>
+nmap K <Nop>
