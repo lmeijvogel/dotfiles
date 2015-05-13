@@ -39,6 +39,7 @@ Plugin 'tpope/vim-rsi.git'
 Plugin 'kien/ctrlp.vim.git'
 Plugin 'freeo/vim-kalisi.git'
 Plugin 'mhinz/vim-startify.git'
+Plugin 'junegunn/vim-easy-align.git'
 
 
 call vundle#end()
