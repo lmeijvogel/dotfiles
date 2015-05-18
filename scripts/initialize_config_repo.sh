@@ -26,3 +26,11 @@ for file in `ls -A ../bin/`; do
   # Create a softlink in the homedir to the version controlled file/dir
   ln -s "$CURRENT_TARGET_PATH" "$HOME/bin/$file"
 done
+
+mkdir -p $HOME/.vim/bundle
+
+pushd $HOME/.vim/bundle
+
+git clone https://github.com/gmarik/Vundle.vim.git
+
+popd

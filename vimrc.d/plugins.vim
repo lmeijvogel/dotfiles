@@ -1,5 +1,5 @@
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Load all plugins
@@ -31,7 +31,7 @@ Plugin 'mileszs/ack.vim.git'
 Plugin 'mattn/emmet-vim.git'
 Plugin 'vim-scripts/bufkill.vim.git'
 Plugin 'vim-ruby/vim-ruby.git'
-Plugin 'gmarik/Vundle'
+Plugin 'gmarik/Vundle.vim.git'
 Plugin 'tpope/vim-endwise.git'
 Plugin 'tyok/nerdtree-ack.git'
 Plugin 'tpope/vim-unimpaired.git'
