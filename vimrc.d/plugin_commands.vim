@@ -58,8 +58,7 @@ nmap <leader>r :call RunCurrentFile()<CR>
 let g:TestRunnerStartScreenShell = 1
 
 if has("gui_running")
-  set background=light
-  colorscheme kalisi
+  colorscheme railscasts
 
   if has("x11")
     set guifont=Liberation\ Mono\ 10
