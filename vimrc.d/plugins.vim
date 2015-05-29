@@ -38,7 +38,6 @@ Plugin 'tyok/nerdtree-ack.git'
 Plugin 'tpope/vim-unimpaired.git'
 Plugin 'tpope/vim-rsi.git'
 Plugin 'kien/ctrlp.vim.git'
-Plugin 'mhinz/vim-startify.git'
 Plugin 'junegunn/vim-easy-align.git'
 
 call vundle#end()
