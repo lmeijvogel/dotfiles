@@ -61,7 +61,7 @@ if has("gui_running")
   colorscheme railscasts
 
   if has("x11")
-    set guifont=Liberation\ Mono\ 10
+    set guifont=Inconsolata\ 11
   else
     set guifont=Consolas:h11:cANSI
   end

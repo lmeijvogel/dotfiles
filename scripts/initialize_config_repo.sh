@@ -5,7 +5,7 @@
 # link .vimrc and .vim to vimrc and vim in the parent directory.
 
 # Create links for everything, except the scripts dir
-for file in `ls -A ../ | grep -vP "^(bin|scripts|.git|.gitignore|README)$"`; do
+for file in `ls -A ../ | grep -vP "^(bin|scripts|.git|.gitignore|README|INSTALL.md)$"`; do
   CURRENT_TARGET_PATH=$(readlink -f "../$file")
 
   # Remove any file that was previously there
