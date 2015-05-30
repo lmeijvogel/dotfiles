@@ -39,6 +39,7 @@ Plugin 'tpope/vim-unimpaired.git'
 Plugin 'tpope/vim-rsi.git'
 Plugin 'kien/ctrlp.vim.git'
 Plugin 'junegunn/vim-easy-align.git'
+Plugin 'editorconfig/editorconfig-vim.git'
 
 call vundle#end()
 filetype off
