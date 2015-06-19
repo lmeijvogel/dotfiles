@@ -31,6 +31,8 @@ set fdm=indent
 set foldlevelstart=99 " Start with all files unfolded
 
 syntax on
+" Syntax coloring lines that are too long just slows down the world
+set synmaxcol=600
 
 set scrolloff=3 " Always show 3 lines above and below cursor
 set sidescrolloff=20
