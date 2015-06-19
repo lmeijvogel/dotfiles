@@ -11,7 +11,7 @@ let Tlist_WinWidth = 50
 map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " Ack.vim
-nmap <leader>a :Ack 
+nmap <leader>a :Ack! 
 " Ack word under cursor
 nmap <leader>A :Ack! <C-R><C-W><CR>
 
