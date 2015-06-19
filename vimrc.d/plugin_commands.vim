@@ -15,13 +15,6 @@ nmap <leader>a :Ack
 " Ack word under cursor
 nmap <leader>A :Ack! <C-R><C-W><CR>
 
-" LustyJuggler
-let g:LustyJugglerShowKeys = 'a' " Show alphabetic keys
-nmap <leader>j :LustyJuggler<CR>
-
-" Start LustyJuggler on the second (MRU) buffer
-let g:LustyJugglerAltTabMode = 1
-
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
 
