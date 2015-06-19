@@ -476,12 +476,12 @@ require "spec_helper"
 
 describe ${1:class_under_spec} do
   # Test basic functionality - Delete after first run
-  it "should fail" do
-    true.should == false
+  it "fails" do
+    expect(true).to eq false
   end
 
-  it "should succeed" do
-    true.should == true
+  it "succeeds" do
+    expect(true).to eq true
   end
 end
 endsnippet
