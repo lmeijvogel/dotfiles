@@ -27,6 +27,10 @@ nmap <leader>Y :YamlGoToKey
 " Buffet
 nmap <silent> <leader>be :Bufferlist<CR>
 
+" EasyAlign
+vmap <Leader>e :EasyAlign=<CR>
+vmap <Leader>E :EasyAlign
+
 " Syntastic
 let g:syntastic_mode_map = { 'mode': 'active',
                            \ 'active_filetypes': ['ruby', 'javascript'],
