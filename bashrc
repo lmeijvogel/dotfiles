@@ -50,3 +50,6 @@ if [ -f /usr/share/terminfo/x/xterm+256color ]; then
 else
   export TERM='xterm-color'
 fi
+
+# Allow pattern-matching with **
+shopt -s globstar
