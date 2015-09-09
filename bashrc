@@ -38,8 +38,6 @@ if [ -d "$HOME/.rvm" ]; then
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"  # This loads RVM into a shell session.
 fi
 
-[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && . "$HOME/.scm_breeze/scm_breeze.sh"
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 if [ -e "$HOME/.custom_bash_prompt.bash" ]; then
