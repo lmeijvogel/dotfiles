@@ -45,7 +45,8 @@ let g:ScreenImpl = 'Tmux'
 let g:ScreenShellTmuxInitArgs = '-2'
 let g:ScreenShellInitialFocus = 'vim'
 let g:ScreenShellQuitOnVimExit = 0
-let g:ScreenShellTerminal = 'terminal'
+let g:ScreenShellTerminal = 'konsole'
+
 map <F6> :ScreenShell<CR>
 
 nmap <leader>s :call RunCurrentTest()<CR>
