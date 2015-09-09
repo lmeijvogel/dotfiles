@@ -45,14 +45,14 @@ nmap <silent> ss <C-w>s
 nmap <silent> vv <C-w>v
 
 " Easily resize splits
-nmap <silent> <Up> <C-w>+
-nmap <silent> <Down> <C-w>-
-nmap <silent> <Left> <C-w><
-nmap <silent> <Right> <C-w>>
-nmap <silent> <S-Up> <C-w>8+
-nmap <silent> <S-Down> <C-w>8-
-nmap <silent> <S-Left> <C-w>8<
-nmap <silent> <S-Right> <C-w>8>
+nmap <silent> <S-Up> <C-w>+
+nmap <silent> <S-Down> <C-w>-
+nmap <silent> <S-Left> <C-w><
+nmap <silent> <S-Right> <C-w>>
+nmap <silent> <Up> <C-w>8+
+nmap <silent> <Down> <C-w>8-
+nmap <silent> <Left> <C-w>8<
+nmap <silent> <Right> <C-w>8>
 
 " Map space to : in normal mode
 nmap <leader><leader> :
