@@ -43,6 +43,7 @@ Plugin 'editorconfig/editorconfig-vim.git'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'NLKNguyen/papercolor-theme'
+Plugin 'justinmk/vim-sneak'
 
 call vundle#end()
 filetype off
