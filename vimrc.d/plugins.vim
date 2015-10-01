@@ -44,6 +44,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'justinmk/vim-sneak'
+Plugin 'ntpeters/vim-better-whitespace'
 
 call vundle#end()
 filetype off
