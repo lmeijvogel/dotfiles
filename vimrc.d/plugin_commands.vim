@@ -47,14 +47,6 @@ let g:ScreenShellInitialFocus = 'vim'
 let g:ScreenShellQuitOnVimExit = 0
 let g:ScreenShellTerminal = 'konsole'
 
-map <F6> :ScreenShell<CR>
-
-nmap <leader>s :call RunCurrentTest()<CR>
-nmap <leader>S :call RunCurrentLineInTest()<CR>
-imap <C-s> <Esc>:call RunCurrentLineInTest()<CR>a
-nmap <leader>r :call RunCurrentFile()<CR>
-
-let g:TestRunnerStartScreenShell = 1
 
 if has("gui_running")
   colorscheme PaperColor
@@ -82,3 +74,6 @@ nnoremap <leader>t :CtrlPCurWD<CR>
 
 let g:startify_change_to_dir = 0
 
+let g:no_turbux_mappings = 1
+map <leader>s <Plug>SendTestToTmux
+map <leader>S <Plug>SendFocusedTestToTmux
