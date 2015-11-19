@@ -71,6 +71,7 @@ nmap <C-A-j> :bp<CR>
 
 let g:ctrlp_map = ''
 nnoremap <leader>t :CtrlPCurWD<CR>
+let g:ctrlp_custom_ignore = 'node_modules\|bower_components'
 
 let g:startify_change_to_dir = 0
 
