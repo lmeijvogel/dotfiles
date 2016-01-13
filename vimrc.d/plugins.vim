@@ -17,7 +17,7 @@ Plugin 'SirVer/ultisnips.git'
 Plugin 'duff/vim-scratch.git'
 Plugin 'sjl/gundo.vim.git'
 Plugin 'tpope/vim-surround.git'
-Plugin 'vim-scripts/YankRing.vim.git'
+Plugin 'maxbrunsfeld/vim-yankstack'
 Plugin 'scrooloose/syntastic.git'
 Plugin 'mileszs/ack.vim.git'
 Plugin 'vim-scripts/bufkill.vim.git'
@@ -38,5 +38,6 @@ Plugin 'jgdavey/tslime.vim'
 Plugin 'jgdavey/vim-turbux'
 
 call vundle#end()
+call yankstack#setup()
 filetype off
 filetype plugin indent on
