@@ -73,8 +73,6 @@ let g:ctrlp_map = ''
 nnoremap <leader>t :CtrlPCurWD<CR>
 let g:ctrlp_custom_ignore = 'node_modules\|bower_components'
 
-let g:startify_change_to_dir = 0
-
 let g:no_turbux_mappings = 1
 map <leader>s <Plug>SendTestToTmux
 map <leader>S <Plug>SendFocusedTestToTmux
