@@ -86,9 +86,13 @@ nnoremap <leader>t :CtrlPCurWD<CR>
 let g:ctrlp_custom_ignore = 'node_modules\|bower_components'
 
 let g:no_turbux_mappings = 1
+let g:turbux_command_rspec  = 'bin/rspec'
 map <leader>s <Plug>SendTestToTmux
 map <leader>S <Plug>SendFocusedTestToTmux
 
 " Vim-airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
+
+nmap <silent> <F6> :colorscheme railscasts<CR>:set bg=dark<CR>
+nmap <silent> <F7> :colorscheme PaperColor<CR>:set bg=light<CR>
