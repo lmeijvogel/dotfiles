@@ -61,8 +61,8 @@ let g:ScreenShellTerminal = 'konsole'
 
 
 if has("gui_running")
-  colorscheme PaperColor
-  set background=light
+  colorscheme railscasts
+  set background=dark
 
   if has("x11")
     set guifont=Inconsolata\ 11
