@@ -10,7 +10,6 @@ Plugin 'wzzrd/vim-matchit.git'
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'kchmck/vim-coffee-script.git'
 Plugin 'bogado/file-line.git'
-Plugin 'techlivezheng/vim-plugin-minibufexpl.git'
 Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'tpope/vim-repeat.git'
 Plugin 'SirVer/ultisnips.git'
@@ -37,6 +36,7 @@ Plugin 'NLKNguyen/papercolor-theme'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'jgdavey/tslime.vim'
 Plugin 'jgdavey/vim-turbux'
+Plugin 'vim-airline/vim-airline'
 
 call vundle#end()
 call yankstack#setup()

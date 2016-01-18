@@ -88,3 +88,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|bower_components'
 let g:no_turbux_mappings = 1
 map <leader>s <Plug>SendTestToTmux
 map <leader>S <Plug>SendFocusedTestToTmux
+
+" Vim-airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
