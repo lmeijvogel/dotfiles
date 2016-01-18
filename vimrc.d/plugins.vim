@@ -37,6 +37,7 @@ Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'jgdavey/tslime.vim'
 Plugin 'jgdavey/vim-turbux'
 Plugin 'vim-airline/vim-airline'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 call yankstack#setup()
