@@ -42,7 +42,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 if [ -e "$HOME/.custom_bash_prompt.bash" ]; then
   . "$HOME/.custom_bash_prompt.bash"
-  shell_for_prompt "bash"
 fi
 
 if [ -f /usr/share/terminfo/x/xterm+256color ]; then
