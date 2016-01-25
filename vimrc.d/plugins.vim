@@ -38,6 +38,7 @@ Plugin 'jgdavey/tslime.vim'
 Plugin 'jgdavey/vim-turbux'
 Plugin 'vim-airline/vim-airline'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'vim-scripts/summerfruit256.vim'
 
 call vundle#end()
 call yankstack#setup()

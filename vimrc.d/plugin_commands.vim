@@ -91,5 +91,5 @@ map <leader>S <Plug>SendFocusedTestToTmux
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
-nmap <silent> <F6> :colorscheme railscasts<CR>:set bg=dark<CR>
-nmap <silent> <F7> :colorscheme PaperColor<CR>:set bg=light<CR>
+nmap <silent> <F6> :set bg=dark<CR>:colorscheme railscasts<CR>
+nmap <silent> <F7> :set bg=light<CR>:colorscheme summerfruit256<CR>
