@@ -73,9 +73,6 @@ else
   set background=dark
 endif
 
-" Command-T
-let g:CommandTCancelMap=['<Esc>', '<C-c>']
-
 " The order is "reversed" (j is previous, k is next) to look more like
 " left <-> right
 nmap <C-A-k> :bn<CR>
