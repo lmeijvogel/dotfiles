@@ -1,92 +1,92 @@
 [color]
-        ui = auto
+  ui = auto
 [alias]
-        st = status --short --branch
-        br = branch
-        co = checkout
-        ci = commit
-        cp = cherry-pick
-        c = diff --cached
-        swc = stash save --keep-index
-        stap = stash apply
-        rst = reset
-        mt = mergetool
-        dt = difftool
-        lol = log --format=oneline
-        l = log --decorate --oneline -n 10
-        ll = log --decorate --oneline
-        diffr = log -p -1
-        mylog = log --date-order --author=Lennaert
+  st = status --short --branch
+  br = branch
+  co = checkout
+  ci = commit
+  cp = cherry-pick
+  c = diff --cached
+  swc = stash save --keep-index
+  stap = stash apply
+  rst = reset
+  mt = mergetool
+  dt = difftool
+  lol = log --format=oneline
+  l = log --decorate --oneline -n 10
+  ll = log --decorate --oneline
+  diffr = log -p -1
+  mylog = log --date-order --author=Lennaert
 
-        ; Remove a commit from the history: Default is the last commit
-        uncommit = "!f() { git rebase --onto ${1:-HEAD}^ ${1:-HEAD}; }; f"
+  ; Remove a commit from the history: Default is the last commit
+  uncommit = "!f() { git rebase --onto ${1:-HEAD}^ ${1:-HEAD}; }; f"
 
-        rup    = "!f() { base_commit=`git rev-parse --symbolic-full-name @{upstream}` git rebase --autosquash -i ${1:-$base_commit}; }; f"
-        puc    = "!f() { git push origin $1:`git rev-parse --symbolic-full-name HEAD`; }; f"
+  rup    = "!f() { base_commit=`git rev-parse --symbolic-full-name @{upstream}` git rebase --autosquash -i ${1:-$base_commit}; }; f"
+  puc    = "!f() { git push origin $1:`git rev-parse --symbolic-full-name HEAD`; }; f"
 
-        ; push ref (if specified) to origin. Rewrite refs/heads/* => refs/for/*
-        review = "!f() { git push gerrit ${1:-HEAD}:`git rev-parse --symbolic-full-name HEAD | sed \"s/refs\\/heads/refs\\/for/\"`; }; f"
-        back = "!f() { if [ \"`git status --untracked-files=no --porcelain | wc -l`\" == \"0\" ]; then git reset --hard origin/`git rev-parse --symbolic-full-name HEAD | sed 's#refs/heads/##'`; else echo 'There are modified files in the working dir'; fi }; f"
-        uppa = "!f() { echo 'Git on up\n' && git up; }; f"
-        wtf = !git-wtf
+  ; push ref (if specified) to origin. Rewrite refs/heads/* => refs/for/*
+  review = "!f() { git push gerrit ${1:-HEAD}:`git rev-parse --symbolic-full-name HEAD | sed \"s/refs\\/heads/refs\\/for/\"`; }; f"
+  back = "!f() { if [ \"`git status --untracked-files=no --porcelain | wc -l`\" == \"0\" ]; then git reset --hard origin/`git rev-parse --symbolic-full-name HEAD | sed 's#refs/heads/##'`; else echo 'There are modified files in the working dir'; fi }; f"
+  uppa = "!f() { echo 'Git on up\n' && git up; }; f"
+  wtf = !git-wtf
 
-        ; Test whether the given commit (HEAD if none given) exists on git.ogd.nl
-        onorigin = "!f() { COMMIT=`git rev-parse ${1:-HEAD}`; ssh git.ogd.nl \"cd /git/terminal-codebase && git log -1 $COMMIT\"; }; f"
-        cia = commit --amend --no-edit
-        ciam = commit --amend
+  ; Test whether the given commit (HEAD if none given) exists on git.ogd.nl
+  onorigin = "!f() { COMMIT=`git rev-parse ${1:-HEAD}`; ssh git.ogd.nl \"cd /git/terminal-codebase && git log -1 $COMMIT\"; }; f"
+  cia = commit --amend --no-edit
+  ciam = commit --amend
 
-        in  = !"git fetch -q && git log --format=\"%h %aN     %s\" HEAD..@{upstream}"
-        out = log --format=\"%h   %s\" @{upstream}..HEAD
+  in  = !"git fetch -q && git log --format=\"%h %aN     %s\" HEAD..@{upstream}"
+  out = log --format=\"%h   %s\" @{upstream}..HEAD
 
-        rs = reset --soft
-        rs1 = reset --soft HEAD^
-        rs2 = reset --soft HEAD^^
-        r = reset
-        r1 = reset HEAD^
-        r2 = reset HEAD^^
-        rh = reset --hard
-        rh1 = reset HEAD^ --hard
-        rh2 = reset HEAD^^ --hard
+  rs = reset --soft
+  rs1 = reset --soft HEAD^
+  rs2 = reset --soft HEAD^^
+  r = reset
+  r1 = reset HEAD^
+  r2 = reset HEAD^^
+  rh = reset --hard
+  rh1 = reset HEAD^ --hard
+  rh2 = reset HEAD^^ --hard
 
-        rup1 = rebase --interactive --autosquash HEAD~1
-        rup2 = rebase --interactive --autosquash HEAD~2
-        rup3 = rebase --interactive --autosquash HEAD~3
-        rup4 = rebase --interactive --autosquash HEAD~4
-        rup5 = rebase --interactive --autosquash HEAD~5
+  rup1 = rebase --interactive --autosquash HEAD~1
+  rup2 = rebase --interactive --autosquash HEAD~2
+  rup3 = rebase --interactive --autosquash HEAD~3
+  rup4 = rebase --interactive --autosquash HEAD~4
+  rup5 = rebase --interactive --autosquash HEAD~5
 
-        ss = stash save
-        sl = stash list
-        sa = stash apply
-        sp = stash pop
-        sd = stash drop
+  ss = stash save
+  sl = stash list
+  sa = stash apply
+  sp = stash pop
+  sd = stash drop
 
-        ap = add -p
-        rc = rebase --continue
-        ra = rebase --abort
+  ap = add -p
+  rc = rebase --continue
+  ra = rebase --abort
 
-        bg = bisect good
-        bb = bisect bad
-        cif = commit --fixup
-        brr = branch --remote
-        brrr = branch --remote
-        brrrr = branch --remote
-        brrrrr = branch --remote
-        brrrrrr = branch --remote
-        clena = clean
-        cop = checkout --patch
+  bg = bisect good
+  bb = bisect bad
+  cif = commit --fixup
+  brr = branch --remote
+  brrr = branch --remote
+  brrrr = branch --remote
+  brrrrr = branch --remote
+  brrrrrr = branch --remote
+  clena = clean
+  cop = checkout --patch
 [mergetool]
-        keepBackup = false
+  keepBackup = false
 [advice]
-        statusHints = false
-        pushNonFastForward = false
-        detachedHead = false
+  statusHints = false
+  pushNonFastForward = false
+  detachedHead = false
 [interactive]
-        singlekey = true
+  singlekey = true
 [help]
-        autocorrect = 15
+  autocorrect = 15
 [push]
-        default = current
+  default = current
 [rebase]
-	autoStash = true
+  autoStash = true
 [pull]
-	rebase = true
+  rebase = true
