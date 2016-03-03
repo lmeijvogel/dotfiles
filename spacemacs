@@ -254,5 +254,11 @@ layers configuration. You are free to put any user code."
     (editorconfig-mode 1)
   )
 
+(defun save-all ()
+  (interactive)
+  (save-some-buffers t))
+
+(add-hook 'focus-out-hook 'save-all)
+
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
