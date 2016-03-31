@@ -57,26 +57,18 @@ let g:syntastic_check_on_open=1
 " Tagbar
 nnoremap <F9> :TagbarToggle<CR>
 
-" Screen
-let g:ScreenImpl = 'Tmux'
-let g:ScreenShellTmuxInitArgs = '-2'
-let g:ScreenShellInitialFocus = 'vim'
-let g:ScreenShellQuitOnVimExit = 0
-let g:ScreenShellTerminal = 'konsole'
-
-
 if has("gui_running")
   colorscheme railscasts
-  set background=dark
 
   if has("x11")
-    set guifont=Inconsolata\ 11
+    set guifont=Source\ Code\ Pro\ 13
   else
-    set guifont=Consolas:h11:cANSI
+    set guifont=Consolas:h13:cANSI
   end
 else
-  set background=dark
 endif
+
+set background=dark
 
 " The order is "reversed" (j is previous, k is next) to look more like
 " left <-> right
@@ -101,3 +93,7 @@ nmap <silent> <F7> :set bg=light<CR>:colorscheme summerfruit256<CR>
 
 " git-gutter
 let g:gitgutter_sign_column_always = 1
+
+" fugitive
+nmap <leader>gs :Gstatus<CR>
+nmap <leader>gb :Gblame<CR>

@@ -102,12 +102,7 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(leuven
-                         spacemacs-light
-                         spacemacs-dark
-                         solarized-light
-                         solarized-dark
-                         monokai
-                         zenburn)
+                         spacemacs-dark)
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
@@ -252,7 +247,23 @@ layers configuration. You are free to put any user code."
     (add-to-list 'load-path "~/.emacs.d/lisp")
     (require 'editorconfig)
     (editorconfig-mode 1)
-  )
+
+    (defun custom-neotree-enter-hide ()
+      (interactive)
+      (neotree-enter)
+      (neotree-hide)
+      )
+
+    (defun custom-neotree-peek ()
+      (interactive)
+      (neotree-enter)
+      (select-window-0)
+      )
+
+    "add keybindings for enter-hide and peek functions"
+    (define-key evil-motion-state-local-map (kbd "RET") 'custom-neotree-enter-hide)
+    (define-key evil-motion-state-local-map (kbd "TAB") 'custom-neotree-peek)
+    )
 
 (defun save-all ()
   (interactive)
