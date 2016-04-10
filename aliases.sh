@@ -1,6 +1,3 @@
-alias sdf='git add -p'
-alias lkj='gs'
-
 alias yum='sudo yum'
 
 alias rtst='RAILS_ENV=test bundle exec rake test'
