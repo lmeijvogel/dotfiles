@@ -26,6 +26,7 @@ values."
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
+     javascript
      git
      ;; markdown
      org
@@ -272,6 +273,7 @@ layers configuration. You are free to put any user code."
   (save-some-buffers t))
 
 (add-hook 'focus-out-hook 'save-all)
+(setq-default js2-basic-offset 2)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
