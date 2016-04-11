@@ -1,0 +1,73 @@
+#!/usr/bin/env ruby
+
+require 'shellwords'
+
+def main
+  check_parameters!
+  ask_confirmation!
+
+  puts execute_command("git push -f origin #{head}")
+  puts execute_command("hub pull-request -m #{Shellwords.shellescape(message)} -b #{base_branch} -h #{head}")
+end
+
+def check_parameters!
+  if ARGV.length == 0 || ARGV[0] == '-h'
+    show_usage
+
+    exit 2
+  elsif ARGV[0] =~ /^--?[a-zA-Z0-9]/
+    puts "Invalid argument(s)"
+    show_usage
+
+    exit 3
+  end
+end
+
+def show_usage
+  puts <<-EXPLANATION
+Usage: #{File.basename(__FILE__)} <description> [base branch] [head]
+
+description: The description for the PR (if --, then the last commit message is used)
+base branch: In which upstream git branch the branch should be merged
+head:        What current branch should be merged into 'base branch'
+
+  EXPLANATION
+end
+
+def ask_confirmation!
+  puts
+  puts "Message: '#{message}'"
+  puts
+  puts "Base:    #{base_branch}"
+  puts "Head:    #{head}"
+
+  puts
+  puts "OK? [Y]"
+
+  exit 1 if $stdin.gets.strip =~ /[Nn]/
+end
+
+def message
+  @message ||= if ARGV[0] == '--'
+    `git log -n 1 --pretty="format:%s" #{head}`
+  else
+    ARGV[0]
+  end
+end
+
+def base_branch
+  ARGV[1] || "master"
+end
+
+def head
+  @current_branch ||= `git symbolic-ref HEAD`.gsub(%r[refs/heads/], "").strip
+
+  ARGV[2] || @current_branch
+end
+
+def execute_command(command)
+  puts "$ #{command}"
+  `#{command}`
+end
+
+main
