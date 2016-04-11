@@ -91,3 +91,5 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 set tags+=gems.tags
+
+set encoding=utf-8
