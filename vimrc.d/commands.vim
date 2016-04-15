@@ -71,3 +71,6 @@ nmap <leader>h :%s/:\([a-z3-9_]\{1,\}[!?]\?\) \?=>/\1:/g<CR>
 " Disable Q (Ex mode) and K (man lookup)
 nmap Q <Nop>
 nmap K <Nop>
+
+nnoremap <leader>] :tn<CR>
+nnoremap <leader>[ :tp<CR>
