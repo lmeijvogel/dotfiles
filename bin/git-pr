@@ -52,11 +52,24 @@ def ask_confirmation!
 end
 
 def message
-  @message ||= if ARGV[0] == '--'
-    `git log -n 1 --pretty="format:%s" #{head}`
-  else
-    ARGV[0]
-  end
+  # Try to get the PR description from a git commit, if the
+  # relevant commandline option is a git ref.
+  # Otherwise, use the content of the commandline option
+  @message ||= -> {
+    commit_ref_candidate = ARGV[0]
+
+    if commit_ref_candidate == "--"
+      commit_ref_candidate = "HEAD"
+    end
+
+    commit_description = commit_description_for(commit_ref_candidate)
+
+    commit_description || ARGV[0]
+  }.call
+end
+
+def commit_description_for(ref)
+  `git log -n 1 --pretty="format:%s" #{ref}`
 end
 
 def base_branch
