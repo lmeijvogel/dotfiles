@@ -2,6 +2,10 @@
 
 require 'shellwords'
 
+trap("INT") do
+  exit 0
+end
+
 def main
   check_parameters!
   ask_confirmation!
