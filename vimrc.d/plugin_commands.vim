@@ -54,6 +54,8 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 let g:syntastic_check_on_open=1
 
+nnoremap <leader>st :SyntasticToggleMode<CR>
+
 " Tagbar
 nnoremap <F9> :TagbarToggle<CR>
 
