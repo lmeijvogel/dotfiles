@@ -31,7 +31,8 @@ def show_usage
   puts <<-EXPLANATION
 Usage: #{File.basename(__FILE__)} <description> [base branch] [head]
 
-description: The description for the PR (if --, then the last commit message is used)
+description: The description for the PR (if --, then the last commit message is used,
+             if it is a git ref, the message for that ref is used)
 base branch: In which upstream git branch the branch should be merged
 head:        What current branch should be merged into 'base branch'
 
