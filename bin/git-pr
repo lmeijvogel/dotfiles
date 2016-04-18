@@ -39,14 +39,13 @@ head:        What current branch should be merged into 'base branch'
 end
 
 def ask_confirmation!
-  puts
-  puts "Message: '#{message}'"
-  puts
-  puts "Base:    #{base_branch}"
-  puts "Head:    #{head}"
+  puts <<-CONFIRMATION.lines.map(&:strip).join("\n")
+    Message: '#{message}'
+    Base:    #{base_branch}
+    Head:    #{head}
 
-  puts
-  puts "OK? [Y]"
+    OK? [Y]
+  CONFIRMATION
 
   exit 1 if $stdin.gets.strip =~ /[Nn]/
 end
