@@ -79,7 +79,7 @@ nmap <C-A-k> :bn<CR>
 nmap <C-A-j> :bp<CR>
 
 let g:ctrlp_map = ''
-nnoremap <leader>t :CtrlPCurWD<CR>
+nnoremap <leader>t :CtrlPMixed<CR>
 let g:ctrlp_custom_ignore = 'node_modules\|bower_components'
 
 let g:no_turbux_mappings = 1
