@@ -9,7 +9,8 @@ let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_WinWidth = 50
 
 " Rebuild tag list
-map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <A-F8> :!ctags-exuberant -R --languages=ruby --exclude=.git --exclude=log .<CR>
+map <F8> :TagbarToggle<CR>
 
 " Ack.vim
 nmap <leader>a :Ack! 
