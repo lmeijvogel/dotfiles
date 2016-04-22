@@ -74,3 +74,6 @@ nmap K <Nop>
 
 nnoremap <leader>] :tn<CR>
 nnoremap <leader>[ :tp<CR>
+
+" Easy toggling of word wrap
+nnoremap <leader>w :set wrap!<CR>
