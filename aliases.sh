@@ -9,6 +9,7 @@ alias rdtp='bundle exec rake db:test:prepare'
 alias orig='find . -regex "\\(.*\\.\\(BACKUP\\|BASE\\|LOCAL\\|REMOTE\\)\\..*\\)\\|.*\\.orig" -delete'
 
 alias gti='git'
+alias qgit='git'
 
 # Allow custom aliases per environment
 [[ -x "$HOME/.aliases_private.sh" ]] && . "$HOME/.aliases_private.sh"

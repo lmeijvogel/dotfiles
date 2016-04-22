@@ -41,6 +41,7 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-scripts/summerfruit256.vim'
 Plugin 'majutsushi/tagbar'
+Plugin 'tpope/vim-rails'
 
 call vundle#end()
 call yankstack#setup()
