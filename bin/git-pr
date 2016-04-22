@@ -64,12 +64,16 @@ def message
 
     commit_description = commit_description_for(commit_ref_candidate)
 
-    commit_description || ARGV[0]
+    if commit_description && !commit_description.strip.empty?
+      commit_description
+    else
+      ARGV[0]
+    end
   }.call
 end
 
 def commit_description_for(ref)
-  `git log -n 1 --pretty="format:%s" #{ref}`
+  `git log -n 1 --pretty="format:%s" #{ref} 2>/dev/null`
 end
 
 def base_branch
