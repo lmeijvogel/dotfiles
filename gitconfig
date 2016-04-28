@@ -54,10 +54,23 @@
   rup4 = rebase --interactive --autosquash HEAD~4
   rup5 = rebase --interactive --autosquash HEAD~5
 
-  ss = stash save
   sl = stash list
+
+  ss = stash show -p
+  ss1 = stash show -p stash@{1}
+  ss2 = stash show -p stash@{2}
+  ss3 = stash show -p stash@{3}
+
   sa = stash apply
+  sa1 = stash apply stash@{1}
+  sa2 = stash apply stash@{2}
+  sa3 = stash apply stash@{3}
+
   sp = stash pop
+  sp1 = stash pop stash@{1}
+  sp2 = stash pop stash@{2}
+  sp3 = stash pop stash@{3}
+
   sd = stash drop
 
   ap = add -p
