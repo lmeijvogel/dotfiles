@@ -32,5 +32,7 @@ mkdir -p $HOME/.vim/bundle
 pushd $HOME/.vim/bundle
 
 git clone https://github.com/gmarik/Vundle.vim.git
+git clone https://github.com/olivierverdier/zsh-git-prompt $HOME/.zsh-git-prompt
+git clone https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
 
 popd
