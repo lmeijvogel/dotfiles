@@ -73,6 +73,9 @@
   sp3 = stash pop stash@{3}
 
   sd = stash drop
+  sd1 = stash drop stash@{1}
+  sd2 = stash drop stash@{2}
+  sd3 = stash drop stash@{3}
 
   ap = add -p
   rc = rebase --continue
