@@ -15,6 +15,7 @@
   lol = log --format=oneline
   l = log --decorate --oneline -n 10
   ll = log --decorate --oneline
+  lp = log -p
   diffr = log -p -1
   mylog = log --date-order --author=Lennaert
 
