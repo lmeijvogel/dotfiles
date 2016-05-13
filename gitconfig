@@ -13,7 +13,7 @@
   mt = mergetool
   dt = difftool
   lol = log --format=oneline
-  l = log --decorate --oneline -n 10
+  l = "!f() { git --no-pager log --decorate --oneline -n 10 $1; }; f"
   ll = log --decorate --oneline
   lp = log -p
   diffr = log -p -1
