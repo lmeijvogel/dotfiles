@@ -84,5 +84,9 @@ source $HOME/.zshrc_private
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source .zsh-git-prompt/zshrc.sh
+source $HOME/.zsh-git-prompt/zshrc.sh
 PROMPT='%B%m%~%b$(git_super_status) %# '
+
+# Same Ctrl-u behavior as bash
+bindkey '^U' backward-kill-line
+bindkey '^Y' yank
