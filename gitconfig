@@ -83,7 +83,12 @@
 
   bg = bisect good
   bb = bisect bad
-  cif = commit --fixup
+
+  cif  = commit --fixup
+  cif1 = commit --fixup HEAD~1
+  cif2 = commit --fixup HEAD~2
+  cif3 = commit --fixup HEAD~3
+
   brr = branch --remote
   brrr = branch --remote
   brrrr = branch --remote
