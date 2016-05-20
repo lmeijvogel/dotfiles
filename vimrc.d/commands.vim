@@ -77,3 +77,7 @@ nnoremap <leader>[ :tp<CR>
 
 " Easy toggling of word wrap
 nnoremap <leader>w :set wrap!<CR>
+
+" Easier next/prev buffer
+nmap <M-h> :bp<CR>
+nmap <M-l> :bn<CR>
