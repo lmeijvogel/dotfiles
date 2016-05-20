@@ -21,6 +21,11 @@
   uncommit = "!f() { git rebase --onto ${1:-HEAD}^ ${1:-HEAD}; }; f"
 
   rup    = "!f() { base_commit=`git rev-parse --symbolic-full-name @{upstream}` git rebase --autosquash -i ${1:-$base_commit}; }; f"
+  rup1   = rebase --interactive --autosquash HEAD~1
+  rup2   = rebase --interactive --autosquash HEAD~2
+  rup3   = rebase --interactive --autosquash HEAD~3
+  rup4   = rebase --interactive --autosquash HEAD~4
+  rup5   = rebase --interactive --autosquash HEAD~5
 
   cia = commit --amend --no-edit
   ciam = commit --amend
@@ -28,40 +33,44 @@
   in  = !"git fetch -q && git log --format=\"%h %aN     %s\" HEAD..@{upstream}"
   out = log --format=\"%h   %s\" @{upstream}..HEAD
 
-  rs = reset --soft
-  rs1 = reset --soft HEAD^
-  rs2 = reset --soft HEAD^^
-  r = reset
-  r1 = reset HEAD^
-  r2 = reset HEAD^^
-  rh = reset --hard
-  rh1 = reset HEAD^ --hard
-  rh2 = reset HEAD^^ --hard
+  s  = show
+  s1 = show HEAD~1
+  s2 = show HEAD~2
+  s3 = show HEAD~3
 
-  rup1 = rebase --interactive --autosquash HEAD~1
-  rup2 = rebase --interactive --autosquash HEAD~2
-  rup3 = rebase --interactive --autosquash HEAD~3
-  rup4 = rebase --interactive --autosquash HEAD~4
-  rup5 = rebase --interactive --autosquash HEAD~5
+  rs  = reset --soft
+  rs1 = reset --soft HEAD~1
+  rs2 = reset --soft HEAD~2
+  rs3 = reset --soft HEAD~3
+
+  r  = reset
+  r1 = reset HEAD~1
+  r2 = reset HEAD~2
+  r3 = reset HEAD~3
+
+  rh  = reset --hard
+  rh1 = reset HEAD~1 --hard
+  rh2 = reset HEAD~2 --hard
+  rh3 = reset HEAD~3 --hard
 
   sl = stash list
 
-  ss = stash show -p
+  ss  = stash show -p
   ss1 = stash show -p stash@{1}
   ss2 = stash show -p stash@{2}
   ss3 = stash show -p stash@{3}
 
-  sa = stash apply
+  sa  = stash apply
   sa1 = stash apply stash@{1}
   sa2 = stash apply stash@{2}
   sa3 = stash apply stash@{3}
 
-  sp = stash pop
+  sp  = stash pop
   sp1 = stash pop stash@{1}
   sp2 = stash pop stash@{2}
   sp3 = stash pop stash@{3}
 
-  sd = stash drop
+  sd  = stash drop
   sd1 = stash drop stash@{1}
   sd2 = stash drop stash@{2}
   sd3 = stash drop stash@{3}
@@ -78,6 +87,7 @@
   brrrr = branch --remote
   brrrrr = branch --remote
   brrrrrr = branch --remote
+
   clena = clean
 
 [mergetool]
@@ -89,11 +99,11 @@
 [interactive]
   singlekey = true
 [help]
-  autocorrect = 15
+  autocorrect = 10
 [push]
   default = current
 [rebase]
-  autoStash = true
+  autoStash  = true
   autoSquash = true
 [pull]
   rebase = true
