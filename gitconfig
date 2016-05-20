@@ -17,6 +17,8 @@
   diffr = log -p -1
   mylog = log --date-order --author=Lennaert
 
+  pf = push --force-with-lease
+
   ; Remove a commit from the history: Default is the last commit
   uncommit = "!f() { git rebase --onto ${1:-HEAD}^ ${1:-HEAD}; }; f"
 
