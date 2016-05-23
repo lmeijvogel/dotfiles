@@ -88,10 +88,6 @@ let g:turbux_command_rspec  = 'bin/rspec'
 map <leader>s <Plug>SendTestToTmux
 map <leader>S <Plug>SendFocusedTestToTmux
 
-" Vim-airline
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_nr_show = 1
-
 nmap <silent> <F6> :set bg=dark<CR>:colorscheme railscasts<CR>
 nmap <silent> <F7> :set bg=light<CR>:colorscheme summerfruit256<CR>
 
