@@ -11,6 +11,7 @@ alias rmigt='RAILS_ENV=test bundle exec rake db:migrate'
 alias orig='find . -regex "\\(.*\\(BACKUP\\|BASE\\|LOCAL\\|REMOTE\\).*\\|.*\\.orig\\).*" -delete'
 
 alias gti='git'
+alias igt='git'
 alias qgit='git'
 
 alias gs='git status'
