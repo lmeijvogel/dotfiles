@@ -42,6 +42,7 @@ Plugin 'vim-scripts/summerfruit256.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-rails'
 Plugin 'buztard/vim-rel-jump'
+Plugin 'ap/vim-buftabline'
 
 call vundle#end()
 call yankstack#setup()

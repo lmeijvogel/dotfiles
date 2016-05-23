@@ -97,3 +97,7 @@ let g:gitgutter_sign_column_always = 1
 " fugitive
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gb :Gblame<CR>
+
+" vim-buftabline
+" Show buffer number next to buffer name
+let g:buftabline_numbers = 1
