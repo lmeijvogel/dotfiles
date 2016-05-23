@@ -81,3 +81,6 @@ nnoremap <leader>w :set wrap!<CR>
 " Easier next/prev buffer
 nmap <M-h> :bp<CR>
 nmap <M-l> :bn<CR>
+
+" Easy delete buffer
+nmap <M-d> :BD<CR>
