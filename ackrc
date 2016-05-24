@@ -2,3 +2,9 @@
 --ignore-dir=tmp/
 --ignore-dir=bower_components/
 --ignore-dir=node_modules/
+--ignore-dir=log/
+--ignore-dir=tmp/
+--ignore-dir=coverage/
+--ignore-file=is:tags
+--ignore-file=is:TAGS
+--ignore-file=is:examples.txt
