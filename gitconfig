@@ -23,6 +23,8 @@
   ; Remove a commit from the history: Default is the last commit
   uncommit = "!f() { git rebase --onto ${1:-HEAD}^ ${1:-HEAD}; }; f"
 
+  tmp    = branch -f tmp
+
   rup    = "!f() { base_commit=`git rev-parse --symbolic-full-name @{upstream}` git rebase --autosquash -i ${1:-$base_commit}; }; f"
   rup1   = rebase --interactive --autosquash HEAD~1
   rup2   = rebase --interactive --autosquash HEAD~2
