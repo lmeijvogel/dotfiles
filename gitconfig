@@ -32,6 +32,8 @@
   rup4   = rebase --interactive --autosquash HEAD~4
   rup5   = rebase --interactive --autosquash HEAD~5
 
+  rom    = rebase origin/master
+
   cia = commit --amend --no-edit
   ciam = commit --amend
 
