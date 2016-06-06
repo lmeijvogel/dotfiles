@@ -54,9 +54,6 @@ nmap <silent> <Down> <C-w>8-
 nmap <silent> <Left> <C-w>8<
 nmap <silent> <Right> <C-w>8>
 
-" Map space to : in normal mode
-nmap <leader><leader> :
-
 " Delete trailing whitespace
 nmap <silent> <leader>dtw :s/\s*$//<CR>:noh<CR>
 nmap <silent> <leader>gdtw :%s/\s*$//<CR>:noh<CR>
