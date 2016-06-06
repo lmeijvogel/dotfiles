@@ -9,6 +9,7 @@
   c = diff --cached
   swc = stash save --keep-index
 
+  d  = diff
   mt = mergetool
 
   l = "!f() { git --no-pager log --decorate --oneline -n 10 $1; }; f"
