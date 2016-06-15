@@ -32,6 +32,8 @@ let g:ack_mappings = {
       \ "H": "<C-W><CR><C-W>K<C-W>b",
       \ "v": "<C-W><CR><C-W>H<C-W>b<C-W>J<C-W>t",
       \ "gv": "<C-W><CR><C-W>H<C-W>b<C-W>J" }
+
+let g:ackprg="/usr/bin/ack-grep"
 "
 " Gundo
 nnoremap <F5> :GundoToggle<CR>
