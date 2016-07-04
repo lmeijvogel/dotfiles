@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/home/lmeijvogel/.oh-my-zsh
+export ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -8,7 +8,7 @@ export ZSH=/home/lmeijvogel/.oh-my-zsh
 ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
-#CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
@@ -49,7 +49,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git rails ruby rvm vim-interaction)
 
 # User configuration
 
@@ -87,6 +87,16 @@ source $HOME/.zshrc_private
 source $HOME/.zsh-git-prompt/zshrc.sh
 PROMPT='%B%m%~%b$(git_super_status) %# '
 
+if [ -f "$HOME/.zshrc_private" ]; then
+  if [ -x "$HOME/.zshrc_private" ]; then
+    . "$HOME/.zshrc_private"
+  else
+    echo ".zshrc_private is not executable. Not executed."
+  fi
+fi
+
 # Same Ctrl-u behavior as bash
 bindkey '^U' backward-kill-line
 bindkey '^Y' yank
+
+unsetopt nomatch
