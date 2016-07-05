@@ -16,5 +16,7 @@ alias qgit='git'
 
 alias gs='git status'
 
+alias fs='bundle exec foreman start'
+
 # Allow custom aliases per environment
 [[ -x "$HOME/.aliases_private.sh" ]] && . "$HOME/.aliases_private.sh"
