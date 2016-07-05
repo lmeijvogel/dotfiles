@@ -83,6 +83,7 @@
   sd3 = stash drop stash@{3}
 
   ap = add -p
+  au = !"git add `git ls-files --unmerged | awk '{ print $4; }' | sort | uniq`"
   rc = rebase --continue
   ra = rebase --abort
 
