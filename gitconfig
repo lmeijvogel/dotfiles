@@ -101,6 +101,7 @@
   brrrrr = branch --remote
   brrrrrr = branch --remote
 
+  brc = branch --contains
   clena = clean
 
 [mergetool]
