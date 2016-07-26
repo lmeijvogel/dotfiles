@@ -53,7 +53,7 @@ plugins=(git rails ruby rvm vim-interaction)
 
 # User configuration
 
-export PATH="/home/lmeijvogel/perl5/bin:/home/lmeijvogel/.rbenv/shims:/home/lmeijvogel/.rbenv/bin:/home/lmeijvogel/bin:/home/lmeijvogel/bin:/home/lmeijvogel/perl5/bin:/home/lmeijvogel/.rbenv/shims:/home/lmeijvogel/.rbenv/bin:/home/lmeijvogel/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/home/lmeijvogel/.rvm/bin:/home/lmeijvogel/.rvm/bin"
+export PATH="$HOME/perl5/bin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$HOME/bin:$HOME/bin:$HOME/perl5/bin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:$HOME/.rvm/bin:$HOME/.rvm/bin"
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases.sh
