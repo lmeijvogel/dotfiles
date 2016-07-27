@@ -57,7 +57,6 @@ export PATH="$HOME/perl5/bin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$HOME/bin:$HOME
 
 source $ZSH/oh-my-zsh.sh
 source $HOME/.aliases.sh
-source $HOME/.zshrc_private
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
