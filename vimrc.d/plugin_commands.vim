@@ -1,4 +1,3 @@
-nmap <silent> <Tab><Tab> :NERDTreeToggle<CR>
 nmap <silent> <leader>nt :NERDTreeToggle<CR>
 nmap <silent> <leader>nf :NERDTreeFind<CR>
 
