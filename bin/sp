@@ -1,0 +1,56 @@
+#!/bin/bash
+
+PATH_AND_FILES=`ruby -e '
+  def possible_source_locations
+    locations_in_env = ENV.fetch("SP_SOURCE_LOCATIONS").split(" ")
+
+    ["."] + locations_in_env
+  end
+
+  def log(*message)
+    STDERR.puts *message
+  end
+
+  def find_real_spec_path(spec_path)
+    real_base_path = possible_source_locations.find do |base_path|
+      full_path = File.join(base_path, spec_path).split(":")[0]
+      File.exist?(full_path)
+    end
+
+    if real_base_path
+      File.join(real_base_path, spec_path)
+    else
+      spec_path
+    end
+  end
+
+
+  def result(base_path, filenames)
+    puts "#{base_path}|#{filenames.join(" ")}"
+  end
+
+  # split the list of input files into lists
+
+  # example: %r|^( prefix)?(sites/mbiel)/spec/|
+  regex   =  %r|^(?:(.*)/)?([^/]+/[^/]+)/spec/|
+
+  Array(ARGV).map do |spec_path|
+    find_real_spec_path(spec_path)
+  end.group_by do |path|
+    path.match(regex)[1,2]
+  end.each do |path, files|
+    base_path = *path.compact
+    absolute_filenames = files.map do |file| File.expand_path(file) end
+
+    result(File.join(*base_path), absolute_filenames)
+  end
+' $@`
+
+# Currently only works for the first group of files.
+path=$(echo  $PATH_AND_FILES | cut -f1 -d\|)
+files=$(echo $PATH_AND_FILES | cut -f2 -d\|)
+
+command="pushd $path >/dev/null ; bundle exec rspec --color $files ; popd >/dev/null"
+echo $command
+
+pushd $path >/dev/null ; bundle exec rspec --color $files ; popd >/dev/null
