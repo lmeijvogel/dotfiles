@@ -100,3 +100,8 @@ bindkey '^U' backward-kill-line
 bindkey '^Y' yank
 
 unsetopt nomatch
+
+for ((i=1 ; i < 20 ; i++)) {
+  alias -g H@$i="HEAD@{$i}"
+  alias -g s@$i="stash@{$i}"
+}
