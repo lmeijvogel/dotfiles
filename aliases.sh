@@ -17,6 +17,7 @@ alias qgit='git'
 alias gs='git status'
 
 alias fs='bundle exec foreman start'
+alias be='bundle exec'
 
 alias o='xdg-open'
 
