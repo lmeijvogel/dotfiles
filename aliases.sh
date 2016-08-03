@@ -18,5 +18,7 @@ alias gs='git status'
 
 alias fs='bundle exec foreman start'
 
+alias o='xdg-open'
+
 # Allow custom aliases per environment
 [[ -x "$HOME/.aliases_private.sh" ]] && . "$HOME/.aliases_private.sh"
