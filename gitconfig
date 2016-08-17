@@ -123,5 +123,7 @@
   autoSquash = true
 [pull]
   rebase = true
+[merge]
+	tool = kdiff3
 [core]
   pager = less --no-init --raw-control-chars --quit-if-one-screen
