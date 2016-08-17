@@ -15,6 +15,7 @@ alias igt='git'
 alias qgit='git'
 
 alias gs='git status'
+alias gd='git diff'
 
 alias fs='bundle exec foreman start'
 alias be='bundle exec'
