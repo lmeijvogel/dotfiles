@@ -34,15 +34,23 @@ PATH_AND_FILES=`ruby -e '
   # example: %r|^( prefix)?(sites/mbiel)/spec/|
   regex   =  %r|^(?:(.*)/)?([^/]+/[^/]+)/spec/|
 
-  Array(ARGV).map do |spec_path|
-    find_real_spec_path(spec_path)
-  end.group_by do |path|
-    path.match(regex)[1,2]
-  end.each do |path, files|
-    base_path = *path.compact
-    absolute_filenames = files.map do |file| File.expand_path(file) end
+  begin
+    Array(ARGV).map do |spec_path|
+      find_real_spec_path(spec_path)
+    end.group_by do |path|
+      matches = path.match(regex)
 
-    result(File.join(*base_path), absolute_filenames)
+      raise "Not found" unless matches
+
+      matches[1,2]
+    end.each do |path, files|
+      base_path = *path.compact
+      absolute_filenames = files.map do |file| File.expand_path(file) end
+
+      result(File.join(*base_path), absolute_filenames)
+    end
+  rescue
+    puts "NOT FOUND"
   end
 ' $@`
 
@@ -50,7 +58,12 @@ PATH_AND_FILES=`ruby -e '
 path=$(echo  $PATH_AND_FILES | cut -f1 -d\|)
 files=$(echo $PATH_AND_FILES | cut -f2 -d\|)
 
-command="pushd $path >/dev/null ; bundle exec rspec --color $files ; popd >/dev/null"
-echo $command
+if [ "$files" == "NOT FOUND" ]; then
+  echo "ERROR: no file found!"
+  exit 1
+else
+  command="pushd $path >/dev/null ; bundle exec rspec --color $files ; popd >/dev/null"
+  echo $command
 
-pushd $path >/dev/null ; bundle exec rspec --color $files ; popd >/dev/null
+  pushd $path >/dev/null ; bundle exec rspec --color $files ; popd >/dev/null
+fi
