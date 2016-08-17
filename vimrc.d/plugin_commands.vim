@@ -18,8 +18,8 @@ nmap <leader>a :Ack!
 nmap <leader>A :Ack! <C-R><C-W><CR>
 
 " Ack visual selection
-vmap <leader>a "vy:Ack <C-r>v
-vmap <leader>A "vy:Ack <C-r>v<CR>
+vmap <leader>a "vy:Ack "<C-r>v"
+vmap <leader>A "vy:Ack "<C-r>v"<CR>
 
 " Disable 'h' mapping that interferes with navigation
 " These are the default mappings, but with 'h' removed.
