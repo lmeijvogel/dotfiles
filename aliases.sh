@@ -20,6 +20,8 @@ alias gd='git diff'
 alias fs='bundle exec foreman start'
 alias be='bundle exec'
 
+alias conf="cd ~/.my_linux_config"
+
 alias o='xdg-open'
 
 # Allow custom aliases per environment
