@@ -36,6 +36,9 @@ PATH_AND_FILES=`ruby -e '
 
   begin
     Array(ARGV).map do |spec_path|
+      # Strip 'a/' and 'b/' that git diff adds for some reason.
+      spec_path.gsub(%r|^[ab]/|, "")
+    end.map do |spec_path|
       find_real_spec_path(spec_path)
     end.group_by do |path|
       matches = path.match(regex)
