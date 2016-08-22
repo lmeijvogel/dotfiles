@@ -4,6 +4,8 @@ PATH_AND_FILES=`ruby -e '
   def possible_source_locations
     locations_in_env = ENV.fetch("SP_SOURCE_LOCATIONS").split(" ")
 
+    raise "No SP_SOURCE_LOCATIONS set!" if locations_in_env.empty?
+
     ["."] + locations_in_env
   end
 
@@ -52,7 +54,10 @@ PATH_AND_FILES=`ruby -e '
 
       result(File.join(*base_path), absolute_filenames)
     end
-  rescue
+  rescue StandardError => e
+    log "Error in Ruby"
+    log e
+    e.backtrace.each do |l| log l ; end
     puts "NOT FOUND"
   end
 ' $@`
@@ -61,7 +66,7 @@ PATH_AND_FILES=`ruby -e '
 path=$(echo  $PATH_AND_FILES | cut -f1 -d\|)
 files=$(echo $PATH_AND_FILES | cut -f2 -d\|)
 
-if [ "$files" == "NOT FOUND" ]; then
+if [ "$PATH_AND_FILES" == "NOT FOUND" ]; then
   echo "ERROR: no file found!"
   exit 1
 else
