@@ -105,4 +105,7 @@ else
   echo $command
 
   pushd $path >/dev/null ; bundle exec rspec --color $files ; popd >/dev/null
+  status=$?
+  popd >/dev/null
+  exit $status
 fi
