@@ -36,10 +36,41 @@ PATH_AND_FILES=`ruby -e '
   # example: %r|^( prefix)?(sites/mbiel)/spec/|
   regex   =  %r|^(?:(.*)/)?([^/]+/[^/]+)/spec/|
 
+  def strip_path_regex
+    %r|(?:^[ab]/)?(.*?)(?:[:]in)?$|
+  end
+
+  def test_strip_path_regex
+    paths = {
+              "sites/mobiel_nl/spec/features/desktop_shop/visitor_visits_smartphone_page_spec.rb" => "sites/mobiel_nl/spec/features/desktop_shop/visitor_visits_smartphone_page_spec.rb",
+              "b/sites/mobiel_nl/spec/features/desktop_shop/visitor_visits_smartphone_page_spec.rb" => "sites/mobiel_nl/spec/features/desktop_shop/visitor_visits_smartphone_page_spec.rb",
+              "b/sites/mobiel_nl/spec/features/desktop_shop/visitor_visits_smartphone_page_spec.rb:32" => "sites/mobiel_nl/spec/features/desktop_shop/visitor_visits_smartphone_page_spec.rb:32",
+              "sites/mobiel_nl/spec/features/desktop_shop/visitor_visits_smartphone_page_spec.rb:32:in" => "sites/mobiel_nl/spec/features/desktop_shop/visitor_visits_smartphone_page_spec.rb:32",
+              "b/sites/mobiel_nl/spec/features/desktop_shop/visitor_visits_smartphone_page_spec.rb:32:in" => "sites/mobiel_nl/spec/features/desktop_shop/visitor_visits_smartphone_page_spec.rb:32"
+            }
+
+    any_errors = false
+    paths.each do |input, expected|
+      result = input.gsub(strip_path_regex, "\\1")
+
+      success = result == expected
+      unless success
+        puts "#{input} => #{result}"
+
+        puts regex.match(input)
+
+        any_errors = true
+      end
+    end
+
+    puts "NO ERRORS!" unless any_errors
+  end
+
   begin
     Array(ARGV).map do |spec_path|
-      # Strip 'a/' and 'b/' that git diff adds for some reason.
-      spec_path.gsub(%r|^[ab]/|, "")
+      # Strip 'a/' and 'b/' that git diff adds for some reason, as well as
+      # the trailing :in that is added by rspec
+      spec_path.match(strip_path_regex)[1]
     end.map do |spec_path|
       find_real_spec_path(spec_path)
     end.group_by do |path|
