@@ -89,7 +89,7 @@ let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|coverage\|**/covera
 let g:ctrlp_mruf_relative = 1
 
 let g:no_turbux_mappings = 1
-let g:turbux_command_rspec  = 'bin/rspec'
+let g:turbux_command_rspec  = '/home/lmeijvogel/bin/sp'
 map <leader>s <Plug>SendTestToTmux
 map <leader>S <Plug>SendFocusedTestToTmux
 

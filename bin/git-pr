@@ -8,10 +8,18 @@ end
 
 def main
   check_parameters!
+  forbid_master_branch!
   ask_confirmation!
 
-  puts execute_command("git push -f origin #{head}")
+  puts execute_command("git push --force-with-lease origin #{head}")
   puts execute_command("hub pull-request -m #{Shellwords.shellescape(message)} -b #{base_branch} -h #{head}")
+end
+
+def forbid_master_branch!
+  if head == "master"
+    puts "On master branch!"
+    exit 4
+  end
 end
 
 def check_parameters!
