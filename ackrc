@@ -8,4 +8,6 @@
 --ignore-file=is:TAGS
 --ignore-file=is:examples.txt
 --ignore-dir=coverage
---ignore-dir=dragonfly
+--ignore-dir=public/system/dragonfly
+--ignore-dir=public/assets
+--ignore-dir=email_logs
