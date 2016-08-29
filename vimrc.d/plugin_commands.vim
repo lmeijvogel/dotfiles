@@ -15,7 +15,7 @@ map <F8> :TagbarToggle<CR>
 " Ack.vim
 nmap <leader>a :Ack! 
 " Ack word under cursor
-nmap <leader>A :Ack! <C-R><C-W><CR>
+nmap <leader>A viw A
 
 " Ack visual selection
 vmap <leader>a "vy:Ack "<C-r>v"
