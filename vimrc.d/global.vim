@@ -55,7 +55,7 @@ set noerrorbells " don't beep
 
 set wildignore=*.swp,*.bak,*.pyc,*.class,*.orig,*.scssc,tags,gems.tags,tmp/**,*/cache/*
 set wildignore+=*.gif,*.png,*.jpg,*.jpeg,tmp
-set wildignore+=public/drive/**,private/**,webdav/private/**,webdav/public/drive/**
+set wildignore+=coverage/**
 
 set history=1000
 set undolevels=1000
