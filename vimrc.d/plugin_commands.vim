@@ -13,7 +13,7 @@ map <A-F8> :!ctags-exuberant -R --languages=ruby,javascript --exclude=.git --exc
 map <F8> :TagbarToggle<CR>
 
 " Ack.vim
-nmap <leader>a :Ack! 
+nmap <leader>a :Ack! ""<C-b>
 " Ack word under cursor
 nmap <leader>A viw A
 
