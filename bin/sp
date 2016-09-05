@@ -104,7 +104,7 @@ else
   command="pushd $path >/dev/null ; bundle exec rspec --color $files ; popd >/dev/null"
   echo $command
 
-  pushd $path >/dev/null ; bundle exec rspec --color $files ; popd >/dev/null
+  pushd $path >/dev/null ; bundle exec rspec --color $files
   status=$?
   popd >/dev/null
   exit $status
