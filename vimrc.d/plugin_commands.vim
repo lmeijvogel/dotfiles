@@ -35,8 +35,7 @@ let g:ack_mappings = {
 
 let g:ackprg="/usr/bin/ack-grep"
 "
-" Gundo
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <F5> :UndotreeToggle<CR>
 
 " Yaml tools
 nmap <silent> <leader>u :YamlGoToParent<CR>

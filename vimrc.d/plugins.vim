@@ -14,7 +14,7 @@ Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'tpope/vim-repeat.git'
 Plugin 'SirVer/ultisnips.git'
 Plugin 'duff/vim-scratch.git' " Scratch buffer
-Plugin 'sjl/gundo.vim.git' " Undo history visualisation
+Plugin 'mbbill/undotree' " Undo history visualisation
 Plugin 'tpope/vim-surround.git'
 Plugin 'maxbrunsfeld/vim-yankstack'
 Plugin 'scrooloose/syntastic.git'
