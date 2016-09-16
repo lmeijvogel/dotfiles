@@ -95,9 +95,6 @@ map <leader>S <Plug>SendFocusedTestToTmux
 nmap <silent> <F6> :set bg=dark<CR>:colorscheme railscasts<CR>
 nmap <silent> <F7> :set bg=light<CR>:colorscheme summerfruit256<CR>
 
-" git-gutter
-let g:gitgutter_sign_column_always = 1
-
 " fugitive
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gb :Gblame<CR>

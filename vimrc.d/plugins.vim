@@ -36,7 +36,6 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'ntpeters/vim-better-whitespace' " Better whitespace highlighting
 Plugin 'jgdavey/tslime.vim'
 Plugin 'jgdavey/vim-turbux'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'vim-scripts/summerfruit256.vim' " Light color scheme
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-rails'
