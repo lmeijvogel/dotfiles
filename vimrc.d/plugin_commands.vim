@@ -89,8 +89,9 @@ let g:ctrlp_mruf_relative = 1
 
 let g:no_turbux_mappings = 1
 let g:turbux_command_rspec  = "$HOME/bin/sp"
-map <leader>s <Plug>SendTestToTmux
-map <leader>S <Plug>SendFocusedTestToTmux
+nmap <leader>s <Plug>SendTestToTmux
+nmap <leader>S <Plug>SendFocusedTestToTmux
+nmap <leader><C-s> <Plug>SetTmuxVars
 
 nmap <silent> <F6> :set bg=dark<CR>:colorscheme railscasts<CR>
 nmap <silent> <F7> :set bg=light<CR>:colorscheme summerfruit256<CR>
