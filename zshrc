@@ -96,6 +96,14 @@ fi
 bindkey '^U' backward-kill-line
 bindkey '^Y' yank
 
+# These bindings also seem to bind <M-...>, which is what I was after
+# Bind <Esc>s to 'gs' (scmpuff 'git status')
+bindkey -s '\es' 'gs\n'
+# Bind <Esc>a to 'git add -p'
+bindkey -s '\ea' 'git add -p\n'
+# Bind <Esc>g to 'git log --oneline --decorate'
+bindkey -s '\eg' 'git l\n'
+
 unsetopt nomatch
 
 for ((i=1 ; i < 20 ; i++)) {

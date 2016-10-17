@@ -1,7 +1,6 @@
 [color]
   ui = auto
 [alias]
-  st = status --branch
   br = branch
   co = checkout
   ci = commit
