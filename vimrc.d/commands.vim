@@ -41,8 +41,8 @@ map <silent> <leader>fl :let @+ = expand("%:p").':'.line('.')<CR>
 map <silent> <leader>ff :let @+ = expand("%:p")<CR>
 
 " Easily create splits
-nmap <silent> ss <C-w>s
-nmap <silent> vv <C-w>v
+nmap <silent> <leader>ss <C-w>s
+nmap <silent> <leader>vv <C-w>v
 
 " Easily resize splits
 nmap <silent> <S-Up> <C-w>+
