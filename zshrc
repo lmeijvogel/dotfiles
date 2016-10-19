@@ -112,3 +112,7 @@ for ((i=1 ; i < 20 ; i++)) {
 }
 
 eval "$(scmpuff init -s)"
+
+function br () {
+  eval "`br.rb $@`"
+}

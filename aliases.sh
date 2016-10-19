@@ -14,8 +14,13 @@ alias gti='git'
 alias igt='git'
 alias qgit='git'
 
-alias gs='git status'
 alias gd='git diff'
+
+alias brr='br --remote'
+alias brrr='br --remote'
+alias brrrr='br --remote'
+alias brrrrr='br --remote'
+alias brrrrrr='br --remote'
 
 alias fs='bundle exec foreman start'
 alias be='bundle exec'
