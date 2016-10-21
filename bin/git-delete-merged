@@ -40,7 +40,7 @@ end
 
 def delete_branches(branches)
   branches.each do |branch|
-    `git br -D #{branch}`
+    `git branch -D #{branch}`
   end
 end
 
