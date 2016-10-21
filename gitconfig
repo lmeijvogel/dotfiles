@@ -2,6 +2,7 @@
   ui = auto
 [alias]
   co = checkout
+  com = checkout master
   ci = commit
   cp = cherry-pick
   c = diff --cached
