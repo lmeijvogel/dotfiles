@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+all_refs = `git for-each-ref --format '%(refname)'`.each_line.map(&:strip)
+
+LOCAL_PREFIX_REGEX  = %r|^refs/heads/|
+REMOTE_PREFIX_REGEX = %r|^refs/remotes/origin/|
+
+local_branches  = all_refs.grep LOCAL_PREFIX_REGEX
+remote_branches = all_refs.grep REMOTE_PREFIX_REGEX
+
+local_basenames  = local_branches.map  { |branch| branch.gsub(LOCAL_PREFIX_REGEX, "") }
+remote_basenames = remote_branches.map { |branch| branch.gsub(REMOTE_PREFIX_REGEX, "") }
+
+puts (local_basenames - remote_basenames)
