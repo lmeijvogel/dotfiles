@@ -79,7 +79,7 @@ set background=dark
 nmap <C-A-k> :bn<CR>
 nmap <C-A-j> :bp<CR>
 
-let g:ctrlp_map = '<leader>t'
+let g:ctrlp_map = '<C-p>'
 let g:ctrlp_command='CtrlPMixed'
 
 let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|coverage\|**/coverage\|public/system/dragonfly\|public/assets'
