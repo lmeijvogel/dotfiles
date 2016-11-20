@@ -1,3 +1,4 @@
+--ignore-dir=work
 --ignore-dir=dist
 --ignore-dir=tmp
 --ignore-dir=bower_components
