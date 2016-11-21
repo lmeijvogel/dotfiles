@@ -87,12 +87,6 @@ let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|coverage\|**/covera
 " Only show MRU files in the current working directory
 let g:ctrlp_mruf_relative = 1
 
-let g:no_turbux_mappings = 1
-let g:turbux_command_rspec  = "$HOME/bin/sp"
-nmap <leader>s <Plug>SendTestToTmux
-nmap <leader>S <Plug>SendFocusedTestToTmux
-nmap <leader><C-s> <Plug>SetTmuxVars
-
 nmap <silent> <F6> :set bg=dark<CR>:colorscheme railscasts<CR>
 nmap <silent> <F7> :set bg=light<CR>:colorscheme summerfruit256<CR>
 
@@ -103,3 +97,32 @@ nmap <leader>gb :Gblame<CR>
 " vim-buftabline
 " Show buffer number next to buffer name
 let g:buftabline_numbers = 1
+
+if has('nvim')
+  " NeoTerm
+  let g:neoterm_position = 'horizontal'
+  let g:neoterm_automap_keys = '<leader>tt'
+
+  let g:neoterm_rspec_lib_cmd = '$HOME/bin/sp'
+  " run set test lib
+  function! NeoTermBeforeEach()
+    wall
+  endfunction
+
+  let g:neoterm_test_before_each = 'NeoTermBeforeEach'
+
+  nnoremap <silent> <leader>sa :call neoterm#test#run('all')<cr>
+  nnoremap <silent> <leader>sf :call neoterm#test#run('file')<cr>
+  nnoremap <silent> <leader>sl :call neoterm#test#run('current')<cr>
+  nnoremap <silent> <leader>S :call neoterm#test#rerun()<cr>
+
+  set inccommand=nosplit
+  tnoremap <C-j> <C-\><C-n><C-w>j
+  tnoremap <C-k> <C-\><C-n><C-w>k
+else
+  let g:no_turbux_mappings = 1
+  let g:turbux_command_rspec  = "$HOME/bin/sp"
+  nmap <leader>sf <Plug>SendTestToTmux
+  nmap <leader>sl <Plug>SendFocusedTestToTmux
+  nmap <leader><C-s> <Plug>SetTmuxVars
+end
