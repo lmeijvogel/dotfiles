@@ -66,13 +66,13 @@ nnoremap <leader>st :SyntasticToggleMode<CR>
 " Tagbar
 nnoremap <F9> :TagbarToggle<CR>
 
-if has("gui_running")
+set background=dark
+
+if has("gui_running") || has("nvim")
   colorscheme railscasts
 
   set guifont=Inconsolata-g\ 13
 endif
-
-set background=dark
 
 " The order is "reversed" (j is previous, k is next) to look more like
 " left <-> right
