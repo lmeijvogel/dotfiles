@@ -14,8 +14,6 @@
   l = "!f() { git --no-pager log --decorate --oneline -n 10 $1; }; f"
   ll = log --decorate --oneline
 
-  pf = push --force-with-lease
-
   fp = fetch --prune
 
   ; Remove a commit from the history: Default is the last commit
