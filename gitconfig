@@ -13,9 +13,6 @@
 
   l = "!f() { git --no-pager log --decorate --oneline -n 10 $1; }; f"
   ll = log --decorate --oneline
-  lp = log -p
-  diffr = log -p -1
-  mylog = log --date-order --author=Lennaert
 
   pf = push --force-with-lease
 
@@ -37,9 +34,6 @@
 
   cia = commit --amend --no-edit
   ciam = commit --amend
-
-  in  = !"git fetch -q && git log --format=\"%h %aN     %s\" HEAD..@{upstream}"
-  out = log --format=\"%h   %s\" @{upstream}..HEAD
 
   s  = show
   s1 = show HEAD~1
