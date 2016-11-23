@@ -1,13 +1,20 @@
 #!/usr/bin/env ruby
-all_refs = `git for-each-ref --format '%(refname)'`.each_line.map(&:strip)
 
-LOCAL_PREFIX_REGEX  = %r|^refs/heads/|
-REMOTE_PREFIX_REGEX = %r|^refs/remotes/origin/|
+$LOAD_PATH << File.dirname(__FILE__)
 
-local_branches  = all_refs.grep LOCAL_PREFIX_REGEX
-remote_branches = all_refs.grep REMOTE_PREFIX_REGEX
+require '_create_shell_variables'
 
-local_basenames  = local_branches.map  { |branch| branch.gsub(LOCAL_PREFIX_REGEX, "") }
-remote_basenames = remote_branches.map { |branch| branch.gsub(REMOTE_PREFIX_REGEX, "") }
+CreateShellVariables.new.perform do
+  all_refs = `git for-each-ref --format '%(refname)'`.each_line.map(&:strip)
 
-puts (local_basenames - remote_basenames)
+  LOCAL_PREFIX_REGEX  = %r|^refs/heads/|
+  REMOTE_PREFIX_REGEX = %r|^refs/remotes/origin/|
+
+  local_branches  = all_refs.grep LOCAL_PREFIX_REGEX
+  remote_branches = all_refs.grep REMOTE_PREFIX_REGEX
+
+  local_basenames  = local_branches.map  { |branch| branch.gsub(LOCAL_PREFIX_REGEX, "") }
+  remote_basenames = remote_branches.map { |branch| branch.gsub(REMOTE_PREFIX_REGEX, "") }
+
+  local_basenames - remote_basenames
+end

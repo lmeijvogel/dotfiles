@@ -116,3 +116,7 @@ eval "$(scmpuff init -s)"
 function br () {
   eval "`br.rb $@`"
 }
+
+function gnor () {
+  eval "`git-not-on-remote`"
+}
