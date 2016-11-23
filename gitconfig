@@ -11,7 +11,8 @@
   d  = diff
   mt = mergetool
 
-  l = "!f() { git --no-pager log --decorate --oneline -n 10 $1; }; f"
+  # nl -v 0 - adds line numbers to the output
+  l = "!f() { git --no-pager log --color --decorate --oneline -n 10 $1 | nl -v 0 -; }; f"
   ll = log --decorate --oneline
 
   fp = fetch --prune
