@@ -11,7 +11,8 @@ if [ "$PATH_AND_FILES" == "NOT FOUND" ]; then
   exit 1
 else
   command="pushd $path >/dev/null ; bundle exec rspec --color $files ; popd >/dev/null"
-  echo $command
+  echo "-> $command"
+  echo
 
   pushd $path >/dev/null ; bundle exec rspec --color $files
   status=$?
