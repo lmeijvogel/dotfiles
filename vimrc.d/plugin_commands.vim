@@ -119,6 +119,11 @@ if has('nvim')
   set inccommand=nosplit
   tnoremap <C-j> <C-\><C-n><C-w>j
   tnoremap <C-k> <C-\><C-n><C-w>k
+
+  " enable line numbers
+  let NERDTreeShowLineNumbers=1
+  " make sure relative line numbers are used
+  autocmd FileType nerdtree setlocal relativenumber
 else
   let g:no_turbux_mappings = 1
   let g:turbux_command_rspec  = "$HOME/bin/sp"
