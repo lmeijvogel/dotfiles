@@ -111,8 +111,6 @@ for ((i=1 ; i < 20 ; i++)) {
   alias -g s@$i="stash@{$i}"
 }
 
-eval "$(scmpuff init -s)"
-
 function br () {
   eval "`br.rb $@`"
 }
@@ -120,3 +118,5 @@ function br () {
 function gnor () {
   eval "`git-not-on-remote`"
 }
+
+[ -s "/home/lennaert/.scm_breeze/scm_breeze.sh" ] && source "/home/lennaert/.scm_breeze/scm_breeze.sh"
