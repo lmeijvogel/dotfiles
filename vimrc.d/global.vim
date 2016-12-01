@@ -68,7 +68,8 @@ filetype plugin indent on
 
 set cursorline
 set ruler
-set relativenumber " Relative line numbers for (sometimes) easier navigation
+set relativenumber " Relative line numbers for easier navigation
+set number " Still show the current line number instead of '0'
 
 " Disallow window resizing
 set winfixwidth
