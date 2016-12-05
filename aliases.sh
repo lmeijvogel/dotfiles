@@ -8,6 +8,7 @@ alias rdtp='bundle exec rake db:test:prepare'
 alias rmig='bundle exec rake db:migrate'
 alias rmigt='RAILS_ENV=test bundle exec rake db:migrate'
 
+alias rake='bundle exec rake'
 alias cons='bundle exec rails console'
 
 alias orig='find . -regex "\\(.*\\(BACKUP\\|BASE\\|LOCAL\\|REMOTE\\).*\\|.*\\.orig\\).*" -delete'
