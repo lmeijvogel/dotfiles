@@ -32,5 +32,7 @@ alias conf="cd ~/.my_linux_config"
 
 alias o='xdg-open'
 
+alias gvim='nvim'
+
 # Allow custom aliases per environment
 [[ -x "$HOME/.aliases_private.sh" ]] && . "$HOME/.aliases_private.sh"
