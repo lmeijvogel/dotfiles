@@ -14,7 +14,7 @@
 
   # nl -v 0 - adds line numbers to the output
   l = "!f() { git --no-pager log --color --decorate --oneline -n 10 $1 | nl -v 0 -; }; f"
-  ll = log --decorate --oneline
+  ll = "!f() { git log --color --decorate --oneline $1 | nl -v 0 - | less ; }; f"
 
   fp = fetch --prune
   pf = push --force-with-lease
