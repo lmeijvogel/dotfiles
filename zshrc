@@ -103,6 +103,8 @@ bindkey -s '\es' 'gs\n'
 bindkey -s '\ea' 'git add -p\n'
 # Bind <Esc>g to 'git log --oneline --decorate'
 bindkey -s '\eg' 'git l\n'
+# Bind <Esc>r to 'br' (git branch)
+bindkey -s '\er' 'br\n'
 
 unsetopt nomatch
 
