@@ -119,4 +119,4 @@ function gnor () {
   eval "`git-not-on-remote`"
 }
 
-[ -s "/home/lennaert/.scm_breeze/scm_breeze.sh" ] && source "/home/lennaert/.scm_breeze/scm_breeze.sh"
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"

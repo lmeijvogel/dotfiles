@@ -53,4 +53,4 @@ fi
 # Allow pattern-matching with **
 shopt -s globstar
 
-[ -s "/home/lennaert/.scm_breeze/scm_breeze.sh" ] && source "/home/lennaert/.scm_breeze/scm_breeze.sh"
+[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
