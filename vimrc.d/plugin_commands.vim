@@ -115,6 +115,7 @@ if has('nvim')
   nnoremap <silent> <leader>sf :call neoterm#test#run('file')<cr>
   nnoremap <silent> <leader>sl :call neoterm#test#run('current')<cr>
   nnoremap <silent> <leader>S :call neoterm#test#rerun()<cr>
+  nnoremap <silent> <leader>s <Nop>
 
   set inccommand=nosplit
   tnoremap <C-j> <C-\><C-n><C-w>j
