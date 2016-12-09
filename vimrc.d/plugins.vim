@@ -43,6 +43,7 @@ Plugin 'buztard/vim-rel-jump' " Store relative jumps (5j, 3k) in the jump list
 Plugin 'ap/vim-buftabline' " Buffer list at top of screen
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kassio/neoterm'
+Plugin 'posva/vim-vue'
 
 call vundle#end()
 call yankstack#setup()
