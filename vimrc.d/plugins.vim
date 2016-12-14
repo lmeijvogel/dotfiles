@@ -7,7 +7,6 @@ Plugin 'mustache/vim-mode.git'
 Plugin 'sandeepcr529/Buffet.vim.git' " Buffer explorer
 Plugin 'lmeijvogel/vim-yaml-helper.git' " Some helper methods for YAML files
 Plugin 'wzzrd/vim-matchit.git'
-Plugin 'scrooloose/nerdtree.git'
 Plugin 'kchmck/vim-coffee-script.git'
 Plugin 'bogado/file-line.git' " Copy file/line to clipboard
 Plugin 'scrooloose/nerdcommenter.git'
@@ -24,7 +23,6 @@ Plugin 'vim-scripts/bufkill.vim.git' " Commands for deleting the current buffer
 Plugin 'vim-ruby/vim-ruby.git'
 Plugin 'gmarik/Vundle.vim.git'
 Plugin 'tpope/vim-endwise.git' " Automatically close begin/end statements
-Plugin 'tyok/nerdtree-ack.git'
 Plugin 'tpope/vim-unimpaired.git' " Bracket commands: ]b, etc.
 Plugin 'tpope/vim-rsi.git' " Readline style insertions
 Plugin 'tpope/vim-fugitive.git'
@@ -44,6 +42,7 @@ Plugin 'ap/vim-buftabline' " Buffer list at top of screen
 Plugin 'easymotion/vim-easymotion'
 Plugin 'kassio/neoterm'
 Plugin 'posva/vim-vue'
+Plugin 'tpope/vim-vinegar'
 
 call vundle#end()
 call yankstack#setup()
