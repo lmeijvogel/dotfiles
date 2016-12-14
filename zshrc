@@ -106,6 +106,9 @@ bindkey -s '\eg' 'git l\n'
 # Bind <Esc>r to 'br' (git branch)
 bindkey -s '\er' 'br\n'
 
+# Bind <Esc>c tho 'git diff --cached' (Previously: Uppercase sentence and move to next sentence)
+bindkey -s '\ec' 'git diff --cached\n'
+
 unsetopt nomatch
 
 for ((i=1 ; i < 20 ; i++)) {
