@@ -105,6 +105,8 @@ bindkey -s '\ea' 'git add -p\n'
 bindkey -s '\eg' 'git l\n'
 # Bind <Esc>r to 'br' (git branch)
 bindkey -s '\er' 'br\n'
+# Bind <Esc>R to 'brr' (git branch --remote)
+bindkey -s '\eR' 'brr\n'
 
 # Bind <Esc>c tho 'git diff --cached' (Previously: Uppercase sentence and move to next sentence)
 bindkey -s '\ec' 'git diff --cached\n'
