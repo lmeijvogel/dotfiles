@@ -132,6 +132,3 @@ else
   nmap <leader>sl <Plug>SendFocusedTestToTmux
   nmap <leader><C-s> <Plug>SetTmuxVars
 end
-
-" Relative line numbers
-let g:netrw_bufsettings = 'relativenumber nobuflisted noma nomod nowrap ro'
