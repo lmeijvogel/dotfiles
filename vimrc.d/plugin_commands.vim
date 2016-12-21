@@ -1,4 +1,5 @@
 nmap <silent> <leader>nt :NERDTreeToggle<CR>
+nmap <silent> - :NERDTreeFind<CR>
 nmap <silent> <leader>nf :NERDTreeFind<CR>
 
 let g:NERDTreeShowRelativeLineNumbers=1
