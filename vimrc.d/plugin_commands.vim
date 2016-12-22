@@ -69,12 +69,17 @@ nnoremap <leader>st :SyntasticToggleMode<CR>
 " Tagbar
 nnoremap <F9> :TagbarToggle<CR>
 
-set background=dark
+if !exists('g:config_already_loaded')
+  " Do not reset color scheme when reloading the configuration
+  let g:config_already_loaded = 1
 
-if has("gui_running") || has("nvim")
-  colorscheme railscasts
+  set background=dark
 
-  set guifont=Inconsolata-g\ 13
+  if has("gui_running") || has('nvim')
+    colorscheme railscasts
+
+    set guifont=Inconsolata-g\ 13
+  endif
 endif
 
 " The order is "reversed" (j is previous, k is next) to look more like
