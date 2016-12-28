@@ -1,3 +1,0 @@
-#!/usr/bin/ruby
-
-puts `git -c color.ui=always #{ARGV.join(" ")}`
