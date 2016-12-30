@@ -18,7 +18,6 @@
   ll = "!f() { git log --color --decorate --oneline $1 | nl -v 0 - | less --no-init --raw-control-chars --quit-if-one-screen ; }; f"
 
   fp = fetch --prune
-  pf = push --force-with-lease
 
   ; Remove a commit from the history: Default is the last commit
   uncommit = "!f() { git rebase --onto ${1:-HEAD}^ ${1:-HEAD}; }; f"

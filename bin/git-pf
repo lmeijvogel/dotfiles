@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-if ! [[ `git symbolic-ref HEAD` =~ master ]]; then
-  git push --force-with-lease
-else
+if [[ `git symbolic-ref HEAD` =~ master ]]; then
   echo 'ERROR: On master branch'
+else
+  git push --force-with-lease
 fi
