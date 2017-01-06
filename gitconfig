@@ -14,8 +14,8 @@
   mt = mergetool
 
   # nl -v 0 - adds line numbers to the output
-  l = "!f() { git --no-pager log --color --decorate --oneline -n 10 $1 | nl -v 0 -; }; f"
-  ll = "!f() { git log --color --decorate --oneline $1 | nl -v 0 - | less --no-init --raw-control-chars --quit-if-one-screen ; }; f"
+  l = "!f() { git --no-pager log --color --decorate --oneline -n 10 $1; }; f"
+  ll = "!f() { git log --color --decorate --oneline $1 | less --no-init --raw-control-chars --quit-if-one-screen ; }; f"
 
   fp = fetch --prune
 

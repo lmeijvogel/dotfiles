@@ -14,7 +14,7 @@ class NumberedGitBranch
   def perform
     shell_variables = CreateShellVariables.new
 
-    shell_variables.perform(branches)
+    shell_variables.perform { branches }
   end
 
   def branches

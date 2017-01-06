@@ -105,9 +105,7 @@ bindkey -s '\es' 'gs\n'
 # Bind <Esc>a to 'git add -p'
 bindkey -s '\ea' 'git add -p\n'
 # Bind <Esc>g to 'git log --oneline --decorate'
-bindkey -s '\eg' 'gitl\n'
-# Bind <Esc>g to 'git log --oneline --decorate'
-bindkey -s '\eG' 'gitll\n'
+bindkey -s '\eg' 'git l\n'
 # Bind <Esc>r to 'br' (git branch)
 bindkey -s '\er' 'br\n'
 # Bind <Esc>R to 'brr' (git branch --remote)
@@ -129,14 +127,6 @@ function br () {
 
 function gnor () {
   eval "`git-not-on-remote`"
-}
-
-function gitll () {
-  eval "`$HOME/bin/gitll`"
-}
-
-function gitl () {
-  eval "`$HOME/bin/gitl`"
 }
 
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
