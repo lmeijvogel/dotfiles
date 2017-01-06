@@ -25,7 +25,6 @@ alias brrrr='br --remote'
 alias brrrrr='br --remote'
 alias brrrrrr='br --remote'
 
-alias fs='bundle exec foreman start'
 alias be='bundle exec'
 
 alias conf="cd ~/.my_linux_config"
