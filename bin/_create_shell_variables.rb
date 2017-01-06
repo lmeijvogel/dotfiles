@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 
 class CreateShellVariables
-  def perform
+  def perform(items, translation: :itself.to_proc)
     clear_current_vars
 
-    items_with_indices = add_indices(yield)
+    items_with_indices = add_indices(items)
 
-    set_vars(items_with_indices)
+    set_vars(items_with_indices, translation: translation)
 
     show_var_prefix
     show_list(items_with_indices)
@@ -26,13 +26,17 @@ class CreateShellVariables
 
   def show_list(items_with_indices)
     items_with_indices.each do |item, i|
-      puts %Q|echo "[#{i}] #{item}"|
+      sanitized_item = item.gsub(/(["`])/, "\\") # I would have liked to substitute for a backslashed version, but I'm not smart enough
+
+      puts %Q|echo "[#{i}] #{sanitized_item}"|
     end
   end
 
-  def set_vars(items_with_indices)
+  def set_vars(items_with_indices, translation:)
     items_with_indices.each do |item, i|
-      puts %Q|export e#{i}=#{item}|
+      translated_value = translation.call(item)
+
+      puts %Q|export e#{i}="#{translated_value}"|
     end
   end
 
