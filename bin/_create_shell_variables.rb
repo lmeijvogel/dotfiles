@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 
 class CreateShellVariables
-  def perform
+  def perform(lines, translation: ->(line) { line })
     clear_current_vars
 
-    items_with_indices = add_indices(yield)
+    items_with_indices = add_indices(lines)
 
-    set_vars(items_with_indices)
+    set_vars(items_with_indices, translation: translation)
 
     show_var_prefix
     show_list(items_with_indices)
@@ -30,9 +30,10 @@ class CreateShellVariables
     end
   end
 
-  def set_vars(items_with_indices)
+  def set_vars(items_with_indices, translation:)
     items_with_indices.each do |item, i|
-      puts %Q|export e#{i}=#{item}|
+      translated_item = translation.(item)
+      puts %Q|export e#{i}=#{translated_item}|
     end
   end
 
