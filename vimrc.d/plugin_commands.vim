@@ -111,18 +111,14 @@ if has('nvim')
   let g:neoterm_position = 'horizontal'
   let g:neoterm_automap_keys = '<leader>tt'
 
-  let g:neoterm_rspec_lib_cmd = '$HOME/bin/sp'
-  " run set test lib
-  function! NeoTermBeforeEach()
-    wall
-  endfunction
 
-  let g:neoterm_test_before_each = 'NeoTermBeforeEach'
+  let test#strategy = "neoterm"
+  let test#ruby#rspec#executable = 'sp'
 
-  nnoremap <silent> <leader>sa :call neoterm#test#run('all')<cr>
-  nnoremap <silent> <leader>sf :call neoterm#test#run('file')<cr>
-  nnoremap <silent> <leader>sl :call neoterm#test#run('current')<cr>
-  nnoremap <silent> <leader>S :call neoterm#test#rerun()<cr>
+  nnoremap <silent> <leader>sa :TestSuite<CR>
+  nnoremap <silent> <leader>sf :w<CR>:TestFile<CR>
+  nnoremap <silent> <leader>sl :w<CR>:TestNearest<CR>
+  nnoremap <silent> <leader>S  :w<CR>:TestLast<CR>
   nnoremap <silent> <leader>s <Nop>
 
   set inccommand=nosplit
