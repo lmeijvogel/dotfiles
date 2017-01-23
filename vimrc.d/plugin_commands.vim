@@ -129,6 +129,8 @@ if has('nvim')
   let NERDTreeShowLineNumbers=1
   " make sure relative line numbers are used
   autocmd FileType nerdtree setlocal relativenumber
+
+  nnoremap <silent> <leader>sr :call SwitchTestRunner()<CR>
 else
   let g:no_turbux_mappings = 1
   let g:turbux_command_rspec  = "$HOME/bin/sp"
@@ -136,3 +138,13 @@ else
   nmap <leader>sl <Plug>SendFocusedTestToTmux
   nmap <leader><C-s> <Plug>SetTmuxVars
 end
+
+function! SwitchTestRunner()
+  if g:test#strategy  == "neoterm"
+    let g:test#strategy = "tslime"
+    echo "Sending tests to tslime"
+  else
+    let g:test#strategy = "neoterm"
+    echo "Sending tests to neoterm"
+  endif
+endfunction
