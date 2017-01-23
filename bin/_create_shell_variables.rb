@@ -26,7 +26,8 @@ class CreateShellVariables
 
   def show_list(items_with_indices)
     items_with_indices.each do |item, i|
-      puts %Q|echo "[#{i}] #{item}"|
+      sanitized_item = item.gsub(/"/, "\\\"")
+      puts %Q|echo "[#{i}] #{sanitized_item}"|
     end
   end
 
