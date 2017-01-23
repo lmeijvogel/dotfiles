@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-branch_name = `git rev-parse --symbolic-full-name HEAD`.strip.gsub(%r[refs/heads/], "")
+branch_name = `git symbolic-ref --short HEAD`
 
 upstream_branch = "origin/#{branch_name}"
 
