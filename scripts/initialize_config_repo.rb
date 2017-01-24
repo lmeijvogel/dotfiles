@@ -39,13 +39,11 @@ bin_symlinks = BIN_FILES.pathmap("#{ENV['HOME']}/%p")
 update_symlinks(BIN_FILES, bin_symlinks)
 
 bundle_path = "#{ENV['HOME']}/.vim/bundle"
-FileUtils.mkdir_p bundle_path
 
-`cd #{bundle_path} ; git clone https://github.com/gmarik/Vundle.vim.git`
-`cd #{bundle_path} ; git clone https://github.com/olivierverdier/zsh-git-prompt $HOME/.zsh-git-prompt`
-`cd #{bundle_path} ; git clone https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh`
+unless File.exists?(bundle_path)
+  FileUtils.mkdir_p bundle_path
 
-
-
-
-
+  `cd #{bundle_path} ; git clone https://github.com/gmarik/Vundle.vim.git`
+  `cd #{bundle_path} ; git clone https://github.com/olivierverdier/zsh-git-prompt $HOME/.zsh-git-prompt`
+  `cd #{bundle_path} ; git clone https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh`
+end
