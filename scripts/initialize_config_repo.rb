@@ -11,12 +11,14 @@ def delete_symlink(file)
   end
 end
 
-def update_symlinks(origs, symlinks)
+def update_symlinks(origs, pattern:)
+  symlinks = origs.pathmap(pattern)
+
   symlinks.each do |symlink|
     delete_symlink(symlink)
   end
 
-  origs.zip(symlinks).each do |source, symlink|
+  origs.map {|file| File.expand_path(file) }.zip(symlinks).each do |source, symlink|
     puts "#{source} => #{symlink}"
     FileUtils.ln_s(File.expand_path(source), symlink)
   end
@@ -25,20 +27,17 @@ end
 # If only the vim plugins and config interest you, just
 # link .vimrc and .vim to vimrc and vim in the parent directory.
 
-# Create links for everything, except the scripts dir
+# Create links for everything, except metadata like the README.
+FileUtils.cd(File.join(__dir__, ".."))
+
 CONFIG_FILES = Rake::FileList["*"]
 CONFIG_FILES.exclude("bin", "scripts", ".git", ".gitignore", "README", "INSTALL.md")
 
-destination_symlinks = CONFIG_FILES.pathmap("#{ENV['HOME']}/.%p")
+update_symlinks(CONFIG_FILES, pattern: "#{ENV['HOME']}/.%p")
 
-update_symlinks(CONFIG_FILES, destination_symlinks)
+update_symlinks(Rake::FileList["bin/*"], pattern: "#{ENV['HOME']}/%p")
 
-BIN_FILES = Rake::FileList["bin/*"]
-bin_symlinks = BIN_FILES.pathmap("#{ENV['HOME']}/%p")
-
-update_symlinks(BIN_FILES, bin_symlinks)
-
-bundle_path = "#{ENV['HOME']}/.vim/bundle"
+bundle_path = File.join(ENV['HOME'], ".vim", "bundle")
 
 unless File.exists?(bundle_path)
   FileUtils.mkdir_p bundle_path
