@@ -6,6 +6,8 @@ require 'rake' # TODO?
 def delete_symlink(file)
   if File.symlink? file
     FileUtils.rm(file)
+  else
+    puts "File not a symlink: #{file}"
   end
 end
 
