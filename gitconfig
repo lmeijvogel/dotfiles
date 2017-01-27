@@ -34,6 +34,7 @@
   rom    = rebase origin/master
   roo    = "!f() { base_branch=$(git symbolic-ref --short HEAD); git rebase origin/${1:-$base_branch}; }; f"
 
+  cim = commit --message
   cia = commit --amend --no-edit
   ciam = commit --amend
 
