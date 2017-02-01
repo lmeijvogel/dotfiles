@@ -136,8 +136,9 @@ else
   let g:turbux_command_rspec  = "$HOME/bin/sp"
   nmap <leader>sf <Plug>SendTestToTmux
   nmap <leader>sl <Plug>SendFocusedTestToTmux
-  nmap <leader><C-s> <Plug>SetTmuxVars
 end
+
+nmap <leader><C-s> <Plug>SetTmuxVars
 
 function! SwitchTestRunner()
   if g:test#strategy  == "neoterm"
