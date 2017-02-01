@@ -1,6 +1,12 @@
 #!/usr/bin/env ruby
 
 class CreateShellVariables
+  attr_reader :start_at
+
+  def initialize(start_at: 1)
+    @start_at = start_at
+  end
+
   def perform(lines, translation: ->(line) { line })
     clear_current_vars
 
@@ -39,6 +45,6 @@ class CreateShellVariables
   end
 
   def add_indices(items)
-    items.map.with_index { |item, i| [item, i+1] }
+    items.map.with_index { |item, i| [item, i+start_at] }
   end
 end
