@@ -32,5 +32,6 @@ alias o='xdg-open'
 
 alias gvim='nvim'
 
+alias nq='nvim-qt'
 # Allow custom aliases per environment
 [[ -x "$HOME/.aliases_private.sh" ]] && . "$HOME/.aliases_private.sh"
