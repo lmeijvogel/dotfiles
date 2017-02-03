@@ -102,6 +102,9 @@ nmap <silent> <F7> :set bg=light<CR>:colorscheme summerfruit256<CR>
 nmap <leader>gs :Gstatus<CR>
 nmap <leader>gb :Gblame<CR>
 
+" Merginal
+nmap <leader>gr :Merginal<CR>
+
 " vim-buftabline
 " Show buffer number next to buffer name
 let g:buftabline_numbers = 1

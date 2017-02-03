@@ -46,6 +46,7 @@ Plugin 'kassio/neoterm'
 Plugin 'posva/vim-vue'
 Plugin 'janko-m/vim-test'
 Plugin 'AndrewRadev/splitjoin.vim'
+Plugin 'idanarye/vim-merginal.git'
 
 call vundle#end()
 call yankstack#setup()
