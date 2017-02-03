@@ -139,4 +139,29 @@ function gitll () {
   eval "`$HOME/bin/gitll`"
 }
 
+fs () {
+  _title_with_dir "FOREMAN"
+  foreman start $*
+}
+
+cons () {
+  _title_with_dir "CONS"
+  bundle exec rails console $*
+}
+
+serv () {
+  _title_with_dir "SERV"
+  bundle exec rails server $*
+}
+
+_title_with_dir () {
+  prefix=$1
+
+  dir=`basename $(pwd -P)`
+
+  title=${windowtitles[$dir]}
+
+  echo -ne "\033]2;$prefix $title\007"
+}
+
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
