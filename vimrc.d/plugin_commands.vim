@@ -75,9 +75,12 @@ if !exists('g:config_already_loaded')
 
   set background=dark
 
-  if has("gui_running") || has('nvim')
+  if has('nvim')
     colorscheme railscasts
+  endif
 
+  " For nvim-qt, the font size is read from ~/.config/nvim/ginit.vim
+  if has("gui_running")
     set guifont=Inconsolata-g\ 13
   endif
 endif
