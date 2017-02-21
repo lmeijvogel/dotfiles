@@ -113,8 +113,11 @@ bindkey -s '\er' 'br\n'
 # Bind <Esc>R to 'brr' (git branch --remote)
 bindkey -s '\eR' 'brr\n'
 
-# Bind <Esc>c tho 'git diff --cached' (Previously: Uppercase sentence and move to next sentence)
-bindkey -s '\ec' 'git diff --cached\n'
+# Bind <Esc>c to 'git diff --cached' (Previously: Uppercase sentence and move to next sentence)
+bindkey -s '\ec' 'git diff\n'
+
+# Bind <Esc>C to 'git diff'
+bindkey -s '\eC' 'git diff --cached\n'
 
 unsetopt nomatch
 
