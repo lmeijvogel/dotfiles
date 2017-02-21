@@ -103,7 +103,7 @@ nmap <silent> <F7> :set bg=light<CR>:colorscheme summerfruit256<CR>
 
 " fugitive
 nmap <leader>gs :Gstatus<CR>
-nmap <leader>gb :Gblame<CR>
+nmap <leader>gb :!git gui blame %<CR>
 
 " Merginal
 nmap <leader>gr :Merginal<CR>
