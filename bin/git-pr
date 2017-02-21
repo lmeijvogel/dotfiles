@@ -12,7 +12,8 @@ end
 def main
   check_parameters!
   forbid_master_branch!
-  ask_confirmation!(message_formatter: JiraIssueFormatter.new(ENV.fetch('JIRA_ISSUE_PREFIX')))
+  message = format_message(formatter: JiraIssueFormatter.new(ENV.fetch('JIRA_ISSUE_PREFIX')))
+  ask_confirmation!(message: message)
 
   puts execute_command("git push --force-with-lease origin #{head}")
   puts execute_command("hub pull-request -m #{Shellwords.shellescape(message)} -b #{base_branch} -h #{head}")
@@ -50,9 +51,9 @@ head:        What current branch should be merged into 'base branch'
   EXPLANATION
 end
 
-def ask_confirmation!(message_formatter: BasicMessageFormatter.new)
+def ask_confirmation!(message:)
   puts <<-CONFIRMATION.lines.map(&:strip).join("\n")
-    Message: '#{message(formatter: message_formatter)}'
+    Message: '#{message}'
     Base:    #{base_branch}
     Head:    #{head}
 
@@ -62,7 +63,7 @@ def ask_confirmation!(message_formatter: BasicMessageFormatter.new)
   exit 1 if $stdin.gets.strip =~ /[Nn]/
 end
 
-def message(formatter:)
+def format_message(formatter:)
   # Try to get the PR description from a git commit, if the
   # relevant commandline option is a git ref.
   # Otherwise, use the content of the commandline option
