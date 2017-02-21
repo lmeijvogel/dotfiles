@@ -1,6 +1,9 @@
 #!/usr/bin/env ruby
 
 require 'shellwords'
+require 'dotenv'
+
+Dotenv.load
 
 trap("INT") do
   exit 0
@@ -9,7 +12,7 @@ end
 def main
   check_parameters!
   forbid_master_branch!
-  ask_confirmation!
+  ask_confirmation!(message_formatter: JiraIssueFormatter.new(ENV.fetch('JIRA_ISSUE_PREFIX')))
 
   puts execute_command("git push --force-with-lease origin #{head}")
   puts execute_command("hub pull-request -m #{Shellwords.shellescape(message)} -b #{base_branch} -h #{head}")
@@ -47,9 +50,9 @@ head:        What current branch should be merged into 'base branch'
   EXPLANATION
 end
 
-def ask_confirmation!
+def ask_confirmation!(message_formatter: BasicMessageFormatter.new)
   puts <<-CONFIRMATION.lines.map(&:strip).join("\n")
-    Message: '#{message}'
+    Message: '#{message(formatter: message_formatter)}'
     Base:    #{base_branch}
     Head:    #{head}
 
@@ -59,7 +62,7 @@ def ask_confirmation!
   exit 1 if $stdin.gets.strip =~ /[Nn]/
 end
 
-def message
+def message(formatter:)
   # Try to get the PR description from a git commit, if the
   # relevant commandline option is a git ref.
   # Otherwise, use the content of the commandline option
@@ -72,11 +75,13 @@ def message
 
     commit_description = commit_description_for(commit_ref_candidate)
 
-    if commit_description && !commit_description.strip.empty?
+    message = if commit_description && !commit_description.strip.empty?
       commit_description
     else
       ARGV[0]
     end
+
+    formatter.call(message)
   }.call
 end
 
@@ -97,6 +102,38 @@ end
 def execute_command(command)
   puts "$ #{command}"
   `#{command}`
+end
+
+class JiraIssueFormatter
+  attr_reader :prefix
+
+  def initialize(prefix)
+    @prefix = prefix
+  end
+
+  def call(message)
+    if ticket_number.zero?
+      message
+    else
+      format("[%s-%03d] %s", prefix, ticket_number, message)
+    end
+  end
+
+  private
+
+  def ticket_number
+    @ticket_number ||= -> {
+      $stdout.write "Ticket number? "
+
+      $stdin.gets.strip.to_i
+    }.call
+  end
+end
+
+class BasicMessageFormatter
+  def call(message)
+    message
+  end
 end
 
 main
