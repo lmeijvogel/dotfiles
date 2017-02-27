@@ -30,7 +30,9 @@ alias conf="cd ~/.my_linux_config"
 
 alias o='xdg-open'
 
-alias gvim='nvim'
+alias vi='nvim'
+alias vim='nvim'
+alias gvim='nvim-qt'
 
 alias nq='nvim-qt'
 # Allow custom aliases per environment
