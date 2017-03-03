@@ -4,11 +4,11 @@ $LOAD_PATH << File.dirname(__FILE__)
 
 require '_create_shell_variables'
 
-CreateShellVariables.new.perform do
-  all_refs = `git for-each-ref --format '%(refname)'`.each_line.map(&:strip)
+LOCAL_PREFIX_REGEX  = %r|^refs/heads/|
+REMOTE_PREFIX_REGEX = %r|^refs/remotes/origin/|
 
-  LOCAL_PREFIX_REGEX  = %r|^refs/heads/|
-  REMOTE_PREFIX_REGEX = %r|^refs/remotes/origin/|
+def lines
+  all_refs = `git for-each-ref --format '%(refname)'`.each_line.map(&:strip)
 
   local_branches  = all_refs.grep LOCAL_PREFIX_REGEX
   remote_branches = all_refs.grep REMOTE_PREFIX_REGEX
@@ -18,3 +18,5 @@ CreateShellVariables.new.perform do
 
   local_basenames - remote_basenames
 end
+
+CreateShellVariables.new.perform(lines)
