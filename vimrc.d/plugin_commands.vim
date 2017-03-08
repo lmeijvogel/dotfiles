@@ -16,6 +16,12 @@ command! Tgenerate :!ctags-exuberant --format=2 -R --languages=ruby,javascript -
 map <F8> :TagbarToggle<CR>
 
 " Ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+else
+  let g:ackprg="/usr/bin/ack-grep"
+endif
+
 nmap <leader>a :Ack! ""<C-b>
 " Ack word under cursor
 nmap <leader>A viw A
@@ -36,8 +42,6 @@ let g:ack_mappings = {
       \ "v": "<C-W><CR><C-W>H<C-W>b<C-W>J<C-W>t",
       \ "gv": "<C-W><CR><C-W>H<C-W>b<C-W>J" }
 
-let g:ackprg="/usr/bin/ack-grep"
-"
 nnoremap <F5> :UndotreeToggle<CR>
 
 " Yaml tools
