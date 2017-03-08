@@ -23,12 +23,13 @@ else
 endif
 
 nmap <leader>a :Ack! ""<C-b>
+"
+" Ack visual selection
+vmap <leader>a "vy:Ack! "<C-r>v"
+vmap <leader>A "vy:Ack! "<C-r>v"<CR>
+
 " Ack word under cursor
 nmap <leader>A viw A
-
-" Ack visual selection
-vmap <leader>a "vy:Ack "<C-r>v"
-vmap <leader>A "vy:Ack "<C-r>v"<CR>
 
 " Disable 'h' mapping that interferes with navigation
 " These are the default mappings, but with 'h' removed.
