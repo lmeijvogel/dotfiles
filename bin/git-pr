@@ -2,6 +2,7 @@
 
 require 'shellwords'
 require 'dotenv'
+require 'optparse'
 
 Dotenv.load
 
@@ -10,12 +11,12 @@ trap("INT") do
 end
 
 def main
-  check_parameters!
+  options = check_parameters!
   forbid_master_branch!
-  message = format_message(formatter: JiraIssueFormatter.new(ENV.fetch('JIRA_ISSUE_PREFIX')))
+  message = format_message(options, formatter: JiraIssueFormatter.new(ENV.fetch('JIRA_ISSUE_PREFIX')))
   ask_confirmation!(message: message)
 
-  puts execute_command("git push --force-with-lease origin #{head}")
+  puts execute_command("git push #{"--no-verify" if options[:no_verify]} --force-with-lease origin #{head}")
   puts execute_command("hub pull-request -m #{Shellwords.shellescape(message)} -b #{base_branch} -h #{head}")
 end
 
@@ -27,16 +28,34 @@ def forbid_master_branch!
 end
 
 def check_parameters!
-  if ARGV.length == 0 || ARGV[0] == '-h'
-    show_usage
+  options = {}
 
-    exit 2
-  elsif ARGV[0] =~ /^--?[a-zA-Z0-9]/
-    puts "Invalid argument(s)"
-    show_usage
+  parser = OptionParser.new do |opts|
+    opts.banner = "Usage: #{File.basename(__FILE__)} [options] (--|commit SHA|message)"
 
-    exit 3
+    opts.on('--no-verify', "Skip pre-push verifications") do
+      options[:no_verify] = true
+    end
+
+    opts.on('--', "Use last commit message as PR message") do
+      options[:use_last_commit] = true
+    end
+
+    opts.on_tail("-h", "Show this help message") do
+      puts opts
+      exit 1
+    end
   end
+
+
+  parser.parse!(ARGV)
+
+  if !options[:use_last_commit] && ARGV.empty?
+    puts "No PR message given!"
+    exit 2
+  end
+
+  options
 end
 
 def show_usage
@@ -63,15 +82,15 @@ def ask_confirmation!(message:)
   exit 1 if $stdin.gets.strip =~ /[Nn]/
 end
 
-def format_message(formatter:)
+def format_message(options, formatter:)
   # Try to get the PR description from a git commit, if the
   # relevant commandline option is a git ref.
   # Otherwise, use the content of the commandline option
   @message ||= -> {
-    commit_ref_candidate = ARGV[0]
-
-    if commit_ref_candidate == "--"
+    if options[:use_last_commit]
       commit_ref_candidate = "HEAD"
+    else
+      commit_ref_candidate = ARGV[0]
     end
 
     commit_description = commit_description_for(commit_ref_candidate)
