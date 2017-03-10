@@ -47,6 +47,7 @@ Plugin 'posva/vim-vue'
 Plugin 'janko-m/vim-test'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'idanarye/vim-merginal.git'
+Plugin 'tpope/vim-rbenv'
 Plugin 'tpope/vim-bundler'
 
 call vundle#end()
