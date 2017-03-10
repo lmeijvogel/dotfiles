@@ -37,7 +37,6 @@ Plugin 'ntpeters/vim-better-whitespace' " Better whitespace highlighting
 Plugin 'jgdavey/tslime.vim'
 Plugin 'jgdavey/vim-turbux'
 Plugin 'vim-scripts/summerfruit256.vim' " Light color scheme
-Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-rails'
 Plugin 'buztard/vim-rel-jump' " Store relative jumps (5j, 3k) in the jump list
 Plugin 'ap/vim-buftabline' " Buffer list at top of screen

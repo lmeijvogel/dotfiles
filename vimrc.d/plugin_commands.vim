@@ -13,8 +13,6 @@ let Tlist_WinWidth = 50
 map <A-F8> :!ctags-exuberant --format=2 -R --languages=ruby,javascript --exclude=.git --exclude=log .<CR>
 command! Tgenerate :!ctags-exuberant --format=2 -R --languages=ruby,javascript --exclude=.git --exclude=log .
 
-map <F8> :TagbarToggle<CR>
-
 " Ack.vim
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -70,9 +68,6 @@ let g:syntastic_check_on_open=1
 let g:syntastic_eruby_ruby_quiet_messages = {'regex': 'possibly useless use of .* in void context'}
 
 nnoremap <leader>st :SyntasticToggleMode<CR>
-
-" Tagbar
-nnoremap <F9> :TagbarToggle<CR>
 
 if !exists('g:config_already_loaded')
   " Do not reset color scheme when reloading the configuration
