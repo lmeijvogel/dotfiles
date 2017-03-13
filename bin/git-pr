@@ -18,6 +18,8 @@ def main
 
   puts execute_command("git push #{"--no-verify" if options[:no_verify]} --force-with-lease origin #{head}")
   puts execute_command("hub pull-request -m #{Shellwords.shellescape(message)} -b #{base_branch} -h #{head}")
+rescue StandardError => e
+  puts "ERROR: #{e.message}"
 end
 
 def forbid_master_branch!
@@ -122,6 +124,8 @@ end
 def execute_command(command)
   puts "$ #{command}"
   `#{command}`
+
+  raise "Command failed" unless $?.success?
 end
 
 class JiraIssueFormatter
