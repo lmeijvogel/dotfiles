@@ -123,9 +123,11 @@ end
 
 def execute_command(command)
   puts "$ #{command}"
-  `#{command}`
+  result = `#{command}`
 
   raise "Command failed" unless $?.success?
+
+  result
 end
 
 class JiraIssueFormatter
