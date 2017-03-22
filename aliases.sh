@@ -35,5 +35,8 @@ alias vim='nvim'
 alias gvim='nvim-qt'
 
 alias nq='nvim-qt'
+
+alias fstop='find tmp/pids -name "*" -exec pkill -F {} \;'
+
 # Allow custom aliases per environment
 [[ -x "$HOME/.aliases_private.sh" ]] && . "$HOME/.aliases_private.sh"
