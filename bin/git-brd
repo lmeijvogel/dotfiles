@@ -88,7 +88,7 @@ rescue BranchDoesNotExist
   puts "Branch #{branch} does not exist!"
   exit 1
 rescue BranchNotFullyMerged
-  puts "Not fully merged. Re-run to really delete"
+  puts "#{branch} not fully merged. Re-run to really delete"
   exit 1
 rescue
   puts "Unknown Error occurred"
