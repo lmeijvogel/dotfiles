@@ -34,7 +34,7 @@ syntax on
 " Syntax coloring lines that are too long just slows down the world
 set synmaxcol=600
 
-set listchars=tab:▸\ ,trail:·,nbsp:_,extends:❯,precedes:❮
+set listchars=trail:·,nbsp:_,extends:❯,precedes:❮,tab:▸\ 
 set list
 
 set scrolloff=3 " Always show 3 lines above and below cursor
