@@ -94,6 +94,9 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" Regard .es6 files as Javascript
+autocmd BufEnter *.es6 set ft=javascript
+
 set tags+=gems.tags
 
 set encoding=utf-8
