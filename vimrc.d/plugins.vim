@@ -48,6 +48,8 @@ Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'idanarye/vim-merginal.git'
 Plugin 'tpope/vim-rbenv'
 Plugin 'tpope/vim-bundler'
+Plugin 'othree/yajs.vim'
+Plugin 'mxw/vim-jsx'
 
 call vundle#end()
 call yankstack#setup()
