@@ -5,11 +5,6 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# Add method to easily go to a gem directory
-function cgem {
-  pushd `bundle show $1`
-}
-
 # Private settings can be stored in .bashrc_private (see example file)
 
 # User specific aliases and functions
