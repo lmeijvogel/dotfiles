@@ -5,9 +5,6 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# Add alias 'cl' for cd .. ; ls
-cl() {    if [ -d "$1" ]; then       cd "$1";       ls -l;    fi; }
-
 # Add method to easily go to a gem directory
 function cgem {
   pushd `bundle show $1`
