@@ -80,6 +80,8 @@ set winfixwidth
 " Save all files when Vim loses focus
 au FocusLost * silent! :wa
 
+au BufRead,BufNewFile *.es6  set filetype=javascript
+
 " Statusline
 set laststatus=2 " Always show status line
 set statusline=[%n]\ %f\ %m\ %y%=%l,%c\ %P
