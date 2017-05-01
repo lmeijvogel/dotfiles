@@ -21,7 +21,21 @@ class CreateShellVariables
   private
 
   def clear_current_vars
-    (0..500).each do |i|
+    # Clear enough variables.
+    #
+    # Find the first n for which $e{n} does not exist. Then
+    # clear all variables smaller than that value, so, if $e11 exists, but $e500 does not exist,
+    # clear variables $e1..$e500.
+    # 11 is a special value, since most scripts by default create $e1..$e10 .
+    sizes = [11, 100, 1000, 10_000, 100_000, 1_000_000]
+
+    first_nonexistent_key = sizes.find do |num|
+      !ENV.key?("e#{num}")
+    end
+
+    num_to_clear = first_nonexistent_key || sizes[-1]
+
+    (0..num_to_clear).each do |i|
       puts "unset e#{i}"
     end
   end
