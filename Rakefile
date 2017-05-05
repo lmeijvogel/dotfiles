@@ -2,8 +2,10 @@
 
 require 'fileutils'
 
+desc "perform :update_all_symlinks"
 task :default => :update_all_symlinks
 
+desc "Updates all symlinks"
 task :update_all_symlinks do
   # This creates the dotfiles according to my preferences.
   # If only the vim plugins and config interest you, just
