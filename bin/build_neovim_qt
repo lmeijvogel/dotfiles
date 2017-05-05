@@ -1,0 +1,35 @@
+#!/bin/bash
+
+pushd $HOME/git
+
+  echo
+  pushd neovim
+    echo "Building neovim"
+    git pull
+    make distclean
+    make -j4
+  popd
+
+  echo
+  pushd neovim-qt
+    echo "Building neovim-qt"
+    git pull
+    mkdir -p build
+    cd build
+    rm -rf *
+    cmake -DCMAKE_BUILD_TYPE=Release ..
+    make
+  popd
+
+  echo
+  pushd neovim
+    echo "Installing neovim"
+    sudo make install
+  popd
+
+  echo
+  pushd neovim-qt/build
+    echo "Installing neovim-qt"
+    sudo make install
+  popd
+popd
