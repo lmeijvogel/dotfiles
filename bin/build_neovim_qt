@@ -7,7 +7,7 @@ pushd $HOME/git
     echo "Building neovim"
     git pull
     make distclean
-    make -j4
+    CMAKE_BUILD_TYPE=RelWithDebInfo make -j4
   popd
 
   echo
