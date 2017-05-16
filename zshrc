@@ -65,6 +65,9 @@ source $HOME/.aliases.sh
 export EDITOR='nvim'
 export VISUAL='nvim'
 
+# Show timestamp in history command
+alias history="fc -il 1"
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
