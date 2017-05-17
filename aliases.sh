@@ -38,6 +38,9 @@ alias nq='nvim-qt'
 
 alias fstop='find tmp/pids -name "*" -exec pkill -F {} \;'
 
+alias k1='kill %1'
+alias k91='kill -9 %1'
+
 cl() { if [ -d "$1" ]; then cd "$1"; ls -l; else echo "*** Directory not found ***" ; fi; }
 
 # Allow custom aliases per environment
