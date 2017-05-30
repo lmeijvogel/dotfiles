@@ -12,6 +12,7 @@
   swc = stash save --keep-index
 
   d  = diff
+  dom = diff origin/master
   mt = mergetool
 
   # nl -v 0 - adds line numbers to the output
