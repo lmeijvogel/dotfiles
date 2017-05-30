@@ -103,7 +103,7 @@ nmap <silent> <F7> :set bg=light<CR>:colorscheme summerfruit256<CR>
 
 " fugitive
 nmap <leader>gs :Gstatus<CR>
-nmap <leader>gb :!git gui blame %<CR>
+nmap <leader>gb :call GitGuiBlame()<CR>
 
 " Merginal
 nmap <leader>gr :Merginal<CR>
@@ -154,4 +154,8 @@ function! SwitchTestRunner()
     let g:test#strategy = "neoterm"
     echo "Sending tests to neoterm"
   endif
+endfunction
+
+function! GitGuiBlame()
+  exec("!git gui blame --line=". line('.') ." %")
 endfunction
