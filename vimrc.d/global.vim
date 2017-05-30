@@ -38,8 +38,9 @@ set listchars=trail:·,nbsp:_,extends:❯,precedes:❮,tab:▸\
 set list
 
 set scrolloff=3 " Always show 3 lines above and below cursor
+
 set sidescrolloff=20
-set sidescroll=15
+set sidescroll=1 " Sidescroll per single column
 
 " Add WildMenu for easier tab completion of filenames
 set wildmenu
