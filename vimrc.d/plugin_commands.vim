@@ -55,19 +55,6 @@ nmap <silent> <leader>be :Bufferlist<CR>
 vmap <Leader>e :EasyAlign=<CR>
 vmap <Leader>E :EasyAlign
 
-" Syntastic
-let g:syntastic_mode_map = { 'mode': 'active',
-                           \ 'active_filetypes': ['ruby'],
-                           \ 'passive_filetypes': ['puppet'] }
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-
-let g:syntastic_check_on_open=1
-let g:syntastic_eruby_ruby_quiet_messages = {'regex': 'possibly useless use of .* in void context'}
-
-nnoremap <leader>st :SyntasticToggleMode<CR>
-
 if !exists('g:config_already_loaded')
   " Do not reset color scheme when reloading the configuration
   let g:config_already_loaded = 1

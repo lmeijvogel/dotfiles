@@ -17,7 +17,6 @@ Plugin 'duff/vim-scratch.git' " Scratch buffer
 Plugin 'mbbill/undotree' " Undo history visualisation
 Plugin 'tpope/vim-surround.git'
 Plugin 'maxbrunsfeld/vim-yankstack'
-Plugin 'scrooloose/syntastic.git'
 Plugin 'mileszs/ack.vim.git'
 Plugin 'jpo/vim-railscasts-theme.git' " Dark color scheme
 Plugin 'vim-scripts/bufkill.vim.git' " Commands for deleting the current buffer
