@@ -68,6 +68,10 @@ if !exists('g:config_already_loaded')
   " For nvim-qt, the font size is read from ~/.config/nvim/ginit.vim
   if has("gui_running")
     set guifont=Inconsolata-g\ 13
+  else
+    " Konsole (which I use) does not support cursor shapes, which makes it
+    " print extraneous 'q' characters.
+    set guicursor=
   endif
 endif
 
