@@ -63,6 +63,8 @@
   rh2 = reset HEAD~2 --hard
   rh3 = reset HEAD~3 --hard
 
+  rhoo = "!f() { base_branch=$(git symbolic-ref --short HEAD); git reset --hard origin/${1:-$base_branch}; }; f"
+
   sl = stash list
 
   ss  = stash show -p
