@@ -29,6 +29,8 @@ vmap <leader>A "vy:Ack! "<C-r>v"<CR>
 " Ack word under cursor
 nmap <leader>A viw A
 
+nmap <leader>af :call AckCurrentFile()<CR>
+
 " Disable 'h' mapping that interferes with navigation
 " These are the default mappings, but with 'h' removed.
 let g:ack_mappings = {
@@ -148,4 +150,12 @@ endfunction
 
 function! GitGuiBlame()
   exec("!git gui blame --line=". line('.') ." %")
+endfunction
+
+function! AckCurrentFile()
+  let name = expand('%:t')
+  let withoutUnderscore = substitute(name, "^_", "", "")
+  let withoutExtension = substitute(withoutUnderscore, "\\..*$", "", "")
+
+  exec "Ack \"". withoutExtension ."\""
 endfunction
