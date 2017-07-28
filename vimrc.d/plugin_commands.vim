@@ -149,7 +149,7 @@ function! SwitchTestRunner()
 endfunction
 
 function! GitGuiBlame()
-  exec("!git gui blame --line=". line('.') ." %")
+  exec("!git gui blame --line=". line('.') ." \"%\"")
 endfunction
 
 function! AckCurrentFile()
