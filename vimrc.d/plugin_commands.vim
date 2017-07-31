@@ -104,6 +104,9 @@ nmap <leader>gr :Merginal<CR>
 " Show buffer number next to buffer name
 let g:buftabline_numbers = 1
 
+" Open file from clipboard
+nmap <leader>ec :call OpenClipboardFile()<CR>
+
 if has('nvim')
   " NeoTerm
   let g:neoterm_position = 'horizontal'
@@ -158,4 +161,18 @@ function! AckCurrentFile()
   let withoutExtension = substitute(withoutUnderscore, "\\..*$", "", "")
 
   exec "Ack \"". withoutExtension ."\""
+endfunction
+
+function! OpenClipboardFile()
+  let path=system("xsel -bo")
+
+  let stripped_path = substitute(path, '\n\+$', '', '')
+
+  if filereadable(stripped_path)
+    exec("e ". stripped_path)
+  else
+    echo "File"
+    echo "  ". stripped_path
+    echo "does not exist!"
+  endif
 endfunction
