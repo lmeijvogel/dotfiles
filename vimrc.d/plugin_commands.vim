@@ -107,6 +107,9 @@ let g:buftabline_numbers = 1
 " Open file from clipboard
 nmap <leader>ec :call OpenClipboardFile()<CR>
 
+" Ale
+let g:ale_sign_column_always = 1
+
 if has('nvim')
   " NeoTerm
   let g:neoterm_position = 'horizontal'
