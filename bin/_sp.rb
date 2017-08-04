@@ -33,6 +33,7 @@ def test_main
     "spec/integration/models/backoffice/product_spec.rb:32" => ".|spec/integration/models/backoffice/product_spec.rb:32",
     "spec/integration/models/backoffice/product_spec.rb" => ".|spec/integration/models/backoffice/product_spec.rb",
     "engines/desktop_shop/spec/features/desktop_shop/visitor_visits_smartphone_page_spec.rb" => "engines/desktop_shop|spec/features/desktop_shop/visitor_visits_smartphone_page_spec.rb",
+    "spec/features/desktop_shop/01_smartphone/brand_with_phone_page_spec.rb" => "engines/desktop_shop|spec/features/desktop_shop/01_smartphone/brand_with_phone_page_spec.rb",
 
     "/home/lmeijvogel/projects/mother/spec/models/product_spec.rb" => ".|/home/lmeijvogel/projects/mother/spec/models/product_spec.rb",
     "/home/something/frontend/engines/desktop_shop/spec/features/desktop_shop/visitor_visits_smartphone_page_spec.rb" => "engines/desktop_shop|spec/features/desktop_shop/visitor_visits_smartphone_page_spec.rb",
@@ -64,7 +65,7 @@ def find_path_and_branch(files)
       base_name = $1
       acc[source_location] ||= []
       acc[source_location] << base_name
-    elsif file =~ %r|^(?:./)?spec/| || file.start_with?('/')
+    elsif file =~ %r|^(?:\./)?spec/| || file.start_with?('/')
       acc['.'] ||= []
       acc['.'] << file
     else
