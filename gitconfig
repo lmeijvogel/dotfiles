@@ -7,6 +7,9 @@
   cob = "!f() { git checkout -b $1 origin/master; }; f"
   com = checkout master
   cop = checkout --patch
+
+  br = branch
+
   ci = commit
   cp = cherry-pick
   c = diff --cached
