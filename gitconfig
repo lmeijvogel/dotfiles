@@ -1,6 +1,7 @@
 [color]
   ui = auto
 [alias]
+  # This picks up duplicate 'git' commands: 'git git status' etc.
   git = !git
   co = checkout
   cob = "!f() { git checkout -b $1 origin/master; }; f"
