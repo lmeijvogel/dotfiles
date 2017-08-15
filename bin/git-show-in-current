@@ -1,0 +1,3 @@
+message=$(git show --oneline --no-patch --pretty=format:%s $1)
+
+git log --grep "$message"

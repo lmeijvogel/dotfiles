@@ -52,6 +52,8 @@
   s2 = show HEAD~2
   s3 = show HEAD~3
 
+  sic = show-in-current
+
   rs  = reset --soft
   rs1 = reset --soft HEAD~1
   rs2 = reset --soft HEAD~2
