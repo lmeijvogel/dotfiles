@@ -7,8 +7,19 @@ pushd $HOME/git
     echo "Building neovim"
     git pull
     make distclean
+
+    if [[ "$?" -ne "0" ]]; then
+      echo "Error cleaning neovim"
+      exit 1
+    fi
+
     CMAKE_BUILD_TYPE=RelWithDebInfo make -j4
   popd
+
+  if [[ "$?" -ne "0" ]]; then
+    echo "Error building neovim"
+    exit 1
+  fi
 
   echo
   pushd neovim-qt
@@ -20,6 +31,11 @@ pushd $HOME/git
     cmake -DCMAKE_BUILD_TYPE=Release ..
     make
   popd
+
+  if [[ "$?" -ne "0" ]]; then
+    echo "Error building neovim-qt"
+    exit 1
+  fi
 
   echo
   pushd neovim
