@@ -128,6 +128,10 @@ if has('nvim')
   nnoremap <silent> <leader>S  :w<CR>:TestLast<CR>
   nnoremap <silent> <leader>s <Nop>
 
+  " Automatically enter insert mode in the terminal
+  autocmd BufWinEnter,WinEnter term://* startinsert
+  autocmd BufLeave term://* stopinsert
+
   set inccommand=nosplit
   tnoremap <C-j> <C-\><C-n><C-w>j
   tnoremap <C-k> <C-\><C-n><C-w>k
