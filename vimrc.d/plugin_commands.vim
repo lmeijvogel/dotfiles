@@ -110,6 +110,9 @@ nmap <leader>ec :call OpenClipboardFile()<CR>
 " Ale
 let g:ale_sign_column_always = 1
 
+" The ruby linter for ERB isn't very good, so don't use it.
+let g:ale_linters = { 'eruby': [] }
+
 if has('nvim')
   " NeoTerm
   let g:neoterm_position = 'horizontal'
