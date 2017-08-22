@@ -29,7 +29,7 @@ vmap <leader>A "vy:Ack! "<C-r>v"<CR>
 " Ack word under cursor
 nmap <leader>A viw A
 
-nmap <leader>af :call AckCurrentFile()<CR>
+command! Ackf :call AckCurrentFile()<CR>
 
 " Disable 'h' mapping that interferes with navigation
 " These are the default mappings, but with 'h' removed.
