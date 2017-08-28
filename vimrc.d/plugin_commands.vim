@@ -53,10 +53,6 @@ nmap <leader>Y :YamlGoToKey
 " Buffet
 nmap <silent> <leader>be :Bufferlist<CR>
 
-" EasyAlign
-vmap <Leader>e :EasyAlign=<CR>
-vmap <Leader>E :EasyAlign
-
 if !exists('g:config_already_loaded')
   " Do not reset color scheme when reloading the configuration
   let g:config_already_loaded = 1

@@ -28,7 +28,6 @@ Plugin 'tpope/vim-unimpaired.git' " Bracket commands: ]b, etc.
 Plugin 'tpope/vim-rsi.git' " Readline style insertions
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'ctrlpvim/ctrlp.vim.git' " Fuzzy file search
-Plugin 'junegunn/vim-easy-align.git'
 Plugin 'editorconfig/editorconfig-vim.git'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
