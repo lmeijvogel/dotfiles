@@ -73,10 +73,13 @@ nnoremap <leader>[ :tp<CR>
 nnoremap <leader>w :set wrap!<CR>
 
 " Easier next/prev buffer
-nmap <M-h> :bp<CR>
-nmap <M-l> :bn<CR>
-nmap <M-S-h> :bp<CR>
-nmap <M-S-l> :bn<CR>
+nmap <silent> <M-h> :bp<CR>
+nmap <silent> <M-l> :bn<CR>
+
+" These work well in combination with 'delete buffer' <M-S-d>:
+" I don't have to press/lift Shift every time.
+nmap <silent> <M-S-h> :bp<CR>
+nmap <silent> <M-S-l> :bn<CR>
 
 " Easy delete buffer
 nmap <M-S-d> :BD<CR>
