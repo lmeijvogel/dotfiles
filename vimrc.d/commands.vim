@@ -55,9 +55,6 @@ nmap <silent> <Left> <C-w>8<
 nmap <silent> <Right> <C-w>8>
 
 " Delete trailing whitespace
-nmap <silent> <leader>dtw :s/\s*$//<CR>:noh<CR>
-nmap <silent> <leader>gdtw :%s/\s*$//<CR>:noh<CR>
-" Alias for gdtw
 map <F4> :%s/\s*$//<CR>:noh<CR>
 
 nmap <silent> <leader>gb :!git gui blame %<CR>
