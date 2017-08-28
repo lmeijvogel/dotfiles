@@ -129,6 +129,9 @@ for ((i=1 ; i < 20 ; i++)) {
   alias -g s@$i="stash@{$i}"
 }
 
+
+alias -g D=~/Downloads
+
 function br () {
   eval "`br.rb $@`"
 }
