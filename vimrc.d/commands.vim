@@ -78,6 +78,10 @@ nmap <silent> <M-l> :bn<CR>
 nmap <silent> <M-S-h> :bp<CR>
 nmap <silent> <M-S-l> :bn<CR>
 
+" Same with ctrl-tab
+nmap <silent> <C-Tab> :bn<CR>
+nmap <silent> <C-S-Tab> :bp<CR>
+
 " Easy delete buffer
 nmap <M-S-d> :BD<CR>
 
