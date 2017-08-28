@@ -66,9 +66,6 @@ nmap <leader>h :%s/:\([a-z3-9_]\{1,\}[!?]\?\) \?=>/\1:/g<CR>
 nmap Q <Nop>
 nmap K <Nop>
 
-nnoremap <leader>] :tn<CR>
-nnoremap <leader>[ :tp<CR>
-
 " Easy toggling of word wrap
 nnoremap <leader>w :set wrap!<CR>
 
