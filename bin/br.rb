@@ -47,13 +47,13 @@ class NumberedGitBranch
 end
 
 def forward_to_normal_git_branch!(argv)
-  stdout_or_stderr, _ = Open3.capture2e("git", "branch", *argv)
+  stdout_or_stderr, = Open3.capture2e('git', 'branch', *argv)
 
   $stderr.puts stdout_or_stderr
 end
 
-if (ARGV - ["--remote", "-r"]).empty?
-  is_remote = ARGV.include?("--remote") || ARGV.include?("-r")
+if (ARGV - ['--remote', '-r']).empty?
+  is_remote = ARGV.include?('--remote') || ARGV.include?('-r')
 
   NumberedGitBranch.new(is_remote ? :remote : :local).perform
 else

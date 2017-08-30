@@ -28,16 +28,16 @@ class DeleteBranch
     two_minutes = 120
 
     # If the last try was long ago, don't count it for now
-    return timediff > two_minutes
+    timediff > two_minutes
   end
 
   def delete_branch(force: false)
-    flag = force ? "-D" : "-d"
+    flag = force ? '-D' : '-d'
     commandline = "git branch #{flag} #{branch}"
 
     stdout, stderr, status = Open3.capture3(commandline)
 
-    puts stdout if !stdout.empty?
+    puts stdout unless stdout.empty?
 
     success = status == 0
 
@@ -52,9 +52,9 @@ class DeleteBranch
         cleanup_tempfile
         raise BranchDoesNotExist
       else
-        puts stderr if !stderr.empty?
+        puts stderr unless stderr.empty?
 
-        raise "Unknown Error occurred"
+        raise 'Unknown Error occurred'
       end
     end
   end
@@ -74,13 +74,16 @@ class DeleteBranch
   def tmp_filename
     @tmp_filename ||= proc {
       # Not path-traversal safe, but usable for branches that contain slashes
-      safe_branch_name = branch.gsub(/\//, "--")
+      safe_branch_name = branch.gsub(%r{/}, '--')
       "/tmp/git-brd-attempt-#{safe_branch_name}"
     }.call
   end
 end
 
-branch = ARGV.fetch(0) do puts "No branch given" ; exit 1 end
+branch = ARGV.fetch(0) do
+  puts 'No branch given'
+  exit 1
+end
 
 begin
   DeleteBranch.new(branch).call
@@ -91,6 +94,6 @@ rescue BranchNotFullyMerged
   puts "#{branch} not fully merged. Re-run to really delete"
   exit 1
 rescue
-  puts "Unknown Error occurred"
+  puts 'Unknown Error occurred'
   exit 1
 end
