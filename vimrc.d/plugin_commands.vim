@@ -81,7 +81,7 @@ nmap <C-A-j> :bp<CR>
 let g:ctrlp_map = '<C-p>'
 let g:ctrlp_command='CtrlPMixed'
 
-let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|coverage\|**/coverage\|public/system/dragonfly\|public/assets'
+let g:ctrlp_custom_ignore = 'node_modules\|bower_components\|coverage\|**/coverage\|public/system/dragonfly\|public/assets\|public/packs'
 
 " Only show MRU files in the current working directory
 let g:ctrlp_mruf_relative = 1
