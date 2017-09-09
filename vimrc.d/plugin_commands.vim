@@ -53,6 +53,23 @@ nmap <leader>Y :YamlGoToKey
 " Buffet
 nmap <silent> <leader>be :Bufferlist<CR>
 
+" Syntastic
+let g:syntastic_mode_map = { 'mode': 'active',
+                           \ 'active_filetypes': ['ruby', 'javascript'],
+                           \ 'passive_filetypes': ['puppet'] }
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_javascript_checkers = ['eslint']
+
+let g:syntastic_check_on_open=1
+let g:syntastic_eruby_ruby_quiet_messages = {'regex': 'possibly useless use of .* in void context'}
+
+let g:syntastic_cpp_compiler="g++"
+let g:syntastic_cpp_compiler_options=" -std=c++11 -Wall"
+
+nnoremap <leader>st :SyntasticToggleMode<CR>
+
 if !exists('g:config_already_loaded')
   " Do not reset color scheme when reloading the configuration
   let g:config_already_loaded = 1
