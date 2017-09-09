@@ -2,11 +2,11 @@ set nocompatible
 
 filetype off
 
-source $MYVIMRC.d/global.vim
-nmap <silent> <leader>e1v :e $MYVIMRC.d/global.vim<CR>
-source $MYVIMRC.d/commands.vim
-nmap <silent> <leader>e2v :e $MYVIMRC.d/commands.vim<CR>
-source $MYVIMRC.d/plugins.vim
-nmap <silent> <leader>e3v :e $MYVIMRC.d/plugins.vim<CR>
-source $MYVIMRC.d/plugin_commands.vim
-nmap <silent> <leader>e4v :e $MYVIMRC.d/plugin_commands.vim<CR>
+source $HOME/.vimrc.d/global.vim
+nmap <silent> <leader>e1v :e $HOME/.vimrc.d/global.vim<CR>
+source $HOME/.vimrc.d/commands.vim
+nmap <silent> <leader>e2v :e $HOME/.vimrc.d/commands.vim<CR>
+source $HOME/.vimrc.d/plugins.vim
+nmap <silent> <leader>e3v :e $HOME/.vimrc.d/plugins.vim<CR>
+source $HOME/.vimrc.d/plugin_commands.vim
+nmap <silent> <leader>e4v :e $HOME/.vimrc.d/plugin_commands.vim<CR>
