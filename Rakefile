@@ -12,11 +12,12 @@ task :update_all_symlinks do
   # link .vimrc and .vim to vimrc and vim in the parent directory.
 
   CONFIG_FILES = Rake::FileList["*"]
-  CONFIG_FILES.exclude("bin", "scripts", "Gemfile", "Gemfile.lock", ".git", ".gitignore", "Rakefile", "README", "INSTALL.md")
+  CONFIG_FILES.exclude("bin", "config", "scripts", "Gemfile", "Gemfile.lock", ".git", ".gitignore", "Rakefile", "README", "INSTALL.md")
 
   update_symlinks(CONFIG_FILES, "#{ENV['HOME']}/.%p")
 
   update_symlinks(Rake::FileList["bin/*"], "#{ENV['HOME']}/%p")
+  update_symlinks(Rake::FileList["config/nvim/*"], "#{ENV['HOME']}/.%p")
 
   initialize_vim_bundle
 end
