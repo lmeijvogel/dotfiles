@@ -91,3 +91,7 @@ inoremap <C-k> <C-o>k
 if has('nvim')
   set inccommand=nosplit
 endif
+
+" Add "large" jumps to the jump list
+nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
+nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
