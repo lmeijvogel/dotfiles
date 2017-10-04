@@ -135,6 +135,7 @@ if has('nvim')
 
   let test#strategy = "neoterm"
   let test#ruby#rspec#executable = 'sp'
+  let test#javascript#jest#executable = 'npm run test'
 
   nnoremap <silent> <leader>sa :TestSuite<CR>
   nnoremap <silent> <leader>sf :w<CR>:TestFile<CR>
