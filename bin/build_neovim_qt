@@ -41,6 +41,13 @@ pushd $HOME/git
   pushd neovim
     echo "Installing neovim"
     sudo make install
+
+    # Clean up afterwards. This is necessary because `make install` actually creates these directories
+    # with additional contents. Since it runs as root, these directories are owned by root and can't be
+    # deleted without sudo.
+
+    # When this `rm` is run, the sudo password is probably still cached and doesn't have to be asked again.
+    sudo rm -rf $HOME/git/neovim/{.deps,build}
   popd
 
   echo
