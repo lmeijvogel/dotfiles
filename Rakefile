@@ -18,6 +18,7 @@ task :update_all_symlinks do
 
   update_symlinks(Rake::FileList["bin/*"], "#{ENV['HOME']}/%p")
   update_symlinks(Rake::FileList["config/nvim/*"], "#{ENV['HOME']}/.%p")
+  update_symlinks(Rake::FileList["config/terminator/*"], "#{ENV['HOME']}/.%p")
 
   initialize_vim_bundle
 end
