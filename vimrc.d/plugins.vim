@@ -27,7 +27,6 @@ Plugin 'tyok/nerdtree-ack.git'
 Plugin 'tpope/vim-unimpaired.git' " Bracket commands: ]b, etc.
 Plugin 'tpope/vim-rsi.git' " Readline style insertions
 Plugin 'tpope/vim-fugitive.git'
-Plugin 'ctrlpvim/ctrlp.vim.git' " Fuzzy file search
 Plugin 'editorconfig/editorconfig-vim.git'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
@@ -50,6 +49,8 @@ Plugin 'othree/yajs.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'lmeijvogel/nerdtree-copypaste'
 Plugin 'w0rp/ale'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()
 call yankstack#setup()

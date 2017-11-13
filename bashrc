@@ -46,3 +46,5 @@ fi
 shopt -s globstar
 
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
