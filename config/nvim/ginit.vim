@@ -1,1 +1,1 @@
-GuiFont Input\ Mono:h10
+GuiFont Input\ Mono:h12
