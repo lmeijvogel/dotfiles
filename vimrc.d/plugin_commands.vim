@@ -10,8 +10,7 @@ let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_WinWidth = 50
 
 " Rebuild tag list
-map <A-F8> :!ctags-exuberant --format=2 -R --languages=ruby,javascript --exclude=.git --exclude=log .<CR>
-command! Tgenerate :!ctags-exuberant --format=2 -R --languages=ruby,javascript --exclude=.git --exclude=log .
+command! LMGenerateTags :!ctags-exuberant --format=2 -R --languages=ruby,javascript --exclude=.git --exclude=log .
 
 " Ack.vim
 if executable('ag')
@@ -30,6 +29,7 @@ vmap <leader>A "vy:Ack! "<C-r>v"<CR>
 nmap <leader>A viw A
 
 command! Ackf :call AckCurrentFile()<CR>
+command! LMAckCurrentFilename :call AckCurrentFile()<CR>
 
 " Disable 'h' mapping that interferes with navigation
 " These are the default mappings, but with 'h' removed.

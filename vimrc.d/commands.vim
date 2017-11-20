@@ -54,20 +54,20 @@ nmap <silent> <Down> <C-w>8-
 nmap <silent> <Left> <C-w>8<
 nmap <silent> <Right> <C-w>8>
 
-" Delete trailing whitespace
-map <F4> :%s/\s*$//<CR>:noh<CR>
-
 nmap <silent> <leader>gb :!git gui blame %<CR>
 
 " Replace Ruby rocket syntax with keyvalue syntax
-nmap <leader>h :%s/:\([a-z3-9_]\{1,\}[!?]\?\) \?=>/\1:/g<CR>
+command! LMRewriteRockets %s/:\([a-z3-9_]\{1,\}[!?]\?\) \?=>/\1:/g<CR>
+
+" Delete trailing whitespace
+command! LMDeleteTrailing %s/\s*$//<CR>:noh<CR>
+
+" Easy toggling of word wrap
+command! LMToggleWrap set wrap!<CR>
 
 " Disable Q (Ex mode) and K (man lookup)
 nmap Q <Nop>
 nmap K <Nop>
-
-" Easy toggling of word wrap
-nnoremap <leader>w :set wrap!<CR>
 
 " Easier next/prev buffer
 nmap <silent> <M-h> :bp<CR>
