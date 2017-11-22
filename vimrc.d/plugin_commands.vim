@@ -13,7 +13,9 @@ let Tlist_WinWidth = 50
 command! LMGenerateTags :!ctags-exuberant --format=2 -R --languages=ruby,javascript --exclude=.git --exclude=log .
 
 " Ack.vim
-if executable('ag')
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep --no-heading'
+elseif executable('ag')
   let g:ackprg = 'ag --vimgrep'
 else
   let g:ackprg="/usr/bin/ack-grep"
