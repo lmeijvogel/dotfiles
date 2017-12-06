@@ -3,5 +3,5 @@
 if [[ `git symbolic-ref HEAD` =~ master ]]; then
   echo 'ERROR: On master branch'
 else
-  git push $@ --force-with-lease
+  git push $@ --set-upstream --force-with-lease
 fi

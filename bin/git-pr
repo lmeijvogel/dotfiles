@@ -16,7 +16,7 @@ def main
   message = format_message(options, formatter: JiraIssueFormatter.new(ENV.fetch('JIRA_ISSUE_PREFIX')))
   ask_confirmation!(message: message)
 
-  puts execute_command("git push #{"--no-verify" if options[:no_verify]} --force-with-lease origin #{head}")
+  puts execute_command("git push #{'--no-verify' if options[:no_verify]} --set-upstream --force-with-lease origin #{head}")
   puts execute_command("hub pull-request -m #{Shellwords.shellescape(message)} -b #{base_branch} -h #{head}")
 rescue StandardError => e
   puts "ERROR: #{e.message}"
