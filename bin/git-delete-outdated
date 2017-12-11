@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+
+require 'open3'
+
+class DeleteOutdated
+  def main
+    local_branches.each do |branch|
+      command = "git rev-parse --symbolic-full-name #{branch}@{u}"
+
+      Open3.popen2e(command) do |_, _, wait_thr|
+        if !wait_thr.value.success?
+          suggest_delete_branch(branch)
+        end
+      end
+    end
+  end
+
+  private
+
+  def local_branches
+    `git for-each-ref refs/heads`.lines.map(&:strip).map do |line|
+      line.split(' ')[2].gsub(%r{refs/heads/}, '')
+    end
+  end
+
+  def suggest_delete_branch(branch)
+    $stdout.write "#{branch}. Delete [yN]? "
+    response = gets.strip
+
+    if response.downcase == 'y'
+      `git branch -D #{branch}`
+      puts 'Deleting'
+    end
+  end
+end
+
+DeleteOutdated.new.main
