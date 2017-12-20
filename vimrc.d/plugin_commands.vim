@@ -10,7 +10,7 @@ let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_WinWidth = 50
 
 " Rebuild tag list
-command! LMGenerateTags :!ctags-exuberant --format=2 -R --languages=ruby,javascript --exclude=.git --exclude=log .
+command! LMGenerateTags :!ctags-exuberant --format=2 -R --exclude=.git --exclude=log .
 
 " Ack.vim
 if executable('rg')
