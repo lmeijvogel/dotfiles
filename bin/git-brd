@@ -44,18 +44,7 @@ class DeleteBranch
     if success
       cleanup_tempfile
     else
-      case stderr
-      when /not fully merged/
-        create_tempfile
-        raise BranchNotFullyMerged
-      when /not found/
-        cleanup_tempfile
-        raise BranchDoesNotExist
-      else
-        puts stderr unless stderr.empty?
-
-        raise 'Unknown Error occurred'
-      end
+      handle_delete_warning(stderr)
     end
   end
 
@@ -69,6 +58,21 @@ class DeleteBranch
 
   def cleanup_tempfile
     File.unlink(tmp_filename) unless tempfile_absent?
+  end
+
+  def handle_delete_warning(stderr)
+    case stderr
+    when /not fully merged/
+      create_tempfile
+      raise BranchNotFullyMerged
+    when /not found/
+      cleanup_tempfile
+      raise BranchDoesNotExist
+    else
+      puts stderr unless stderr.empty?
+
+      raise 'Unknown Error occurred'
+    end
   end
 
   def tmp_filename
