@@ -5,7 +5,7 @@ call vundle#begin()
 " Load all plugins
 Plugin 'sandeepcr529/Buffet.vim.git' " Buffer explorer
 Plugin 'lmeijvogel/vim-yaml-helper.git' " Some helper methods for YAML files
-Plugin 'wzzrd/vim-matchit.git'
+Plugin 'andymass/vim-matchup' " Enhances the '%' key to match more patterns.
 Plugin 'scrooloose/nerdtree.git'
 Plugin 'kchmck/vim-coffee-script.git'
 Plugin 'bogado/file-line.git' " Copy file/line to clipboard
