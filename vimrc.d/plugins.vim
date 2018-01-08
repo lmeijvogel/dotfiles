@@ -3,7 +3,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " Load all plugins
-Plugin 'mustache/vim-mode.git'
 Plugin 'sandeepcr529/Buffet.vim.git' " Buffer explorer
 Plugin 'lmeijvogel/vim-yaml-helper.git' " Some helper methods for YAML files
 Plugin 'wzzrd/vim-matchit.git'
