@@ -51,6 +51,7 @@ Plugin 'lmeijvogel/nerdtree-copypaste'
 Plugin 'w0rp/ale'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
+Plugin 'romainl/vim-cool' " Automatically clears search highlights
 
 call vundle#end()
 call yankstack#setup()
