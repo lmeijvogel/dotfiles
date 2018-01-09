@@ -79,7 +79,7 @@ if !exists('g:config_already_loaded')
   set background=dark
 
   if has('nvim')
-    colorscheme railscasts
+    colorscheme nova
   endif
 
   " For nvim-qt, the font size is read from ~/.config/nvim/ginit.vim
@@ -102,7 +102,7 @@ nmap <C-A-j> :bp<CR>
 " FZF
 nmap <silent> <C-p> :GFiles<CR>
 
-nmap <silent> <F6> :set bg=dark<CR>:colorscheme railscasts<CR>
+nmap <silent> <F6> :set bg=dark<CR>:colorscheme nova<CR>
 nmap <silent> <F7> :set bg=light<CR>:colorscheme summerfruit256<CR>
 
 " fugitive
@@ -115,6 +115,11 @@ nmap <leader>gr :Merginal<CR>
 " vim-buftabline
 " Show buffer number next to buffer name
 let g:buftabline_numbers = 1
+
+hi default link BufTabLineCurrent PmenuSel
+hi default link BufTabLineActive  TabLineSel
+hi default link BufTabLineHidden  TabLine
+hi default link BufTabLineFill    TabLineFill
 
 " Open file from clipboard
 nmap <leader>ec :call OpenClipboardFile()<CR>
