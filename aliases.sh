@@ -16,7 +16,7 @@ alias gti='git'
 alias igt='git'
 alias qgit='git'
 
-alias gd='git diff'
+alias gcop='git checkout --patch'
 
 alias brr='br --remote'
 alias brrr='br --remote'
