@@ -129,6 +129,14 @@ let g:ale_sign_column_always = 1
 
 " The ruby linter for ERB isn't very good, so don't use it.
 let g:ale_linters = { 'eruby': [] }
+let g:ale_fixers = {
+                  \  'javascript': [
+                  \    'prettier_eslint'
+                  \  ],
+                  \}
+nmap <leader>d <Plug>(ale_fix)
+
+let g:ale_fix_on_save = 1
 
 if has('nvim')
   " NeoTerm
@@ -204,3 +212,5 @@ function! OpenClipboardFile()
     echo "does not exist!"
   endif
 endfunction
+
+let g:prettier#exec_cmd_path = getcwd() . "/node_modules/.bin/prettier-eslint"

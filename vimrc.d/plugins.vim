@@ -51,6 +51,7 @@ Plugin 'w0rp/ale'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'romainl/vim-cool' " Automatically clears search highlights
+Plugin 'prettier/vim-prettier'
 Plugin 'TxHawks/nova-vim'
 
 call vundle#end()
