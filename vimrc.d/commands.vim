@@ -65,8 +65,10 @@ command! LMDeleteTrailing %s/\s*$//<CR>:noh
 " Easy toggling of word wrap
 command! LMToggleWrap set wrap!
 
-" Disable Q (Ex mode) and K (man lookup)
-nmap Q <Nop>
+" Remap Q to 'run last macro'
+nmap Q @@
+
+" Disable K (man lookup)
 nmap K <Nop>
 
 " Easier next/prev buffer
@@ -95,3 +97,6 @@ endif
 " Add "large" jumps to the jump list
 nnoremap <expr> k (v:count > 1 ? "m'" . v:count : '') . 'k'
 nnoremap <expr> j (v:count > 1 ? "m'" . v:count : '') . 'j'
+
+" Only redraw screen _after_ a macro is finished
+set lazyredraw
