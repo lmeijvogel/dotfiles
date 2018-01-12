@@ -1,12 +1,13 @@
 --exclude=node_modules
 --exclude=public/packs
 --exclude=public/packs-test
+--exclude=public/system
 --exclude=tmp
 
-# Copied from https://medium.com/adorableio/modern-javascript-ctags-configuration-199884dbcc1
+--regex-C=/$x/x/x/e/ Copied from https://medium.com/adorableio/modern-javascript-ctags-configuration-199884dbcc1
 --langdef=js
 --langmap=js:.js
---langmap=js:+.jsx
+--langmap=js:.jsx
 --regex-js=/[ \t.]([A-Z][A-Z0-9._$]+)[ \t]*[=:][ \t]*([0-9"'\[\{]|null)/\1/n,constant/
 --regex-js=/\.([A-Za-z0-9._$]+)[ \t]*=[ \t]*\{/\1/o,object/
 --regex-js=/['"]*([A-Za-z0-9_$]+)['"]*[ \t]*:[ \t]*\{/\1/o,object/
@@ -21,6 +22,7 @@
 --regex-js=/(function)*[ \t]*([A-Za-z$_][A-Za-z0-9_$]+)[ \t]*\([^)]*\)[ \t]*\{/\2/f,function/
 --regex-js=/['"]*([A-Za-z$][A-Za-z0-9_$]+)['"]*:[ \t]*function[ \t]*\(/\1/m,method/
 --regex-js=/([A-Za-z0-9_$]+)\[["']([A-Za-z0-9_$]+)["']\][ \t]*=[ \t]*function[ \t]*\(/\2/m,method/
+
 --langdef=typescript
 --langmap=typescript:.ts
 --regex-typescript=/^[ \t]*(export)?[ \t]*class[ \t]+([a-zA-Z0-9_]+)/\2/c,classes/
