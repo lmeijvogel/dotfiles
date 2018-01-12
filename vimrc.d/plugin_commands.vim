@@ -81,8 +81,9 @@ nmap <C-A-j> :bp<CR>
 " FZF
 nmap <silent> <C-p> :GFiles<CR>
 
-nmap <silent> <F6> :call BackgroundDark()<CR>
-nmap <silent> <F7> :call BackgroundLight()<CR>
+" Color schemes
+nmap <silent> <F6> :call LMBackgroundDark()<CR>
+nmap <silent> <F7> :call LMBackgroundLight()<CR>
 
 " fugitive
 nmap <leader>gs :Gstatus<CR>
@@ -94,11 +95,6 @@ nmap <leader>gr :Merginal<CR>
 " vim-buftabline
 " Show buffer number next to buffer name
 let g:buftabline_numbers = 1
-
-hi default link BufTabLineCurrent PmenuSel
-hi default link BufTabLineActive  TabLineSel
-hi default link BufTabLineHidden  TabLine
-hi default link BufTabLineFill    TabLineFill
 
 " Open file from clipboard
 nmap <leader>ec :call OpenClipboardFile()<CR>
@@ -192,7 +188,9 @@ function! OpenClipboardFile()
   endif
 endfunction
 
-function! BackgroundLight()
+let g:prettier#exec_cmd_path = getcwd() . "/node_modules/.bin/prettier-eslint"
+
+function! LMBackgroundLight()
   hi link BufTabLineCurrent TabLineSel
   hi link BufTabLineActive  TabLine
   hi link BufTabLineHidden  PmenuSel
@@ -203,7 +201,7 @@ function! BackgroundLight()
   colorscheme summerfruit256
 endfunction
 
-function! BackgroundDark()
+function! LMBackgroundDark()
   hi link BufTabLineCurrent PmenuSel
   hi link BufTabLineActive  TabLineSel
   hi link BufTabLineHidden  TabLine
@@ -214,13 +212,11 @@ function! BackgroundDark()
   colorscheme nova
 endfunction
 
-let g:prettier#exec_cmd_path = getcwd() . "/node_modules/.bin/prettier-eslint"
-
 if !exists('g:config_already_loaded')
   " Do not reset color scheme when reloading the configuration
   let g:config_already_loaded = 1
 
-  call BackgroundDark()
+  call LMBackgroundDark()
 
   " For nvim-qt, the font size is read from ~/.config/nvim/ginit.vim
   if has("gui_running")
@@ -231,8 +227,8 @@ if !exists('g:config_already_loaded')
       GuiFont Input\ Mono:h10
     endif
   else
-    " Konsole (which I use) does not support cursor shapes, which makes it
-    " print extraneous 'q' characters.
-    set guicursor=
+    " Konsole does not support cursor shapes, which makes it
+    " print extraneous 'q' characters. Re-enable this if that is a problem
+    "set guicursor=
   endif
 endif
