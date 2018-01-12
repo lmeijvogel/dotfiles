@@ -26,7 +26,7 @@ alias brrrrrr='br --remote'
 
 alias be='bundle exec'
 
-alias conf="cd ~/.my_linux_config"
+alias conf="cd ~/.dotfiles"
 
 alias o='xdg-open'
 
