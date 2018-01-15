@@ -72,27 +72,6 @@ let g:syntastic_cpp_compiler_options=" -std=c++11 -Wall"
 
 nnoremap <leader>st :SyntasticToggleMode<CR>
 
-if !exists('g:config_already_loaded')
-  " Do not reset color scheme when reloading the configuration
-  let g:config_already_loaded = 1
-
-  set background=dark
-
-  if has('nvim')
-    colorscheme nova
-  endif
-
-  " For nvim-qt, the font size is read from ~/.config/nvim/ginit.vim
-  if has("gui_running")
-    set guifont=Inconsolata-g\ 13
-    GuiFont Input\ Mono:h10
-  else
-    " Konsole (which I use) does not support cursor shapes, which makes it
-    " print extraneous 'q' characters.
-    set guicursor=
-  endif
-endif
-
 " The order is "reversed" (j is previous, k is next) to look more like
 " left <-> right
 nmap <C-A-k> :bn<CR>
@@ -102,8 +81,8 @@ nmap <C-A-j> :bp<CR>
 " FZF
 nmap <silent> <C-p> :GFiles<CR>
 
-nmap <silent> <F6> :set bg=dark<CR>:colorscheme nova<CR>
-nmap <silent> <F7> :set bg=light<CR>:colorscheme summerfruit256<CR>
+nmap <silent> <F6> :call BackgroundDark()<CR>
+nmap <silent> <F7> :call BackgroundLight()<CR>
 
 " fugitive
 nmap <leader>gs :Gstatus<CR>
@@ -213,4 +192,47 @@ function! OpenClipboardFile()
   endif
 endfunction
 
+function! BackgroundLight()
+  hi link BufTabLineCurrent TabLineSel
+  hi link BufTabLineActive  TabLine
+  hi link BufTabLineHidden  PmenuSel
+  hi link BufTabLineFill    TabLineFill
+
+  set background=light
+
+  colorscheme summerfruit256
+endfunction
+
+function! BackgroundDark()
+  hi link BufTabLineCurrent PmenuSel
+  hi link BufTabLineActive  TabLineSel
+  hi link BufTabLineHidden  TabLine
+  hi link BufTabLineFill    TabLineFill
+
+  set background=dark
+
+  colorscheme nova
+endfunction
+
 let g:prettier#exec_cmd_path = getcwd() . "/node_modules/.bin/prettier-eslint"
+
+if !exists('g:config_already_loaded')
+  " Do not reset color scheme when reloading the configuration
+  let g:config_already_loaded = 1
+
+  call BackgroundDark()
+
+  " For nvim-qt, the font size is read from ~/.config/nvim/ginit.vim
+  if has("gui_running")
+    set guifont=Input\ Mono\ 10
+
+
+    if has('nvim')
+      GuiFont Input\ Mono:h10
+    endif
+  else
+    " Konsole (which I use) does not support cursor shapes, which makes it
+    " print extraneous 'q' characters.
+    set guicursor=
+  endif
+endif
