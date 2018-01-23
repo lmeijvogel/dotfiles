@@ -52,7 +52,7 @@ Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
 Plugin 'romainl/vim-cool' " Automatically clears search highlights
 Plugin 'prettier/vim-prettier'
-Plugin 'TxHawks/nova-vim'
+Plugin 'drewtempelmeyer/palenight.vim'
 
 call vundle#end()
 call yankstack#setup()

@@ -209,7 +209,11 @@ function! LMBackgroundDark()
 
   set background=dark
 
-  colorscheme nova
+  colorscheme palenight
+
+  if (has("termguicolors"))
+    set termguicolors
+  endif
 endfunction
 
 if !exists('g:config_already_loaded')
