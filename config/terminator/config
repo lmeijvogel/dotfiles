@@ -38,7 +38,7 @@
       ratio = 0.5
       type = VPaned
     [[[terminal2]]]
-      command = yarn run storybook
+      command = bash -c 'yarn run storybook ; exec bash'
       directory = /home/lmeijvogel/projects/shop-ui
       order = 0
       parent = child1
@@ -46,7 +46,7 @@
       type = Terminal
       uuid = 72ab279b-4ba3-4a5c-ab9d-1ba73e5342db
     [[[terminal3]]]
-      command = yarn dev
+      command = bash -c 'yarn dev ; exec bash'
       directory = /home/lmeijvogel/projects/shop-ui
       order = 1
       parent = child1
@@ -72,7 +72,7 @@
       ratio = 0.5
       type = VPaned
     [[[terminal2]]]
-      command = bin/mobiel_nl
+      command = bash -c 'bin/mobiel_nl ; exec bash'
       directory = /home/lmeijvogel/projects/frontend
       order = 0
       parent = child1
@@ -81,7 +81,7 @@
       type = Terminal
       uuid = f27c6638-41a2-4bf8-bf20-8fd3b925546d
     [[[terminal3]]]
-      command = bin/webpack-dev-server
+      command = bash -c 'bin/webpack-dev-server ; exec bash'
       directory = /home/lmeijvogel/projects/frontend
       order = 1
       parent = child1
