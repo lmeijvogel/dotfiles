@@ -115,7 +115,7 @@ let g:ale_fix_on_save = 1
 
 if has('nvim')
   " NeoTerm
-  let g:neoterm_position = 'horizontal'
+  let g:neoterm_default_mod = 'horizontal'
   let g:neoterm_automap_keys = '<leader>tt'
 
 
