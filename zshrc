@@ -163,14 +163,6 @@ serv () {
   bundle exec rails server $*
 }
 
-hub () {
-  if [[ "$#" == 0 ]]; then
-    gs
-  else
-    /usr/local/bin/hub $@
-  fi
-}
-
 _title_with_dir () {
   prefix=$1
 
