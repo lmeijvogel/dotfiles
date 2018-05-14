@@ -13,14 +13,6 @@ class NumberedGitBranch
     @local_or_remote = local_or_remote
   end
 
-  def perform
-    shell_variables = CreateShellVariables.new
-
-    shell_variables.perform(branches)
-  rescue NoGitRepo
-    # Error was already printed
-  end
-
   def branches
     if @local_or_remote == :local
       local_branches
@@ -52,10 +44,43 @@ def forward_to_normal_git_branch!(argv)
   $stderr.puts stdout_or_stderr
 end
 
-if (ARGV - ['--remote', '-r']).empty?
-  is_remote = ARGV.include?('--remote') || ARGV.include?('-r')
+def show_branch_choice(local_or_remote)
+  branches = NumberedGitBranch.new(local_or_remote).branches
 
-  NumberedGitBranch.new(is_remote ? :remote : :local).perform
-else
-  forward_to_normal_git_branch!(ARGV)
+  branches.each_with_index do |branch, index|
+    formatted_index = "[#{index+1}]"
+
+    puts(format("%4s %s", formatted_index, branch))
+  end
+
+  $stdout.write("Select branch: ")
+
+  input = $stdin.gets
+  input.strip!
+
+  if input == "r"
+    show_branch_choice(:remote)
+  elsif input == "l"
+    show_branch_choice(:local)
+  else
+    number = input.to_i
+
+    if 0 < number && number < branches.length + 1
+      index = number - 1
+
+      puts `git checkout #{branches[index]}`
+    end
+  end
+end
+
+begin
+  if (ARGV - ['--remote', '-r']).empty?
+    is_remote = ARGV.include?('--remote') || ARGV.include?('-r')
+
+    show_branch_choice(is_remote ? :remote : :local)
+  else
+    forward_to_normal_git_branch!(ARGV)
+  end
+rescue NoGitRepo
+  exit 1
 end

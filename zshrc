@@ -133,7 +133,7 @@ for ((i=1 ; i < 20 ; i++)) {
 alias -g D=~/Downloads
 
 function br () {
-  eval "`br.rb $@`"
+  br.rb $@
 }
 
 function gnor () {
