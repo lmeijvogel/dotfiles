@@ -220,7 +220,7 @@ if !exists('g:config_already_loaded')
   " Do not reset color scheme when reloading the configuration
   let g:config_already_loaded = 1
 
-  call LMBackgroundDark()
+  call LMBackgroundLight()
 
   " For nvim-qt, the font size is read from ~/.config/nvim/ginit.vim
   if has("gui_running")
