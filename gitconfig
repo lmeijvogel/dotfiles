@@ -7,6 +7,11 @@
   cob = "!f() { git checkout -b $1 origin/master; }; f"
   com = checkout master
   cop = checkout --patch
+  co1 = checkout HEAD~1
+  co2 = checkout HEAD~2
+  co3 = checkout HEAD~3
+  co4 = checkout HEAD~4
+  co5 = checkout HEAD~5
 
   br = branch
 
