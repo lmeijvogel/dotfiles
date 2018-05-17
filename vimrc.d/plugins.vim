@@ -7,7 +7,6 @@ Plugin 'sandeepcr529/Buffet.vim.git' " Buffer explorer
 Plugin 'lmeijvogel/vim-yaml-helper.git' " Some helper methods for YAML files
 Plugin 'andymass/vim-matchup' " Enhances the '%' key to match more patterns.
 Plugin 'scrooloose/nerdtree.git'
-Plugin 'kchmck/vim-coffee-script.git'
 Plugin 'bogado/file-line.git' " Copy file/line to clipboard
 Plugin 'scrooloose/nerdcommenter.git'
 Plugin 'tpope/vim-repeat.git'
@@ -17,7 +16,6 @@ Plugin 'mbbill/undotree' " Undo history visualisation
 Plugin 'tpope/vim-surround.git'
 Plugin 'maxbrunsfeld/vim-yankstack'
 Plugin 'mileszs/ack.vim.git'
-Plugin 'jpo/vim-railscasts-theme.git' " Dark color scheme
 Plugin 'vim-scripts/bufkill.vim.git' " Commands for deleting the current buffer
 Plugin 'vim-ruby/vim-ruby.git'
 Plugin 'gmarik/Vundle.vim.git'
@@ -33,7 +31,6 @@ Plugin 'ntpeters/vim-better-whitespace' " Better whitespace highlighting
 Plugin 'jgdavey/tslime.vim'
 Plugin 'jgdavey/vim-turbux'
 Plugin 'vim-scripts/summerfruit256.vim' " Light color scheme
-Plugin 'tpope/vim-rails'
 Plugin 'buztard/vim-rel-jump' " Store relative jumps (5j, 3k) in the jump list
 Plugin 'ap/vim-buftabline' " Buffer list at top of screen
 Plugin 'easymotion/vim-easymotion'
@@ -42,8 +39,6 @@ Plugin 'posva/vim-vue'
 Plugin 'janko-m/vim-test'
 Plugin 'AndrewRadev/splitjoin.vim'
 Plugin 'idanarye/vim-merginal.git'
-Plugin 'tpope/vim-rbenv'
-Plugin 'tpope/vim-bundler'
 Plugin 'othree/yajs.vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'lmeijvogel/nerdtree-copypaste'
