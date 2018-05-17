@@ -19,6 +19,7 @@
   cp = cherry-pick
   c = diff --cached
   swc = stash save --keep-index
+  citmp = commit -m TEMP
 
   d  = diff
   dom = diff origin/master
