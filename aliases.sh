@@ -43,5 +43,8 @@ alias k91='kill -9 %1'
 
 cl() { if [ -d "$1" ]; then cd "$1"; ls -l; else echo "*** Directory not found ***" ; fi; }
 
+alias -g BR='"$(git symbolic-ref --short HEAD)"'
+alias -g OBR='"origin/$(git symbolic-ref --short HEAD)"'
+
 # Allow custom aliases per environment
 [[ -x "$HOME/.aliases_private.sh" ]] && . "$HOME/.aliases_private.sh"
