@@ -236,3 +236,38 @@ if !exists('g:config_already_loaded')
     "set guicursor=
   endif
 endif
+
+" Tsuquyomi: Only keep the C-] and C-T mapping since they keep a local tag
+" stack. The other functions are handled well enough by nvim-typescript.
+let g:tsuquyomi_disable_default_mappings = 1
+autocmd BufEnter *.ts,*.tsx map <C-]> <Plug>(TsuquyomiDefinition)
+autocmd BufEnter *.ts,*.tsx map <C-T> <Plug>(TsuquyomiGoBack)
+
+" Quickfix window for Tsuquyomi is generated synchronously and is slow.
+let g:tsuquyomi_disable_quickfix = 1
+
+autocmd BufEnter *.ts,*.tsx map <silent> <leader>tr :TSRefs<CR>
+autocmd BufEnter *.ts,*.tsx map <silent> <F24> :TSRefs<CR>
+autocmd BufEnter *.ts,*.tsx map <silent> <leader>ti :TSImport<CR>
+autocmd BufEnter *.ts,*.tsx map <silent> <leader>tn :TSRename<CR>
+autocmd BufEnter *.ts,*.tsx map gh :TSType<CR>
+autocmd BufEnter *.ts,*.tsx map K :TSDoc<CR>
+
+" Completion: Used by nvim-typescript
+let g:deoplete#enable_at_startup = 1
+
+let g:nvim_typescript#signature_complete = 1
+let g:nvim_typescript#max_completion_detail = 25
+let g:nvim_typescript#tsimport#template = 'import { %s } from "%s";'
+
+let g:prettier#config#print_width = 120
+let g:prettier#config#tab_width = 4
+let g:prettier#config#bracket_spacing = 'true'
+let g:prettier#config#single_quote = 'false'
+let g:prettier#config#trailing_comma = 'none'
+
+let g:prettier#quickfix_enabled = 0
+
+" Run prettier on all specified files at save.
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
