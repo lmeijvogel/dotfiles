@@ -113,6 +113,12 @@ nmap <leader>d <Plug>(ale_fix)
 
 let g:ale_fix_on_save = 1
 
+" NERDCommenter - space after comment delimiters
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
 if has('nvim')
   " NeoTerm
   let g:neoterm_default_mod = 'horizontal'
