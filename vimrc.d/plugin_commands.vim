@@ -246,28 +246,30 @@ autocmd BufEnter *.ts,*.tsx map <C-T> <Plug>(TsuquyomiGoBack)
 " Quickfix window for Tsuquyomi is generated synchronously and is slow.
 let g:tsuquyomi_disable_quickfix = 1
 
-autocmd BufEnter *.ts,*.tsx map <silent> <leader>tr :TSRefs<CR>
-autocmd BufEnter *.ts,*.tsx map <silent> <F24> :TSRefs<CR>
-autocmd BufEnter *.ts,*.tsx map <silent> <leader>ti :TSImport<CR>
-autocmd BufEnter *.ts,*.tsx map <silent> <leader>tn :TSRename<CR>
-autocmd BufEnter *.ts,*.tsx map gh :TSType<CR>
-autocmd BufEnter *.ts,*.tsx map K :TSDoc<CR>
+if !exists('g:gui_oni')
+    autocmd BufEnter *.ts,*.tsx map <silent> <leader>tr :TSRefs<CR>
+    autocmd BufEnter *.ts,*.tsx map <silent> <F24> :TSRefs<CR>
+    autocmd BufEnter *.ts,*.tsx map <silent> <leader>ti :TSImport<CR>
+    autocmd BufEnter *.ts,*.tsx map <silent> <leader>tn :TSRename<CR>
+    autocmd BufEnter *.ts,*.tsx map gh :TSType<CR>
+    autocmd BufEnter *.ts,*.tsx map K :TSDoc<CR>
 
-" Completion: Used by nvim-typescript
-let g:deoplete#enable_at_startup = 1
+    " Completion: Used by nvim-typescript
+    let g:deoplete#enable_at_startup = 1
 
-let g:nvim_typescript#signature_complete = 1
-let g:nvim_typescript#max_completion_detail = 25
-let g:nvim_typescript#tsimport#template = 'import { %s } from "%s";'
+    let g:nvim_typescript#signature_complete = 1
+    let g:nvim_typescript#max_completion_detail = 25
+    let g:nvim_typescript#tsimport#template = 'import { %s } from "%s";'
 
-let g:prettier#config#print_width = 120
-let g:prettier#config#tab_width = 4
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#config#single_quote = 'false'
-let g:prettier#config#trailing_comma = 'none'
+    let g:prettier#config#print_width = 120
+    let g:prettier#config#tab_width = 4
+    let g:prettier#config#bracket_spacing = 'true'
+    let g:prettier#config#single_quote = 'false'
+    let g:prettier#config#trailing_comma = 'none'
 
-let g:prettier#quickfix_enabled = 0
+    let g:prettier#quickfix_enabled = 0
 
-" Run prettier on all specified files at save.
-let g:prettier#autoformat = 0
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+    " Run prettier on all specified files at save.
+    let g:prettier#autoformat = 0
+    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+endif

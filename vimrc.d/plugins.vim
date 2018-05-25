@@ -48,12 +48,14 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'romainl/vim-cool' " Automatically clears search highlights
 Plugin 'prettier/vim-prettier'
 Plugin 'drewtempelmeyer/palenight.vim'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'mhartington/nvim-typescript'
-
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
-Plugin 'leafgarland/typescript-vim'
+
+if !exists('g:gui_oni')
+  Plugin 'Shougo/deoplete.nvim'
+  Plugin 'mhartington/nvim-typescript'
+  Plugin 'leafgarland/typescript-vim'
+end
 
 call vundle#end()
 call yankstack#setup()
