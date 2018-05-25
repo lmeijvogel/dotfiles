@@ -11,14 +11,17 @@ task :update_all_symlinks do
   # If only the vim plugins and config interest you, just
   # link .vimrc and .vim to vimrc and vim in the parent directory.
 
+  DOTFILE_PATTERN = "#{ENV['HOME']}/.%p"
   CONFIG_FILES = Rake::FileList["*"]
   CONFIG_FILES.exclude("bin", "config", "scripts", "Gemfile", "Gemfile.lock", ".git", ".gitignore", "Rakefile", "README", "INSTALL.md")
 
-  update_symlinks(CONFIG_FILES, "#{ENV['HOME']}/.%p")
+  update_symlinks(CONFIG_FILES, DOTFILE_PATTERN)
 
-  update_symlinks(Rake::FileList["bin/*"], "#{ENV['HOME']}/%p")
-  update_symlinks(Rake::FileList["config/nvim/*"], "#{ENV['HOME']}/.%p")
-  update_symlinks(Rake::FileList["config/terminator/*"], "#{ENV['HOME']}/.%p")
+  NESTED_CONFIG_DIRS = Rake::FileList[*%w[bin config/nvim config/terminator]]
+  NESTED_CONFIG_DIRS.each do |nested_config_dir|
+    mkdir_p nested_config_dir.pathmap(DOTFILE_PATTERN)
+    update_symlinks(Rake::FileList["#{nested_config_dir}/*"], DOTFILE_PATTERN)
+  end
 
   initialize_vim_bundle
 end
