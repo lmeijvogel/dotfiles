@@ -48,6 +48,7 @@ Plugin 'junegunn/fzf.vim'
 Plugin 'romainl/vim-cool' " Automatically clears search highlights
 Plugin 'prettier/vim-prettier'
 Plugin 'drewtempelmeyer/palenight.vim' " Dark color scheme
+Plugin 'jeetsukumaran/vim-indentwise' " Easy navigation based on indent level
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
 
