@@ -8,6 +8,9 @@ require '_create_shell_variables'
 
 NoGitRepo = Class.new(StandardError)
 
+# Don't display stack trace on Ctrl-C
+trap("INT") { exit 130 }
+
 class NumberedGitBranch
   def initialize(local_or_remote)
     @local_or_remote = local_or_remote
