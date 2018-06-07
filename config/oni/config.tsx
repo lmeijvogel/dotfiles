@@ -16,28 +16,31 @@ export const activate = (oni: Oni.Plugin.Api) => {
     // C-t is 'find symbols' in Oni, but I want the 'go to definition'/'return' behavior provided
     // by Tsuquyomi.
     oni.input.unbind("<c-t>");
+    oni.input.unbind("<c-^>");
+    oni.input.unbind("<c-tab>");
+
+    oni.input.bind("<f24>", "language.findAllReferences");
+    oni.input.bind("<f12>", "language.findAllReferences");
 };
 
 export const deactivate = (oni: Oni.Plugin.Api) => {};
 
 export const configuration = {
-    //add custom config here, such as
     "oni.useDefaultConfig": true,
 
     "ui.colorscheme": "nord",
 
     //"oni.bookmarks": ["~/Documents"],
     "oni.loadInitVim": true,
-    //"editor.fontSize": "12px",
-    //"editor.fontFamily": "Monaco",
+    "editor.fontFamily": "Fira Code",
+    "editor.fontSize": "20px",
+    "editor.maximizeScreenOnStart": false,
 
     // UI customizations
 
     // autoClosingPairs interferes with typing too often.
     "autoClosingPairs.enabled": false,
     "commandline.mode": false,
-    "editor.fontSize": "18px",
-    "editor.maximizeScreenOnStart": false,
     "oni.plugins.prettier": {
         enabled: true,
         settings: {
@@ -54,7 +57,7 @@ export const configuration = {
         formatOnSave: true,
     },
     "sidebar.default.open": false,
-    "statusbar.fontSize": "1.6em",
+    "statusbar.fontSize": "1.3em",
     "tabs.mode": "buffers",
     "ui.animations.enabled": true,
     "ui.fontSmoothing": "auto",
