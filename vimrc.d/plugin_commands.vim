@@ -282,3 +282,6 @@ if !exists('g:gui_oni')
 else
     autocmd FileType fzf tnoremap <nowait><buffer> <esc> <c-g> " Close FZF in Oni with esc
 endif
+
+let g:alternateExtensions_{'tsx'} = "scss"
+let g:alternateExtensions_{'scss'} = "tsx"

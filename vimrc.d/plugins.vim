@@ -51,6 +51,7 @@ Plugin 'drewtempelmeyer/palenight.vim' " Dark color scheme
 Plugin 'jeetsukumaran/vim-indentwise' " Easy navigation based on indent level
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'
+Plugin 'nacitar/a.vim'                  " Easily alternate between related files
 
 if !exists('g:gui_oni')
   Plugin 'Shougo/deoplete.nvim'
@@ -60,5 +61,6 @@ end
 
 call vundle#end()
 call yankstack#setup()
+
 filetype off
 filetype plugin indent on
