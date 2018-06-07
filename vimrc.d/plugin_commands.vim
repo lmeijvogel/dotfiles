@@ -279,4 +279,6 @@ if !exists('g:gui_oni')
     " Run prettier on all specified files at save.
     let g:prettier#autoformat = 0
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+else
+    autocmd FileType fzf tnoremap <nowait><buffer> <esc> <c-g> " Close FZF in Oni with esc
 endif
