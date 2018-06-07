@@ -10,3 +10,5 @@ source $HOME/.vimrc.d/plugins.vim
 nmap <silent> <leader>e3v :e $HOME/.vimrc.d/plugins.vim<CR>
 source $HOME/.vimrc.d/plugin_commands.vim
 nmap <silent> <leader>e4v :e $HOME/.vimrc.d/plugin_commands.vim<CR>
+
+nmap <silent> <leader>e5v :e $HOME/.config/oni/config.tsx<CR>
