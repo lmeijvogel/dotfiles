@@ -1,14 +1,17 @@
 #!/usr/bin/env ruby
 
 require 'open3'
+require 'shellwords'
 
 class DeleteOutdated
   def main
     local_branches.each do |branch|
-      command = "git rev-parse --symbolic-full-name #{branch}@{u}"
+      command = "git rev-parse --symbolic-full-name #{Shellwords.shellescape(branch)}@{u}"
 
-      Open3.popen2e(command) do |_, _, wait_thr|
-        if !wait_thr.value.success?
+      Open3.popen2e(command) do |_, stdout_and_err, wait_thr|
+        base_branch_name = base_remote_branch_name(stdout_and_err.read.strip)
+
+        if !wait_thr.value.success? || base_branch_name == "origin/master"
           suggest_delete_branch(branch)
         end
       end
@@ -17,9 +20,15 @@ class DeleteOutdated
 
   private
 
+  def base_remote_branch_name(branch)
+    branch.gsub(%r[.*/remotes/], '')
+  end
+
   def local_branches
     `git for-each-ref refs/heads`.lines.map(&:strip).map do |line|
       line.split(' ')[2].gsub(%r{refs/heads/}, '')
+    end.reject do |branch|
+      branch == "master"
     end
   end
 
@@ -28,7 +37,7 @@ class DeleteOutdated
     response = gets.strip
 
     if response.downcase == 'y'
-      `git branch -D #{branch}`
+      `git branch -D #{Shellwords.shellescape(branch)}`
       puts 'Deleting'
     end
   end
