@@ -53,17 +53,4 @@ class BranchMRU
   end
 end
 
-class ReflogEntry
-  attr_accessor :sha, :ref, :action, :message
-
-  def initialize(sha, ref, action, message)
-    self.sha = sha
-    self.ref = ref
-    self.action = action
-    self.message = message
-  end
-
-  def to_s
-    "#{sha} #{ref} #{action} #{message}"
-  end
-end
+ReflogEntry = Struct.new(:sha, :ref, :action, :message)
