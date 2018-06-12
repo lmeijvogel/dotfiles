@@ -108,7 +108,7 @@ class BranchMRU
 
   def sorted_branch_names
     branch_names = checkouts.map do |checkout|
-      matches = checkout.message.match(%r{moving from (?:[0-9a-zA-Z\-/]+) to ([0-9a-zA-Z\-/]+)})
+      matches = checkout.message.match(%r{moving from (?:[0-9a-zA-Z_\-/]+) to ([0-9a-zA-Z_\-/]+)})
 
       matches[1]
     end.uniq
