@@ -12,22 +12,11 @@ class BranchMRU
   private
 
   def sorted_branch_names
-    branch_names = checkouts.map do |checkout|
+    checkouts.map do |checkout|
       matches = checkout.message.match(%r{moving from (?:[0-9a-zA-Z_\-/]+) to ([0-9a-zA-Z_\-/]+)})
 
       matches[1]
     end.uniq
-
-    # Master at bottom
-    branch_names.sort do |one, two|
-      if one == "master"
-        1
-      elsif two == "master"
-        -1
-      else
-        0
-      end
-    end
   end
 
   def checkouts
