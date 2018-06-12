@@ -17,7 +17,13 @@ task :update_all_symlinks do
 
   update_symlinks(CONFIG_FILES, DOTFILE_PATTERN)
 
-  NESTED_CONFIG_DIRS = Rake::FileList[*%w[bin config/nvim config/oni config/terminator]]
+  BIN_DIR_PATTERN = "#{ENV['HOME']}/%p"
+  BIN_DIR = Rake::FileList["bin"]
+  mkdir_p BIN_DIR.pathmap(BIN_DIR_PATTERN)
+
+  update_symlinks(Rake::FileList["#{BIN_DIR}/*"], BIN_DIR_PATTERN)
+
+  NESTED_CONFIG_DIRS = Rake::FileList[*%w[config/nvim config/oni config/terminator]]
   NESTED_CONFIG_DIRS.each do |nested_config_dir|
     mkdir_p nested_config_dir.pathmap(DOTFILE_PATTERN)
     update_symlinks(Rake::FileList["#{nested_config_dir}/*"], DOTFILE_PATTERN)
