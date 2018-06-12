@@ -63,19 +63,31 @@ def show_branch_choice(local_or_remote)
   input = $stdin.gets
   input.strip!
 
-  if input == "r"
+  case input
+  when "r"
     show_branch_choice(:remote)
-  elsif input == "l"
+  when "l"
     show_branch_choice(:local)
+  when "-"
+    checkout(branches[1]) # Equivalent to `git checkout -` (previous branch)
+  when "m"
+    checkout("master")
   else
     number = input.to_i
 
     if 0 < number && number < branches.length + 1
       index = number - 1
 
-      puts `git checkout #{branches[index]}`
+      checkout(branches[index])
+    else
+      puts "ERROR: Invalid index '#{input}'"
+      exit 1
     end
   end
+end
+
+def checkout(branch)
+  `git checkout #{branch}`
 end
 
 begin
