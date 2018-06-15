@@ -1,0 +1,13 @@
+#!/bin/bash
+
+gsettings_key=org.cinnamon.settings-daemon.peripherals.mouse
+
+current_setting=$(gsettings get $gsettings_key left-handed)
+
+if [[ "$current_setting" == "true" ]]; then
+  new_setting=false
+else
+  new_setting=true
+fi
+
+gsettings set $gsettings_key left-handed "$new_setting"
