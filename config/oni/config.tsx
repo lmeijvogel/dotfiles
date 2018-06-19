@@ -28,7 +28,7 @@ export const deactivate = (oni: Oni.Plugin.Api) => {};
 export const configuration = {
     "oni.useDefaultConfig": true,
 
-    "ui.colorscheme": "nord",
+    "ui.colorscheme": "summerfruit256",
 
     //"oni.bookmarks": ["~/Documents"],
     "oni.loadInitVim": true,
