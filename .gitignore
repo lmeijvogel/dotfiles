@@ -1,2 +1,4 @@
 vim/bundle/*
 .netrwhist
+.bundle
+vendor
