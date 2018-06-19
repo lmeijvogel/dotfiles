@@ -64,6 +64,8 @@ def show_branch_choice(local_or_remote)
   input.strip!
 
   case input
+  when ""
+    exit 0
   when "r"
     show_branch_choice(:remote)
   when "l"

@@ -19,6 +19,41 @@
     [[[window0]]]
       parent = ""
       type = Window
+  [[mendix]]
+    [[[child0]]]
+      fullscreen = False
+      last_active_term = f27c6638-41a2-4bf8-bf20-8fd3b925546d
+      last_active_window = True
+      maximised = True
+      order = 0
+      parent = ""
+      position = 2:0
+      size = 1678, 975
+      title = Frontend Terminator
+      type = Window
+    [[[child1]]]
+      order = 0
+      parent = child0
+      position = 485
+      ratio = 0.5
+      type = VPaned
+    [[[terminal2]]]
+      command = ""
+      directory = /lennaert/projects/webmodeler/webModeler/client
+      order = 0
+      parent = child1
+      profile = yarn-dev
+      title = bin/mobiel_nl
+      type = Terminal
+      uuid = f27c6638-41a2-4bf8-bf20-8fd3b925546d
+    [[[terminal3]]]
+      command = "bash -c 'yarn dev ; exec bash'"
+      directory = /home/lennaert/projects/webmodeler
+      order = 1
+      parent = child1
+      profile = yarn-dev
+      type = Terminal
+      uuid = 3c360264-5fec-456f-97d0-67d177caa9eb
   [[webpack-shopui]]
     [[[child0]]]
       fullscreen = False
@@ -38,7 +73,7 @@
       ratio = 0.5
       type = VPaned
     [[[terminal2]]]
-      command = bash -c 'yarn run storybook ; exec bash'
+      command = "bash -c 'yarn run storybook ; exec bash'"
       directory = /home/lmeijvogel/projects/shop-ui
       order = 0
       parent = child1
@@ -46,54 +81,37 @@
       type = Terminal
       uuid = 72ab279b-4ba3-4a5c-ab9d-1ba73e5342db
     [[[terminal3]]]
-      command = bash -c 'yarn dev ; exec bash'
+      command = "bash -c 'yarn dev ; exec bash'"
       directory = /home/lmeijvogel/projects/shop-ui
       order = 1
       parent = child1
       profile = default
       type = Terminal
       uuid = e1c21567-ecba-47e6-941d-e497e5d66c47
-  [[webpack-mobiel]]
-    [[[child0]]]
-      fullscreen = False
-      last_active_term = f27c6638-41a2-4bf8-bf20-8fd3b925546d
-      last_active_window = True
-      maximised = True
-      order = 0
-      parent = ""
-      position = 2:0
-      size = 1678, 975
-      title = Frontend Terminator
-      type = Window
-    [[[child1]]]
-      order = 0
-      parent = child0
-      position = 485
-      ratio = 0.5
-      type = VPaned
-    [[[terminal2]]]
-      command = bash -c 'bin/mobiel_nl ; exec bash'
-      directory = /home/lmeijvogel/projects/frontend
-      order = 0
-      parent = child1
-      profile = default
-      title = bin/mobiel_nl
-      type = Terminal
-      uuid = f27c6638-41a2-4bf8-bf20-8fd3b925546d
-    [[[terminal3]]]
-      command = bash -c 'bin/webpack-dev-server ; exec bash'
-      directory = /home/lmeijvogel/projects/frontend
-      order = 1
-      parent = child1
-      profile = default
-      type = Terminal
-      uuid = 3c360264-5fec-456f-97d0-67d177caa9eb
 [plugins]
 [profiles]
   [[default]]
+    background_color = "#ffffff"
     background_image = None
-    font = Input Mono Regular 10
-    foreground_color = "#ffffff"
+    exit_action = hold
+    font = Input Mono 12
+    foreground_color = "#000000"
     palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
     scrollback_infinite = True
+    use_system_font = False
+  [[yarn test]]
+    background_color = "#ffffff"
+    custom_command = cd /home/lennaert/projects/webmodeler/webModeler/client ; yarn test:watch
+    exit_action = hold
+    font = Input Mono 12
+    foreground_color = "#000000"
+    use_custom_command = True
+    use_system_font = False
+  [[yarn-dev]]
+    background_color = "#ffffff"
+    background_image = None
+    custom_command = cd /home/lennaert/projects/webmodeler ; yarn dev
+    exit_action = hold
+    font = Input Mono 12
+    foreground_color = "#000000"
     use_system_font = False
