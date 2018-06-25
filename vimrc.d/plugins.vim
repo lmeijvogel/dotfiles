@@ -13,7 +13,7 @@ Plugin 'tpope/vim-repeat.git'
 Plugin 'SirVer/ultisnips.git'
 Plugin 'duff/vim-scratch.git' " Scratch buffer
 Plugin 'mbbill/undotree' " Undo history visualisation
-Plugin 'machakann/vim-sandwich'
+Plugin 'tpope/vim-surround'
 Plugin 'maxbrunsfeld/vim-yankstack'
 Plugin 'mileszs/ack.vim.git'
 Plugin 'vim-scripts/bufkill.vim.git' " Commands for deleting the current buffer
