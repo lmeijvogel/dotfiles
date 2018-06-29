@@ -34,6 +34,9 @@ floating_modifier $mod
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec gnome-terminal
 
+# lock the screen
+bindsym $mod+Control+q exec /usr/bin/i3lock -d
+
 # kill focused window
 bindsym $mod+Shift+q kill
 
