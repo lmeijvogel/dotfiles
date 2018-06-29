@@ -1,9 +1,40 @@
 #!/usr/bin/env ruby
 
-require 'fileutils'
+require "fileutils"
+require "shellwords"
 
 desc "perform :update_all_symlinks"
-task :default => :update_all_symlinks
+task :default => [:update_all_symlinks, :i3]
+
+desc "Generate i3 configuration files"
+task :i3 do
+  config_template = File.read(File.join(__dir__, "i3/config"))
+
+  additional_config = if ENV.key?("I3_ADDITIONAL_CONFIG_FILE")
+                        filename = File.basename(ENV["I3_ADDITIONAL_CONFIG_FILE"])
+
+                        sanitized_filename = File.join(__dir__, "i3/#{filename}")
+                        base_additional_config = File.read(sanitized_filename)
+
+                        puts "Found additional configuration in #{sanitized_filename}"
+                        "#### Machine custom config starts here####\n\n" + base_additional_config
+                      else
+                        puts "No additional configuration present: Set I3_ADDITIONAL_CONFIG_FILE to a path inside dotfiles/i3/"
+
+                        "#### No custom configuration for this machine ####"
+                      end
+
+  resulting_config = config_template.gsub(/^%include_private_config%$/, additional_config)
+  output_config_path = "#{ENV['HOME']}/.config/i3/config"
+
+  mkdir_p(File.dirname(output_config_path))
+
+  rm_f(output_config_path)
+
+  open(output_config_path, "w") do |file|
+    file.write(resulting_config)
+  end
+end
 
 desc "Updates all symlinks"
 task :update_all_symlinks do
@@ -13,7 +44,7 @@ task :update_all_symlinks do
 
   DOTFILE_PATTERN = "#{ENV['HOME']}/.%p"
   CONFIG_FILES = Rake::FileList["*"]
-  CONFIG_FILES.exclude("bin", "config", "scripts", "Gemfile", "Gemfile.lock", ".git", ".gitignore", "Rakefile", "README", "INSTALL.md")
+  CONFIG_FILES.exclude("bin", "config", "i3", "scripts", "Gemfile", "Gemfile.lock", ".git", ".gitignore", "Rakefile", "README", "INSTALL.md")
 
   update_symlinks(CONFIG_FILES, DOTFILE_PATTERN)
 
@@ -47,7 +78,7 @@ def update_symlinks(origs, pattern)
     delete_symlink(symlink)
   end
 
-  origs.map {|file| File.expand_path(file) }.zip(symlinks).each do |source, symlink|
+  origs.map { |file| File.expand_path(file) }.zip(symlinks).each do |source, symlink|
     puts "#{source} => #{symlink}"
     FileUtils.ln_s(File.expand_path(source), symlink)
   end
