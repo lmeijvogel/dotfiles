@@ -45,7 +45,6 @@ Plugin 'lmeijvogel/nerdtree-copypaste'
 Plugin 'w0rp/ale'
 Plugin 'junegunn/fzf'
 Plugin 'junegunn/fzf.vim'
-Plugin 'romainl/vim-cool' " Automatically clears search highlights
 Plugin 'prettier/vim-prettier'
 Plugin 'drewtempelmeyer/palenight.vim' " Dark color scheme
 Plugin 'jeetsukumaran/vim-indentwise' " Easy navigation based on indent level
