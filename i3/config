@@ -206,3 +206,15 @@ bindsym $mod+Tab workspace back_and_forth
 # Move workspace to left and right monitors
 bindsym $mod+Shift+bracketleft move workspace to output left
 bindsym $mod+Shift+bracketright move workspace to output right
+
+workspace 1 output $output_left
+workspace 3 output $output_left
+workspace 5 output $output_left
+workspace 7 output $output_left
+workspace 9 output $output_left
+
+workspace 2 output $output_right
+workspace 4 output $output_right
+workspace 6 output $output_right
+workspace 8 output $output_right
+workspace 0 output $output_right
