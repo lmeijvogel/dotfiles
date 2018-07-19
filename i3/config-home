@@ -6,3 +6,5 @@ exec --no-startup-id exec $HOME/bin/pia.sh
 
 set $output_left DP1
 set $output_right HDMI1
+
+set $output_right_or_laptop HDMI1
