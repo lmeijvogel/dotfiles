@@ -35,7 +35,7 @@ floating_modifier $mod
 bindsym $mod+Return exec gnome-terminal
 
 # lock the screen
-bindsym $mod+Control+q exec /usr/bin/i3lock -d
+bindsym $mod+Control+q exec "$HOME/.lib/lock-screen.sh"
 
 # kill focused window
 bindsym $mod+Shift+q kill
