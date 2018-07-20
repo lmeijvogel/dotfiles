@@ -130,7 +130,8 @@
   autoStash  = true
   autoSquash = true
 [pull]
-  rebase = true
+  # Passes --preserve-merges to the rebase command.
+  rebase = preserve
 [merge]
   tool = kdiff3
 [core]
