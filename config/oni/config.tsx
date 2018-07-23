@@ -19,7 +19,7 @@ export const activate = (oni: Oni.Plugin.Api) => {
     oni.input.unbind("<c-^>");
     oni.input.unbind("<c-tab>");
 
-    oni.input.bind("<f24>", "language.findAllReferences");
+    oni.input.unbind("<f12>");
     oni.input.bind("<f12>", "language.findAllReferences");
 };
 
