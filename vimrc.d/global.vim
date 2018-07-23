@@ -57,9 +57,11 @@ set copyindent " Copy the previous indentation on autoindenting
 set t_vb=
 set noerrorbells " don't beep
 
-set wildignore=*.swp,*.bak,*.pyc,*.class,*.orig,*.scssc,tags,gems.tags,tmp/**,*/cache/*
-set wildignore+=*.gif,*.png,*.jpg,*.jpeg,tmp
-set wildignore+=coverage/**
+set wildignore=*.swp,*.bak,*.orig
+set wildignore+=*.pyc,*.class,*.scssc
+set wildignore+=tmp/**,*/cache/*,coverage/**
+set wildignore+=tags,gems.tags
+set wildignore+=*.gif,*.png,*.jpg,*.jpeg
 
 set history=1000
 set undolevels=1000
