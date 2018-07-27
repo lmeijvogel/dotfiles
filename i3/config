@@ -40,6 +40,8 @@ bindsym $mod+Control+q exec "$HOME/.lib/lock-screen.sh"
 # kill focused window
 bindsym $mod+Shift+q kill
 
+focus_follows_mouse no
+
 # start dmenu (a program launcher)
 # bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
