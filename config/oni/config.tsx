@@ -30,7 +30,7 @@ export const configuration = {
     //"oni.bookmarks": ["~/Documents"],
     "oni.loadInitVim": true,
     "editor.fontFamily": "Inconsolata",
-    "editor.fontSize": "23px",
+    "editor.fontSize": "22px",
     "editor.maximizeScreenOnStart": false,
 
     // UI customizations
