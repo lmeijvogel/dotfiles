@@ -81,6 +81,7 @@ nmap <C-A-j> :bp<CR>
 " FZF
 nmap <silent> <C-p> :GFiles<CR>
 nmap <silent> <leader>h :History<CR>
+nmap <silent> <leader>b :Buffers<CR>
 
 " Color schemes
 nmap <silent> <F6> :call LMBackgroundDark()<CR>
