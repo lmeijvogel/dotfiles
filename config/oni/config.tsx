@@ -19,8 +19,10 @@ export const activate = (oni: Oni.Plugin.Api) => {
 
     oni.input.unbind("<c-tab>");
 
-    oni.input.unbind("<f12>");
-    oni.input.bind("<f12>", "language.findAllReferences");
+    // <s-f12> is "go to definition in split" by default,
+    // in VSCode it's "find all references".
+    oni.input.unbind("<s-f12>");
+    oni.input.bind("<s-f12>", "language.findAllReferences");
 };
 
 export const deactivate = (oni: Oni.Plugin.Api) => {};
