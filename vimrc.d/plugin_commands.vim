@@ -241,15 +241,13 @@ if !exists('g:config_already_loaded')
   else
     " Konsole does not support cursor shapes, which makes it
     " print extraneous 'q' characters. Re-enable this if that is a problem
-    "set guicursor=
+    set guicursor=
   endif
 endif
 
 " Tsuquyomi: Only keep the C-] and C-T mapping since they keep a local tag
 " stack. The other functions are handled well enough by nvim-typescript.
 let g:tsuquyomi_disable_default_mappings = 1
-autocmd BufEnter *.ts,*.tsx map <C-]> <Plug>(TsuquyomiDefinition)
-autocmd BufEnter *.ts,*.tsx map <C-T> <Plug>(TsuquyomiGoBack)
 
 " Quickfix window for Tsuquyomi is generated synchronously and is slow.
 let g:tsuquyomi_disable_quickfix = 1
