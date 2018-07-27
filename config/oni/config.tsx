@@ -45,17 +45,17 @@ export const configuration = {
             tabWidth: 4,
             useTabs: false,
             singleQuote: false,
-            trailingComma: "es5",
+            trailingComma: "none",
             bracketSpacing: true,
             jsxBracketSameLine: false,
             arrowParens: "avoid",
-            printWidth: 120,
+            printWidth: 120
         },
-        formatOnSave: true,
+        formatOnSave: true
     },
     "sidebar.default.open": false,
     "statusbar.fontSize": "1.3em",
     "tabs.mode": "buffers",
     "ui.animations.enabled": true,
-    "ui.fontSmoothing": "auto",
+    "ui.fontSmoothing": "auto"
 };
