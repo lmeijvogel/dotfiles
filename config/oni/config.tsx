@@ -2,17 +2,12 @@ import * as React from "react";
 import * as Oni from "oni-api";
 
 export const activate = (oni: Oni.Plugin.Api) => {
-    // Input
-    //
-    // Add input bindings here:
-    //
+    // Input bindings
     oni.input.bind("<c-enter>", () => console.log("Control+Enter was pressed"));
 
-    //
-    // Or remove the default bindings here by uncommenting the below line:
-    //
     // Use fzf.vim since it's faster than Oni's finder
     oni.input.unbind("<c-p>");
+
     // C-t is 'find symbols' in Oni, but I want the 'go to definition'/'return' behavior provided
     // by Tsuquyomi.
     oni.input.unbind("<c-t>");
