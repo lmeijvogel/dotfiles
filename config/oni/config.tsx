@@ -16,7 +16,7 @@ export const activate = (oni: Oni.Plugin.Api) => {
     // C-t is 'find symbols' in Oni, but I want the 'go to definition'/'return' behavior provided
     // by Tsuquyomi.
     oni.input.unbind("<c-t>");
-    oni.input.unbind("<c-^>");
+
     oni.input.unbind("<c-tab>");
 
     oni.input.unbind("<f12>");

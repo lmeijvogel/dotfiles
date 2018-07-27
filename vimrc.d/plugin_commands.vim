@@ -281,6 +281,9 @@ if !exists('g:gui_oni')
     autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 else
     autocmd FileType fzf tnoremap <nowait><buffer> <esc> <c-g> " Close FZF in Oni with esc
+
+    " Make C-6 (go to previous buffer) work again in Oni
+    noremap <C-6> <C-^>
 endif
 
 let g:alternateExtensions_{'tsx'} = "scss"
