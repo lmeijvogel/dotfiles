@@ -114,16 +114,16 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1: console
-bindsym $mod+Shift+2 move container to workspace 2: vim
-bindsym $mod+Shift+3 move container to workspace 3: devtools
-bindsym $mod+Shift+4 move container to workspace 4: browser
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace 1: console; workspace 1
+bindsym $mod+Shift+2 move container to workspace 2: vim; workspace 2
+bindsym $mod+Shift+3 move container to workspace 3: devtools; workspace 3
+bindsym $mod+Shift+4 move container to workspace 4: browser; workspace 4
+bindsym $mod+Shift+5 move container to workspace 5; workspace 5
+bindsym $mod+Shift+6 move container to workspace 6; workspace 6
+bindsym $mod+Shift+7 move container to workspace 7; workspace 7
+bindsym $mod+Shift+8 move container to workspace 8; workspace 8
+bindsym $mod+Shift+9 move container to workspace 9; workspace 9
+bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 
 # Predefined workspaces: "Console", "Vim", "Browser"
 bindsym $mod+z workspace 5
@@ -133,11 +133,11 @@ bindsym $mod+v workspace 2: vim
 bindsym $mod+b workspace 4: browser
 
 # Move focused container to predefined workspace: "Console", "Vim", "Browser"
-bindsym $mod+Shift+z move container to workspace 5
-bindsym $mod+Shift+x move container to workspace 3: devtools
-bindsym $mod+Shift+c move container to workspace 1: console
-bindsym $mod+Shift+v move container to workspace 2: vim
-bindsym $mod+Shift+b move container to workspace 4: browser
+bindsym $mod+Shift+z move container to workspace 5; workspace 5
+bindsym $mod+Shift+x move container to workspace 3: devtools; workspace 3
+bindsym $mod+Shift+c move container to workspace 1: console; workspace 1
+bindsym $mod+Shift+v move container to workspace 2: vim; workspace 2
+bindsym $mod+Shift+b move container to workspace 4: browser; workspace 4
 
 # reload i3 configuration
 bindsym $mod+Shift+r reload
