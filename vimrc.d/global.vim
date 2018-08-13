@@ -102,6 +102,9 @@ autocmd BufWinLeave * call clearmatches()
 " Regard .es6 files as Javascript
 autocmd BufEnter *.es6 set ft=javascript
 
+" Work only: use 4 spaces when opening ts and tsx files
+autocmd BufEnter *.ts,*.tsx set ts=4 sw=4
+
 set tags+=gems.tags
 
 set encoding=utf-8

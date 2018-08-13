@@ -126,16 +126,16 @@ bindsym $mod+Shift+9 move container to workspace 9; workspace 9
 bindsym $mod+Shift+0 move container to workspace 10; workspace 10
 
 # Predefined workspaces: "Console", "Vim", "Browser"
-bindsym $mod+z workspace 5
+bindsym $mod+c workspace 5
 bindsym $mod+x workspace 3: devtools
-bindsym $mod+c workspace 1: console
+bindsym $mod+z workspace 1: console
 bindsym $mod+v workspace 2: vim
 bindsym $mod+b workspace 4: browser
 
 # Move focused container to predefined workspace: "Console", "Vim", "Browser"
-bindsym $mod+Shift+z move container to workspace 5; workspace 5
+bindsym $mod+Shift+c move container to workspace 5; workspace 5
 bindsym $mod+Shift+x move container to workspace 3: devtools; workspace 3: devtools
-bindsym $mod+Shift+c move container to workspace 1: console; workspace 1: console
+bindsym $mod+Shift+z move container to workspace 1: console; workspace 1: console
 bindsym $mod+Shift+v move container to workspace 2: vim; workspace 2: vim
 bindsym $mod+Shift+b move container to workspace 4: browser; workspace 4: browser
 
