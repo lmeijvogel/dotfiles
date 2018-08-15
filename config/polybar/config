@@ -52,8 +52,8 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = FontAwesome:pixelsize=12;2
+font-0 = Inconsolata:pixelsize=15;1
+font-1 = FontAwesome:pixelsize=16;1
 font-2 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-3 = siji:pixelsize=10;1
 
