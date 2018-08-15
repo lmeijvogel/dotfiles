@@ -137,10 +137,6 @@ label-urgent = %name%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
-; Separator in between workspaces
-; label-separator = |
-
-
 [module/cpu]
 type = internal/cpu
 interval = 2
