@@ -24,6 +24,7 @@ background-alt = #444
 foreground = #dfdfdf
 foreground-alt = #ccc
 primary = #ffb52a
+primary-faded = #b5b5b5
 secondary = #e60053
 alert = #bd2c40
 
@@ -110,7 +111,7 @@ label-unfocused-padding = 2
 ; visible = Active workspace on unfocused monitor
 label-visible = %name%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
+label-visible-underline = ${colors.primary-faded}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -159,7 +160,7 @@ ramp-signal-foreground = ${colors.foreground-alt}
 [module/eth]
 type = internal/network
 interface = enx9cebe8245ce1
-interval = 3.0
+interval = 15.0
 
 format-connected-underline = #55aa55
 format-connected-prefix = " "
