@@ -1,0 +1,55 @@
+#!/usr/bin/env ruby
+
+require 'open3'
+
+def main
+  puts fetch_output
+
+  puts
+
+  if deleted_branches.none?
+    puts "No branches to delete"
+  end
+
+  deleted_branches.each do |branch|
+    puts "Delete #{branch}? [Yn]"
+
+    user_input = gets
+
+    unless user_input.strip.downcase == "n"
+      `git br -D #{branch}`
+    end
+  end
+end
+
+def branch_exists?(branch)
+  _, status = Open3.capture2e("git show #{branch}")
+
+  status.success?
+end
+
+def deleted_branches_on_upstream
+  @deleted_branches_on_upstream ||= begin
+    lines = fetch_output.lines.select { |line| line =~ /\A - \[deleted\]/ }
+
+    lines.map do |line|
+      line.split(" -> ")[1].gsub(%r[origin/], '')
+    end
+  end
+end
+
+def deleted_branches
+  deleted_branches_on_upstream.select { |branch| branch_exists?(branch) }
+end
+
+def fetch_output
+  @fetch_output ||= begin
+    stdout_and_stderr, _ = Open3.capture2e("git fetch --prune")
+
+    stdout_and_stderr
+  end
+end
+
+main
+
+# vim: filetype=ruby
