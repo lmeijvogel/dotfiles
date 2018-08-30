@@ -1,4 +1,6 @@
 class BranchMRU
+  BRANCH_NAME_REGEX = "[^\s]+"
+
   def initialize
     @branch_existence_registry = {}
   end
@@ -13,7 +15,7 @@ class BranchMRU
 
   def sorted_branch_names
     checkouts.map do |checkout|
-      matches = checkout.message.match(%r{moving from (?:[0-9a-zA-Z_\-/]+) to ([0-9a-zA-Z_\-/]+)})
+      matches = checkout.message.match(%r{moving from (?:#{BRANCH_NAME_REGEX}) to (#{BRANCH_NAME_REGEX})})
 
       matches[1]
     end.uniq
