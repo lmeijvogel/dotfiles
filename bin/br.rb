@@ -49,8 +49,8 @@ def forward_to_normal_git_branch!(argv)
   $stderr.puts stdout_or_stderr
 end
 
-def show_branch_choice(local_or_remote)
-  branches = NumberedGitBranch.new(local_or_remote).branches
+def show_branch_choice(local_or_remote, pattern = //)
+  branches = NumberedGitBranch.new(local_or_remote).branches.select { |branch| branch =~ pattern }
 
   branches.each_with_index do |branch, index|
     formatted_index = "[#{index+1}]"
@@ -74,6 +74,8 @@ def show_branch_choice(local_or_remote)
     checkout(branches[1]) # Equivalent to `git checkout -` (previous branch)
   when "m"
     checkout("master")
+  when %r[/(.*)]
+    show_branch_choice(local_or_remote, %r[^#{$1}])
   else
     number = input.to_i
 
