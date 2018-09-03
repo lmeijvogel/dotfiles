@@ -13,3 +13,5 @@
 --ignore-dir=public/assets
 --ignore-dir=public/packs
 --ignore-dir=email_logs
+--ignore-dir=builds
+--ignore-dir=testResults
