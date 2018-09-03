@@ -70,7 +70,7 @@ modules-right = date
 inherit = bar/base
 
 modules-left = powermenu i3
-modules-right = filesystem alsa memory cpu eth wlan temperature date
+modules-right = filesystem alsa memory cpu eth wlan date
 
 tray-position = right
 tray-padding = 2
@@ -275,25 +275,6 @@ animation-discharging-1 = 
 animation-discharging-2 = 
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
-
-[module/temperature]
-type = internal/temperature
-thermal-zone = 1
-warn-temperature = 60
-
-format = <ramp> <label>
-format-underline = #b50a4d
-format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
-
-label = %temperature-c%
-label-warn = %temperature-c%
-label-warn-foreground = ${colors.secondary}
-
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
 type = custom/menu
