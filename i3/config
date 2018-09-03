@@ -39,6 +39,7 @@ bindsym $mod+Control+q exec "$HOME/.lib/lock-screen.sh"
 
 # kill focused window
 bindsym $mod+Shift+q kill
+bindsym Mod1+F4 kill
 
 focus_follows_mouse no
 
