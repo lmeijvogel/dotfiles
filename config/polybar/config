@@ -12,7 +12,7 @@
 ;   To learn more about how to configure Polybar
 ;   go to https://github.com/jaagr/polybar
 ;
-;   The README contains alot of information
+;   The README contains a lot of information
 ;
 ;==========================================================
 
@@ -23,10 +23,12 @@ background-alt = #444
 ;foreground = ${xrdb:color7:#222}
 foreground = #dfdfdf
 foreground-alt = #ccc
+foreground-dimmed = #777
 primary = #ffb52a
 primary-faded = #b5b5b5
 secondary = #e60053
 alert = #bd2c40
+underline-green = #44bb44
 
 [bar/base]
 monitor = ${env:MONITOR}
@@ -141,14 +143,12 @@ interface = wlp2s0
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-format-connected-underline = #9f78e1
+format-connected-underline = ${colors.underline-green}
 label-connected = %essid%
 label-disconnected = no wlan
 
 format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+label-disconnected-foreground = ${colors.foreground-dimmed}
 
 ramp-signal-0 = 
 ramp-signal-1 = 
@@ -160,18 +160,17 @@ ramp-signal-foreground = ${colors.foreground-alt}
 [module/eth]
 type = internal/network
 interface = enx9cebe8245ce1
-interval = 15.0
+interval = 5.0
 
-format-connected-underline = #55aa55
+format-connected-underline = ${colors.underline-green}
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
-format-disconnected =
-;format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
-;label-disconnected = %ifname% disconnected
-;label-disconnected-foreground = ${colors.foreground-alt}
+format-disconnected-prefix = " "
+format-disconnected = <label-disconnected>
+label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/date]
 type = internal/date
@@ -197,7 +196,7 @@ label-volume =  %percentage%%
 label-volume-foreground = ${root.foreground}
 
 label-muted = muted
-label-muted-foreground = #666
+label-muted-foreground = ${colors.foreground-dimmed}
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -225,7 +224,7 @@ label-volume-foreground = ${root.foreground}
 
 ; format-muted-prefix = " "
 format-muted-foreground = ${colors.foreground-alt}
-label-muted = sound muted
+label-muted = muted
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
