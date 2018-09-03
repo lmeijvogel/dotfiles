@@ -51,10 +51,9 @@ Plugin 'jeetsukumaran/vim-indentwise' " Easy navigation based on indent level
 Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'               " Typescript support (auto-completion, go to declaration). Used in oni, because it has a tag stack-like approach.
 Plugin 'nacitar/a.vim'                  " Easily alternate between related files
+Plugin 'kovisoft/slimv'
 
 if !exists('g:gui_oni')
-  Plugin 'Shougo/deoplete.nvim'
-  Plugin 'mhartington/nvim-typescript' " Typescript support (auto-completion, etc.)
   Plugin 'leafgarland/typescript-vim' " Syntax files for typescript
 end
 
