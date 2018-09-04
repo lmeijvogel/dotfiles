@@ -102,43 +102,54 @@ bindsym $mod+a focus parent
 
 focus_wrapping no
 
+set $ws1 "1: console"
+set $ws2 "2: vim"
+set $ws3 "3: devtools"
+set $ws4 "4: browser"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
 # switch to workspace
-bindsym $mod+1 workspace 1: console
-bindsym $mod+2 workspace 2: vim
-bindsym $mod+3 workspace 3: devtools
-bindsym $mod+4 workspace 4: browser
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace number 1; workspace number 1
-bindsym $mod+Shift+2 move container to workspace number 2; workspace number 2
-bindsym $mod+Shift+3 move container to workspace number 3; workspace number 3
-bindsym $mod+Shift+4 move container to workspace number 4; workspace number 4
-bindsym $mod+Shift+5 move container to workspace number 5; workspace number 5
-bindsym $mod+Shift+6 move container to workspace number 6; workspace number 6
-bindsym $mod+Shift+7 move container to workspace number 7; workspace number 7
-bindsym $mod+Shift+8 move container to workspace number 8; workspace number 8
-bindsym $mod+Shift+9 move container to workspace number 9; workspace number 9
-bindsym $mod+Shift+0 move container to workspace number 10; workspace number 10
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 
 # Predefined workspaces: "Console", "Vim", "Browser"
-bindsym $mod+z workspace number 1
-bindsym $mod+x workspace number 3
-bindsym $mod+c workspace number 5
-bindsym $mod+v workspace number 2
-bindsym $mod+b workspace number 4
+bindsym $mod+z workspace $ws1
+bindsym $mod+x workspace $ws3
+bindsym $mod+c workspace $ws5
+bindsym $mod+v workspace $ws2
+bindsym $mod+b workspace $ws4
 
 # Move focused container to predefined workspace
-bindsym $mod+Shift+z move container to workspace number 1; workspace number 1
-bindsym $mod+Shift+x move container to workspace number 3; workspace number 3
-bindsym $mod+Shift+c move container to workspace number 5; workspace number 5
-bindsym $mod+Shift+v move container to workspace number 2; workspace number 2
-bindsym $mod+Shift+b move container to workspace number 4; workspace number 4
+bindsym $mod+Shift+z move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+x move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+c move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+v move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+b move container to workspace $ws4; workspace $ws4
 
 # reload i3 configuration
 bindsym $mod+Shift+r reload
