@@ -1,3 +1,5 @@
+require 'set'
+
 class BranchMRU
   BRANCH_NAME_REGEX = "[^\s]+"
 
@@ -14,11 +16,20 @@ class BranchMRU
   private
 
   def sorted_branch_names
-    checkouts.map do |checkout|
+    checked_out_branches = checkouts.map do |checkout|
       matches = checkout.message.match(%r{moving from (?:#{BRANCH_NAME_REGEX}) to (#{BRANCH_NAME_REGEX})})
 
       matches[1]
     end.uniq
+
+    # Use a Set so I don't have do deduplicate the branches myself
+    return Set.new(checked_out_branches) + all_local_branches
+  end
+
+  def all_local_branches
+    all_refs = `git for-each-ref --format '%(refname)' refs/heads`.each_line.map(&:strip)
+
+    all_refs.map { |branch| branch.gsub(%r[^refs/heads/], "") }
   end
 
   def checkouts
