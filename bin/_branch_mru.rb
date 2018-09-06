@@ -36,7 +36,14 @@ class BranchMRU
     logs = `git reflog`.split("\n")
 
     reflog_entries = logs.map do |line|
-      match = line.match(/([0-9a-f]+)\s+([^:]+):\s+([^:]+):\s+(.*)/)
+      match = line.match(%r{
+                           ([0-9a-f]+)   # SHA
+                           \s+
+                           ([^:]+):      # HEAD@
+                           \s+
+                           ([^:]+)       # action
+                           (?::\s+(.*))? # optional message
+                         }x)
 
       ReflogEntry.new(*match[1..-1])
     end
