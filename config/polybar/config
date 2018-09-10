@@ -16,6 +16,9 @@
 ;
 ;==========================================================
 
+[machine-specific]
+include-file = $HOME/.config/polybar/machine-specific
+
 [colors]
 background = #222
 background-alt = #444
@@ -72,7 +75,7 @@ modules-right = date
 inherit = bar/base
 
 modules-left = powermenu i3
-modules-right = filesystem alsa memory cpu eth wlan date
+modules-right = ${machine-specific.modules-right}
 
 tray-position = right
 tray-padding = 2

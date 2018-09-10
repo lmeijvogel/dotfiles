@@ -4,14 +4,14 @@ require "fileutils"
 require "shellwords"
 
 desc "perform :update_all_symlinks"
-task :default => [:update_all_symlinks, :i3]
+task :default => [:update_all_symlinks, :i3, :polybar]
 
 desc "Generate i3 configuration files"
 task :i3 do
   config_template = File.read(File.join(__dir__, "i3/config"))
 
-  additional_config = if ENV.key?("I3_ADDITIONAL_CONFIG_FILE")
-                        filename = File.basename(ENV["I3_ADDITIONAL_CONFIG_FILE"])
+  additional_config = if ENV.key?("WM_MACHINE_NAME")
+                        filename = "config-#{File.basename(ENV["WM_MACHINE_NAME"])}"
 
                         sanitized_filename = File.join(__dir__, "i3/#{filename}")
                         base_additional_config = File.read(sanitized_filename)
@@ -34,6 +34,22 @@ task :i3 do
   open(output_config_path, "w") do |file|
     file.write(resulting_config)
   end
+end
+
+desc "Create polybar machine-specific config file"
+task :polybar do
+  filename = if ENV.key?("WM_MACHINE_NAME")
+               "vars-#{File.basename(ENV["WM_MACHINE_NAME"])}"
+             else
+               puts "ERROR: No machine-specific configuration set: Choosing 'home' as default"
+               "vars-home"
+             end
+
+  sanitized_filename = File.join(__dir__, "config/polybar/#{filename}")
+
+  puts "Found machine-specific polybar configuration in #{sanitized_filename}"
+
+  cp sanitized_filename, "#{ENV['HOME']}/.config/polybar/machine-specific"
 end
 
 desc "Updates all symlinks"
