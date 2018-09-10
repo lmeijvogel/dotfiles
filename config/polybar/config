@@ -28,6 +28,10 @@ secondary = #e60053
 alert = #bd2c40
 underline-green = #44bb44
 
+volume-low  = #55aa55
+volume-mid  = #f5a70a
+volume-high = #ff5555
+
 [bar/base]
 monitor = ${env:MONITOR}
 
@@ -190,21 +194,21 @@ label = %date% %time%
 type = internal/pulseaudio
 
 format-volume = <label-volume> <bar-volume>
-label-volume =  %percentage%%
-label-volume-foreground = ${root.foreground}
+label-volume =  %percentage%%
+label-volume-foreground = ${colors.foreground}
 
-label-muted = muted
+label-muted =  %percentage%%
 label-muted-foreground = ${colors.foreground-dimmed}
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
+bar-volume-foreground-0 = ${colors.volume-low}
+bar-volume-foreground-1 = ${colors.volume-low}
+bar-volume-foreground-2 = ${colors.volume-low}
+bar-volume-foreground-3 = ${colors.volume-low}
+bar-volume-foreground-4 = ${colors.volume-low}
+bar-volume-foreground-5 = ${colors.volume-mid}
+bar-volume-foreground-6 = ${colors.volume-high}
+bar-volume-gradient = true
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
@@ -225,14 +229,14 @@ format-muted-foreground = ${colors.foreground-alt}
 label-muted = muted
 
 bar-volume-width = 10
-bar-volume-foreground-0 = #55aa55
-bar-volume-foreground-1 = #55aa55
-bar-volume-foreground-2 = #55aa55
-bar-volume-foreground-3 = #55aa55
-bar-volume-foreground-4 = #55aa55
-bar-volume-foreground-5 = #f5a70a
-bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
+bar-volume-foreground-0 = ${colors.volume-low}
+bar-volume-foreground-1 = ${colors.volume-low}
+bar-volume-foreground-2 = ${colors.volume-low}
+bar-volume-foreground-3 = ${colors.volume-low}
+bar-volume-foreground-4 = ${colors.volume-low}
+bar-volume-foreground-5 = ${colors.volume-mid}
+bar-volume-foreground-6 = ${colors.volume-high}
+bar-volume-gradient = true
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
