@@ -222,12 +222,11 @@ bar-volume-empty-foreground = ${colors.foreground-alt}
 type = internal/alsa
 
 format-volume = <label-volume> <bar-volume>
-label-volume = 
-label-volume-foreground = ${root.foreground}
+label-volume =  %percentage%%
+label-volume-foreground = ${colors.foreground}
 
-; format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted = muted
+label-muted =  %percentage%%
+label-muted-foreground = ${colors.foreground-dimmed}
 
 bar-volume-width = 10
 bar-volume-foreground-0 = ${colors.volume-low}
