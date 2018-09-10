@@ -48,7 +48,7 @@ focus_follows_mouse no
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec --no-startup-id albert show
 
 # change focus
 bindsym $mod+h focus left
