@@ -288,7 +288,7 @@ expand-right = true
 
 format-spacing = 1
 
-label-open =  Start
+label-open =  Leave
 label-close = cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |
