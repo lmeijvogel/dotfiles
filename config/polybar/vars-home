@@ -1,4 +1,3 @@
-audio-driver = alsa
 modules-right = filesystem alsa memory cpu eth wlan date
 
 ; vim:ft=dosini
