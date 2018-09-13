@@ -252,3 +252,5 @@ exec --no-startup-id ~/bin/start_xautolock &
 
 bindsym $mod+grave scratchpad show
 bindsym $mod+Shift+grave move scratchpad
+
+bindsym --release Print exec scrot -s
