@@ -248,9 +248,7 @@ workspace 10 output $output_right
 
 workspace 9 output $output_right_or_laptop
 
-# Lock the screen after 3 minutes of inactivity,
-# Notify 10 seconds before locking and remove notification 1 second before locking, so the screenshot will look better :)
-exec xautolock -time 3 -notify 10 -notifier "notify-send --expire-time 9000 \"Screen lock\" \"Screen will be locked in 10 seconds\"" -locker '~/.lib/lock-screen.sh' &
+exec --no-startup-id ~/bin/start_xautolock &
 
 bindsym $mod+grave scratchpad show
 bindsym $mod+Shift+grave move scratchpad
