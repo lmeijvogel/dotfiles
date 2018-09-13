@@ -43,8 +43,8 @@ bindsym Mod1+F4 kill
 
 focus_follows_mouse no
 
-# start Albert (program launcher)
-bindsym $mod+d exec --no-startup-id albert toggle
+# start dmenu (program launcher)
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -252,5 +252,3 @@ exec --no-startup-id ~/bin/start_xautolock &
 
 bindsym $mod+grave scratchpad show
 bindsym $mod+Shift+grave move scratchpad
-
-exec --no-startup-id exec albert
