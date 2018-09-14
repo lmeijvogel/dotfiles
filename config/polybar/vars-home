@@ -1,4 +1,4 @@
 sound-module = internal/alsa
-modules-right = filesystem memory cpu eth wlan sound date
+modules-right = filesystem memory cpu eth sound date
 
 ; vim:ft=dosini
