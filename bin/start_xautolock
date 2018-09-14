@@ -2,4 +2,8 @@
 
 # Lock the screen after 3 minutes of inactivity,
 # Notify 10 seconds before locking and remove notification 1 second before locking, so the screenshot will look better :)
-xautolock -time 3 -notify 10 -notifier "notify-send --expire-time 9000 \"Screen lock\" \"Screen will be locked in 10 seconds\"" -locker '~/.lib/lock-screen.sh'
+
+# corners: topleft | topright | bottomleft | bottomright
+#          no lock |          |            | lock
+
+xautolock -corners -00+ -time 3 -notify 10 -notifier "notify-send --expire-time 9000 \"Screen lock\" \"Screen will be locked in 10 seconds\"" -locker '~/.lib/lock-screen.sh'
