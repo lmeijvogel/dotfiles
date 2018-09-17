@@ -1,4 +1,4 @@
 sound-module = internal/pulseaudio
-modules-right = filesystem memory cpu eth wlan sound date
+modules-right = filesystem memory cpu eth wlan battery sound date
 
 ; vim:ft=dosini
