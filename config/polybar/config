@@ -30,6 +30,7 @@ primary-faded = #b5b5b5
 secondary = #e60053
 alert = #bd2c40
 underline-green = #44bb44
+underline-orange = #ffb52a
 
 volume-low  = #55aa55
 volume-mid  = #f5a70a
@@ -228,14 +229,14 @@ adapter = AC
 full-at = 98
 
 format-charging =  <label-charging>
-format-charging-underline = #ffb52a
+format-charging-underline = ${colors.underline-green}
 
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = ${self.format-charging-underline}
+format-discharging-underline = ${colors.underline-orange}
 
-format-full-prefix = " "
+format-full = 
 format-full-prefix-foreground = ${colors.foreground-alt}
-format-full-underline = ${self.format-charging-underline}
+format-full-underline = ${colors.underline-green}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
