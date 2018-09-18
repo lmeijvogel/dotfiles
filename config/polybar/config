@@ -152,9 +152,8 @@ format-connected =  <ramp-signal> <label-connected>
 format-connected-underline = ${colors.underline-green}
 label-connected = %essid%
 
-format-disconnected =  <label-disconnected>
+format-disconnected = 
 format-disconnected-foreground = ${colors.foreground-dimmed}
-label-disconnected = -
 
 ramp-signal-0 = 
 ramp-signal-1 = 
@@ -202,7 +201,7 @@ format-volume = <label-volume> <bar-volume>
 label-volume =  %percentage%%
 label-volume-foreground = ${colors.foreground}
 
-label-muted =  %percentage%%
+label-muted = 
 label-muted-foreground = ${colors.foreground-dimmed}
 
 bar-volume-width = 10
