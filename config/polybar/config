@@ -20,8 +20,8 @@
 include-file = $HOME/.config/polybar/machine-specific
 
 [colors]
-background = #222
-background-alt = #444
+background = #181818
+background-alt = #555
 foreground = #dfdfdf
 foreground-dimmed = #777
 primary = #ffb52a
