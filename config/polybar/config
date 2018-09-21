@@ -23,7 +23,6 @@ include-file = $HOME/.config/polybar/machine-specific
 background = #222
 background-alt = #444
 foreground = #dfdfdf
-foreground-alt = #ccc
 foreground-dimmed = #777
 primary = #ffb52a
 primary-faded = #b5b5b5
@@ -89,9 +88,9 @@ interval = 25
 mount-0 = /
 
 label-mounted =  %mountpoint%%{F-}: %percentage_used%%
-label-mounted-foreground = ${colors.foreground-alt}
+label-mounted-foreground = ${colors.foreground}
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
+label-unmounted-foreground = ${colors.foreground}
 
 [module/i3]
 type = internal/i3
@@ -132,14 +131,14 @@ label-urgent-padding = 2
 type = internal/cpu
 interval = 3
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.foreground}
 label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
 format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.foreground}
 label = %percentage_used%%
 
 [module/wlan]
@@ -159,7 +158,7 @@ ramp-signal-1 = 
 ramp-signal-2 = ~
 ramp-signal-3 = 
 ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-foreground = ${colors.foreground}
 
 [module/eth]
 type = internal/network
@@ -168,14 +167,14 @@ interval = 5.0
 
 format-connected-underline = ${colors.underline-green}
 format-connected-prefix = " "
-format-connected-prefix-foreground = ${colors.foreground-alt}
+format-connected-prefix-foreground = ${colors.foreground}
 label-connected = %local_ip%
 
 label-disconnected = disconnected
 
 format-disconnected-prefix = " "
 format-disconnected = <label-disconnected>
-label-disconnected-foreground = ${colors.foreground-alt}
+format-disconnected-foreground = ${colors.foreground-dimmed}
 
 [module/date]
 type = internal/date
@@ -188,7 +187,7 @@ time = %H:%M
 time-alt = %H:%M:%S
 
 ; format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-foreground = ${colors.foreground}
 
 label = %date% %time%
 
@@ -217,7 +216,7 @@ bar-volume-fill = ─
 bar-volume-fill-font = 2
 bar-volume-empty = ─
 bar-volume-empty-font = 2
-bar-volume-empty-foreground = ${colors.foreground-alt}
+bar-volume-empty-foreground = ${colors.foreground}
 
 [module/battery]
 type = internal/battery
@@ -232,13 +231,13 @@ format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${colors.underline-orange}
 
 format-full = 
-format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-prefix-foreground = ${colors.foreground}
 format-full-underline = ${colors.underline-green}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
+ramp-capacity-foreground = ${colors.foreground}
 
 [module/powermenu]
 type = custom/menu
@@ -251,7 +250,7 @@ label-open =  Leave
 label-close = cancel
 label-close-foreground = ${colors.secondary}
 label-separator = |
-label-separator-foreground = ${colors.foreground-alt}
+label-separator-foreground = ${colors.foreground-dimmed}
 
 menu-0-0 = suspend
 menu-0-0-exec = menu-open-1
