@@ -183,7 +183,6 @@ date-alt =
 time = %H:%M
 time-alt = %H:%M:%S
 
-; format-prefix = 
 format-prefix-foreground = ${colors.foreground}
 
 label = %date% %time%
