@@ -30,6 +30,7 @@ primary-faded = #b5b5b5
 secondary = #e60053
 alert = #bd2c40
 underline-green = #44bb44
+underline-grey = ${colors.primary-faded}
 underline-orange = #ffb52a
 
 volume-low  = #55aa55
@@ -109,7 +110,7 @@ label-mode-background = ${colors.primary}
 ; focused = Active workspace on focused monitor
 label-focused = %name%
 label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
+label-focused-underline= ${colors.underline-orange}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
@@ -119,7 +120,7 @@ label-unfocused-padding = 2
 ; visible = Active workspace on unfocused monitor
 label-visible = %name%
 label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${colors.primary-faded}
+label-visible-underline = ${colors.underline-grey}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -132,7 +133,6 @@ type = internal/cpu
 interval = 3
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #b50a4d
 label = %percentage:2%%
 
 [module/memory]
@@ -140,7 +140,6 @@ type = internal/memory
 interval = 2
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #4bffdc
 label = %percentage_used%%
 
 [module/wlan]
@@ -190,7 +189,6 @@ time-alt = %H:%M:%S
 
 ; format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
 
 label = %date% %time%
 
