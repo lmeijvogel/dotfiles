@@ -170,10 +170,7 @@ format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground}
 label-connected = %local_ip%
 
-label-disconnected = disconnected
-
-format-disconnected-prefix = " "
-format-disconnected = <label-disconnected>
+format-disconnected = ""
 format-disconnected-foreground = ${colors.foreground-dimmed}
 
 [module/date]
