@@ -266,3 +266,6 @@ bindsym $mod+grave scratchpad show
 bindsym $mod+Shift+grave move scratchpad
 
 bindsym --release Print exec scrot -s
+
+exec --no-startup-id i3-msg workspace $ws1
+exec --no-startup-id i3-msg workspace $ws4
