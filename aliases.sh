@@ -1,13 +1,5 @@
 alias yum='sudo yum'
 
-alias rtst='RAILS_ENV=test bundle exec rake test'
-alias rdfl='bundle exec rake db:fixtures:load'
-alias rdsl='bundle exec rake db:schema:load'
-alias trdsl='RAILS_ENV=test bundle exec rake db:schema:load'
-alias rdtp='bundle exec rake db:test:prepare'
-alias rmig='bundle exec rake db:migrate'
-alias rmigt='RAILS_ENV=test bundle exec rake db:migrate'
-
 alias rake='bundle exec rake'
 
 alias orig='cd `git rev-parse --show-toplevel` ; git status --untracked --porcelain | grep "^\\?\\?" | awk -e "{ print \$2; }" | grep "\\(\\.orig$\\)\\|\\.\\(BACKUP\\|BASE\\|LOCAL\\|REMOTE\\)\\." | xargs rm'
