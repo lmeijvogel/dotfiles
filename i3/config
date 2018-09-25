@@ -257,3 +257,27 @@ bindsym --release Print exec scrot -s
 
 exec --no-startup-id i3-msg workspace $ws1
 exec --no-startup-id i3-msg workspace $ws4
+
+mode "volume" {
+    # Lots of duplication, since i3wm doesn't support recursive variables :(
+    bindsym s        exec --no-startup-id pactl set-sink-mute   $outputSink toggle
+
+    # Volume up/down with j/k
+    bindsym j        exec --no-startup-id pactl set-sink-volume $outputSink -5% # decrease sound volume
+    bindsym Shift+j  exec --no-startup-id pactl set-sink-volume $outputSink -1% # decrease sound volume (small step)
+
+    bindsym k       exec --no-startup-id pactl set-sink-volume $outputSink +5% # increase sound volume
+    bindsym Shift+k exec --no-startup-id pactl set-sink-volume $outputSink +1% # increase sound volume (small step)
+
+    # Volume up/down with z/a
+    bindsym z        exec --no-startup-id pactl set-sink-volume $outputSink -5% # decrease sound volume
+    bindsym Shift+z  exec --no-startup-id pactl set-sink-volume $outputSink -1% # decrease sound volume (small step)
+
+    bindsym a       exec --no-startup-id pactl set-sink-volume $outputSink +5% # increase sound volume
+    bindsym Shift+a exec --no-startup-id pactl set-sink-volume $outputSink +1% # increase sound volume (small step)
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+s mode "volume"
