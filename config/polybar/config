@@ -48,6 +48,7 @@ fixed-center = false
 
 background = ${colors.background}
 foreground = ${colors.foreground}
+alert = ${colors.alert}
 
 line-size = 3
 line-color = #f00
@@ -234,6 +235,11 @@ ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground}
+
+[module/ping]
+type = custom/script
+exec = ~/.config/polybar/scripts/ping
+interval = 15
 
 [module/powermenu]
 type = custom/menu

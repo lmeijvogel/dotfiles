@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Timeout: 1
+# Count: 1
+
+gateway=`route | awk '/^default.*0\.0\.0\.0/ { print $2; }' | head -1`
+
+ping -c 1 -W 1 $gateway >/dev/null 2>&1
+
+ping_status=$?
+
+fg_color_error=`polybar --dump=alert base`
+bg_color=`polybar --dump=background base`
+
+if [[ "$ping_status" == "0" ]]; then
+    echo ""
+else
+    echo "%{F$fg_color_error B$bg_color}Could not ping $gateway%{F- B-}";
+fi

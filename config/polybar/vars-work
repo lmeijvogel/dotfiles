@@ -1,5 +1,5 @@
 sound-module = internal/pulseaudio
-modules-right = filesystem memory cpu eth wlan battery sound date
+modules-right = filesystem memory cpu eth wlan ping battery sound date
 eth-interface = enx9cebe8245ce1
 
 ; vim:ft=dosini
