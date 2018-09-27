@@ -94,7 +94,10 @@ def update_symlinks(origs, pattern)
     delete_symlink(symlink)
   end
 
-  origs.map { |file| File.expand_path(file) }.zip(symlinks).each do |source, symlink|
+  original_files = origs.select {|file| File.file?(file) }
+  target_files = original_files.pathmap(pattern)
+
+  original_files.map { |file| File.expand_path(file) }.zip(target_files).each do |source, symlink|
     puts "#{source} => #{symlink}"
     FileUtils.ln_s(File.expand_path(source), symlink)
   end
