@@ -16,10 +16,10 @@ class BranchMRU
   private
 
   def sorted_branch_names
-    checked_out_branches = checkouts.map do |checkout|
-      matches = checkout.message.match(%r{moving from (?:#{BRANCH_NAME_REGEX}) to (#{BRANCH_NAME_REGEX})})
+    checked_out_branches = checkouts.flat_map do |checkout|
+      matches = checkout.message.match(%r{moving from (#{BRANCH_NAME_REGEX}) to (#{BRANCH_NAME_REGEX})})
 
-      matches[1]
+      [matches[2], matches[1]]
     end.uniq
 
     # Use a Set so I don't have do deduplicate the branches myself
