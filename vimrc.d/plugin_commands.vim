@@ -1,5 +1,4 @@
 nmap <silent> <leader>nt :NERDTreeToggle<CR>
-nmap <silent> - :NERDTreeToggle<CR>
 nmap <silent> <leader>nf :NERDTreeFind<CR>
 
 let g:NERDTreeShowRelativeLineNumbers=1
@@ -81,7 +80,7 @@ nmap <C-A-j> :bp<CR>
 " FZF
 nmap <silent> <C-p> :GFiles<CR>
 nmap <silent> <leader>h :History<CR>
-nmap <silent> <leader>b :Buffers<CR>
+nmap - :Buffers<CR>
 
 " Color schemes
 nmap <silent> <F6> :call LMBackgroundDark()<CR>
