@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
-branch_name = `git symbolic-ref --short HEAD`
+
+branch_name = `git symbolic-ref --short HEAD`.strip
 
 upstream_branch = "origin/#{branch_name}"
 
 `git branch --set-upstream-to=#{upstream_branch} #{branch_name}`
-
