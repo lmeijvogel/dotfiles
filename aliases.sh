@@ -1,5 +1,3 @@
-alias yum='sudo yum'
-
 alias rake='bundle exec rake'
 
 alias orig='cd `git rev-parse --show-toplevel` ; git status --untracked --porcelain | grep "^\\?\\?" | awk -e "{ print \$2; }" | grep "\\(\\.orig$\\)\\|\\.\\(BACKUP\\|BASE\\|LOCAL\\|REMOTE\\)\\." | xargs rm'
@@ -24,8 +22,6 @@ alias vim='nvim'
 alias gvim='nvim-qt'
 
 alias nq='nvim-qt'
-
-alias fstop='find tmp/pids -name "*" -exec pkill -F {} \;'
 
 alias k1='kill %1'
 alias k91='kill -9 %1'
