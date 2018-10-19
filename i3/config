@@ -281,3 +281,5 @@ mode "volume" {
 }
 
 bindsym $mod+Shift+s mode "volume"
+
+bindsym $mod+Shift+w exec --no-startup-id $HOME/bin/breaks_off

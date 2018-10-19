@@ -1,0 +1,1 @@
+dbus-send --type=method_call --dest=org.workrave.Workrave /org/workrave/Workrave/Core org.workrave.CoreInterface.SetOperationMode string:'normal'

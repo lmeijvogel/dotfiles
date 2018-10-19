@@ -1,0 +1,20 @@
+#!/bin/bash
+
+function disable() {
+  dbus-send --type=method_call --dest=org.workrave.Workrave /org/workrave/Workrave/Core org.workrave.CoreInterface.SetOperationMode string:'quiet'
+}
+
+function enable() {
+  dbus-send --type=method_call --dest=org.workrave.Workrave /org/workrave/Workrave/Core org.workrave.CoreInterface.SetOperationMode string:'normal'
+}
+
+trap enable INT
+
+INTERVAL_IN_MINUTES=`echo -e '30\n10\n60' |dmenu -sb '#ff6600' -fn \ '-*20-*' -i -p "Pause interval (minutes)?"`
+INTERVAL_IN_SECONDS=$(expr $INTERVAL_IN_MINUTES \* 60)
+
+disable
+
+sleep $INTERVAL_IN_SECONDS
+
+enable
