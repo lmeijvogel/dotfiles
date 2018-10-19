@@ -28,6 +28,7 @@ primary = #ffb52a
 primary-faded = #b5b5b5
 secondary = #e60053
 alert = #bd2c40
+alert-bright = #ff3450
 underline-green = #44bb44
 underline-grey = ${colors.primary-faded}
 underline-orange = #ffb52a
@@ -49,6 +50,7 @@ fixed-center = false
 background = ${colors.background}
 foreground = ${colors.foreground}
 alert = ${colors.alert}
+alert-bright = ${colors.alert-bright}
 
 line-size = 3
 line-color = #f00
