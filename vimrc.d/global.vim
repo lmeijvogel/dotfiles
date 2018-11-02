@@ -112,3 +112,5 @@ set encoding=utf-8
 " Don't ask to reload the file when it changes on disk
 set autoread
 
+" Use the system clipboard by default
+set clipboard=unnamedplus
