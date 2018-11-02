@@ -112,6 +112,3 @@ set encoding=utf-8
 " Don't ask to reload the file when it changes on disk
 set autoread
 
-function! ConvertYAMLvalues()
-  normal vEEx:r !ruby -ryaml -rbigdecimal -e 'puts YAML.load("\"").to_f'kJ/!ruby
-endfunction
