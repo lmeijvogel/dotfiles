@@ -34,6 +34,9 @@
 
   fp = fetch-and-prune
 
+  # This prevents accidental pushing when I typo git-fp.
+  pf = "!f() { echo 'Please use git-pff!'; }; f"
+
   ; Remove a commit from the history: Default is the last commit
   uncommit = "!f() { git rebase --onto ${1:-HEAD}^ ${1:-HEAD}; }; f"
 
