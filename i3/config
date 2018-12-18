@@ -85,11 +85,11 @@ bindsym $mod+Shift+a focus child
 focus_wrapping no
 
 set $ws1 "1: console"
-set $ws2 "2: vim"
+set $ws2 "2: editor"
 set $ws3 "3: devtools"
 set $ws4 "4: browser"
 set $ws5 "5"
-set $ws6 "6"
+set $ws6 "6: windows"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -122,28 +122,28 @@ bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 # Predefined workspaces: "Console", "Vim", "Browser"
 bindsym $mod+z workspace $ws1
 bindsym $mod+x workspace $ws3
-bindsym $mod+c workspace $ws5
-bindsym $mod+v workspace $ws2
-bindsym $mod+b workspace $ws4
+bindsym $mod+c workspace $ws2
+bindsym $mod+v workspace $ws4
+bindsym $mod+b workspace $ws6
 
 bindsym $mod+n      workspace $ws1
 bindsym $mod+m      workspace $ws3
-bindsym $mod+comma  workspace $ws5
-bindsym $mod+period workspace $ws2
-bindsym $mod+slash  workspace $ws4
+bindsym $mod+comma  workspace $ws2
+bindsym $mod+period workspace $ws4
+bindsym $mod+slash  workspace $ws6
 
 # Move focused container to predefined workspace
 bindsym $mod+Shift+z move container to workspace $ws1; workspace $ws1
 bindsym $mod+Shift+x move container to workspace $ws3; workspace $ws3
-bindsym $mod+Shift+c move container to workspace $ws5; workspace $ws5
-bindsym $mod+Shift+v move container to workspace $ws2; workspace $ws2
-bindsym $mod+Shift+b move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+c move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+v move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+b move container to workspace $ws6; workspace $ws6
 
 bindsym $mod+Shift+n      move container to workspace $ws1; workspace $ws1
 bindsym $mod+Shift+m      move container to workspace $ws3; workspace $ws3
-bindsym $mod+Shift+comma  move container to workspace $ws5; workspace $ws5
-bindsym $mod+Shift+period move container to workspace $ws2; workspace $ws2
-bindsym $mod+Shift+slash  move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+comma  move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+period move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+slash  move container to workspace $ws6; workspace $ws6
 
 # reload i3 configuration
 bindsym $mod+Shift+r reload
