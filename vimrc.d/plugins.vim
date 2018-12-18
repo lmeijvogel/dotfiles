@@ -30,7 +30,6 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'ntpeters/vim-better-whitespace' " Better whitespace highlighting
 Plugin 'jgdavey/tslime.vim'
 Plugin 'jgdavey/vim-turbux'
-Plugin 'vim-scripts/summerfruit256.vim' " Light color scheme
 Plugin 'buztard/vim-rel-jump' " Store relative jumps (5j, 3k) in the jump list
 Plugin 'ap/vim-buftabline' " Buffer list at top of screen
 Plugin 'easymotion/vim-easymotion'
@@ -52,6 +51,7 @@ Plugin 'Shougo/vimproc.vim'
 Plugin 'Quramy/tsuquyomi'               " Typescript support (auto-completion, go to declaration). Used in oni, because it has a tag stack-like approach.
 Plugin 'nacitar/a.vim'                  " Easily alternate between related files
 Plugin 'kovisoft/slimv'
+Plugin 'rakr/vim-one' " Light color scheme
 
 if !exists('g:gui_oni')
   Plugin 'leafgarland/typescript-vim' " Syntax files for typescript

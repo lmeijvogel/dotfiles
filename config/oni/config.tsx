@@ -25,12 +25,12 @@ export const deactivate = (oni: Oni.Plugin.Api) => {};
 export const configuration = {
     "oni.useDefaultConfig": true,
 
-    "ui.colorscheme": "summerfruit256",
+    "ui.colorscheme": "one",
 
     //"oni.bookmarks": ["~/Documents"],
     "oni.loadInitVim": true,
     "editor.fontFamily": "Inconsolata",
-    "editor.fontSize": "20px",
+    "editor.fontSize": "18px",
     "editor.maximizeScreenOnStart": false,
 
     // UI customizations

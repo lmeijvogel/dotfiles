@@ -205,7 +205,7 @@ function! LMBackgroundLight()
 
   set background=light
 
-  colorscheme summerfruit256
+  colorscheme one
 endfunction
 
 function! LMBackgroundDark()
