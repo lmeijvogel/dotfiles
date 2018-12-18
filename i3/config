@@ -94,6 +94,7 @@ set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
+set $ws_itest "itest"
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -190,7 +191,7 @@ gaps outer 10
 smart_gaps on
 # Disable titlebars: i3-gaps does not work well with them
 for_window [class="^.*"] border pixel 3
-for_window [title="data:, - Google Chrome"] fullscreen enable
+for_window [title="data:, - Google Chrome"] move container to workspace $ws_itest, fullscreen enable
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #dd0000
