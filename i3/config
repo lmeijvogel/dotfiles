@@ -127,24 +127,12 @@ bindsym $mod+c workspace $ws2
 bindsym $mod+v workspace $ws4
 bindsym $mod+b workspace $ws6
 
-bindsym $mod+n      workspace $ws1
-bindsym $mod+m      workspace $ws3
-bindsym $mod+comma  workspace $ws2
-bindsym $mod+period workspace $ws4
-bindsym $mod+slash  workspace $ws6
-
 # Move focused container to predefined workspace
 bindsym $mod+Shift+z move container to workspace $ws1; workspace $ws1
 bindsym $mod+Shift+x move container to workspace $ws3; workspace $ws3
 bindsym $mod+Shift+c move container to workspace $ws2; workspace $ws2
 bindsym $mod+Shift+v move container to workspace $ws4; workspace $ws4
 bindsym $mod+Shift+b move container to workspace $ws6; workspace $ws6
-
-bindsym $mod+Shift+n      move container to workspace $ws1; workspace $ws1
-bindsym $mod+Shift+m      move container to workspace $ws3; workspace $ws3
-bindsym $mod+Shift+comma  move container to workspace $ws2; workspace $ws2
-bindsym $mod+Shift+period move container to workspace $ws4; workspace $ws4
-bindsym $mod+Shift+slash  move container to workspace $ws6; workspace $ws6
 
 # reload i3 configuration
 bindsym $mod+Shift+r reload
