@@ -1,13 +1,13 @@
 #!/bin/bash
 
-gsettings_key=org.cinnamon.settings-daemon.peripherals.mouse
+MOUSE=`xinput list | grep "Logitech USB Optical Mouse" | sed -r 's/.*id=([0-9]+).*/\1/'`
 
-current_setting=$(gsettings get $gsettings_key left-handed)
-
-if [[ "$current_setting" == "true" ]]; then
-  new_setting=false
+if [[ `xinput --get-button-map $MOUSE` =~ "1 2 3" ]]; then
+  echo "Set mouse to left-handed"
+  xinput --set-button-map $MOUSE 3 2 1
 else
-  new_setting=true
+  echo "Set mouse to right-handed"
+  xinput --set-button-map $MOUSE 1 2 3
 fi
 
-gsettings set $gsettings_key left-handed "$new_setting"
+# vim:ft=bash
