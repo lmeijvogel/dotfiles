@@ -76,6 +76,13 @@ There are two things you can do about this warning:
 (evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
 (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle)
 
+(define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+(define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+
+(define-key evil-normal-state-map (kbd "C-p") 'helm-projectile)
+
 (defun setup-tide-mode ()
   (interactive)
   (tide-setup)
