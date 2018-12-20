@@ -41,6 +41,13 @@ There are two things you can do about this warning:
   'magit-status
 )
 
+(evil-leader/set-key
+  "ss"
+  'evil-window-split)
+
+(evil-leader/set-key
+  "vv"
+  'evil-window-vsplit)
 (require 'evil)
 (evil-mode 1)
 
