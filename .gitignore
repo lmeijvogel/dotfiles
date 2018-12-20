@@ -2,3 +2,4 @@ vim/bundle/*
 .netrwhist
 .bundle
 vendor
+emacs.d/elpa/archives
