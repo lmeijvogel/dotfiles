@@ -47,6 +47,13 @@
   ;; `M-x package-install [ret] company`
   (company-mode +1))
 
+(defun set-tide-keybindings ()
+  (define-key tide-mode-map (kbd "<f12>") 'tide-jump-to-definition)
+  (define-key tide-mode-map (kbd "<S-f12>") 'tide-references))
+
+(eval-after-load 'tide
+  '(set-tide-keybindings))
+
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
 
@@ -57,3 +64,7 @@
 
 (load-theme 'silkworm t)
 (load-theme 'dracula t)
+
+
+;; TODO: tabs at the top
+;; TODO: Typescript navigation

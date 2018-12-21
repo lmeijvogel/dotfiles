@@ -23,6 +23,15 @@
 (evil-leader/set-key
   "vv"
   'evil-window-vsplit)
+
+(evil-leader/set-key
+  "rr"
+  'tide-rename-symbol)
+
+(evil-leader/set-key
+  "kd"
+  'tide-format)
+
 (require 'evil)
 (evil-mode 1)
 
