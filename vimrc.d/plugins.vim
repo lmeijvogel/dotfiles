@@ -52,6 +52,7 @@ Plugin 'Quramy/tsuquyomi'               " Typescript support (auto-completion, g
 Plugin 'nacitar/a.vim'                  " Easily alternate between related files
 Plugin 'kovisoft/slimv'
 Plugin 'rakr/vim-one' " Light color scheme
+Plugin 'file:///home/lennaert/projects/vim-mxcore'
 
 if !exists('g:gui_oni')
   Plugin 'leafgarland/typescript-vim' " Syntax files for typescript

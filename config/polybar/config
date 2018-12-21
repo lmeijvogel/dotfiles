@@ -73,7 +73,7 @@ font-3 = siji:pixelsize=10;1
 inherit = bar/base
 
 modules-left = powermenu i3
-modules-right = date
+modules-right = sound date
 
 [bar/right]
 inherit = bar/base

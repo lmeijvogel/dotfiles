@@ -5,7 +5,7 @@ pushd $HOME/git
   echo
   pushd neovim
     echo "Building neovim"
-    git pull
+    # git pull
     make distclean
 
     if [[ "$?" -ne "0" ]]; then
@@ -23,13 +23,13 @@ pushd $HOME/git
 
   echo
   pushd neovim-qt
-    echo "Building neovim-qt"
-    git pull
-    mkdir -p build
-    cd build
-    rm -rf *
-    cmake -DCMAKE_BUILD_TYPE=Release ..
-    make
+    # echo "Building neovim-qt"
+    # git pull
+    # mkdir -p build
+    # cd build
+    # rm -rf *
+    # cmake -DCMAKE_BUILD_TYPE=Release ..
+    # make
   popd
 
   if [[ "$?" -ne "0" ]]; then
@@ -53,6 +53,6 @@ pushd $HOME/git
   echo
   pushd neovim-qt/build
     echo "Installing neovim-qt"
-    sudo make install
+    # sudo make install
   popd
 popd
