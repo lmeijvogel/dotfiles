@@ -6,15 +6,19 @@
 (require 'evil-leader)
 (global-evil-leader-mode)
 (evil-leader/set-leader "<SPC>")
+
 (evil-leader/set-key
   "nt"
   'neotree
 )
 
 (evil-leader/set-key
+  "a"
+  'projectile-grep)
+
+(evil-leader/set-key
   "gs"
-  'magit-status
-)
+  'magit-status)
 
 (evil-leader/set-key
   "ss"
