@@ -3,43 +3,53 @@
 (setq evil-want-keybinding nil)
 
 
-(require 'evil-leader)
-(global-evil-leader-mode)
-(evil-leader/set-leader "<SPC>")
+(use-package evil-leader
+  :config
+  (global-evil-leader-mode)
+  (evil-leader/set-leader "<SPC>")
 
-(evil-leader/set-key
-  "nt"
-  'neotree
+  (evil-leader/set-key
+    "nt"
+    'neotree
+    )
+
+  (evil-leader/set-key
+    "a"
+    'projectile-grep)
+
+  (evil-leader/set-key
+    "gs"
+    'magit-status)
+
+  (evil-leader/set-key
+    "ss"
+    'evil-window-split)
+
+  (evil-leader/set-key
+    "vv"
+    'evil-window-vsplit)
+
+  (evil-leader/set-key
+    "rr"
+    'tide-rename-symbol)
+
+  (evil-leader/set-key
+    "kd"
+    'tide-format)
 )
 
-(evil-leader/set-key
-  "a"
-  'projectile-grep)
 
-(evil-leader/set-key
-  "gs"
-  'magit-status)
+(use-package evil
+  :config
+  (evil-mode 1)
 
-(evil-leader/set-key
-  "ss"
-  'evil-window-split)
+  (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+  (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+  (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+  (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
 
-(evil-leader/set-key
-  "vv"
-  'evil-window-vsplit)
-
-(evil-leader/set-key
-  "rr"
-  'tide-rename-symbol)
-
-(evil-leader/set-key
-  "kd"
-  'tide-format)
-
-(require 'evil)
-(evil-mode 1)
-
-(evil-collection-init)
+  (evil-collection-init)
+)
 
 ;; Make '_' a word character to match vim behavior
 (modify-syntax-entry ?_ "w")
