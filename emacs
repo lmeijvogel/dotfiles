@@ -6,11 +6,23 @@
 ;; Disable the huge toolbar at the top.
 (tool-bar-mode -1)
 
+;; Fix 'invalid font name' errors caused by Emacs reading system configuration and not liking Inconsolata
+ (setq initial-frame-alist '(
+   (font . "Monospace-10")
+ ))
+ (setq default-frame-alist '(
+   (font . "Monospace-10")
+ ))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector
+   ["#585858" "#a74f31" "#367a7f" "#76690b" "#0073b5" "#ad4271" "#3b4bab" "#b3ada6"])
+ '(custom-safe-themes
+   '("ec1572b17860768fb3ce0fe0148364b7bec9581f6f1a08b066e13719c882576f" default))
  '(package-selected-packages
    '(org use-package silkworm-theme helm-projectile evil-collection projectile-ripgrep projectile web-mode linum-relative ztree evil-numbers evil-leader evil-surround neotree evil-magit company dracula-theme magit tide flycheck typescript-mode seq pkg-info let-alist helm evil dash)))
 
