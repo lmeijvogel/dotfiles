@@ -39,6 +39,9 @@
 (global-set-key (kbd "M-h") 'previous-buffer)
 (global-set-key (kbd "M-l") 'next-buffer)
 
+;; Never use tabs
+(setq-default indent-tabs-mode nil)
+
 ;; Set evil-nerd-commenter default hotkeys
 (evilnc-default-hotkeys)
 
