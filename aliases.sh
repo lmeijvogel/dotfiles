@@ -13,7 +13,7 @@ alias brrrrrr='br --remote'
 
 alias be='bundle exec'
 
-alias conf="cd ~/.dotfiles"
+alias conf="cd ~/projects/dotfiles"
 
 alias o='xdg-open'
 
