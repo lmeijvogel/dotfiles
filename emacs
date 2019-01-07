@@ -24,7 +24,7 @@
  '(custom-safe-themes
    '("fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "d70c11f5a2b69a77f9d56eff42090138721d4c51d9d39ce986680786d694f492" "ec1572b17860768fb3ce0fe0148364b7bec9581f6f1a08b066e13719c882576f" default))
  '(package-selected-packages
-   '(spacemacs-theme org use-package helm-projectile evil-collection projectile-ripgrep projectile web-mode linum-relative ztree evil-numbers evil-leader evil-surround neotree evil-magit company dracula-theme magit tide flycheck typescript-mode seq pkg-info let-alist helm evil dash)))
+   '(evil-nerd-commenter spacemacs-theme leuven-theme org use-package silkworm-theme helm-projectile evil-collection projectile-ripgrep projectile web-mode linum-relative ztree evil-numbers evil-leader evil-surround neotree evil-magit company dracula-theme magit tide flycheck typescript-mode seq pkg-info let-alist helm evil dash)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -38,6 +38,9 @@
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-h") 'previous-buffer)
 (global-set-key (kbd "M-l") 'next-buffer)
+
+;; Set evil-nerd-commenter default hotkeys
+(evilnc-default-hotkeys)
 
 ;; Configuration for creating file backups: Central folder, not in working copies.
 (setq
