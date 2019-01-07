@@ -68,9 +68,8 @@
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
-(load-theme 'silkworm t)
 (load-theme 'dracula t)
-
+(load-theme 'spacemacs-light t)
 
 ;; TODO: tabs at the top
 ;; TODO: Typescript navigation
