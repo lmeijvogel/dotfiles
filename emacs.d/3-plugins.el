@@ -1,19 +1,41 @@
 (use-package linum-relative
+  :ensure t
   :config
   (linum-relative-global-mode)
 )
   
 ;; (require 'linum-relative)
 
-(use-package evil-magit)
+(use-package evil-magit
+  :ensure t)
+
+(use-package projectile
+  :ensure t
+  :config
+  (setq projectile-project-search-path '("~/projects/")))
+  (projectile-discover-projects-in-search-path)
 
 (use-package helm
+  :ensure t
   :config
   (helm-mode 1)
 )
 
-(use-package flycheck)
+(use-package helm-projectile
+  :ensure t
+  :bind (("C-S-P" . helm-projectile-switch-project)
+         :map evil-normal-state-map
+         ("C-p" . helm-projectile))
+  :config)
+
+(use-package tide
+  :ensure t)
+
+(use-package flycheck
+  :ensure t)
+
 (use-package web-mode
+  :ensure t
   :after flycheck
   :config
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
@@ -27,6 +49,7 @@
 
 (global-evil-surround-mode)
 (use-package neotree
+  :ensure t
   :config
   (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
   (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
@@ -38,8 +61,6 @@
   (evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
   (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle)
 )
-
-(define-key evil-normal-state-map (kbd "C-p") 'helm-projectile)
 
 (defun setup-tide-mode ()
   (interactive)
