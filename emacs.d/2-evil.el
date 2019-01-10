@@ -16,7 +16,7 @@
 
   (evil-leader/set-key
     "a"
-    'projectile-grep)
+    'helm-projectile-ack)
 
   (evil-leader/set-key
     "gs"
