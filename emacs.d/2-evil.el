@@ -11,8 +11,11 @@
 
   (evil-leader/set-key
     "nt"
-    'neotree
-    )
+    'neotree)
+
+  (evil-leader/set-key
+    "nf"
+    'neotree-find)
 
   (evil-leader/set-key
     "a"
