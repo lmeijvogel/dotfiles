@@ -23,6 +23,7 @@
 )
 
 (use-package helm-projectile
+  :after (helm projectile)
   :ensure t
   :bind (("C-S-P" . helm-projectile-switch-project)
          :map evil-normal-state-map
