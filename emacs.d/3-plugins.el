@@ -30,6 +30,9 @@
          ("C-p" . helm-projectile))
   :config)
 
+(use-package company
+  :ensure t)
+
 (use-package prettier-js
   :ensure t
   :after web-mode
