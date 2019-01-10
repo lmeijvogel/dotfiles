@@ -29,9 +29,6 @@
          ("C-p" . helm-projectile))
   :config)
 
-(use-package tide
-  :ensure t)
-
 (use-package prettier-js
   :ensure t
   :after web-mode
@@ -44,6 +41,37 @@
     "--print-width" "120"
     "--semi" "true"
     "--single-quote" "false")))
+
+(use-package tide
+  :after (company prettier-js)
+  :ensure t
+  :config
+    (defun setup-tide-mode ()
+        (interactive)
+        (tide-setup)
+        (flycheck-mode +1)
+        (setq flycheck-check-syntax-automatically '(save mode-enabled))
+        (eldoc-mode +1)
+        (tide-hl-identifier-mode +1)
+        (prettier-js-mode)
+
+        (company-mode +1)
+        (setq indent-tabs-mode nil)
+    )
+
+    (defun set-tide-keybindings ()
+        (define-key tide-mode-map (kbd "<f12>") 'tide-jump-to-definition)
+        (define-key tide-mode-map (kbd "<S-f12>") 'tide-references))
+
+    (eval-after-load 'tide '(set-tide-keybindings))
+
+    ;; aligns annotation to the right hand side
+    (setq company-tooltip-align-annotations t)
+
+    ;; formats the buffer before saving
+    (add-hook 'before-save-hook 'prettier-js)
+    (add-hook 'typescript-mode-hook #'setup-tide-mode)
+  )
 
 (use-package flycheck
   :ensure t)
@@ -75,33 +103,6 @@
   (evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
   (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle)
 )
-
-(defun setup-tide-mode ()
-  (interactive)
-  (tide-setup)
-  (flycheck-mode +1)
-  (setq flycheck-check-syntax-automatically '(save mode-enabled))
-  (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  ;; company is an optional dependency. You have to
-  ;; install it separately via package-install
-  ;; `M-x package-install [ret] company`
-  (company-mode +1))
-
-(defun set-tide-keybindings ()
-  (define-key tide-mode-map (kbd "<f12>") 'tide-jump-to-definition)
-  (define-key tide-mode-map (kbd "<S-f12>") 'tide-references))
-
-(eval-after-load 'tide
-  '(set-tide-keybindings))
-
-;; aligns annotation to the right hand side
-(setq company-tooltip-align-annotations t)
-
-;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
-
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 (load-theme 'dracula t)
 (load-theme 'spacemacs-light t)
