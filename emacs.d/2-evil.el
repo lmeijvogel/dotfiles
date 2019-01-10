@@ -40,8 +40,11 @@
   (evil-leader/set-key
     "kd"
     'tide-format)
-)
 
+  (evil-leader/set-key
+    "tf"
+    'tide-fix)
+)
 
 (use-package evil
   :ensure t
