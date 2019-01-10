@@ -35,7 +35,6 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-h") 'previous-buffer)
 (global-set-key (kbd "M-l") 'next-buffer)
 
