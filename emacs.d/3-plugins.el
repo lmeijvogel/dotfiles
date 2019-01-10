@@ -31,6 +31,19 @@
 (use-package tide
   :ensure t)
 
+(use-package prettier-js
+  :ensure t
+  :after web-mode
+  :config
+  (add-hook 'web-mode-hook 'prettier-js-mode)
+  (add-hook 'typescript-mode-hook 'prettier-js-mode)
+
+  (setq prettier-js-args '(
+    "--tab-width" "4"
+    "--print-width" "120"
+    "--semi" "true"
+    "--single-quote" "false")))
+
 (use-package flycheck
   :ensure t)
 
