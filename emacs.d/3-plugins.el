@@ -64,7 +64,7 @@
     )
 
     (defun set-tide-keybindings ()
-        (define-key tide-mode-map (kbd "<f12>") 'tide-jump-to-definition)
+        (define-key tide-mode-map (kbd "<f12>") (lambda () (interactive) (tide-jump-to-definition t)))
         (define-key tide-mode-map (kbd "<S-f12>") 'tide-references))
 
     (eval-after-load 'tide '(set-tide-keybindings))
