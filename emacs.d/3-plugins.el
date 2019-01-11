@@ -73,7 +73,6 @@
     (setq company-tooltip-align-annotations t)
 
     ;; formats the buffer before saving
-    (add-hook 'before-save-hook 'prettier-js)
     (add-hook 'typescript-mode-hook #'setup-tide-mode)
   )
 
