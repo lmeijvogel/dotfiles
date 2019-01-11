@@ -35,9 +35,6 @@
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(global-set-key (kbd "M-h") 'previous-buffer)
-(global-set-key (kbd "M-l") 'next-buffer)
-
 ;; Never use tabs
 (setq-default indent-tabs-mode nil)
 
@@ -52,3 +49,41 @@
       kept-old-versions 0   ;; Number of oldest versions to keep.
       delete-old-versions t ;; Don't ask to delete excess backup versions.
       backup-by-copying t)  ;; Copy all files, don't rename them.
+
+;; Save all buffers when focus is lost
+(add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
+
+(defvar my-skippable-buffers '("^\*.*\*$" "^magit.*")
+  "Buffer names ignored by `my-next-buffer' and `my-previous-buffer'.")
+
+(defun buffer-in-skippable-list (buffer-name)
+  (seq-some (lambda (pattern) (string-match pattern buffer-name)) my-skippable-buffers)
+)
+
+(defun next-buffer-unless-initial (first-change)
+    (funcall change-buffer)
+    (when (eq (current-buffer) first-change)
+        (switch-to-buffer initial)
+        (throw 'loop t)))
+
+(defun my-change-buffer (change-buffer)
+  "Call CHANGE-BUFFER until current buffer is not in `my-skippable-buffers'."
+  (let ((initial (current-buffer)))
+    (funcall change-buffer)
+    (let ((first-change (current-buffer)))
+      (catch 'loop
+        (while (buffer-in-skippable-list (buffer-name))
+          (next-buffer-unless-initial first-change))))))
+
+(defun my-next-buffer ()
+  "Variant of `next-buffer' that skips `my-skippable-buffers'."
+  (interactive)
+  (my-change-buffer 'next-buffer))
+
+(defun my-previous-buffer ()
+  "Variant of `previous-buffer' that skips `my-skippable-buffers'."
+  (interactive)
+  (my-change-buffer 'previous-buffer))
+
+(global-set-key (kbd "M-h") 'my-previous-buffer)
+(global-set-key (kbd "M-l") 'my-next-buffer)
