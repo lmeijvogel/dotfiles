@@ -4,8 +4,6 @@
   (linum-relative-global-mode)
 )
   
-;; (require 'linum-relative)
-
 (use-package evil-magit
   :ensure t)
 
