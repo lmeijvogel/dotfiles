@@ -87,3 +87,6 @@
 
 (global-set-key (kbd "M-h") 'my-previous-buffer)
 (global-set-key (kbd "M-l") 'my-next-buffer)
+
+;; Expand tabs
+(setq-default indent-tabs-mode nil)
