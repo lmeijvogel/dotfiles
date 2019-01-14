@@ -14,10 +14,6 @@
     'neotree)
 
   (evil-leader/set-key
-    "nf"
-    'neotree-find)
-
-  (evil-leader/set-key
     "a"
     'helm-projectile-ack)
 
