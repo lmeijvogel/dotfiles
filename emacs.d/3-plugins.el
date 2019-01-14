@@ -88,6 +88,8 @@
 		(setup-tide-mode))))
   ;; enable typescript-tslint checker
   (flycheck-add-mode 'typescript-tslint 'web-mode)
+  ;; No quotes after html tag props.
+  (setq web-mode-enable-auto-quoting nil)
 )
 
 (global-evil-surround-mode)
