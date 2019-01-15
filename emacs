@@ -43,7 +43,7 @@
 
 ;; Configuration for creating file backups: Central folder, not in working copies.
 (setq
-      backup-directory-alist `(("." . "~/.emacs-saves"))
+      backup-directory-alist `(("~/.emacs-saves"))
       version-control t     ;; Use version numbers for backups.
       kept-new-versions 10  ;; Number of newest versions to keep.
       kept-old-versions 0   ;; Number of oldest versions to keep.
