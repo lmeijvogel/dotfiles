@@ -15,7 +15,7 @@
 
   (evil-leader/set-key
     "a"
-    'helm-projectile-ack)
+    'counsel-git-grep)
 
   (evil-leader/set-key
     "gs"

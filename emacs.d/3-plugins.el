@@ -13,24 +13,33 @@
   (setq projectile-project-search-path '("~/projects/")))
   (projectile-discover-projects-in-search-path)
 
-(use-package helm
-  :ensure t
-  :config
-  (helm-mode 1)
-  (global-set-key (kbd "M-x") 'helm-M-x)
-)
-
-(use-package helm-projectile
-  :after (helm projectile)
-  :ensure t
-  :bind (("C-S-P" . helm-projectile-switch-project)
-         :map evil-normal-state-map
-         ("C-p" . helm-projectile))
-         ("C-M-p" . helm-projectile-switch-to-buffer)
-  :config)
-
 (use-package company
   :ensure t)
+
+(use-package ivy
+  :ensure t
+  :config
+  (ivy-mode 1)
+  ;; Recommended by Ivy Getting StarteD
+  (setq ivy-use-virtual-buffers t)
+  (setq ivy-count-format "(%d/%d) "))
+
+(use-package counsel
+  :ensure t
+  :bind
+  ("M-x" . counsel-M-x)
+)
+
+(use-package counsel-projectile
+  :after '(helm projectile)
+  :ensure t
+  :bind (("C-S-p" . counsel-projectile-switch-project)
+         :map evil-normal-state-map)
+         ("C-M-p" . counsel-projectile-switch-to-buffer))
+
+;; For some reason, this can't be done inside the `counsel` block
+(with-eval-after-load 'evil-maps
+  (define-key evil-normal-state-map (kbd "C-p") 'counsel-file-jump))
 
 (use-package prettier-js
   :ensure t
