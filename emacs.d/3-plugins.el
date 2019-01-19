@@ -167,9 +167,29 @@
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
-(load-theme 'dracula t)
 (load-theme 'spacemacs-light t)
 (load-theme 'doom-one t)
+(load-theme 'dracula t)
 
+(defun my-shrink-current-window-vertically ()
+  (interactive)
+  (shrink-window 10))
+
+(defun my-grow-current-window-vertically ()
+  (interactive)
+  (shrink-window -10))
+
+(defun my-shrink-current-window-horizontally ()
+  (interactive)
+  (shrink-window-horizontally 10))
+
+(defun my-grow-current-window-horizontally ()
+  (interactive)
+  (shrink-window-horizontally -10))
+
+
+(evil-define-key 'normal 'global (kbd "<left>") 'my-shrink-current-window-horizontally)
+(evil-define-key 'normal 'global (kbd "<right>") 'my-grow-current-window-horizontally)
+(evil-define-key 'normal 'global (kbd "<down>") 'my-shrink-current-window-vertically)
+(evil-define-key 'normal 'global (kbd "<up>") 'my-grow-current-window-vertically)
 ;; TODO: tabs at the top
-;; TODO: Typescript navigation
