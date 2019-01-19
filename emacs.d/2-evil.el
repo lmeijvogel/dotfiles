@@ -14,32 +14,12 @@
     'neotree)
 
   (evil-leader/set-key
-    "a"
-    'counsel-git-grep)
-
-  (evil-leader/set-key
-    "gs"
-    'magit-status)
-
-  (evil-leader/set-key
     "ss"
     'evil-window-split)
 
   (evil-leader/set-key
     "vv"
     'evil-window-vsplit)
-
-  (evil-leader/set-key
-    "rr"
-    'tide-rename-symbol)
-
-  (evil-leader/set-key
-    "kd"
-    'tide-format)
-
-  (evil-leader/set-key
-    "tf"
-    'tide-fix)
 )
 
 (use-package evil

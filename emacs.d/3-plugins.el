@@ -4,8 +4,17 @@
   (linum-relative-global-mode)
 )
   
-(use-package evil-magit
+(use-package magit
   :ensure t)
+
+(use-package evil-magit
+  :after magit
+  :ensure t
+  :config
+  (evil-leader/set-key
+    "gs"
+    'magit-status)
+  )
 
 (use-package projectile
   :ensure t
@@ -25,9 +34,14 @@
   (setq ivy-count-format "(%d/%d) "))
 
 (use-package counsel
+  :after evil-leader
   :ensure t
   :bind
   ("M-x" . counsel-M-x)
+  :config
+  (evil-leader/set-key
+    "a"
+    'counsel-git-grep)
 )
 
 (use-package counsel-projectile
@@ -56,7 +70,7 @@
     "--single-quote" "false")))
 
 (use-package tide
-  :after (company prettier-js)
+  :after company evil-leader prettier-js
   :ensure t
   :config
     (defun setup-tide-mode ()
@@ -83,7 +97,18 @@
 
     ;; formats the buffer before saving
     (add-hook 'typescript-mode-hook #'setup-tide-mode)
-  )
+
+    (evil-leader/set-key
+      "rr"
+      'tide-rename-symbol)
+
+    (evil-leader/set-key
+      "kd"
+      'tide-format)
+
+    (evil-leader/set-key
+      "tf"
+      'tide-fix))
 
 (use-package flycheck
   :ensure t)
