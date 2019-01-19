@@ -24,7 +24,7 @@
  '(custom-safe-themes
    '("b54826e5d9978d59f9e0a169bbd4739dd927eead3ef65f56786621b53c031a7c" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "d70c11f5a2b69a77f9d56eff42090138721d4c51d9d39ce986680786d694f492" "ec1572b17860768fb3ce0fe0148364b7bec9581f6f1a08b066e13719c882576f" default))
  '(package-selected-packages
-   '(counsel-projectile counsel ivy doom-themes prettier-js evil-nerd-commenter spacemacs-theme leuven-theme org use-package silkworm-theme evil-collection projectile-ripgrep projectile web-mode linum-relative ztree evil-numbers evil-leader evil-surround neotree evil-magit company dracula-theme magit tide flycheck typescript-mode seq pkg-info let-alist evil dash)))
+   '(treemacs treemacs-evil treemacs-projectile counsel-projectile counsel ivy doom-themes prettier-js evil-nerd-commenter spacemacs-theme leuven-theme org use-package silkworm-theme evil-collection projectile-ripgrep projectile web-mode linum-relative ztree evil-numbers evil-leader evil-surround evil-magit company dracula-theme magit tide flycheck typescript-mode seq pkg-info let-alist evil dash)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

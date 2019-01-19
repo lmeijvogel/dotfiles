@@ -129,37 +129,26 @@
 )
 
 (global-evil-surround-mode)
-(use-package neotree
+
+(use-package treemacs
   :ensure t
   :config
-  (setq neo-window-fixed-size nil)
+  (setq
+    treemacs-follow-after-init t
+  ))
 
-  (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
-  (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
-  (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
-  (evil-define-key 'normal neotree-mode-map (kbd "RET") 'neotree-enter)
-  (evil-define-key 'normal neotree-mode-map (kbd "g") 'neotree-refresh)
-  (evil-define-key 'normal neotree-mode-map (kbd "n") 'neotree-next-line)
-  (evil-define-key 'normal neotree-mode-map (kbd "p") 'neotree-previous-line)
-  (evil-define-key 'normal neotree-mode-map (kbd "A") 'neotree-stretch-toggle)
-  (evil-define-key 'normal neotree-mode-map (kbd "H") 'neotree-hidden-file-toggle)
-
-  (defun neotree-project-dir ()
-    "Open NeoTree using the git root."
-    (interactive)
-    (let ((project-dir (projectile-project-root))
-          (file-name (buffer-file-name)))
-      (neotree-toggle)
-      (if project-dir
-          (if (neo-global--window-exists-p)
-              (progn
-                (neotree-dir project-dir)
-                (neotree-find file-name)))
-        (message "Could not find git project root."))))
+(use-package treemacs-evil
+  :ensure t
+  :after evil evil-leader treemacs
+  :config
+  (define-key evil-treemacs-state-map (kbd "S-u") 'treemacs-go-to-parent-node)
+  (define-key evil-treemacs-state-map (kbd "C-h") 'evil-window-left)
+  (define-key evil-treemacs-state-map (kbd "C-l") 'evil-window-right)
 
   (evil-leader/set-key
-    "nf"
-    'neotree-project-dir))
+    "nt"
+    'treemacs)
+)
 
 (use-package doom-themes
   :ensure t
@@ -175,8 +164,6 @@
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config)
 
-  ;; Enable custom neotree theme (all-the-icons must be installed!)
-  (doom-themes-neotree-config)
   ;; or for treemacs users
   (doom-themes-treemacs-config)
 

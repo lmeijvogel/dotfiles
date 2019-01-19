@@ -10,10 +10,6 @@
   (evil-leader/set-leader "<SPC>")
 
   (evil-leader/set-key
-    "nt"
-    'neotree)
-
-  (evil-leader/set-key
     "ss"
     'evil-window-split)
 
