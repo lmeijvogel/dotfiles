@@ -107,6 +107,8 @@
 (use-package neotree
   :ensure t
   :config
+  (setq neo-window-fixed-size nil)
+
   (evil-define-key 'normal neotree-mode-map (kbd "TAB") 'neotree-enter)
   (evil-define-key 'normal neotree-mode-map (kbd "SPC") 'neotree-quick-look)
   (evil-define-key 'normal neotree-mode-map (kbd "q") 'neotree-hide)
