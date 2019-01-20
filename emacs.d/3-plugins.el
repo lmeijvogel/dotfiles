@@ -26,6 +26,24 @@
     'magit-status)
   )
 
+(use-package lsp-mode
+  :after evil-leader typescript-mode
+  :ensure t
+  :config
+  (define-key typescript-mode-map (kbd "<f12>") (lambda () (interactive) (lsp-goto-type-definition t)))
+- (define-key typescript-mode-map (kbd "<S-f12>") 'lsp-find-references)
+
+  (evil-leader/set-key
+    "rr"
+    'lsp-rename)
+  (evil-leader/set-key
+    "kd"
+    'lsp-format-buffer)
+
+  (evil-leader/set-key
+    "tf"
+    'lsp-execute-code-action))
+
 (use-package projectile
   :ensure t
   :config
@@ -79,47 +97,6 @@
     "--semi" "true"
     "--single-quote" "false")))
 
-(use-package tide
-  :after company evil-leader prettier-js
-  :ensure t
-  :config
-    (defun setup-tide-mode ()
-        (interactive)
-        (tide-setup)
-        (flycheck-mode +1)
-        (setq flycheck-check-syntax-automatically '(save mode-enabled))
-        (eldoc-mode +1)
-        (tide-hl-identifier-mode +1)
-        (prettier-js-mode)
-
-        (company-mode +1)
-        (setq indent-tabs-mode nil)
-    )
-
-    (defun set-tide-keybindings ()
-        (define-key tide-mode-map (kbd "<f12>") (lambda () (interactive) (tide-jump-to-definition t)))
-        (define-key tide-mode-map (kbd "<S-f12>") 'tide-references))
-
-    (eval-after-load 'tide '(set-tide-keybindings))
-
-    ;; aligns annotation to the right hand side
-    (setq company-tooltip-align-annotations t)
-
-    ;; formats the buffer before saving
-    (add-hook 'typescript-mode-hook #'setup-tide-mode)
-
-    (evil-leader/set-key
-      "rr"
-      'tide-rename-symbol)
-
-    (evil-leader/set-key
-      "kd"
-      'tide-format)
-
-    (evil-leader/set-key
-      "tf"
-      'tide-fix))
-
 (use-package flycheck
   :ensure t)
 
@@ -131,7 +108,8 @@
   (add-hook 'web-mode-hook
 	    (lambda ()
 	      (when (string-equal "tsx" (file-name-extension buffer-file-name))
-		(setup-tide-mode))))
+		(lsp-mode)
+                (lsp))))
   ;; enable typescript-tslint checker
   (flycheck-add-mode 'typescript-tslint 'web-mode)
   ;; No quotes after html tag props.
@@ -181,13 +159,21 @@
   (doom-themes-org-config)
 )
 
+(use-package yaml-mode
+  :ensure t)
+
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
 
 ;; formats the buffer before saving
-(add-hook 'before-save-hook 'tide-format-before-save)
+(add-hook 'before-save-hook 'lsp-format-buffer)
 
-(add-hook 'typescript-mode-hook #'setup-tide-mode)
+(defun setup-lsp-typescript-mode ()
+  (interactive)
+  (lsp-mode)
+  (lsp))
+
+(add-hook 'typescript-mode-hook #'setup-lsp-typescript-mode)
 
 (load-theme 'spacemacs-light t)
 (load-theme 'doom-one t)
