@@ -288,9 +288,9 @@ to 'auto, tags may not be properly aligned. "
      `(diff-indicator-added   ((,class :background nil :foreground ,green)))
      `(diff-indicator-changed ((,class :background nil :foreground ,blue)))
      `(diff-indicator-removed ((,class :background nil :foreground ,red)))
-     `(diff-refine-added      ((,class :background ,green :foreground ,bg4)))
-     `(diff-refine-changed    ((,class :background ,blue :foreground ,bg4)))
-     `(diff-refine-removed    ((,class :background ,red :foreground ,bg4)))
+     `(diff-refine-added      ((,class :background ,green :foreground ,bg1)))
+     `(diff-refine-changed    ((,class :background ,blue :foreground ,bg1)))
+     `(diff-refine-removed    ((,class :background ,red :foreground ,bg1)))
      `(diff-removed           ((,class :background nil :foreground ,red)))
 
 ;;;;; diff-hl
@@ -937,7 +937,27 @@ to 'auto, tags may not be properly aligned. "
 
     (custom-theme-set-variables
      theme-name
+
+;;;;; ansi-color-names
      `(ansi-color-names-vector [,bg4 ,red ,green ,yellow ,blue ,magenta ,cyan ,base])
+
+;;;;; hl-todo
+     `(hl-todo-keyword-faces '(("TODO"   . ,war)
+                               ("NEXT"   . ,war)
+                               ("THEM"   . ,aqua)
+                               ("PROG"   . ,blue)
+                               ("OKAY"   . ,blue)
+                               ("DONT"   . ,red)
+                               ("FAIL"   . ,red)
+                               ("DONE"   . ,suc)
+                               ("NOTE"   . ,yellow)
+                               ("KLUDGE" . ,yellow)
+                               ("HACK"   . ,yellow)
+                               ("TEMP"   . ,yellow)
+                               ("FIXME"  . ,war)
+                               ("XXX"    . ,war)
+                               ("XXXX"   . ,war)
+                               ("???"    . ,war)))
 
 ;;;;; pdf-tools
     `(pdf-view-midnight-colors '(,base . ,bg1)))
