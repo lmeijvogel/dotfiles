@@ -38,9 +38,6 @@
 ;; Never use tabs
 (setq-default indent-tabs-mode nil)
 
-;; Set evil-nerd-commenter default hotkeys
-(evilnc-default-hotkeys)
-
 ;; Configuration for creating file backups: Central folder, not in working copies.
 (setq
       backup-directory-alist `(("~/.emacs-saves"))

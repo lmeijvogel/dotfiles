@@ -7,6 +7,16 @@
 (use-package magit
   :ensure t)
 
+(use-package evil-nerd-commenter
+  :after evil evil-leader
+  :ensure t
+  :config
+
+  (evil-leader/set-key
+    "cc" 'evilnc-comment-or-uncomment-lines
+    )
+  )
+
 (use-package evil-magit
   :after magit
   :ensure t
