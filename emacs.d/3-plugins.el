@@ -78,7 +78,7 @@
 
 ;; For some reason, this can't be done inside the `counsel` block: The evil binding will override this anyway.
 (with-eval-after-load 'evil-maps
-  (define-key evil-normal-state-map (kbd "C-p") 'counsel-file-jump))
+  (define-key evil-normal-state-map (kbd "C-p") 'counsel-projectile-find-file))
 
 ;; I can't get use-package to pick up these bindings, either in a :bind block or :config.
 (define-key evil-normal-state-map (kbd "C-S-p") 'counsel-projectile-switch-project)
