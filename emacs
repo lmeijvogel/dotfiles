@@ -23,6 +23,21 @@
    ["#585858" "#a74f31" "#367a7f" "#76690b" "#0073b5" "#ad4271" "#3b4bab" "#b3ada6"])
  '(custom-safe-themes
    '("b54826e5d9978d59f9e0a169bbd4739dd927eead3ef65f56786621b53c031a7c" "fa2b58bb98b62c3b8cf3b6f02f058ef7827a8e497125de0254f56e373abee088" "d70c11f5a2b69a77f9d56eff42090138721d4c51d9d39ce986680786d694f492" "ec1572b17860768fb3ce0fe0148364b7bec9581f6f1a08b066e13719c882576f" default))
+
+ '(org-capture-templates
+   '(("w" "Mendix")
+     ("p" "Prive")
+     ("wt" "TODO Werk" entry
+      (file+headline "~/org/notes-mendix.org" "Captures")
+      (file "~/org/tpl/todo.txt")
+      :empty-lines-before 1)
+     ("ws" "TODO Mendix source" entry
+      (file+headline "~/org/notes-mendix.org" "Captures")
+      (file "~/org/tpl/todo-source.txt"))
+     ("pt" "TODO Prive" entry
+      (file+headline "~/org/notes-prive.org" "Captures")
+      (file "~/org/tpl/todo.txt")
+      :empty-lines-before 1)))
  '(package-selected-packages
    '(lsp-mode treemacs treemacs-evil treemacs-projectile counsel-projectile counsel ivy doom-themes prettier-js evil-nerd-commenter spacemacs-theme leuven-theme org use-package silkworm-theme evil-collection projectile-ripgrep projectile web-mode linum-relative ztree evil-numbers evil-leader evil-surround evil-magit company dracula-theme magit tide flycheck typescript-mode seq pkg-info let-alist evil dash)))
 
