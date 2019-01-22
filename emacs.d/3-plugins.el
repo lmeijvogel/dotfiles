@@ -26,29 +26,16 @@
     'magit-status)
   )
 
-(use-package lsp-mode
-  :after evil-leader typescript-mode
+(use-package typescript-mode
   :ensure t
   :config
-  (define-key typescript-mode-map (kbd "<f12>") (lambda () (interactive) (lsp-goto-type-definition t)))
-- (define-key typescript-mode-map (kbd "<S-f12>") 'lsp-find-references)
-
-  (evil-leader/set-key
-    "rr"
-    'lsp-rename)
-  (evil-leader/set-key
-    "kd"
-    'lsp-format-buffer)
-
-  (evil-leader/set-key
-    "tf"
-    'lsp-execute-code-action))
+  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode)))
 
 (use-package projectile
-  :ensure t
-  :config
-  (setq projectile-project-search-path '("~/projects/")))
-  (projectile-discover-projects-in-search-path)
+             :ensure t
+             :config
+             (setq projectile-project-search-path '("~/projects/"))
+             (projectile-discover-projects-in-search-path))
 
 (use-package company
   :ensure t)
@@ -105,11 +92,7 @@
   :after flycheck
   :config
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
-  (add-hook 'web-mode-hook
-	    (lambda ()
-	      (when (string-equal "tsx" (file-name-extension buffer-file-name))
-		(lsp-mode)
-                (lsp))))
+  (add-hook 'web-mode-hook)
   ;; enable typescript-tslint checker
   (flycheck-add-mode 'typescript-tslint 'web-mode)
   ;; No quotes after html tag props.
@@ -176,8 +159,8 @@
 (add-hook 'typescript-mode-hook #'setup-lsp-typescript-mode)
 
 (load-theme 'spacemacs-light t)
-(load-theme 'doom-one t)
 (load-theme 'dracula t)
+(load-theme 'doom-one-light t)
 
 (defun my-shrink-current-window-vertically ()
   (interactive)
@@ -195,9 +178,9 @@
   (interactive)
   (shrink-window-horizontally -10))
 
-
 (evil-define-key 'normal 'global (kbd "<left>") 'my-shrink-current-window-horizontally)
 (evil-define-key 'normal 'global (kbd "<right>") 'my-grow-current-window-horizontally)
 (evil-define-key 'normal 'global (kbd "<down>") 'my-shrink-current-window-vertically)
 (evil-define-key 'normal 'global (kbd "<up>") 'my-grow-current-window-vertically)
+
 ;; TODO: tabs at the top

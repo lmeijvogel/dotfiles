@@ -82,7 +82,7 @@ bindsym $mod+space focus mode_toggle
 bindsym $mod+a focus parent
 bindsym $mod+Shift+a focus child
 
-focus_wrapping no
+# focus_wrapping no
 
 set $ws1 "1: console"
 set $ws2 "2: editor"
@@ -171,13 +171,17 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-gaps inner 10
-gaps outer 10
+# gaps inner 10
+# gaps outer 10
 
-smart_gaps on
-# Disable titlebars: i3-gaps does not work well with them
-for_window [class="^.*"] border pixel 3
+# smart_gaps on
+#
+# # Disable titlebars: i3-gaps does not work well with them
+# for_window [class="^.*"] border pixel 3
 for_window [title="data:, - Google Chrome"] move container to workspace $ws_itest, fullscreen enable
+for_window [title="^Emacs WM$"] move container to workspace $ws2; workspace $ws2
+for_window [title="^New Tab - Google Chrome"] move container to workspace $ws4; workspace $ws4; layout stacking
+for_window [title="^Slack - .*"] move container to workspace $ws4; workspace $ws4; layout stacking
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #dd0000
