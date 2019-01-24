@@ -7,6 +7,7 @@
   :ensure t
   :config
   (global-evil-leader-mode)
+
   (evil-leader/set-leader "<SPC>")
 
   (evil-leader/set-key
@@ -16,6 +17,8 @@
   (evil-leader/set-key
     "vv"
     'evil-window-vsplit)
+
+  (global-evil-surround-mode)
 )
 
 (use-package evil

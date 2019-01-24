@@ -102,8 +102,6 @@
   (setq web-mode-enable-auto-quoting nil)
 )
 
-(global-evil-surround-mode)
-
 (use-package treemacs
   :ensure t
   :config
