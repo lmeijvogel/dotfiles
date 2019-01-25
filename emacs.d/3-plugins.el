@@ -87,6 +87,15 @@
 (use-package flycheck
   :ensure t)
 
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (company-mode +1))
+
 (use-package web-mode
   :ensure t
   :after flycheck
@@ -96,10 +105,15 @@
        (lambda ()
          (when (string-equal "tsx" (file-name-extension buffer-file-name))
            (setup-tide-mode))))
+
   ;; enable typescript-tslint checker
   (flycheck-add-mode 'typescript-tslint 'web-mode)
+
   ;; No quotes after html tag props.
   (setq web-mode-enable-auto-quoting nil)
+
+  ;; formats the buffer before saving
+  (add-hook 'before-save-hook 'tide-format-before-save)
 )
 
 (use-package treemacs
@@ -165,9 +179,6 @@
 
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
-
-;; formats the buffer before saving
-(add-hook 'before-save-hook 'lsp-format-buffer)
 
 (defun setup-lsp-typescript-mode ()
   (interactive)
