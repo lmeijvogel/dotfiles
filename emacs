@@ -32,7 +32,12 @@
       :empty-lines-before 1)
      ("ws" "TODO Mendix source" entry
       (file+headline "~/org/notes-mendix.org" "Captures")
-      (file "~/org/tpl/todo-source.txt"))
+      (file "~/org/tpl/todo-source.txt")
+      :empty-lines-before 1)
+     ("wn" "Note Mendix" entry
+      (file+headline "~/org/notes-mendix.org" "Captures")
+      (file "~/org/tpl/note.txt")
+      :empty-lines-before 1)
      ("pt" "TODO Prive" entry
       (file+headline "~/org/notes-prive.org" "Captures")
       (file "~/org/tpl/todo.txt")
