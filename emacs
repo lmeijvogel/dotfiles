@@ -43,14 +43,17 @@
       (file "~/org/tpl/todo.txt")
       :empty-lines-before 1)))
  '(package-selected-packages
-   '(lsp-mode treemacs treemacs-evil treemacs-projectile counsel-projectile counsel ivy doom-themes prettier-js evil-nerd-commenter spacemacs-theme leuven-theme org use-package silkworm-theme evil-collection projectile-ripgrep projectile web-mode linum-relative ztree evil-numbers evil-leader evil-surround evil-magit company dracula-theme magit tide flycheck typescript-mode seq pkg-info let-alist evil dash)))
+   '(tabbar lsp-mode treemacs treemacs-evil treemacs-projectile counsel-projectile counsel ivy doom-themes prettier-js evil-nerd-commenter spacemacs-theme leuven-theme org use-package silkworm-theme evil-collection projectile-ripgrep projectile web-mode linum-relative ztree evil-numbers evil-leader evil-surround evil-magit company dracula-theme magit tide flycheck typescript-mode seq pkg-info let-alist evil dash))
+ '(tabbar-mode t nil (tabbar))
+ '(tabbar-separator '(" | ")))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(tabbar-highlight ((t (:background "deep sky blue" :foreground "#ffffff" :underline t))))
+ '(tabbar-selected ((t (:inherit tabbar-default :background "blue" :foreground "white" :weight bold)))))
 
 (defalias 'yes-or-no-p 'y-or-n-p)
 
