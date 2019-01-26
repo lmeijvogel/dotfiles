@@ -137,6 +137,7 @@
 )
 
 (use-package doom-themes
+  :after all-the-icons
   :ensure t
   :config
   ;; Global settings (defaults)
