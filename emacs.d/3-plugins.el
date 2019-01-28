@@ -161,14 +161,16 @@
 (use-package tabbar
   :ensure t
   :config
-    (defun my-tabbar-buffer-groups () ;; customize to show all normal files in one group
+    (defun my-tabbar-buffer-groups ()
       "Returns the name of the tab group names the current buffer belongs to.
-    There are two groups: Emacs buffers (those whose name starts with '*', plus
-    dired buffers), and the rest.  This works at least with Emacs v24.2 using
-    tabbar.el v1.7."
+       There are three groups:
+       - Emacs buffers (those whose name starts with '*', plus dired buffers),
+       - orgmode buffers, since they disrupt buffer navigation keyboard commands,
+       - and the rest."
       (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
                   ((string-equal "magit" (substring (buffer-name) 0 5)) "emacs")
                   ((eq major-mode 'dired-mode) "emacs")
+                  ((string-equal ".org" (file-name-extension (buffer-name) t)) "org")
                   (t "user"))))
 
     (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
