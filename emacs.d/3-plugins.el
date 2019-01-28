@@ -172,7 +172,10 @@
                   (t "user"))))
 
     (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
+
     (tabbar-mode)
+    (global-set-key (kbd "M-h") 'tabbar-backward-tab)
+    (global-set-key (kbd "M-l") 'tabbar-forward-tab)
 )
 
 (use-package yaml-mode
