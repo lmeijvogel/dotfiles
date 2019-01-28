@@ -18,6 +18,10 @@
     "vv"
     'evil-window-vsplit)
 
+  (evil-leader/set-key
+    "er"
+    'eval-region)
+
   (global-evil-surround-mode)
 )
 
