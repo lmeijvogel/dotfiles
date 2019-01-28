@@ -94,7 +94,11 @@
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
   (tide-hl-identifier-mode +1)
-  (company-mode +1))
+  (company-mode +1)
+  (define-key evil-normal-state-map (kbd "<f12>") 'tide-jump-to-definition)
+  (define-key evil-normal-state-map (kbd "S-<f12>") 'tide-references)
+  (define-key evil-normal-state-map (kbd "<f2>") 'tide-rename-symbol)
+  )
 
 (use-package web-mode
   :ensure t
