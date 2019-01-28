@@ -190,12 +190,7 @@
 ;; aligns annotation to the right hand side
 (setq company-tooltip-align-annotations t)
 
-(defun setup-lsp-typescript-mode ()
-  (interactive)
-  (lsp-mode)
-  (lsp))
-
-(add-hook 'typescript-mode-hook #'setup-lsp-typescript-mode)
+(add-hook 'typescript-mode-hook #'setup-tide-mode)
 
 (load-theme 'spacemacs-light t)
 (load-theme 'dracula t)
