@@ -56,7 +56,7 @@
   :config
   (evil-leader/set-key
     "a"
-    'counsel-git-grep)
+    'counsel-projectile-rg)
 )
 
 (use-package counsel-projectile
