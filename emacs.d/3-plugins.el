@@ -98,6 +98,10 @@
   (define-key evil-normal-state-map (kbd "<f12>") 'tide-jump-to-definition)
   (define-key evil-normal-state-map (kbd "S-<f12>") 'tide-references)
   (define-key evil-normal-state-map (kbd "<f2>") 'tide-rename-symbol)
+
+  (evil-leader/set-key
+    "tf"
+    'tide-fix)
   )
 
 (use-package web-mode
