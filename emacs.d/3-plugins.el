@@ -196,9 +196,29 @@
 
 (add-hook 'typescript-mode-hook #'setup-tide-mode)
 
-(load-theme 'spacemacs-light t)
-(load-theme 'dracula t)
-(load-theme 'doom-one-light t)
+(use-package moe-theme
+  :ensure t
+  :config
+    (defun disable-all-themes ()
+      (interactive)
+      (mapc #'disable-theme custom-enabled-themes))
+
+    (defun my-load-theme (theme)
+      (disable-all-themes)
+      (load-theme theme))
+
+    (defun swap-theme (&optional light-or-dark)
+      (interactive)
+      (if (or
+          (eq (car custom-enabled-themes) 'moe-light)
+          (eq light-or-dark 'dark)
+        )
+        (my-load-theme 'moe-dark)
+        (my-load-theme 'moe-light)))
+
+    (evil-define-key 'normal 'global (kbd "<f7>") 'swap-theme)
+
+    (swap-theme 'light))
 
 (defun my-shrink-current-window-vertically ()
   (interactive)
@@ -220,5 +240,3 @@
 (evil-define-key 'normal 'global (kbd "<right>") 'my-grow-current-window-horizontally)
 (evil-define-key 'normal 'global (kbd "<down>") 'my-shrink-current-window-vertically)
 (evil-define-key 'normal 'global (kbd "<up>") 'my-grow-current-window-vertically)
-
-;; TODO: tabs at the top
