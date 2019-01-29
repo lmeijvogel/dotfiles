@@ -48,6 +48,24 @@
   (setq ivy-use-virtual-buffers t)
   (setq ivy-count-format "(%d/%d) "))
 
+(defun my-counsel-projectile-rg-string (input)
+  (let ((counsel-projectile-rg-initial-input input))
+    (counsel-projectile-rg)))
+
+(defun my-counsel-projectile-rg-region-under-cursor ()
+  (my-counsel-projectile-rg-string (buffer-substring (region-beginning) (region-end))))
+
+(defun my-counsel-projectile-rg-word-under-cursor ()
+  (interactive)
+  (my-counsel-projectile-rg-string (ivy-thing-at-point)))
+
+(defun my-counsel-projectile-rg ()
+  (interactive)
+  (let ((counsel-projectile-rg-initial-input nil))
+    (cond
+      ((eq evil-state 'visual) (my-counsel-projectile-rg-region-under-cursor))
+      ((eq evil-state 'normal) (counsel-projectile-rg)))))
+
 (use-package counsel
   :after evil-leader
   :ensure t
@@ -55,8 +73,8 @@
   ("M-x" . counsel-M-x)
   :config
   (evil-leader/set-key
-    "a"
-    'counsel-projectile-rg)
+    "a" 'my-counsel-projectile-rg
+    "A" 'my-counsel-projectile-rg-word-under-cursor)
 )
 
 (use-package counsel-projectile
