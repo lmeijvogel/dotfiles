@@ -1,8 +1,3 @@
-(load "$HOME/.emacs.d/1-package-init")
-(load "$HOME/.emacs.d/2-evil")
-(load "$HOME/.emacs.d/3-plugins")
-(load "$HOME/.emacs.d/4-org")
-
 ;; Disable the huge toolbar at the top.
 (tool-bar-mode -1)
 
@@ -95,3 +90,8 @@
 		  "ansible-vault encrypt --vault-password-file ~/.vault-pass "
 		  (buffer-file-name)))
   (revert-buffer))
+
+(load "$HOME/.emacs.d/1-package-init")
+(load "$HOME/.emacs.d/2-evil")
+(load "$HOME/.emacs.d/3-plugins")
+(load "$HOME/.emacs.d/4-org")
