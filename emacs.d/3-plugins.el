@@ -175,6 +175,7 @@
                   ((string-equal "magit" (substring (buffer-name) 0 5)) "emacs")
                   ((eq major-mode 'dired-mode) "emacs")
                   ((string-equal ".org" (file-name-extension (buffer-name) t)) "org")
+                  ((string-equal ".org_archive" (file-name-extension (buffer-name) t)) "org")
                   (t "user"))))
 
     (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
