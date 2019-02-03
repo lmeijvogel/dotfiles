@@ -4,7 +4,7 @@ exec --no-startup-id exec bash $HOME/.fehbg &
 exec --no-startup-id exec redshift-gtk &
 exec --no-startup-id exec $HOME/bin/pia.sh &
 
-set $output_left DP1
-set $output_right HDMI1
+set $output_left DP-1
+set $output_right HDMI-1
 
-set $output_right_or_laptop HDMI1
+set $output_right_or_laptop HDMI-1
