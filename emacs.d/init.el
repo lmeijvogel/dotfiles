@@ -1,13 +1,5 @@
-;; Disable the huge toolbar at the top.
-(tool-bar-mode -1)
-
-;; Fix 'invalid font name' errors caused by Emacs reading system configuration and not liking Inconsolata
- (setq initial-frame-alist '(
-   (font . "Monospace-10")
- ))
- (setq default-frame-alist '(
-   (font . "Monospace-10")
- ))
+(require 'package)
+(require 'org)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -48,7 +40,6 @@
    '(powerline moe-theme tabbar treemacs treemacs-evil treemacs-projectile counsel-projectile counsel ivy prettier-js evil-nerd-commenter spacemacs-theme leuven-theme org use-package silkworm-theme evil-collection projectile-ripgrep projectile web-mode linum-relative ztree evil-numbers evil-leader evil-surround evil-magit company dracula-theme magit tide flycheck typescript-mode seq pkg-info let-alist evil dash))
  '(tabbar-mode t nil (tabbar))
  '(tabbar-separator '(" | ")))
-
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -57,42 +48,6 @@
  '(tabbar-highlight ((t (:background "deep sky blue" :foreground "#ffffff" :underline t))))
  '(tabbar-selected ((t (:inherit tabbar-default :background "blue" :foreground "white" :weight bold)))))
 
-(defalias 'yes-or-no-p 'y-or-n-p)
-
-;; Never use tabs
-(setq-default indent-tabs-mode nil)
-
-;; Configuration for creating file backups: Central folder, not in working copies.
-(setq
-      backup-directory-alist `(("." . "~/.emacs-saves"))
-      version-control t     ;; Use version numbers for backups.
-      kept-new-versions 10  ;; Number of newest versions to keep.
-      kept-old-versions 0   ;; Number of oldest versions to keep.
-      delete-old-versions t ;; Don't ask to delete excess backup versions.
-      backup-by-copying t)  ;; Copy all files, don't rename them.
-
-;; Save all buffers when focus is lost
-(add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
-
-;; Expand tabs
-(setq-default indent-tabs-mode nil)
-
-(defun ansible-vault-decrypt ()
-  (interactive)
-  (shell-command (concat
-		  "ansible-vault decrypt --vault-password-file ~/.vault-pass "
-		  (buffer-file-name)))
-  (revert-buffer))
-
-(defun ansible-vault-encrypt ()
-  (interactive)
-  (shell-command (
-		  concat
-		  "ansible-vault encrypt --vault-password-file ~/.vault-pass "
-		  (buffer-file-name)))
-  (revert-buffer))
-
-(load "$HOME/.emacs.d/1-package-init")
-(load "$HOME/.emacs.d/2-evil")
-(load "$HOME/.emacs.d/3-plugins")
-(load "$HOME/.emacs.d/4-org")
+(org-babel-load-file
+ (expand-file-name "settings.org"
+                   user-emacs-directory))

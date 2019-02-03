@@ -3,3 +3,4 @@ vim/bundle/*
 .bundle
 vendor
 emacs.d/elpa/archives
+emacs.d/settings.el

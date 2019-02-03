@@ -1,0 +1,473 @@
+* Global settings
+** Package initialization
+#+BEGIN_SRC emacs-lisp
+;; copied from 'melpa' site.
+(require 'package)
+(let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  (when no-ssl
+    (warn "\
+Your version of Emacs does not support SSL connections,
+which is unsafe because it allows man-in-the-middle attacks.
+There are two things you can do about this warning:
+1. Install an Emacs version that does support SSL and be safe.
+2. Remove this warning from your init file so you won't see it again."))
+  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  (add-to-list 'package-archives (cons "org" (concat proto "://orgmode.org/elpa/")) t)
+  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  (when (< emacs-major-version 24)
+    ;; For important compatibility libraries like cl-lib
+    (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
+#+END_SRC
+
+** Evil mode
+   A lot of stuff is dependent on this, so load it before a lot of other stuff
+
+*** Basic config
+#+BEGIN_SRC emacs-lisp
+(use-package evil
+  :ensure t
+  :init
+  (setq evil-want-C-u-scroll t) ;; Map C-u to scrolling up
+  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+  (setq evil-want-keybinding nil)
+  :config
+  (evil-mode 1)
+
+  ;; Make '_' a word character to match vim behavior
+  (modify-syntax-entry ?_ "w")
+
+  (evil-collection-init)
+)
+#+END_SRC
+*** Navigation
+#+BEGIN_SRC emacs-lisp
+(define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+(define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+#+END_SRC
+
+*** Leader key initialization
+#+BEGIN_SRC emacs-lisp
+(use-package evil-leader
+  :after evil
+  :ensure t
+  :config
+  (global-evil-leader-mode)
+
+  (evil-leader/set-leader "<SPC>")
+
+  (evil-leader/set-key
+    "ss" 'evil-window-split
+    "vv" 'evil-window-vsplit
+    "er" 'eval-region)
+
+  (global-evil-surround-mode)
+)
+#+END_SRC
+
+** GUI options
+*** Themes
+**** Easily swap light and dark themes
+    #+BEGIN_SRC emacs-lisp
+    (use-package moe-theme
+      :after evil
+      :ensure t
+      :config
+        (defun disable-all-themes ()
+          (interactive)
+          (mapc #'disable-theme custom-enabled-themes))
+    
+        (defun my-load-theme (theme)
+          (disable-all-themes)
+          (load-theme theme))
+    
+        (defun swap-theme (&optional light-or-dark)
+          (interactive)
+          (if (or
+              (eq (car custom-enabled-themes) 'moe-light)
+              (eq light-or-dark 'dark)
+            )
+            (my-load-theme 'deeper-blue)
+            (my-load-theme 'moe-light)))
+    
+        (evil-define-key 'normal 'global (kbd "<f7>") 'swap-theme)
+#+END_SRC
+  
+**** Start in a light theme
+#+BEGIN_SRC emacs-lisp
+      (swap-theme 'light))
+  #+END_SRC
+
+*** Disable the huge toolbar at the top.
+#+BEGIN_SRC emacs-lisp
+(tool-bar-mode -1)
+#+END_SRC
+
+*** Fix 'invalid font name' errors caused by Emacs reading system configuration and not liking Inconsolata
+#+BEGIN_SRC emacs-lisp
+ (setq initial-frame-alist '(
+   (font . "Monospace-10")
+ ))
+ (setq default-frame-alist '(
+   (font . "Monospace-10")
+ ))
+#+END_SRC
+
+*** Allow 'y' and 'n' for queries
+#+BEGIN_SRC emacs-lisp
+(defalias 'yes-or-no-p 'y-or-n-p)
+#+END_SRC
+
+*** Relative line numbers
+#+BEGIN_SRC emacs-lisp
+
+ (use-package linum-relative
+   :ensure t
+   :config
+   (linum-relative-global-mode)
+ )
+#+END_SRC
+
+*** Easy split resizing
+    Use cursor keys for resizing splits since I use hjkl for navigation anyway.
+
+    #+BEGIN_SRC emacs-lisp
+    (defun my-shrink-current-window-vertically ()
+    (interactive)
+    (shrink-window 10))
+
+    (defun my-grow-current-window-vertically ()
+    (interactive)
+    (shrink-window -10))
+
+    (defun my-shrink-current-window-horizontally ()
+    (interactive)
+    (shrink-window-horizontally 10))
+
+    (defun my-grow-current-window-horizontally ()
+    (interactive)
+    (shrink-window-horizontally -10))
+
+    (evil-define-key 'normal 'global (kbd "<left>") 'my-shrink-current-window-horizontally)
+    (evil-define-key 'normal 'global (kbd "<right>") 'my-grow-current-window-horizontally)
+    (evil-define-key 'normal 'global (kbd "<down>") 'my-shrink-current-window-vertically)
+    (evil-define-key 'normal 'global (kbd "<up>") 'my-grow-current-window-vertically)
+    #+END_SRC
+
+* Editing
+** Tab handling
+*** Never use tabs
+#+BEGIN_SRC emacs-lisp
+(setq-default indent-tabs-mode nil)
+#+END_SRC
+
+** Backups
+*** Configuration for creating file backups: Central folder, not in working copies.
+#+BEGIN_SRC emacs-lisp
+(setq
+      backup-directory-alist `(("." . "~/.emacs-saves"))
+      version-control t     ;; Use version numbers for backups.
+      kept-new-versions 10  ;; Number of newest versions to keep.
+      kept-old-versions 0   ;; Number of oldest versions to keep.
+      delete-old-versions t ;; Don't ask to delete excess backup versions.
+      backup-by-copying t)  ;; Copy all files, don't rename them.
+#+END_SRC
+
+** Save all buffers when focus is lost
+#+BEGIN_SRC emacs-lisp
+(add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
+#+END_SRC
+
+
+* Other packages
+** Org mode
+ #+BEGIN_SRC emacs-lisp
+ (use-package org
+   :ensure t
+   :after evil-leader
+   :config
+
+   ;; This is already the default location, but repeating it doesn't hurt
+   (setq org-directory "~/org")
+   (setq org-default-notes-file (concat org-directory "/notes.org"))
+
+   (setq org-todo-keywords '((sequence "TODO" "STARTED" "WAITING" "|" "DONE" "CANCELLED")))
+
+   (setq org-agenda-start-on-weekday 1)
+
+   (global-set-key (kbd "C-c l") 'org-store-link)
+   (global-set-key (kbd "C-c a") 'org-agenda)
+   (global-set-key (kbd "C-c c") 'org-capture)
+   (global-set-key (kbd "C-c b") 'org-switchb)
+
+   (org-babel-do-load-languages
+    'org-babel-load-languages
+    '(
+      (emacs-lisp . nil)
+      (ruby . t))
+    )
+ )
+ #+END_SRC
+
+
+*** Powerline
+ #+BEGIN_SRC emacs-lisp
+  (use-package powerline
+    :ensure t
+    :config
+    (powerline-default-theme))
+ #+END_SRC
+
+*** Tabbar
+ #+BEGIN_SRC emacs-lisp
+  (use-package tabbar
+    :ensure t
+    :config
+      (defun my-tabbar-buffer-groups ()
+        "Returns the name of the tab group names the current buffer belongs to.
+         There are three groups:
+         - Emacs buffers (those whose name starts with '*', plus dired buffers),
+         - orgmode buffers, since they disrupt buffer navigation keyboard commands,
+         - and the rest."
+        (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
+                    ((string-equal "magit" (substring (buffer-name) 0 5)) "emacs")
+                    ((eq major-mode 'dired-mode) "emacs")
+                    ((string-equal ".org" (file-name-extension (buffer-name) t)) "org")
+                    ((string-equal ".org_archive" (file-name-extension (buffer-name) t)) "org")
+                    (t "user"))))
+
+      (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
+
+      (tabbar-mode)
+      (global-set-key (kbd "M-h") 'tabbar-backward-tab)
+      (global-set-key (kbd "M-l") 'tabbar-forward-tab)
+  )
+ #+END_SRC
+
+*** Treemacs
+ #+BEGIN_SRC emacs-lisp
+  (use-package treemacs
+    :ensure t
+    :config
+    (setq
+      treemacs-follow-after-init t
+    ))
+
+  (use-package treemacs-evil
+    :ensure t
+    :after evil evil-leader treemacs
+    :config
+    (define-key evil-treemacs-state-map (kbd "S-u") 'treemacs-go-to-parent-node)
+    (define-key evil-treemacs-state-map (kbd "C-h") 'evil-window-left)
+    (define-key evil-treemacs-state-map (kbd "C-l") 'evil-window-right)
+
+    (evil-leader/set-key
+      "nt"
+      'treemacs)
+  )
+ #+END_SRC
+
+*** Magit
+ #+BEGIN_SRC emacs-lisp
+  (use-package magit
+    :ensure t)
+
+  (use-package evil-magit
+    :after magit
+    :ensure t
+    :config
+    (evil-leader/set-key
+      "gs"
+      'magit-status)
+    )
+ #+END_SRC
+
+*** NERD commenter
+ #+BEGIN_SRC emacs-lisp
+  (use-package evil-nerd-commenter
+    :after evil evil-leader
+    :ensure t
+    :config
+
+    (evil-leader/set-key
+      "cc" 'evilnc-comment-or-uncomment-lines
+      )
+    )
+ #+END_SRC
+
+*** Company
+ #+BEGIN_SRC emacs-lisp
+ (use-package company
+   :ensure t
+   :config
+   ;; aligns annotation to the right hand side
+   (setq company-tooltip-align-annotations t)
+ )
+ #+END_SRC
+
+*** Projectile
+ #+BEGIN_SRC emacs-lisp
+
+  (use-package projectile
+               :ensure t
+               :config
+               (setq projectile-project-search-path '("~/projects/"))
+               (projectile-discover-projects-in-search-path))
+ #+END_SRC
+
+*** Ivy/Counsel
+ #+BEGIN_SRC emacs-lisp
+  (use-package ivy
+    :ensure t
+    :config
+    (ivy-mode 1)
+    ;; Recommended by Ivy Getting StarteD
+    (setq ivy-use-virtual-buffers t)
+    (setq ivy-count-format "(%d/%d) "))
+
+  (use-package counsel
+    :after evil-leader
+    :ensure t
+    :bind
+    ("M-x" . counsel-M-x)
+    :config
+    (evil-leader/set-key
+      "a" 'my-counsel-projectile-rg
+      "A" 'my-counsel-projectile-rg-word-under-cursor)
+
+   (define-key evil-normal-state-map (kbd "<f8>") 'counsel-bookmark)
+  )
+
+  (use-package counsel-projectile
+    :after '(helm projectile)
+    :ensure t)
+
+  ;; For some reason, this can't be done inside the `counsel` block: The evil binding will override this anyway.
+  (with-eval-after-load 'evil-maps
+    (define-key evil-normal-state-map (kbd "C-p") 'counsel-projectile-find-file))
+
+  ;; I can't get use-package to pick up these bindings, either in a :bind block or :config.
+  (define-key evil-normal-state-map (kbd "C-S-p") 'counsel-projectile-switch-project)
+  (define-key evil-normal-state-map (kbd "C-M-p") 'counsel-projectile-switch-to-buffer)
+ #+END_SRC
+
+* Language-specific
+** Typescript
+*** typescript-mode
+#+BEGIN_SRC emacs-lisp
+ (use-package typescript-mode
+   :ensure t
+   :config
+   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+   (add-hook 'typescript-mode-hook #'setup-tide-mode)
+)
+#+END_SRC
+*** Tide
+#+BEGIN_SRC emacs-lisp
+ (defun setup-tide-mode ()
+   (interactive)
+   (tide-setup)
+   (flycheck-mode +1)
+   (setq flycheck-check-syntax-automatically '(save mode-enabled))
+   (eldoc-mode +1)
+   (tide-hl-identifier-mode +1)
+   (company-mode +1)
+   (define-key evil-normal-state-map (kbd "<f12>") 'tide-jump-to-definition)
+   (define-key evil-normal-state-map (kbd "S-<f12>") 'tide-references)
+   (define-key evil-normal-state-map (kbd "<f2>") 'tide-rename-symbol)
+
+   (evil-leader/set-key
+     "tf"
+     'tide-fix)
+   )
+#+END_SRC
+*** Flycheck
+    Is this necessary?
+#+BEGIN_SRC emacs-lisp
+ (use-package flycheck
+   :ensure t)
+#+END_SRC
+
+** Prettier
+#+BEGIN_SRC emacs-lisp
+ (use-package prettier-js
+   :ensure t
+   :after web-mode
+   :config
+   (add-hook 'web-mode-hook 'prettier-js-mode)
+   (add-hook 'typescript-mode-hook 'prettier-js-mode)
+
+   (setq prettier-js-args '(
+     "--tab-width" "4"
+     "--print-width" "120"
+     "--semi" "true"
+     "--single-quote" "false")))
+#+END_SRC
+
+** Web-mode
+#+BEGIN_SRC emacs-lisp
+ (use-package web-mode
+   :ensure t
+   :after flycheck
+   :config
+   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+   (add-hook 'web-mode-hook
+        (lambda ()
+          (when (string-equal "tsx" (file-name-extension buffer-file-name))
+            (setup-tide-mode))))
+
+   ;; enable typescript-tslint checker
+   (flycheck-add-mode 'typescript-tslint 'web-mode)
+
+   ;; No quotes after html tag props.
+   (setq web-mode-enable-auto-quoting nil)
+
+   ;; formats the buffer before saving
+   (add-hook 'before-save-hook 'tide-format-before-save)
+ )
+#+END_SRC
+
+ 
+* Customizations
+** Search for word under cursor / selected region
+#+BEGIN_SRC emacs-lisp
+
+ (defun my-counsel-projectile-rg-string (input)
+   (let ((counsel-projectile-rg-initial-input input))
+     (counsel-projectile-rg)))
+
+ (defun my-counsel-projectile-rg-region-under-cursor ()
+   (my-counsel-projectile-rg-string (buffer-substring (region-beginning) (region-end))))
+
+ (defun my-counsel-projectile-rg-word-under-cursor ()
+   (interactive)
+   (my-counsel-projectile-rg-string (ivy-thing-at-point)))
+
+ (defun my-counsel-projectile-rg ()
+   (interactive)
+   (let ((counsel-projectile-rg-initial-input nil))
+     (cond
+       ((eq evil-state 'visual) (my-counsel-projectile-rg-region-under-cursor))
+       ((eq evil-state 'normal) (counsel-projectile-rg)))))
+
+ (defun ansible-vault-decrypt ()
+   (interactive)
+   (shell-command (concat
+		   "ansible-vault decrypt --vault-password-file ~/.vault-pass "
+		   (buffer-file-name)))
+   (revert-buffer))
+
+ (defun ansible-vault-encrypt ()
+   (interactive)
+   (shell-command (
+		   concat
+		   "ansible-vault encrypt --vault-password-file ~/.vault-pass "
+		   (buffer-file-name)))
+   (revert-buffer))
+
+
+ #+END_SRC
