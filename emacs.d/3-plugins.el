@@ -4,6 +4,11 @@
   (linum-relative-global-mode)
 )
   
+(use-package powerline
+  :ensure t
+  :config
+  (powerline-default-theme))
+
 (use-package magit
   :ensure t)
 
