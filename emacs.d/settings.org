@@ -110,10 +110,10 @@ There are two things you can do about this warning:
 *** Fix 'invalid font name' errors caused by Emacs reading system configuration and not liking Inconsolata
 #+BEGIN_SRC emacs-lisp
  (setq initial-frame-alist '(
-   (font . "Monospace-10")
+   (font . "InputMono-11")
  ))
  (setq default-frame-alist '(
-   (font . "Monospace-10")
+   (font . "InputMono-11")
  ))
 #+END_SRC
 
