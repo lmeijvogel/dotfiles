@@ -213,103 +213,102 @@ There are two things you can do about this warning:
  )
  #+END_SRC
 
-
-*** Powerline
- #+BEGIN_SRC emacs-lisp
-  (use-package powerline
-    :ensure t
-    :config
-    (powerline-default-theme))
- #+END_SRC
-
-*** Tabbar
- #+BEGIN_SRC emacs-lisp
-  (use-package tabbar
-    :ensure t
-    :config
-      (defun my-tabbar-buffer-groups ()
-        "Returns the name of the tab group names the current buffer belongs to.
-         There are three groups:
-         - Emacs buffers (those whose name starts with '*', plus dired buffers),
-         - orgmode buffers, since they disrupt buffer navigation keyboard commands,
-         - and the rest."
-        (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
-                    ((string-equal "magit" (substring (buffer-name) 0 5)) "emacs")
-                    ((eq major-mode 'dired-mode) "emacs")
-                    ((string-equal ".org" (file-name-extension (buffer-name) t)) "org")
-                    ((string-equal ".org_archive" (file-name-extension (buffer-name) t)) "org")
-                    (t "user"))))
-
-      (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
-
-      (tabbar-mode)
-      (global-set-key (kbd "M-h") 'tabbar-backward-tab)
-      (global-set-key (kbd "M-l") 'tabbar-forward-tab)
-  )
- #+END_SRC
-
-*** Treemacs
- #+BEGIN_SRC emacs-lisp
-  (use-package treemacs
-    :ensure t
-    :config
-    (setq
-      treemacs-follow-after-init t
-    ))
-
-  (use-package treemacs-evil
-    :ensure t
-    :after evil evil-leader treemacs
-    :config
-    (define-key evil-treemacs-state-map (kbd "S-u") 'treemacs-go-to-parent-node)
-    (define-key evil-treemacs-state-map (kbd "C-h") 'evil-window-left)
-    (define-key evil-treemacs-state-map (kbd "C-l") 'evil-window-right)
-
-    (evil-leader/set-key
-      "nt"
-      'treemacs)
-  )
- #+END_SRC
-
-*** Magit
- #+BEGIN_SRC emacs-lisp
-  (use-package magit
-    :ensure t)
-
-  (use-package evil-magit
-    :after magit
-    :ensure t
-    :config
-    (evil-leader/set-key
-      "gs"
-      'magit-status)
-    )
- #+END_SRC
-
-*** NERD commenter
- #+BEGIN_SRC emacs-lisp
-  (use-package evil-nerd-commenter
-    :after evil evil-leader
-    :ensure t
-    :config
-
-    (evil-leader/set-key
-      "cc" 'evilnc-comment-or-uncomment-lines
-      )
-    )
- #+END_SRC
-
-*** Company
- #+BEGIN_SRC emacs-lisp
- (use-package company
+** Powerline
+#+BEGIN_SRC emacs-lisp
+ (use-package powerline
    :ensure t
    :config
-   ;; aligns annotation to the right hand side
-   (setq company-tooltip-align-annotations t)
- )
- #+END_SRC
+   (powerline-default-theme))
+#+END_SRC
 
-*** Projectile
+** Tabbar
+#+BEGIN_SRC emacs-lisp
+ (use-package tabbar
+   :ensure t
+   :config
+     (defun my-tabbar-buffer-groups ()
+       "Returns the name of the tab group names the current buffer belongs to.
+        There are three groups:
+        - Emacs buffers (those whose name starts with '*', plus dired buffers),
+        - orgmode buffers, since they disrupt buffer navigation keyboard commands,
+        - and the rest."
+       (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
+                   ((string-equal "magit" (substring (buffer-name) 0 5)) "emacs")
+                   ((eq major-mode 'dired-mode) "emacs")
+                   ((string-equal ".org" (file-name-extension (buffer-name) t)) "org")
+                   ((string-equal ".org_archive" (file-name-extension (buffer-name) t)) "org")
+                   (t "user"))))
+
+     (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
+
+     (tabbar-mode)
+     (global-set-key (kbd "M-h") 'tabbar-backward-tab)
+     (global-set-key (kbd "M-l") 'tabbar-forward-tab)
+ )
+#+END_SRC
+
+** Treemacs
+#+BEGIN_SRC emacs-lisp
+ (use-package treemacs
+   :ensure t
+   :config
+   (setq
+     treemacs-follow-after-init t
+   ))
+
+ (use-package treemacs-evil
+   :ensure t
+   :after evil evil-leader treemacs
+   :config
+   (define-key evil-treemacs-state-map (kbd "S-u") 'treemacs-go-to-parent-node)
+   (define-key evil-treemacs-state-map (kbd "C-h") 'evil-window-left)
+   (define-key evil-treemacs-state-map (kbd "C-l") 'evil-window-right)
+
+   (evil-leader/set-key
+     "nt"
+     'treemacs)
+ )
+#+END_SRC
+
+** Magit
+#+BEGIN_SRC emacs-lisp
+ (use-package magit
+   :ensure t)
+
+ (use-package evil-magit
+   :after magit
+   :ensure t
+   :config
+   (evil-leader/set-key
+     "gs"
+     'magit-status)
+   )
+#+END_SRC
+
+** NERD commenter
+#+BEGIN_SRC emacs-lisp
+ (use-package evil-nerd-commenter
+   :after evil evil-leader
+   :ensure t
+   :config
+
+   (evil-leader/set-key
+     "cc" 'evilnc-comment-or-uncomment-lines
+     )
+   )
+#+END_SRC
+
+** Company
+#+BEGIN_SRC emacs-lisp
+(use-package company
+  :ensure t
+  :config
+  ;; aligns annotation to the right hand side
+  (setq company-tooltip-align-annotations t)
+)
+#+END_SRC
+
+** Projectile
  #+BEGIN_SRC emacs-lisp
 
   (use-package projectile
@@ -319,41 +318,41 @@ There are two things you can do about this warning:
                (projectile-discover-projects-in-search-path))
  #+END_SRC
 
-*** Ivy/Counsel
- #+BEGIN_SRC emacs-lisp
-  (use-package ivy
-    :ensure t
-    :config
-    (ivy-mode 1)
-    ;; Recommended by Ivy Getting StarteD
-    (setq ivy-use-virtual-buffers t)
-    (setq ivy-count-format "(%d/%d) "))
+** Ivy/Counsel
+#+BEGIN_SRC emacs-lisp
+ (use-package ivy
+   :ensure t
+   :config
+   (ivy-mode 1)
+   ;; Recommended by Ivy Getting StarteD
+   (setq ivy-use-virtual-buffers t)
+   (setq ivy-count-format "(%d/%d) "))
 
-  (use-package counsel
-    :after evil-leader
-    :ensure t
-    :bind
-    ("M-x" . counsel-M-x)
-    :config
-    (evil-leader/set-key
-      "a" 'my-counsel-projectile-rg
-      "A" 'my-counsel-projectile-rg-word-under-cursor)
+ (use-package counsel
+   :after evil-leader
+   :ensure t
+   :bind
+   ("M-x" . counsel-M-x)
+   :config
+   (evil-leader/set-key
+     "a" 'my-counsel-projectile-rg
+     "A" 'my-counsel-projectile-rg-word-under-cursor)
 
-   (define-key evil-normal-state-map (kbd "<f8>") 'counsel-bookmark)
-  )
+  (define-key evil-normal-state-map (kbd "<f8>") 'counsel-bookmark)
+ )
 
-  (use-package counsel-projectile
-    :after '(helm projectile)
-    :ensure t)
+ (use-package counsel-projectile
+   :after '(helm projectile)
+   :ensure t)
 
-  ;; For some reason, this can't be done inside the `counsel` block: The evil binding will override this anyway.
-  (with-eval-after-load 'evil-maps
-    (define-key evil-normal-state-map (kbd "C-p") 'counsel-projectile-find-file))
+ ;; For some reason, this can't be done inside the `counsel` block: The evil binding will override this anyway.
+ (with-eval-after-load 'evil-maps
+   (define-key evil-normal-state-map (kbd "C-p") 'counsel-projectile-find-file))
 
-  ;; I can't get use-package to pick up these bindings, either in a :bind block or :config.
-  (define-key evil-normal-state-map (kbd "C-S-p") 'counsel-projectile-switch-project)
-  (define-key evil-normal-state-map (kbd "C-M-p") 'counsel-projectile-switch-to-buffer)
- #+END_SRC
+ ;; I can't get use-package to pick up these bindings, either in a :bind block or :config.
+ (define-key evil-normal-state-map (kbd "C-S-p") 'counsel-projectile-switch-project)
+ (define-key evil-normal-state-map (kbd "C-M-p") 'counsel-projectile-switch-to-buffer)
+#+END_SRC
 
 * Language-specific
 ** Typescript
