@@ -26,48 +26,48 @@ There are two things you can do about this warning:
    A lot of stuff is dependent on this, so load it before a lot of other stuff
 
 *** Basic config
-#+BEGIN_SRC emacs-lisp
-(use-package evil
-  :ensure t
-  :init
-  (setq evil-want-C-u-scroll t) ;; Map C-u to scrolling up
-  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
-  (setq evil-want-keybinding nil)
-  :config
-  (evil-mode 1)
+    #+BEGIN_SRC emacs-lisp
+    (use-package evil
+    :ensure t
+    :init
+    (setq evil-want-C-u-scroll t) ;; Map C-u to scrolling up
+    (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
+    (setq evil-want-keybinding nil)
+    :config
+    (evil-mode 1)
 
-  ;; Make '_' a word character to match vim behavior
-  (modify-syntax-entry ?_ "w")
+    ;; Make '_' a word character to match vim behavior
+    (modify-syntax-entry ?_ "w")
 
-  (evil-collection-init)
-)
-#+END_SRC
+    (evil-collection-init)
+    )
+    #+END_SRC
 *** Navigation
-#+BEGIN_SRC emacs-lisp
-(define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
-(define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
-(define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
-(define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
-#+END_SRC
+    #+BEGIN_SRC emacs-lisp
+    (define-key evil-normal-state-map (kbd "C-j") 'evil-window-down)
+    (define-key evil-normal-state-map (kbd "C-k") 'evil-window-up)
+    (define-key evil-normal-state-map (kbd "C-h") 'evil-window-left)
+    (define-key evil-normal-state-map (kbd "C-l") 'evil-window-right)
+    #+END_SRC
 
 *** Leader key initialization
-#+BEGIN_SRC emacs-lisp
-(use-package evil-leader
-  :after evil
-  :ensure t
-  :config
-  (global-evil-leader-mode)
+    #+BEGIN_SRC emacs-lisp
+    (use-package evil-leader
+    :after evil
+    :ensure t
+    :config
+    (global-evil-leader-mode)
 
-  (evil-leader/set-leader "<SPC>")
+    (evil-leader/set-leader "<SPC>")
 
-  (evil-leader/set-key
-    "ss" 'evil-window-split
-    "vv" 'evil-window-vsplit
-    "er" 'eval-region)
+    (evil-leader/set-key
+        "ss" 'evil-window-split
+        "vv" 'evil-window-vsplit
+        "er" 'eval-region)
 
-  (global-evil-surround-mode)
-)
-#+END_SRC
+    (global-evil-surround-mode)
+    )
+    #+END_SRC
 
 ** GUI options
 *** Themes
