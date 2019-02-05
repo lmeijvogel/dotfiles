@@ -211,6 +211,10 @@ There are two things you can do about this warning:
       (ruby . t))
     )
  )
+
+ (use-package org-evil
+   :ensure t
+ )
  #+END_SRC
 
 ** Powerline
