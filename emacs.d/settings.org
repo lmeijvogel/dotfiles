@@ -299,7 +299,8 @@ There are two things you can do about this warning:
    (evil-leader/set-key
      "cc" 'evilnc-comment-or-uncomment-lines
      )
-   )
+   (evil-define-key 'normal 'global (kbd "C-/") 'evilnc-comment-or-uncomment-lines))
+
 #+END_SRC
 
 ** Company
