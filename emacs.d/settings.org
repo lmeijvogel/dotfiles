@@ -359,6 +359,12 @@ There are two things you can do about this warning:
  (define-key evil-normal-state-map (kbd "C-M-p") 'counsel-projectile-switch-to-buffer)
 #+END_SRC
 
+*** Improve M-x results
+#+BEGIN_SRC emacs-lisp
+ (use-package smex
+   :ensure t)
+#+END_SRC
+
 * Language-specific
 ** Typescript
 *** typescript-mode
