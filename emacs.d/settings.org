@@ -70,6 +70,13 @@ There are two things you can do about this warning:
     #+END_SRC
 
 ** GUI options
+*** Titlebar
+    Set the frame title as by http://www.emacswiki.org/emacs/FrameTitle
+    #+BEGIN_SRC emacs-lisp
+    (setq frame-title-format (list "Emacs ☺ %b")
+        icon-title-format (list "Emacs ☻ %b"))
+    #+END_SRC
+
 *** Themes
 **** Easily swap light and dark themes
     #+BEGIN_SRC emacs-lisp
