@@ -164,7 +164,6 @@ There are two things you can do about this warning:
     (evil-define-key 'normal 'global (kbd "<down>") 'my-shrink-current-window-vertically)
     (evil-define-key 'normal 'global (kbd "<up>") 'my-grow-current-window-vertically)
     #+END_SRC
-
 * Editing
 ** Tab handling
 *** Never use tabs
@@ -188,8 +187,6 @@ There are two things you can do about this warning:
 #+BEGIN_SRC emacs-lisp
 (add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
 #+END_SRC
-
-
 * Other packages
 ** Org mode
  #+BEGIN_SRC emacs-lisp
