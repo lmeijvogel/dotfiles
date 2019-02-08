@@ -448,11 +448,7 @@ I can't get use-package to pick up these bindings, either in a :bind block or :c
    (flycheck-add-mode 'typescript-tslint 'web-mode)
 
    ;; No quotes after html tag props.
-   (setq web-mode-enable-auto-quoting nil)
-
-   ;; formats the buffer before saving
-   (add-hook 'before-save-hook 'tide-format-before-save)
- )
+   (setq web-mode-enable-auto-quoting nil))
 #+END_SRC
 
  
