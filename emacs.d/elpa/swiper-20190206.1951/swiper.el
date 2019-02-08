@@ -4,7 +4,7 @@
 
 ;; Author: Oleh Krehel <ohwoeowho@gmail.com>
 ;; URL: https://github.com/abo-abo/swiper
-;; Package-Version: 20190206.1208
+;; Package-Version: 20190206.1951
 ;; Version: 0.11.0
 ;; Package-Requires: ((emacs "24.1") (ivy "0.11.0"))
 ;; Keywords: matching
@@ -235,11 +235,13 @@
   (interactive)
   (unless (require 'avy nil 'noerror)
     (error "Package avy isn't installed"))
-  (unless (string= ivy-text "")
-    (when (= 1 (length ivy-text))
-      (let ((swiper-min-highlight 1))
-        (swiper--update-input-ivy)))
-    (swiper--avy-goto (swiper--avy-candidate))))
+  (cl-case (length ivy-text)
+    (0
+     (user-error "Need at least one char of input"))
+    (1
+     (let ((swiper-min-highlight 1))
+       (swiper--update-input-ivy))))
+  (swiper--avy-goto (swiper--avy-candidate)))
 
 (declare-function mc/create-fake-cursor-at-point "ext:multiple-cursors-core")
 (declare-function multiple-cursors-mode "ext:multiple-cursors-core")
