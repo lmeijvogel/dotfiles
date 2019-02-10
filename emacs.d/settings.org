@@ -214,6 +214,10 @@ There are two things you can do about this warning:
       (emacs-lisp . nil)
       (ruby . t))
     )
+    (setq org-refile-targets '(
+      (nil :maxlevel . 2)              ; refile to headings in the current buffer
+      (org-agenda-files :maxlevel . 2) ; refile to any of these files
+    ))
  )
 
  (use-package org-evil
