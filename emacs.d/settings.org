@@ -275,6 +275,7 @@ There are two things you can do about this warning:
    (define-key evil-treemacs-state-map (kbd "S-u") 'treemacs-go-to-parent-node)
    (define-key evil-treemacs-state-map (kbd "C-h") 'evil-window-left)
    (define-key evil-treemacs-state-map (kbd "C-l") 'evil-window-right)
+   (setq treemacs-width 50)
 
    (evil-leader/set-key
      "nt"
