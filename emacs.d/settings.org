@@ -470,9 +470,17 @@ There are two things you can do about this warning:
 ** Search for word under cursor / selected region
 #+BEGIN_SRC emacs-lisp
 
+ (defun my-counsel-projectile-rg-int ()
+     (setq ivy-re-builders-alist nil)
+
+     (counsel-projectile-rg)
+
+     (setq ivy-re-builders-alist
+          '((t . ivy--regex-fuzzy))))
+
  (defun my-counsel-projectile-rg-string (input)
    (let ((counsel-projectile-rg-initial-input input))
-     (counsel-projectile-rg)))
+     (my-counsel-projectile-rg-int)))
 
  (defun my-counsel-projectile-rg-region-under-cursor ()
    (my-counsel-projectile-rg-string (buffer-substring (region-beginning) (region-end))))
@@ -486,7 +494,7 @@ There are two things you can do about this warning:
    (let ((counsel-projectile-rg-initial-input nil))
      (cond
        ((eq evil-state 'visual) (my-counsel-projectile-rg-region-under-cursor))
-       ((eq evil-state 'normal) (counsel-projectile-rg)))))
+       ((eq evil-state 'normal) (my-counsel-projectile-rg-int)))))
 
  (defun ansible-vault-decrypt ()
    (interactive)
