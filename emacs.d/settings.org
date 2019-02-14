@@ -190,6 +190,11 @@ There are two things you can do about this warning:
 #+BEGIN_SRC emacs-lisp
 (add-hook 'focus-out-hook (lambda () (save-some-buffers t)))
 #+END_SRC
+** Line wrapping
+ #+BEGIN_SRC emacs-lisp
+ (set-default 'truncate-lines t)
+  #+END_SRC
+
 * Other packages
 ** Org mode
  #+BEGIN_SRC emacs-lisp
