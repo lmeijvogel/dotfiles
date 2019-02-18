@@ -11,6 +11,7 @@
  '(calendar-week-start-day 1)
  '(custom-safe-themes
    '("26d49386a2036df7ccbe802a06a759031e4455f07bda559dcf221f53e8850e69" "13d20048c12826c7ea636fbe513d6f24c0d43709a761052adbca052708798ce3" default))
+ '(linum-relative-current-symbol "")
  '(org-agenda-files
    '("~/org/keep.org" "~/org/prive.org" "~/org/mendix.org" "~/org/projects.org" "~/org/mobiel.org"))
  '(org-capture-templates
