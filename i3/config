@@ -182,6 +182,7 @@ for_window [title="data:, - Google Chrome"] move container to workspace $ws_ites
 for_window [title="^Emacs WM$"] move container to workspace $ws2; workspace $ws2
 for_window [title="^New Tab - Google Chrome"] move container to workspace $ws4; workspace $ws4; layout stacking
 for_window [title="^Slack - .*"] move container to workspace $ws4; workspace $ws4; layout stacking
+for_window [title="^DevTools - .*"] move container to workspace $ws3; workspace $ws3; layout stacking
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #dd0000
