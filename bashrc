@@ -13,15 +13,6 @@ fi
 export VISUAL='vim'
 export EDITOR='vim'
 
-
-if [ -f "$HOME/.bashrc_private" ]; then
-  if [ -x "$HOME/.bashrc_private" ]; then
-    . "$HOME/.bashrc_private"
-  else
-    echo ".bashrc_private is not executable. Not executed."
-  fi
-fi
-
 if [ -x "$HOME/.git-completion.bash" ]; then
   . "$HOME/.git-completion.bash"
 fi
@@ -32,10 +23,6 @@ fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-if [ -e "$HOME/.custom_bash_prompt.bash" ]; then
-  . "$HOME/.custom_bash_prompt.bash"
-fi
-
 if [ -f /usr/share/terminfo/x/xterm+256color ]; then
   export TERM='xterm-256color'
 else
@@ -45,10 +32,9 @@ fi
 # Allow pattern-matching with **
 shopt -s globstar
 
-[ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH="$HOME/bin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$HOME/perl5/bin:$HOME/.rvm/bin:$PATH"
+
