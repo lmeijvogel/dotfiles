@@ -9,3 +9,7 @@ set $output_left DP-1-2
 set $output_right HDMI-1-1
 
 set $output_right_or_laptop eDP-1-1
+
+bindsym $mod+F1 exec ~/bin/layout_disconnected.sh
+bindsym $mod+F2 exec ~/bin/layout_presentation.sh
+bindsym $mod+F3 exec ~/bin/layout_desk_work.sh
