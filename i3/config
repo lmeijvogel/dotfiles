@@ -212,6 +212,9 @@ bindsym $mod+Shift+F9  exec --no-startup-id pactl set-sink-volume $outputSink -1
 bindsym $mod+F10       exec --no-startup-id pactl set-sink-volume $outputSink +5% # increase sound volume
 bindsym $mod+Shift+F10 exec --no-startup-id pactl set-sink-volume $outputSink +1% # increase sound volume (small step)
 
+# Calculator
+bindsym $mod+F11        exec --no-startup-id gnome-calculator
+
 # Cycle between workspaces on the current display
 bindsym Control+Mod1+Right workspace next_on_output
 bindsym Control+Mod1+l workspace next_on_output
