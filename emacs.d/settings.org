@@ -87,11 +87,11 @@ There are two things you can do about this warning:
         (defun disable-all-themes ()
           (interactive)
           (mapc #'disable-theme custom-enabled-themes))
-    
+
         (defun my-load-theme (theme)
           (disable-all-themes)
           (load-theme theme))
-    
+
         (defun swap-theme (&optional light-or-dark)
           (interactive)
           (if (or
@@ -100,10 +100,10 @@ There are two things you can do about this warning:
             )
             (my-load-theme 'deeper-blue)
             (my-load-theme 'moe-light)))
-    
+
         (evil-define-key 'normal 'global (kbd "<f7>") 'swap-theme)
 #+END_SRC
-  
+
 **** Start in a light theme
 #+BEGIN_SRC emacs-lisp
       (swap-theme 'light))
@@ -509,7 +509,6 @@ There are two things you can do about this warning:
    (setq web-mode-enable-auto-quoting nil))
 #+END_SRC
 
- 
 * Customizations
 ** Search for word under cursor / selected region
 #+BEGIN_SRC emacs-lisp
@@ -546,6 +545,4 @@ There are two things you can do about this warning:
                      (buffer-file-name)))
      (revert-buffer))
 
-
  #+END_SRC
-
