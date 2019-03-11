@@ -42,14 +42,17 @@
  '(scroll-conservatively 10000)
  '(scroll-margin 3)
  '(tabbar-mode t nil (tabbar))
- '(tabbar-separator '(" | ")))
+ '(tabbar-separator '(" ")))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(tabbar-default ((t (:inherit variable-pitch :background "gray75" :foreground "gray50" :height 1.1))))
  '(tabbar-highlight ((t (:background "deep sky blue" :foreground "#ffffff" :underline t))))
- '(tabbar-selected ((t (:inherit tabbar-default :background "blue" :foreground "white" :weight bold)))))
+ '(tabbar-modified ((t (:inherit tabbar-default :foreground "white" :box (:line-width 1 :color "white" :style released-button) :slant italic))))
+ '(tabbar-selected ((t (:inherit tabbar-default :background "blue" :foreground "white"))))
+ '(tabbar-selected-modified ((t (:inherit tabbar-default :background "blue" :foreground "white" :box (:line-width 1 :color "white" :style released-button) :slant italic)))))
 
 (org-babel-load-file
  (expand-file-name "settings.org"
