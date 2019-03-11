@@ -171,13 +171,6 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-# gaps inner 10
-# gaps outer 10
-
-# smart_gaps on
-#
-# # Disable titlebars: i3-gaps does not work well with them
-# for_window [class="^.*"] border pixel 3
 for_window [title="data:, - Google Chrome"] move container to workspace $ws_itest, fullscreen enable
 for_window [title="^Emacs WM$"] move container to workspace $ws2; workspace $ws2
 for_window [title="^New Tab - Google Chrome"] move container to workspace $ws4; workspace $ws4; layout stacking
