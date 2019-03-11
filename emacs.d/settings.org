@@ -417,6 +417,15 @@ There are two things you can do about this warning:
     :ensure t)
  #+END_SRC
 
+** Global search/replace
+ #+BEGIN_SRC emacs-lisp
+(use-package wgrep
+  :ensure t)
+
+(use-package ag
+  :ensure t)
+ #+END_SRC
+
 * Language-specific
 ** Typescript
 *** typescript-mode
