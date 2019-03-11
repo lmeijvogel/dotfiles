@@ -172,7 +172,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 for_window [title="data:, - Google Chrome"] move container to workspace $ws_itest, fullscreen enable
-for_window [title="^Emacs WM$"] move container to workspace $ws2; workspace $ws2
+for_window [title="^emacs"] move container to workspace $ws2; workspace $ws2
 for_window [title="^New Tab - Google Chrome"] move container to workspace $ws4; workspace $ws4; layout stacking
 for_window [title="^Slack - .*"] move container to workspace $ws4; workspace $ws4; layout stacking
 for_window [title="^DevTools - .*"] move container to workspace $ws3; workspace $ws3; layout stacking
