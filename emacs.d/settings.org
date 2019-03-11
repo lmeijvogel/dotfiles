@@ -417,6 +417,17 @@ There are two things you can do about this warning:
     :ensure t)
  #+END_SRC
 
+
+** Code folding
+ #+BEGIN_SRC emacs-lisp
+(use-package vimish-fold
+  :ensure t)
+(use-package evil-vimish-fold
+  :after vimish-fold evil
+  :ensure t
+  :config
+  (evil-vimish-fold-mode 1))
+ #+END_SRC
 ** Global search/replace
  #+BEGIN_SRC emacs-lisp
 (use-package wgrep
