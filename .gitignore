@@ -17,3 +17,4 @@ lib/hide-polybar.py
 vendor
 vim/bundle/*
 vim/UltiSnips/*
+emacs.d/transient
