@@ -357,7 +357,9 @@ There are two things you can do about this warning:
      ;; intentional space before end of string
     (setq ivy-count-format "(%d/%d) ")
 
-    (setq ivy-initial-inputs-alist nil))
+    (setq ivy-initial-inputs-alist nil)
+    (define-key evil-normal-state-map (kbd "C-M-n") 'ivy-occur-next-line)
+    (define-key evil-normal-state-map (kbd "C-M-S-n") 'ivy-occur-previous-line))
  #+END_SRC
 
  Counsel: Input sources for Ivy (M-x, find-file, rg, ...)
