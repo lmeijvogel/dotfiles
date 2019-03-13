@@ -349,6 +349,7 @@ There are two things you can do about this warning:
  Ivy: Navigation through search results
  #+BEGIN_SRC emacs-lisp
   (use-package ivy
+    :after evil-leader
     :ensure t
     :config
     (ivy-mode 1)
@@ -360,6 +361,8 @@ There are two things you can do about this warning:
     (setq ivy-initial-inputs-alist nil)
     (define-key evil-normal-state-map (kbd "C-M-n") 'ivy-occur-next-line)
     (define-key evil-normal-state-map (kbd "C-M-S-n") 'ivy-occur-previous-line))
+
+    (evil-leader/set-key "<SPC>" 'ivy-switch-buffer)
  #+END_SRC
 
  Counsel: Input sources for Ivy (M-x, find-file, rg, ...)
