@@ -195,6 +195,11 @@ There are two things you can do about this warning:
  (set-default 'truncate-lines t)
   #+END_SRC
 
+** Global syntax checking
+ #+BEGIN_SRC emacs-lisp
+ (add-hook 'after-init-hook #'global-flycheck-mode)
+ #+END_SRC
+
 * Strip trailing whitespace on save
  #+BEGIN_SRC emacs-lisp
  (add-hook 'before-save-hook 'whitespace-cleanup)
