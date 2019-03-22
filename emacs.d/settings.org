@@ -460,6 +460,16 @@ There are two things you can do about this warning:
 #+END_SRC
 *** Tide
 #+BEGIN_SRC emacs-lisp
+ (defun jump-to-surrounding-definition-int ()
+   (re-search-backward "^export ")
+   (re-search-forward "[A-Z]")
+   (tide-jump-to-definition))
+
+ (defun jump-to-surrounding-definition ()
+   (interactive)
+   (let ((case-fold-search nil))
+     (jump-to-surrounding-definition-int)))
+
  (defun setup-tide-mode ()
    (interactive)
    (tide-setup)
@@ -476,9 +486,9 @@ There are two things you can do about this warning:
    (define-key evil-normal-state-map (kbd "<f2>") 'tide-rename-symbol)
 
    (evil-leader/set-key
-     "tf"
-     'tide-fix)
-   )
+     "tf" 'tide-fix
+     "td" 'jump-to-surrounding-definition))
+
 #+END_SRC
 *** Flycheck
     Is this necessary?
