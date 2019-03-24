@@ -559,6 +559,19 @@ There are two things you can do about this warning:
    (setq web-mode-enable-auto-quoting nil))
 #+END_SRC
 
+** C++
+#+BEGIN_SRC emacs-lisp
+ (defun setup-cpp-mode ()
+ (flycheck-mode 1)
+ )
+ (use-package typescript-mode
+   :ensure t
+   :config
+   (add-to-list 'auto-mode-alist '("\\.cpp\\'" . cpp-mode))
+   (add-to-list 'auto-mode-alist '("\\.h\\'" . cpp-mode))
+   (add-to-list 'auto-mode-alist '("\\.ino\\'" . cpp-mode))
+   (add-hook 'cpp-mode-hook #'setup-cpp-mode)
+)
 * Customizations
 ** Search for word under cursor / selected region
 #+BEGIN_SRC emacs-lisp
