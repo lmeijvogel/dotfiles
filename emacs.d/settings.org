@@ -346,6 +346,56 @@ There are two things you can do about this warning:
 
 #+END_SRC
 
+** Rainbow blocks
+ #+BEGIN_SRC emacs-lisp
+ (use-package rainbow-blocks
+   :ensure t
+   :config
+     (add-hook 'after-init-hook #'global-rainbow-blocks-mode)
+ )
+ #+END_SRC
+** Rainbow identifiers
+ #+BEGIN_SRC emacs-lisp
+ (use-package rainbow-identifiers
+   :ensure t
+   :config
+     (add-hook 'prog-mode-hook #'rainbow-identifiers-mode)
+ )
+ #+END_SRC
+** Rainbow delimiters
+ #+BEGIN_SRC emacs-lisp
+ (use-package rainbow-delimiters
+   :ensure t
+   :config
+     (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+ )
+ #+END_SRC
+** Paredit
+ #+BEGIN_SRC emacs-lisp
+ (use-package paredit
+   :ensure t
+ )
+ #+END_SRC
+
+ #+BEGIN_SRC emacs-lisp
+ (use-package paredit-everywhere
+   :ensure t
+   :after paredit
+   :config
+     (add-hook 'prog-mode-hook #'paredit-everywhere-mode)
+ )
+ #+END_SRC
+
+ Make sure that evil-mode doesn't break paredit
+ #+BEGIN_SRC emacs-lisp
+ (use-package evil-paredit
+   :ensure t
+   :after paredit
+   :config
+   (add-hook 'text-mode-hook #'evil-paredit-mode)
+ )
+ #+END_SRC
+
 ** Company
 #+BEGIN_SRC emacs-lisp
 (use-package company
