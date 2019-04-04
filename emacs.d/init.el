@@ -1,5 +1,19 @@
+;;; my-emacs-config --- Summary
+
+;; This is my emacs configuration. It nags that I need some sections here
+
+;;; Commentary:
+;;; Code:
+
+;; Here starts the code.
+
 (require 'package)
 (require 'org)
+
+(setq capture-file-name "~/org/prive.org")
+
+(if (file-exists-p "~/.config/emacs/custom.el")
+  (load-file "~/.config/emacs/custom.el"))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -15,26 +29,16 @@
  '(org-agenda-files
    '("~/org/keep.org" "~/org/prive.org" "~/org/mendix.org" "~/org/projects.org" "~/org/mobiel.org"))
  '(org-capture-templates
-   '(("w" "Mendix")
-     ("p" "Prive")
-     ("wt" "TODO Werk" entry
-      (file+headline "~/org/mendix.org" "Captures")
+   '(("t" "TODO" entry
+      (file+headline capture-file-name "Captures")
       (file "~/org/tpl/todo.txt")
       :empty-lines-before 1)
-     ("ws" "TODO Mendix source" entry
-      (file+headline "~/org/mendix.org" "Captures")
+     ("s" "TODO source" entry
+      (file+headline capture-file-name "Captures")
       (file "~/org/tpl/todo-source.txt")
       :empty-lines-before 1)
-     ("wn" "Note Mendix" entry
-      (file+headline "mendix.org" "Captures")
-      (file "~/org/tpl/note.txt")
-      :empty-lines-before 1)
-     ("pt" "TODO Prive" entry
-      (file+headline "~/org/prive.org" "Captures")
-      (file "~/org/tpl/todo.txt")
-      :empty-lines-before 1)
-     ("pn" "Note prive" entry
-      (file+headline "~/org/prive.org" "Captures")
+     ("n" "Note" entry
+      (file+headline capture-file-name "Captures")
       (file "~/org/tpl/note.txt")
       :empty-lines-before 1)))
  '(package-selected-packages
