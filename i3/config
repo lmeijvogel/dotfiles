@@ -191,8 +191,6 @@ hide_edge_borders horizontal
 # The next statement is a marker that is replaced by machine-specific configuration
 %include_private_config%
 
-exec_always --no-startup-id MONITOR_LEFT=$output_left MONITOR_RIGHT=$output_right $HOME/.config/polybar/launch.sh
-
 # Pulse Audio controls
 bindsym $mod+F8        exec --no-startup-id pactl set-sink-mute   $outputSink toggle # mute/unmute sound
 
@@ -234,15 +232,10 @@ workspace 10 output $output_right
 
 workspace 9 output $output_right_or_laptop
 
-exec --no-startup-id ~/bin/start_xautolock &
-
 bindsym $mod+grave scratchpad show
 bindsym $mod+Shift+grave move scratchpad
 
 bindsym --release Print exec scrot -s
-
-exec --no-startup-id i3-msg workspace $ws1
-exec --no-startup-id i3-msg workspace $ws4
 
 mode "volume" {
     # Lots of duplication, since i3wm doesn't support recursive variables :(
@@ -269,3 +262,10 @@ mode "volume" {
 bindsym $mod+Shift+s mode "volume"
 
 bindsym $mod+Shift+w exec --no-startup-id $HOME/bin/breaks_off
+
+exec_always --no-startup-id MONITOR_LEFT=$output_left MONITOR_RIGHT=$output_right $HOME/.config/polybar/launch.sh
+
+exec --no-startup-id ~/bin/start_xautolock &
+
+exec --no-startup-id i3-msg workspace $ws1
+exec --no-startup-id i3-msg workspace $ws4
