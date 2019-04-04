@@ -200,6 +200,22 @@ There are two things you can do about this warning:
  (add-hook 'after-init-hook #'global-flycheck-mode)
  #+END_SRC
 
+** Find other file
+ #+BEGIN_SRC emacs-lisp
+(defvar cpp-other-file-alist
+  '(("\\.cpp\\'" (".hpp" ".h"))
+    ("\\.hpp\\'" (".cpp"))
+    ("\\.c\\'" (".h"))
+    ("\\.h\\'" (".c" ".cpp"))
+    ))
+
+(setq-default ff-other-file-alist 'cpp-other-file-alist)
+
+(add-hook 'c-initialization-hook (lambda ()
+    (define-key c-mode-base-map [(meta o)] 'ff-get-other-file))
+)
+ #+END_SRC
+
 * Strip trailing whitespace on save
  #+BEGIN_SRC emacs-lisp
  (add-hook 'before-save-hook 'whitespace-cleanup)
@@ -487,7 +503,15 @@ There are two things you can do about this warning:
 
    (evil-leader/set-key
      "tf" 'tide-fix
-     "td" 'jump-to-surrounding-definition))
+     "td" 'jump-to-surrounding-definition)
+
+   (defvar ts-other-file-alist
+     '(("\\.tsx\\'" (".scss"))
+       ("\\.scss\\'" (".tsx"))))
+
+
+   (setq-default ff-other-file-alist 'ts-other-file-alist)
+   (define-key evil-normal-state-map [(meta o)] 'ff-get-other-file))
 
 #+END_SRC
 *** Flycheck
