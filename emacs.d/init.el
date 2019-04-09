@@ -10,6 +10,8 @@
 (require 'package)
 (require 'org)
 
+(setq inhibit-startup-screen t)
+
 (setq capture-file-name "~/org/prive.org")
 
 (if (file-exists-p "~/.config/emacs/custom.el")
