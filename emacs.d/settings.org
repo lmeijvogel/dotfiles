@@ -362,14 +362,6 @@ There are two things you can do about this warning:
      (add-hook 'prog-mode-hook #'rainbow-identifiers-mode)
  )
  #+END_SRC
-** Rainbow delimiters
- #+BEGIN_SRC emacs-lisp
- (use-package rainbow-delimiters
-   :ensure t
-   :config
-     (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
- )
- #+END_SRC
 ** Paredit
  #+BEGIN_SRC emacs-lisp
  (use-package paredit
