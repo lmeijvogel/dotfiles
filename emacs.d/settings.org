@@ -404,8 +404,11 @@ There are two things you can do about this warning:
     ;; and can hang emacs.
     ;; (there are minimized files that have very long lines, so they'll match any fuzzy query).
     (setq ivy-re-builders-alist
-      '((counsel-ag . ivy--regex)
-      (t . ivy--regex-fuzzy))))
+      '(
+         (counsel-ag . ivy--regex)
+         (counsel-rg . ivy--regex)
+         (t . ivy--regex-fuzzy)))
+)
  #+END_SRC
 
  Counsel-projectile
