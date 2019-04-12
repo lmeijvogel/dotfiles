@@ -5,6 +5,10 @@ exec --no-startup-id exec $HOME/start.sh
 exec --no-startup-id exec /usr/bin/workrave
 exec --no-startup-id exec ~/.fehbg
 
+exec firefox
+for_window [class="Firefox"] floating enable, move to scratchpad, scratchpad show
+bindsym $mod+grave [class="Firefox"] scratchpad show
+
 set $output_left DP-1-2
 set $output_right HDMI-1-1
 

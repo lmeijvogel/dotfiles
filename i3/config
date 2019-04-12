@@ -239,9 +239,6 @@ workspace 10 output $output_right
 
 workspace 9 output $output_right_or_laptop
 
-bindsym $mod+grave scratchpad show
-bindsym $mod+Shift+grave move scratchpad
-
 bindsym --release Print exec scrot -s
 
 mode "volume" {
