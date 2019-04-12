@@ -284,5 +284,7 @@ exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-medi
 exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-keyboard &
 exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-locate-pointer &
 
+exec --no-startup-id dunst
+
 exec --no-startup-id i3-msg workspace $ws1
 exec --no-startup-id i3-msg workspace $ws4
