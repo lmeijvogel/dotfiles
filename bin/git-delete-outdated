@@ -5,31 +5,23 @@ require 'shellwords'
 
 class DeleteOutdated
   def main
-    local_branches.each do |branch|
-      command = "git rev-parse --symbolic-full-name #{Shellwords.shellescape(branch)}@{u}"
+    local_branches_except_current_and_master.map do |line|
+      local_branch = line.match(/([^ ]+)/)[1]
+      upstream_branch_match = line.match(/\[([^\]]+)\]/)
 
-      Open3.popen2e(command) do |_, stdout_and_err, wait_thr|
-        base_branch_name = base_remote_branch_name(stdout_and_err.read.strip)
-
-        if !wait_thr.value.success? || base_branch_name == "origin/master"
-          suggest_delete_branch(branch)
-        end
-      end
+      {local_branch: local_branch, upstream_branch_match: upstream_branch_match}
     end
+      .select {|res| is_gone?(res[:upstream_branch_match]) }
+      .each {|res| suggest_delete_branch(res[:local_branch]) }
   end
 
   private
-
-  def base_remote_branch_name(branch)
-    branch.gsub(%r[.*/remotes/], '')
+  def local_branches_except_current_and_master
+    `git branch -vv`.each_line.map(&:strip).reject {|line| line.start_with?("*") || line.start_with?("master") }
   end
 
-  def local_branches
-    `git for-each-ref refs/heads`.lines.map(&:strip).map do |line|
-      line.split(' ')[2].gsub(%r{refs/heads/}, '')
-    end.reject do |branch|
-      branch == "master"
-    end
+  def is_gone?(match)
+    match && match[1].end_with?(": gone")
   end
 
   def suggest_delete_branch(branch)
