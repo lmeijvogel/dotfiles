@@ -85,7 +85,7 @@ bindsym $mod+Shift+a focus child
 # focus_wrapping no
 
 set $ws1 "1: console"
-set $ws2 "2: editor"
+set $ws2 "2: code"
 set $ws3 "3: devtools"
 set $ws4 "4: browser"
 set $ws5 "5"
