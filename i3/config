@@ -31,7 +31,7 @@ bindsym Mod1+F4 kill
 
 focus_follows_mouse no
 
-# start dmenu (program launcher)
+# start rofi (program launcher)
 bindsym $mod+d exec --no-startup-id rofi -show run
 
 # change focus
