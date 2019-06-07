@@ -161,5 +161,5 @@ if (which exa >/dev/null); then
 fi
 
 if (which bat >/dev/null); then
-  alias cat="`which bat` --theme \"Monokai Extended Light\""
+  alias cat="`which bat` --theme \"GitHub\""
 fi
