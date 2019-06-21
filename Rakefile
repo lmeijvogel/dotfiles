@@ -76,6 +76,7 @@ task :update_all_symlinks do
     update_symlinks(Rake::FileList["#{nested_config_dir}/*"], DOTFILE_PATTERN)
   end
 
+  initialize_zsh_plugins
   initialize_vim_bundle
 end
 
@@ -100,6 +101,22 @@ def update_symlinks(origs, pattern)
   original_files.map { |file| File.expand_path(file) }.zip(target_files).each do |source, symlink|
     puts "#{source} => #{symlink}"
     FileUtils.ln_s(File.expand_path(source), symlink)
+  end
+end
+
+def initialize_zsh_plugins
+  zsh_custom_path = File.join(ENV.fetch("HOME"), ".oh-my-zsh/custom/plugins")
+
+  mkdir_p zsh_custom_path
+
+  %w[zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search].each do |plugin|
+    target_path = File.join(zsh_custom_path, plugin)
+
+    next if File.directory?(target_path)
+
+    system("git", "clone",
+           "https://github.com/zsh-users/#{plugin}",
+           target_path)
   end
 end
 
