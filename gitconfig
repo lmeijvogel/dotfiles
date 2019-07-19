@@ -79,6 +79,7 @@
   rh3 = reset HEAD~3 --hard
 
   rhoo = "!f() { base_branch=$(git symbolic-ref --short HEAD); git reset --hard origin/${1:-$base_branch}; }; f"
+  rsoo = "!f() { base_branch=$(git symbolic-ref --short HEAD); git reset --soft origin/${1:-$base_branch}; }; f"
 
   sl = stash list
 
