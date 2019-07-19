@@ -76,6 +76,7 @@ task :update_all_symlinks do
     update_symlinks(Rake::FileList["#{nested_config_dir}/*"], DOTFILE_PATTERN)
   end
 
+  initialize_oh_my_zsh
   initialize_zsh_plugins
   initialize_vim_bundle
 end
@@ -102,6 +103,11 @@ def update_symlinks(origs, pattern)
     puts "#{source} => #{symlink}"
     FileUtils.ln_s(File.expand_path(source), symlink)
   end
+end
+
+def initialize_oh_my_zsh
+  `git clone https://github.com/olivierverdier/zsh-git-prompt #{ENV["HOME"]}/.zsh-git-prompt`
+  `git clone https://github.com/robbyrussell/oh-my-zsh.git #{ENV["HOME"]}.oh-my-zsh`
 end
 
 def initialize_zsh_plugins
