@@ -18,3 +18,4 @@ vendor
 vim/bundle/*
 vim/UltiSnips/*
 emacs.d/transient
+vim/plugged
