@@ -47,6 +47,8 @@ Plug 'Shougo/vimproc.vim'
 Plug 'Quramy/tsuquyomi'               " Typescript support (auto-completion, go to declaration). Used in oni, because it has a tag stack-like approach.
 Plug 'nacitar/a.vim'                  " Easily alternate between related files
 Plug 'rakr/vim-one' " Light color scheme
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mg979/vim-visual-multi'
 
 " if !exists('g:gui_oni')
   Plug 'leafgarland/typescript-vim' " Syntax files for typescript
