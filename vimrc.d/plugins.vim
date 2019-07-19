@@ -50,9 +50,7 @@ Plug 'rakr/vim-one' " Light color scheme
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mg979/vim-visual-multi'
 
-" if !exists('g:gui_oni')
-  Plug 'leafgarland/typescript-vim' " Syntax files for typescript
-" end
+Plug 'leafgarland/typescript-vim' " Syntax files for typescript
 
 call plug#end()
 call yankstack#setup()
