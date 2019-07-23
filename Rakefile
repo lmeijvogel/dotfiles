@@ -100,14 +100,19 @@ def update_symlinks(origs, pattern)
   target_files = original_files.pathmap(pattern)
 
   original_files.map { |file| File.expand_path(file) }.zip(target_files).each do |source, symlink|
-    puts "#{source} => #{symlink}"
     FileUtils.ln_s(File.expand_path(source), symlink)
   end
 end
 
 def initialize_oh_my_zsh
-  `git clone https://github.com/olivierverdier/zsh-git-prompt #{ENV["HOME"]}/.zsh-git-prompt`
-  `git clone https://github.com/robbyrussell/oh-my-zsh.git #{ENV["HOME"]}.oh-my-zsh`
+  {
+    "https://github.com/olivierverdier/zsh-git-prompt" => "#{ENV["HOME"]}/.zsh-git-prompt",
+    "https://github.com/robbyrussell/oh-my-zsh.git" => "#{ENV["HOME"]}/.oh-my-zsh"
+  }.each do |github_url, destination_dir|
+    unless File.directory?(destination_dir)
+      `git clone #{github_url} #{destination_dir}`
+    end
+  end
 end
 
 def initialize_zsh_plugins
@@ -127,5 +132,9 @@ def initialize_zsh_plugins
 end
 
 def initialize_vim_bundle
-  `curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+  plug_script_path = File.join(ENV["HOME"], ".config/nvim/autoload/plug.vim")
+
+  unless File.exist?(plug_script_path)
+    `curl -fLo #{plug_script_path} --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+  end
 end
