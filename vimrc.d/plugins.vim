@@ -8,7 +8,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'bogado/file-line' " Copy file/line to clipboard
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-repeat'
-Plug 'SirVer/ultisnips'
 Plug 'duff/vim-scratch' " Scratch buffer
 Plug 'mbbill/undotree' " Undo history visualisation
 Plug 'tpope/vim-surround'

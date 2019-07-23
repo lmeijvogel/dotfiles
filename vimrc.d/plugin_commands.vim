@@ -76,6 +76,42 @@ nnoremap <leader>st :SyntasticToggleMode<CR>
 nmap <C-A-k> :bn<CR>
 nmap <C-A-j> :bp<CR>
 
+" Coc.nvim
+
+" Better display for messages
+set cmdheight=2
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" Remap keys for gotos
+nmap <silent> <F12> <Plug>(coc-definition)
+" nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> <C-F12> <Plug>(coc-implementation)
+nmap <silent> <F24> <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Use `:Format` to format current buffer
+command! -nargs=0 Format :call CocAction('format')
 
 " FZF
 nmap <silent> <C-p> :GFiles<CR>
@@ -252,13 +288,6 @@ let g:tsuquyomi_disable_default_mappings = 1
 let g:tsuquyomi_disable_quickfix = 1
 
 if !exists('g:gui_oni')
-    autocmd BufEnter *.ts,*.tsx map <silent> <leader>tr :TSRefs<CR>
-    autocmd BufEnter *.ts,*.tsx map <silent> <F24> :TSRefs<CR>
-    autocmd BufEnter *.ts,*.tsx map <silent> <leader>ti :TSImport<CR>
-    autocmd BufEnter *.ts,*.tsx map <silent> <leader>tn :TSRename<CR>
-    autocmd BufEnter *.ts,*.tsx map gh :TSType<CR>
-    autocmd BufEnter *.ts,*.tsx map K :TSDoc<CR>
-
     " Completion: Used by nvim-typescript
     let g:deoplete#enable_at_startup = 1
 
