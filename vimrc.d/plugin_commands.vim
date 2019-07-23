@@ -136,20 +136,6 @@ let g:buftabline_numbers = 1
 " Open file from clipboard
 nmap <leader>ec :call OpenClipboardFile()<CR>
 
-" Ale
-let g:ale_sign_column_always = 1
-
-" The ruby linter for ERB isn't very good, so don't use it.
-let g:ale_linters = { 'eruby': [] }
-let g:ale_fixers = {
-                  \  'javascript': [
-                  \    'prettier_eslint'
-                  \  ],
-                  \}
-nmap <leader>d <Plug>(ale_fix)
-
-let g:ale_fix_on_save = 1
-
 " NERDCommenter - space after comment delimiters
 let g:NERDSpaceDelims = 1
 
