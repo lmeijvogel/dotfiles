@@ -99,19 +99,27 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Remap keys for gotos
 nmap <silent> <F12> <Plug>(coc-definition)
 " nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> <C-F12> <Plug>(coc-implementation)
+" For neovim-qt
+nmap <silent> <S-F12> <Plug>(coc-references)
+" For console usage
 nmap <silent> <F24> <Plug>(coc-references)
+" Perform the first quick fix
+nmap <silent> <leader>qf <Plug>(coc-fix-current)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 " Use `:Format` to format current buffer
 command! -nargs=0 Format :call CocAction('format')
+
+" Highlight position of error black on red
+highlight CocErrorHighlight ctermbg=Red ctermfg=Black guifg=#000000 guibg=#ff0000
 
 " FZF
 nmap <silent> <C-p> :GFiles<CR>
