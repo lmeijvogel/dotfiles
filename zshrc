@@ -163,3 +163,7 @@ fi
 if (which bat >/dev/null); then
   alias cat="`which bat` --theme \"GitHub\""
 fi
+
+# Near unlimited history
+export HISTSIZE=10000000
+export SAVEHIST=10000000
