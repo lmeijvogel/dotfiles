@@ -4,6 +4,8 @@ exec --no-startup-id exec bash $HOME/.fehbg &
 exec --no-startup-id exec redshift-gtk &
 exec --no-startup-id exec /opt/piavpn/bin/pia-client
 
+for_window [class="privateinternetaccess"] move container to workspace $ws10
+
 set $output_left DP-1
 set $output_right HDMI-1
 
