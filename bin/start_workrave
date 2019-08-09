@@ -1,0 +1,3 @@
+/usr/bin/workrave &
+
+sleep 5 && ~/bin/breaks_on
