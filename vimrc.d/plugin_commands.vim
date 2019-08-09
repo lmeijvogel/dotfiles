@@ -112,6 +112,8 @@ nmap <silent> <F24> <Plug>(coc-references)
 " Perform the first quick fix
 nmap <silent> <leader>qf <Plug>(coc-fix-current)
 
+nmap <leader>rr <Plug>(coc-rename)
+
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
