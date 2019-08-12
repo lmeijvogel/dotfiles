@@ -27,7 +27,7 @@ class Partition
   end
 
   def mountable?
-     partition? && !mounted?
+     partition? && !mounted? && usb?
   end
 
   def removable?
