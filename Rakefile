@@ -82,6 +82,8 @@ task :update_all_symlinks do
 end
 
 def delete_symlink(file)
+  return if !File.exist? file
+
   if File.symlink? file
     FileUtils.rm(file)
   else
