@@ -120,7 +120,6 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 
-# Predefined workspaces: "Console", "Vim", "Browser"
 bindsym $mod+z workspace $ws1
 bindsym $mod+x workspace $ws3
 bindsym $mod+c workspace $ws2
