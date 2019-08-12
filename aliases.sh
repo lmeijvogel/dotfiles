@@ -18,7 +18,6 @@ alias o='xdg-open'
 
 alias vi='nvim'
 alias vim='nvim'
-alias gvim='nvim-qt'
 
 alias nq='nvim-qt'
 
