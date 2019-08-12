@@ -1,2 +1,2 @@
-ruby $HOME/bin/_automounts.rb --not-mounted | fzf --delimiter "\t" --with-nth 2,3 | awk -F "\\t" '// { print "/dev/" $1; }' | xargs udisksctl mount --block-device
+ruby $HOME/bin/_automounts.rb --not-mounted | fzf --exit-0 --delimiter "\t" --with-nth 2,3 | awk -F "\\t" '// { print "/dev/" $1; }' | xargs udisksctl mount --block-device
 
