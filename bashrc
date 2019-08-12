@@ -38,3 +38,5 @@ export NVM_DIR="$HOME/.nvm"
 
 export PATH="$HOME/bin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$HOME/perl5/bin:$HOME/.rvm/bin:$PATH"
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
