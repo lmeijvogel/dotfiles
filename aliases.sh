@@ -5,11 +5,10 @@ alias gti='git'
 alias igt='git'
 alias qgit='git'
 
-alias brr='br --remote'
-alias brrr='br --remote'
-alias brrrr='br --remote'
-alias brrrrr='br --remote'
-alias brrrrrr='br --remote'
+alias brrr='brr'
+alias brrrr='brr'
+alias brrrrr='brr'
+alias brrrrrr='brr'
 
 alias be='bundle exec'
 
