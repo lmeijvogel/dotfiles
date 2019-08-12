@@ -132,10 +132,6 @@ for ((i=1 ; i < 20 ; i++)) {
 
 alias -g D=~/Downloads
 
-function br () {
-  br.rb $@
-}
-
 function gnor () {
   eval "`git-not-on-remote`"
 }
