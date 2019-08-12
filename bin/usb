@@ -1,0 +1,1 @@
+sudo usbguard list-devices -b | fzf | sed -E 's/^([^:]*):.*/\1/' | xargs sudo usbguard allow-device
