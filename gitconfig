@@ -103,14 +103,13 @@
   sd2 = stash drop stash@{2}
   sd3 = stash drop stash@{3}
 
-  au = !"git add `git ls-files --unmerged | awk '{ print $4; }' | sort | uniq`"
   rc = rebase --continue
   ra = rebase --abort
 
   bg = bisect good
   bb = bisect bad
 
-  cif  = commit --fixup
+  cif  = "!f() { git log --oneline | fzf --layout=reverse | awk '{ print $1; }' | xargs git commit --fixup; }; f"
   cif1 = commit --fixup HEAD~1
   cif2 = commit --fixup HEAD~2
   cif3 = commit --fixup HEAD~3
