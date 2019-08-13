@@ -5,15 +5,19 @@ require 'date'
 DAYS = %w[sunday monday tuesday wednesday thursday friday saturday]
 
 LINE_REGEX = %r[([0-9a-f]+) HEAD@{([^}]+)}: checkout: moving from [a-zA-Z0-9_\-\/]+ to ([a-zA-Z0-9_\-\/]+)]
+
 def main
-  puts checkouts
+  checkouts = get_checkouts
+
+  branch_width = checkouts.map { |checkout| checkout.branch.length }.max
+
+  puts checkouts.map { |checkout| checkout.to_displayable(branch_width) }
 end
 
-def checkouts
+def get_checkouts
   @checkouts ||= begin
                    `git reflog show --date=iso --grep-reflog="checkout: moving"`
                      .each_line
-                     .take(400)
                      .map { |line| Checkout.new(line) }
                      .uniq(&:branch)
                  end
@@ -29,8 +33,8 @@ class Checkout
     @branch = matches[3]
   end
 
-  def to_s
-    format("%-40s (%s)", @branch, format_date(@date))
+  def to_displayable(branch_width)
+    format("%-#{branch_width}s (%s)", @branch, format_date(@date))
   end
 
   private
