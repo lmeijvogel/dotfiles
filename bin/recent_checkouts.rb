@@ -1,12 +1,10 @@
 #!/usr/bin/env ruby
 
-# TODO:
-# - Use in actual scripts
 require 'date'
 
 DAYS = %w[sunday monday tuesday wednesday thursday friday saturday]
 
-LINE_REGEX = %r[([0-9a-f]+) HEAD@{([^}]+)}: checkout: moving from [a-zA-Z0-9_\-]+ to ([a-zA-Z0-9_\-]+)]
+LINE_REGEX = %r[([0-9a-f]+) HEAD@{([^}]+)}: checkout: moving from [a-zA-Z0-9_\-\/]+ to ([a-zA-Z0-9_\-\/]+)]
 def main
   puts checkouts
 end
