@@ -1,21 +1,3 @@
-;==========================================================
-;
-;
-;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
-;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
-;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
-;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
-;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
-;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
-;
-;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/jaagr/polybar
-;
-;   The README contains a lot of information
-;
-;==========================================================
-
 [machine-specific]
 include-file = $HOME/.config/polybar/machine-specific
 
@@ -29,6 +11,7 @@ primary-faded = #b5b5b5
 secondary = #e60053
 alert = #bd2c40
 alert-bright = #ff3450
+green = #44bb44
 underline-green = #44bb44
 underline-grey = ${colors.primary-faded}
 underline-orange = #ffb52a
@@ -51,6 +34,9 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 alert = ${colors.alert}
 alert-bright = ${colors.alert-bright}
+monitoring-green = ${colors.green}
+monitoring-grey = ${colors.foreground-dimmed}
+monitoring-red = ${colors.alert}
 
 line-size = 3
 line-color = #f00
@@ -243,11 +229,19 @@ type = custom/script
 exec = ~/.config/polybar/scripts/ping
 interval = 15
 
+[module/ssl-status]
+type = custom/script
+exec = /usr/bin/env ruby $HOME/.config/polybar/scripts/check_ssl_validity.rb
+interval = 15
+
+[module/backup-status]
+type = custom/script
+exec = /usr/bin/env ruby $HOME/.config/polybar/scripts/check_backup_status.rb
+interval = 60
+
 [module/powermenu]
 type = custom/menu
-
 expand-right = true
-
 format-spacing = 1
 
 label-open =  Leave
