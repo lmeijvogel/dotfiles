@@ -122,7 +122,7 @@ bindkey -s '\er' 'br\n'
 # Bind <Esc>R to 'brr' (git branch --remote)
 bindkey -s '\eR' 'brr\n'
 
-# Bind <Esc>c to 'git diff --cached' (Previously: Uppercase sentence and move to next sentence)
+# Bind <Esc>c to 'git diff' (Previously: Uppercase sentence and move to next sentence)
 bindkey -s '\ec' 'git diff\n'
 
 # Bind <Esc>C to 'git diff'
@@ -130,18 +130,9 @@ bindkey -s '\eC' 'git diff --cached\n'
 
 unsetopt nomatch
 
-for ((i=1 ; i < 20 ; i++)) {
-  alias -g H@$i="HEAD@{$i}"
-  alias -g s@$i="stash@{$i}"
-}
-
-
 alias -g D=~/Downloads
 
-function gnor () {
-  eval "`git-not-on-remote`"
-}
-
+# Eval these scripts: They set environment variables.
 function gitl () {
   eval "`$HOME/bin/gitl`"
 }
