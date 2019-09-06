@@ -40,3 +40,5 @@ export PATH="$HOME/bin:$HOME/.rbenv/shims:$HOME/.rbenv/bin:$HOME/perl5/bin:$HOME
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+[ -s "/home/lennaert/.scm_breeze/scm_breeze.sh" ] && source "/home/lennaert/.scm_breeze/scm_breeze.sh"
