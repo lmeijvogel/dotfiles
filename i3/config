@@ -271,17 +271,6 @@ exec_always --no-startup-id MONITOR_LEFT=$output_left MONITOR_RIGHT=$output_righ
 exec --no-startup-id ~/bin/start_xautolock &
 
 exec --no-startup-id nm-applet &
-exec --no-startup-id xfce4-power-manager &
-exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xrandr &
-exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-xsettings &
-exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-power &
-exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-printer &
-exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-printer-notifications &
-exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-mouse &
-exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-sound &
-exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-media-keys &
-exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-keyboard &
-exec --no-startup-id /usr/lib/x86_64-linux-gnu/cinnamon-settings-daemon/csd-locate-pointer &
 
 exec --no-startup-id dunst
 
