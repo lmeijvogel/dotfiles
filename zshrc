@@ -1,9 +1,3 @@
-# Start a tmux session by default
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux
-    exit
-fi
-
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
