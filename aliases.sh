@@ -26,6 +26,8 @@ alias k91='kill -9 %1'
 
 alias sa='ssh-add'
 
+alias aptup='sudo apt-get update && sudo apt-get upgrade'
+
 cl() { if [ -d "$1" ]; then cd "$1"; ls -l; else echo "*** Directory not found ***" ; fi; }
 
 # Allow custom aliases per environment
