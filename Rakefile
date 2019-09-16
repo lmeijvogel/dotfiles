@@ -2,6 +2,7 @@
 
 require "fileutils"
 require "shellwords"
+require "socket" # For getting the hostname
 
 desc "perform :update_all_symlinks"
 task :default => [:update_all_symlinks, :i3, :polybar]
@@ -10,19 +11,23 @@ desc "Generate i3 configuration files"
 task :i3 do
   config_template = File.read(File.join(__dir__, "i3/config"))
 
-  additional_config = if ENV.key?("WM_MACHINE_NAME")
-                        filename = "config-#{File.basename(ENV["WM_MACHINE_NAME"])}"
+  hostname = Socket.gethostname
 
-                        sanitized_filename = File.join(__dir__, "i3/#{filename}")
-                        base_additional_config = File.read(sanitized_filename)
+  filename = "config-#{hostname}"
 
-                        puts "Found additional configuration in #{sanitized_filename}"
-                        "#### Machine custom config starts here####\n\n" + base_additional_config
-                      else
-                        puts "No additional configuration present: Set I3_ADDITIONAL_CONFIG_FILE to a path inside dotfiles/i3/"
+  sanitized_filename = File.join(__dir__, "i3/#{filename}")
 
-                        "#### No custom configuration for this machine ####"
-                      end
+  additional_config = if File.exist?(sanitized_filename)
+    base_additional_config = File.read(sanitized_filename)
+
+    puts "Found additional configuration in #{sanitized_filename}"
+
+    "#### Machine custom config starts here####\n\n" + base_additional_config
+  else
+    puts "No additional configuration found for this host: Create a config file dotfiles/i3/#{sanitized_filename} with options for this machine."
+
+    "#### No custom configuration for this machine ####"
+  end
 
   resulting_config = config_template.gsub(/^%include_private_config%$/, additional_config)
   output_config_path = "#{ENV['HOME']}/.config/i3/config"
