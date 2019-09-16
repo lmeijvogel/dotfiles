@@ -7,11 +7,11 @@ require "socket" # For getting the hostname
 desc "perform :update_all_symlinks"
 task :default => [:update_all_symlinks, :i3, :polybar]
 
+hostname = Socket.gethostname
+
 desc "Generate i3 configuration files"
 task :i3 do
   config_template = File.read(File.join(__dir__, "i3/config"))
-
-  hostname = Socket.gethostname
 
   filename = "config-#{hostname}"
 
@@ -43,18 +43,19 @@ end
 
 desc "Create polybar machine-specific config file"
 task :polybar do
-  filename = if ENV.key?("WM_MACHINE_NAME")
-               "vars-#{File.basename(ENV["WM_MACHINE_NAME"])}"
-             else
-               puts "ERROR: No machine-specific configuration set: Choosing 'home' as default"
-               "vars-home"
-             end
+  filename = "vars-#{hostname}"
 
-  sanitized_filename = File.join(__dir__, "config/polybar/#{filename}")
+  polybar_config_dir = File.join(__dir__, "config/polybar")
 
-  puts "Found machine-specific polybar configuration in #{sanitized_filename}"
+  sanitized_filename = File.join(polybar_config_dir, filename)
 
-  cp sanitized_filename, "#{ENV['HOME']}/.config/polybar/machine-specific"
+  if File.exist?(sanitized_filename)
+    puts "Found machine-specific polybar configuration in #{sanitized_filename}"
+
+    cp sanitized_filename, "#{ENV['HOME']}/.config/polybar/machine-specific"
+  else
+    puts "ERROR: No machine-specific configuration set! Create a configuration file in #{polybar_config_dir} with the name #{filename} to configure polybar (or to remove this warning :D)"
+  end
 end
 
 desc "Updates all symlinks"
