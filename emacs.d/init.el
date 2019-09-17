@@ -7,6 +7,13 @@
 
 ;; Here starts the code.
 
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (require 'package)
 (require 'org)
 
@@ -44,11 +51,12 @@
       (file "~/org/tpl/note.txt")
       :empty-lines-before 1)))
  '(package-selected-packages
-   '(rainbow-blocks rainbow-identifiers paredit-everywhere evil-paredit paredit racket-mode evil-vimish-fold vimish-fold markdown-mode irony multiple-cursors alchemist wgrep ag flx smex org-evil powerline moe-theme tabbar treemacs treemacs-evil treemacs-projectile counsel-projectile counsel ivy prettier-js evil-nerd-commenter spacemacs-theme leuven-theme org use-package silkworm-theme evil-collection projectile-ripgrep projectile web-mode linum-relative ztree evil-numbers evil-leader evil-surround evil-magit company dracula-theme magit tide flycheck typescript-mode seq pkg-info let-alist evil dash))
+   '(evil-vimish-fold vimish-fold markdown-mode irony wgrep ag flx smex org-evil powerline moe-theme tabbar treemacs treemacs-evil treemacs-projectile counsel-projectile counsel ivy evil-nerd-commenter spacemacs-theme leuven-theme org use-package silkworm-theme evil-collection projectile-ripgrep projectile linum-relative ztree evil-numbers evil-leader evil-surround company dracula-theme seq pkg-info let-alist evil dash))
  '(scroll-conservatively 10000)
  '(scroll-margin 3)
  '(tabbar-mode t nil (tabbar))
  '(tabbar-separator '(" ")))
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

@@ -1,13 +1,11 @@
 ;;; wgrep-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "wgrep" "wgrep.el" (0 0 0 0))
-;;; Generated autoloads from wgrep.el
+;;;### (autoloads nil "wgrep" "../../../../../.emacs.d/elpa/wgrep-20181229.40/wgrep.el"
+;;;;;;  "51ce598b687db29a461bf197ff27280f")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/wgrep-20181229.40/wgrep.el
 
 (autoload 'wgrep-setup "wgrep" "\
 Setup wgrep preparation.
@@ -16,7 +14,11 @@ Setup wgrep preparation.
 
 (add-hook 'grep-setup-hook 'wgrep-setup)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "wgrep" '("wgrep-")))
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/wgrep-20181229.40/wgrep-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/wgrep-20181229.40/wgrep.el")
+;;;;;;  (23936 61156 690001 276000))
 
 ;;;***
 
@@ -24,6 +26,5 @@ Setup wgrep preparation.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; wgrep-autoloads.el ends here

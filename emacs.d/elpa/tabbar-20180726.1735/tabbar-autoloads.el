@@ -1,13 +1,11 @@
 ;;; tabbar-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "tabbar" "tabbar.el" (0 0 0 0))
-;;; Generated autoloads from tabbar.el
+;;;### (autoloads nil "tabbar" "../../../../../.emacs.d/elpa/tabbar-20180726.1735/tabbar.el"
+;;;;;;  "870c9b8d1abb176f2c49b2f445f45d76")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/tabbar-20180726.1735/tabbar.el
 
 (autoload 'tabbar-backward "tabbar" "\
 Select the previous available tab.
@@ -168,11 +166,12 @@ Returns non-nil if the new state is enabled.
 
 \(fn &optional ARG)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "tabbar" '("tabbar-")))
-
 ;;;***
 
-;;;### (autoloads nil nil ("tabbar-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/tabbar-20180726.1735/tabbar-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/tabbar-20180726.1735/tabbar-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/tabbar-20180726.1735/tabbar.el")
+;;;;;;  (23936 61134 322038 557000))
 
 ;;;***
 
@@ -180,6 +179,5 @@ Returns non-nil if the new state is enabled.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; tabbar-autoloads.el ends here

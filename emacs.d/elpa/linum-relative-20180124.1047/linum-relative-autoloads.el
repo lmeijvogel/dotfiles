@@ -1,14 +1,11 @@
 ;;; linum-relative-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "linum-relative" "linum-relative.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from linum-relative.el
+;;;### (autoloads nil "linum-relative" "../../../../../.emacs.d/elpa/linum-relative-20180124.1047/linum-relative.el"
+;;;;;;  "1ce03ba20870ea93bc4dc386248ff1ea")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/linum-relative-20180124.1047/linum-relative.el
 
 (autoload 'linum-relative-toggle "linum-relative" "\
 Toggle between linum-relative and linum.
@@ -17,11 +14,6 @@ Toggle between linum-relative and linum.
 
 (autoload 'linum-relative-mode "linum-relative" "\
 Display relative line numbers for current buffer.
-
-If called interactively, enable Linum-Relative mode if ARG is positive, and
-disable it if ARG is zero or negative.  If called from Lisp,
-also enable the mode if ARG is omitted or nil, and toggle it
-if ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
 
@@ -50,14 +42,13 @@ See `linum-relative-mode' for more information on Linum-Relative mode.
 (autoload 'helm-linum-relative-mode "linum-relative" "\
 Turn on `linum-relative-mode' in helm.
 
-If called interactively, enable Helm-Linum-Relative mode if ARG is positive, and
-disable it if ARG is zero or negative.  If called from Lisp,
-also enable the mode if ARG is omitted or nil, and toggle it
-if ARG is `toggle'; disable the mode otherwise.
-
 \(fn &optional ARG)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "linum-relative" '("helm--turn-on-linum-relative" "linum-relative")))
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/linum-relative-20180124.1047/linum-relative-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/linum-relative-20180124.1047/linum-relative.el")
+;;;;;;  (23936 61131 126043 960000))
 
 ;;;***
 
@@ -65,6 +56,5 @@ if ARG is `toggle'; disable the mode otherwise.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; linum-relative-autoloads.el ends here

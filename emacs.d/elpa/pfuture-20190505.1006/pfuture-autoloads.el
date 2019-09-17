@@ -1,13 +1,11 @@
 ;;; pfuture-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "pfuture" "pfuture.el" (0 0 0 0))
-;;; Generated autoloads from pfuture.el
+;;;### (autoloads nil "pfuture" "../../../../../.emacs.d/elpa/pfuture-20190505.1006/pfuture.el"
+;;;;;;  "17d64300bf5f0b14250403d923f56f68")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/pfuture-20190505.1006/pfuture.el
 
 (autoload 'pfuture-new "pfuture" "\
 Create a new future process for command CMD.
@@ -23,7 +21,11 @@ this is right: (pfuture-new \"git\" \"status\")
 
 \(fn &rest CMD)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "pfuture" '("pfuture-")))
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/pfuture-20190505.1006/pfuture-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/pfuture-20190505.1006/pfuture.el")
+;;;;;;  (23936 61136 50035 645000))
 
 ;;;***
 
@@ -31,6 +33,5 @@ this is right: (pfuture-new \"git\" \"status\")
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; pfuture-autoloads.el ends here

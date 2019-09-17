@@ -1,19 +1,12 @@
 ;;; monitor-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "monitor" "monitor.el" (0 0 0 0))
-;;; Generated autoloads from monitor.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "monitor" '("base" "define-monitor" "expression-value" "hook" "monitor" "trigger")))
-
-;;;***
-
-;;;### (autoloads nil nil ("monitor-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/monitor-20161018.1144/monitor-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/monitor-20161018.1144/monitor-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/monitor-20161018.1144/monitor.el")
+;;;;;;  (23936 61132 466041 692000))
 
 ;;;***
 
@@ -21,6 +14,5 @@
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; monitor-autoloads.el ends here

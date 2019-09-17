@@ -1,22 +1,14 @@
 ;;; rainbow-blocks-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "rainbow-blocks" "rainbow-blocks.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from rainbow-blocks.el
+;;;### (autoloads nil "rainbow-blocks" "../../../../../.emacs.d/elpa/rainbow-blocks-20171025.1438/rainbow-blocks.el"
+;;;;;;  "a3f2158ae8f3721f0198191eec450f2e")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/rainbow-blocks-20171025.1438/rainbow-blocks.el
 
 (autoload 'rainbow-blocks-mode "rainbow-blocks" "\
 Highlight nested parentheses, brackets, and braces according to their depth.
-
-If called interactively, enable Rainbow-Blocks mode if ARG is positive, and
-disable it if ARG is zero or negative.  If called from Lisp,
-also enable the mode if ARG is omitted or nil, and toggle it
-if ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
 
@@ -52,7 +44,11 @@ See `rainbow-blocks-mode' for more information on Rainbow-Blocks mode.
 
 \(fn &optional ARG)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "rainbow-blocks" '("rainbow-blocks-")))
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/rainbow-blocks-20171025.1438/rainbow-blocks-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/rainbow-blocks-20171025.1438/rainbow-blocks.el")
+;;;;;;  (23936 61426 565612 383000))
 
 ;;;***
 
@@ -60,6 +56,5 @@ See `rainbow-blocks-mode' for more information on Rainbow-Blocks mode.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; rainbow-blocks-autoloads.el ends here

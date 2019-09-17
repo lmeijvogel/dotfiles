@@ -1,45 +1,23 @@
 ;;; moe-theme-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "moe-dark-theme" "moe-dark-theme.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from moe-dark-theme.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "moe-dark-theme" '("moe-dark")))
-
-;;;***
-
-;;;### (autoloads nil "moe-light-theme" "moe-light-theme.el" (0 0
-;;;;;;  0 0))
-;;; Generated autoloads from moe-light-theme.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "moe-light-theme" '("moe-light")))
-
-;;;***
-
-;;;### (autoloads nil "moe-theme" "moe-theme.el" (0 0 0 0))
-;;; Generated autoloads from moe-theme.el
+;;;### (autoloads nil "moe-theme" "../../../../../.emacs.d/elpa/moe-theme-20180617.200/moe-theme.el"
+;;;;;;  "cbc86bdaeafc12f11486d882e0402c8f")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/moe-theme-20180617.200/moe-theme.el
 
 (when (and (boundp 'custom-theme-load-path) load-file-name) (add-to-list 'custom-theme-load-path (file-name-as-directory (file-name-directory load-file-name))))
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "moe-theme" '("moe-")))
-
 ;;;***
 
-;;;### (autoloads nil "moe-theme-switcher" "moe-theme-switcher.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from moe-theme-switcher.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "moe-theme-switcher" '("convert-time-format-of-sunrise-and-sunset" "get-sunrise-sunset-string" "moe-" "switch-")))
-
-;;;***
-
-;;;### (autoloads nil nil ("moe-theme-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/moe-theme-20180617.200/moe-dark-theme.el"
+;;;;;;  "../../../../../.emacs.d/elpa/moe-theme-20180617.200/moe-light-theme.el"
+;;;;;;  "../../../../../.emacs.d/elpa/moe-theme-20180617.200/moe-theme-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/moe-theme-20180617.200/moe-theme-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/moe-theme-20180617.200/moe-theme-switcher.el"
+;;;;;;  "../../../../../.emacs.d/elpa/moe-theme-20180617.200/moe-theme.el")
+;;;;;;  (23936 61130 426045 146000))
 
 ;;;***
 
@@ -47,6 +25,5 @@
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; moe-theme-autoloads.el ends here

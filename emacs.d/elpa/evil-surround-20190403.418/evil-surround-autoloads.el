@@ -1,13 +1,11 @@
 ;;; evil-surround-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "evil-surround" "evil-surround.el" (0 0 0 0))
-;;; Generated autoloads from evil-surround.el
+;;;### (autoloads nil "evil-surround" "../../../../../.emacs.d/elpa/evil-surround-20190403.418/evil-surround.el"
+;;;;;;  "d041e8a4802a391369399880cde6fc75")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/evil-surround-20190403.418/evil-surround.el
 
 (autoload 'evil-surround-delete "evil-surround" "\
 Delete the surrounding delimiters represented by CHAR.
@@ -28,18 +26,17 @@ overlays OUTER and INNER, which are passed to `evil-surround-delete'.
 (autoload 'evil-surround-mode "evil-surround" "\
 Buffer-local minor mode to emulate surround.vim.
 
-If called interactively, enable Evil-Surround mode if ARG is positive, and
-disable it if ARG is zero or negative.  If called from Lisp,
-also enable the mode if ARG is omitted or nil, and toggle it
-if ARG is `toggle'; disable the mode otherwise.
-
 \(fn &optional ARG)" t nil)
 
 (autoload 'turn-on-evil-surround-mode "evil-surround" "\
-Enable evil-surround-mode in the current buffer." nil nil)
+Enable evil-surround-mode in the current buffer.
+
+\(fn)" nil nil)
 
 (autoload 'turn-off-evil-surround-mode "evil-surround" "\
-Disable evil-surround-mode in the current buffer." nil nil)
+Disable evil-surround-mode in the current buffer.
+
+\(fn)" nil nil)
 
 (defvar global-evil-surround-mode nil "\
 Non-nil if Global Evil-Surround mode is enabled.
@@ -63,7 +60,11 @@ See `evil-surround-mode' for more information on Evil-Surround mode.
 
 \(fn &optional ARG)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "evil-surround" '("evil-surround-")))
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/evil-surround-20190403.418/evil-surround-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/evil-surround-20190403.418/evil-surround.el")
+;;;;;;  (23936 61129 254047 134000))
 
 ;;;***
 
@@ -71,6 +72,5 @@ See `evil-surround-mode' for more information on Evil-Surround mode.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; evil-surround-autoloads.el ends here

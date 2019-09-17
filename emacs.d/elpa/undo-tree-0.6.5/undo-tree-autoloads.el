@@ -1,11 +1,11 @@
 ;;; undo-tree-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-(add-to-list 'load-path (or (file-name-directory #$) (car load-path)))
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "undo-tree" "undo-tree.el" (23569 30816 326096
-;;;;;;  952000))
-;;; Generated autoloads from undo-tree.el
+;;;### (autoloads nil "undo-tree" "../../../../../.emacs.d/elpa/undo-tree-0.6.5/undo-tree.el"
+;;;;;;  "694d9d2bb8e90b4b01ecf954d3b093da")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/undo-tree-0.6.5/undo-tree.el
 
 (autoload 'undo-tree-mode "undo-tree" "\
 Toggle undo-tree mode.
@@ -28,8 +28,9 @@ Within the undo-tree visualizer, the following keys are available:
 \(fn &optional ARG)" t nil)
 
 (defvar global-undo-tree-mode nil "\
-Non-nil if Global-Undo-Tree mode is enabled.
-See the command `global-undo-tree-mode' for a description of this minor mode.
+Non-nil if Global Undo-Tree mode is enabled.
+See the `global-undo-tree-mode' command
+for a description of this minor mode.
 Setting this variable directly does not take effect;
 either customize it (see the info node `Easy Customization')
 or call the function `global-undo-tree-mode'.")
@@ -38,7 +39,7 @@ or call the function `global-undo-tree-mode'.")
 
 (autoload 'global-undo-tree-mode "undo-tree" "\
 Toggle Undo-Tree mode in all buffers.
-With prefix ARG, enable Global-Undo-Tree mode if ARG is positive;
+With prefix ARG, enable Global Undo-Tree mode if ARG is positive;
 otherwise, disable it.  If called from Lisp, enable the mode if
 ARG is omitted or nil.
 
@@ -47,6 +48,12 @@ Undo-Tree mode is enabled in all buffers where
 See `undo-tree-mode' for more information on Undo-Tree mode.
 
 \(fn &optional ARG)" t nil)
+
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/undo-tree-0.6.5/undo-tree-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/undo-tree-0.6.5/undo-tree.el")
+;;;;;;  (23936 61125 550053 433000))
 
 ;;;***
 

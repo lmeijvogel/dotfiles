@@ -1,51 +1,17 @@
 ;;; org-evil-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "org-evil-commands" "org-evil-commands.el"
-;;;;;;  (0 0 0 0))
-;;; Generated autoloads from org-evil-commands.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-evil-commands" '("org-evil-heading-")))
-
-;;;***
-
-;;;### (autoloads nil "org-evil-core" "org-evil-core.el" (0 0 0 0))
-;;; Generated autoloads from org-evil-core.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-evil-core" '("org-evil-")))
-
-;;;***
-
-;;;### (autoloads nil "org-evil-list" "org-evil-list.el" (0 0 0 0))
-;;; Generated autoloads from org-evil-list.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-evil-list" '("org-evil-list-")))
-
-;;;***
-
-;;;### (autoloads nil "org-evil-motion" "org-evil-motion.el" (0 0
-;;;;;;  0 0))
-;;; Generated autoloads from org-evil-motion.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-evil-motion" '("org-evil-")))
-
-;;;***
-
-;;;### (autoloads nil "org-evil-table" "org-evil-table.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from org-evil-table.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "org-evil-table" '("org-evil-table-")))
-
-;;;***
-
-;;;### (autoloads nil nil ("org-evil-pkg.el" "org-evil.el") (0 0
-;;;;;;  0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/org-evil-20180620.1517/org-evil-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/org-evil-20180620.1517/org-evil-commands.el"
+;;;;;;  "../../../../../.emacs.d/elpa/org-evil-20180620.1517/org-evil-core.el"
+;;;;;;  "../../../../../.emacs.d/elpa/org-evil-20180620.1517/org-evil-list.el"
+;;;;;;  "../../../../../.emacs.d/elpa/org-evil-20180620.1517/org-evil-motion.el"
+;;;;;;  "../../../../../.emacs.d/elpa/org-evil-20180620.1517/org-evil-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/org-evil-20180620.1517/org-evil-table.el"
+;;;;;;  "../../../../../.emacs.d/elpa/org-evil-20180620.1517/org-evil.el")
+;;;;;;  (23936 61132 918040 928000))
 
 ;;;***
 
@@ -53,6 +19,5 @@
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; org-evil-autoloads.el ends here

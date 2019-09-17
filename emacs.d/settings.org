@@ -37,10 +37,13 @@ There are two things you can do about this warning:
     (evil-mode 1)
 
     ;; Make '_' a word character to match vim behavior
-    (modify-syntax-entry ?_ "w")
+    (modify-syntax-entry ?_ "w"))
 
-    (evil-collection-init)
-    )
+    (use-package evil-collection
+    :ensure t
+    :after evil
+
+    (evil-collection-init))
     #+END_SRC
 *** Navigation
     #+BEGIN_SRC emacs-lisp
@@ -195,26 +198,6 @@ There are two things you can do about this warning:
  (set-default 'truncate-lines t)
   #+END_SRC
 
-** Global syntax checking
- #+BEGIN_SRC emacs-lisp
- (add-hook 'after-init-hook #'global-flycheck-mode)
- #+END_SRC
-
-** Find other file
- #+BEGIN_SRC emacs-lisp
-(defvar cpp-other-file-alist
-  '(("\\.cpp\\'" (".hpp" ".h"))
-    ("\\.hpp\\'" (".cpp"))
-    ("\\.c\\'" (".h"))
-    ("\\.h\\'" (".c" ".cpp"))
-    ))
-
-(setq-default ff-other-file-alist 'cpp-other-file-alist)
-
-(add-hook 'c-initialization-hook (lambda ()
-    (define-key c-mode-base-map [(meta o)] 'ff-get-other-file))
-)
- #+END_SRC
 
 * Strip trailing whitespace on save
  #+BEGIN_SRC emacs-lisp
@@ -317,21 +300,6 @@ There are two things you can do about this warning:
  )
 #+END_SRC
 
-** Magit
-#+BEGIN_SRC emacs-lisp
- (use-package magit
-   :ensure t)
-
- (use-package evil-magit
-   :after magit
-   :ensure t
-   :config
-   (evil-leader/set-key
-     "gs"
-     'magit-status)
-   )
-#+END_SRC
-
 ** NERD commenter
 #+BEGIN_SRC emacs-lisp
  (use-package evil-nerd-commenter
@@ -345,48 +313,6 @@ There are two things you can do about this warning:
    (evil-define-key 'normal 'global (kbd "C-/") 'evilnc-comment-or-uncomment-lines))
 
 #+END_SRC
-
-** Rainbow blocks
- #+BEGIN_SRC emacs-lisp
- (use-package rainbow-blocks
-   :ensure t
-   :config
-     (add-hook 'emacs-elisp-mode-hook #'rainbow-blocks-mode)
- )
- #+END_SRC
-** Rainbow identifiers
- #+BEGIN_SRC emacs-lisp
- (use-package rainbow-identifiers
-   :ensure t
-   :config
-     (add-hook 'prog-mode-hook #'rainbow-identifiers-mode)
- )
- #+END_SRC
-** Paredit
- #+BEGIN_SRC emacs-lisp
- (use-package paredit
-   :ensure t
- )
- #+END_SRC
-
- #+BEGIN_SRC emacs-lisp
- (use-package paredit-everywhere
-   :ensure t
-   :after paredit
-   :config
-     (add-hook 'prog-mode-hook #'paredit-everywhere-mode)
- )
- #+END_SRC
-
- Make sure that evil-mode doesn't break paredit
- #+BEGIN_SRC emacs-lisp
- (use-package evil-paredit
-   :ensure t
-   :after paredit
-   :config
-   (add-hook 'text-mode-hook #'evil-paredit-mode)
- )
- #+END_SRC
 
 ** Company
 #+BEGIN_SRC emacs-lisp
@@ -489,16 +415,6 @@ There are two things you can do about this warning:
  #+END_SRC
 
 
-** Code folding
- #+BEGIN_SRC emacs-lisp
-(use-package vimish-fold
-  :ensure t)
-(use-package evil-vimish-fold
-  :after vimish-fold evil
-  :ensure t
-  :config
-  (evil-vimish-fold-mode 1))
- #+END_SRC
 ** Global search/replace
  #+BEGIN_SRC emacs-lisp
 (use-package wgrep
@@ -508,112 +424,7 @@ There are two things you can do about this warning:
   :ensure t)
  #+END_SRC
 
-* Language-specific
-** Typescript
-*** typescript-mode
-#+BEGIN_SRC emacs-lisp
- (use-package typescript-mode
-   :ensure t
-   :config
-   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
-   (add-hook 'typescript-mode-hook #'setup-tide-mode)
-)
-#+END_SRC
-*** Tide
-#+BEGIN_SRC emacs-lisp
- (defun jump-to-surrounding-definition-int ()
-   (re-search-backward "^export ")
-   (re-search-forward "[A-Z]")
-   (tide-jump-to-definition))
 
- (defun jump-to-surrounding-definition ()
-   (interactive)
-   (let ((case-fold-search nil))
-     (jump-to-surrounding-definition-int)))
-
- (defun setup-tide-mode ()
-   (interactive)
-   (tide-setup)
-   (flycheck-mode +1)
-   (setq
-     tide-completion-enable-autoimport-suggestions t
-     tide-server-max-response-length 409600
-     flycheck-check-syntax-automatically '(save mode-enabled))
-   (eldoc-mode +1)
-   (tide-hl-identifier-mode +1)
-   (company-mode +1)
-   (define-key evil-normal-state-map (kbd "<f12>") 'tide-jump-to-definition)
-   (define-key evil-normal-state-map (kbd "S-<f12>") 'tide-references)
-   (define-key evil-normal-state-map (kbd "<f2>") 'tide-rename-symbol)
-
-   (evil-leader/set-key
-     "tf" 'tide-fix
-     "td" 'jump-to-surrounding-definition)
-
-   (defvar ts-other-file-alist
-     '(("\\.tsx\\'" (".scss"))
-       ("\\.scss\\'" (".tsx"))))
-
-
-   (setq-default ff-other-file-alist 'ts-other-file-alist)
-   (define-key evil-normal-state-map [(meta o)] 'ff-get-other-file))
-
-#+END_SRC
-*** Flycheck
-    Is this necessary?
-#+BEGIN_SRC emacs-lisp
- (use-package flycheck
-   :ensure t)
-#+END_SRC
-
-** Prettier
-#+BEGIN_SRC emacs-lisp
- (use-package prettier-js
-   :ensure t
-   :after web-mode
-   :config
-   (add-hook 'web-mode-hook 'prettier-js-mode)
-   (add-hook 'typescript-mode-hook 'prettier-js-mode)
-
-   (setq prettier-js-args '(
-     "--tab-width" "4"
-     "--print-width" "120"
-     "--semi" "true"
-     "--single-quote" "false")))
-#+END_SRC
-
-** Web-mode
-#+BEGIN_SRC emacs-lisp
- (use-package web-mode
-   :ensure t
-   :after flycheck
-   :config
-   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
-   (add-hook 'web-mode-hook
-        (lambda ()
-          (when (string-equal "tsx" (file-name-extension buffer-file-name))
-            (setup-tide-mode))))
-
-   ;; enable typescript-tslint checker
-   (flycheck-add-mode 'typescript-tslint 'web-mode)
-
-   ;; No quotes after html tag props.
-   (setq web-mode-enable-auto-quoting nil))
-#+END_SRC
-
-** C++
-#+BEGIN_SRC emacs-lisp
- (defun setup-cpp-mode ()
- (flycheck-mode 1)
- )
- (use-package typescript-mode
-   :ensure t
-   :config
-   (add-to-list 'auto-mode-alist '("\\.cpp\\'" . cpp-mode))
-   (add-to-list 'auto-mode-alist '("\\.h\\'" . cpp-mode))
-   (add-to-list 'auto-mode-alist '("\\.ino\\'" . cpp-mode))
-   (add-hook 'cpp-mode-hook #'setup-cpp-mode)
-)
 * Customizations
 ** Search for word under cursor / selected region
 #+BEGIN_SRC emacs-lisp

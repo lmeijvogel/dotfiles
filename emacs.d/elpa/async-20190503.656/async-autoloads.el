@@ -1,13 +1,11 @@
 ;;; async-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "async" "async.el" (0 0 0 0))
-;;; Generated autoloads from async.el
+;;;### (autoloads nil "async" "../../../../../.emacs.d/elpa/async-20190503.656/async.el"
+;;;;;;  "216dfe94f375bf9fddecc3cbe6d58b9d")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/async-20190503.656/async.el
 
 (autoload 'async-start-process "async" "\
 Start the executable PROGRAM asynchronously.  See `async-start'.
@@ -69,13 +67,11 @@ returns nil.  It can still be useful, however, as an argument to
 
 \(fn START-FUNC &optional FINISH-FUNC)" nil nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "async" '("async-")))
-
 ;;;***
 
-;;;### (autoloads nil "async-bytecomp" "async-bytecomp.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from async-bytecomp.el
+;;;### (autoloads nil "async-bytecomp" "../../../../../.emacs.d/elpa/async-20190503.656/async-bytecomp.el"
+;;;;;;  "7ac6a92e1a96b063eafd9d09b85ae533")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/async-20190503.656/async-bytecomp.el
 
 (autoload 'async-byte-recompile-directory "async-bytecomp" "\
 Compile all *.el files in DIRECTORY asynchronously.
@@ -98,11 +94,6 @@ Byte compile asynchronously packages installed with package.el.
 Async compilation of packages can be controlled by
 `async-bytecomp-allowed-packages'.
 
-If called interactively, enable Async-Bytecomp-Package mode if ARG is positive, and
-disable it if ARG is zero or negative.  If called from Lisp,
-also enable the mode if ARG is omitted or nil, and toggle it
-if ARG is `toggle'; disable the mode otherwise.
-
 \(fn &optional ARG)" t nil)
 
 (autoload 'async-byte-compile-file "async-bytecomp" "\
@@ -112,12 +103,11 @@ Same as `byte-compile-file' but asynchronous.
 
 \(fn FILE)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "async-bytecomp" '("async-byte")))
-
 ;;;***
 
-;;;### (autoloads nil "dired-async" "dired-async.el" (0 0 0 0))
-;;; Generated autoloads from dired-async.el
+;;;### (autoloads nil "dired-async" "../../../../../.emacs.d/elpa/async-20190503.656/dired-async.el"
+;;;;;;  "8925245e5e257f13dd6027b813f12bc3")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/async-20190503.656/dired-async.el
 
 (defvar dired-async-mode nil "\
 Non-nil if Dired-Async mode is enabled.
@@ -131,11 +121,6 @@ or call the function `dired-async-mode'.")
 
 (autoload 'dired-async-mode "dired-async" "\
 Do dired actions asynchronously.
-
-If called interactively, enable Dired-Async mode if ARG is positive, and
-disable it if ARG is zero or negative.  If called from Lisp,
-also enable the mode if ARG is omitted or nil, and toggle it
-if ARG is `toggle'; disable the mode otherwise.
 
 \(fn &optional ARG)" t nil)
 
@@ -159,19 +144,15 @@ Run ‘dired-do-rename’ asynchronously.
 
 \(fn &optional ARG)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "dired-async" '("dired-async-")))
-
 ;;;***
 
-;;;### (autoloads nil "smtpmail-async" "smtpmail-async.el" (0 0 0
-;;;;;;  0))
-;;; Generated autoloads from smtpmail-async.el
-
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "smtpmail-async" '("async-smtpmail-")))
-
-;;;***
-
-;;;### (autoloads nil nil ("async-pkg.el") (0 0 0 0))
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/async-20190503.656/async-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/async-20190503.656/async-bytecomp.el"
+;;;;;;  "../../../../../.emacs.d/elpa/async-20190503.656/async-pkg.el"
+;;;;;;  "../../../../../.emacs.d/elpa/async-20190503.656/async.el"
+;;;;;;  "../../../../../.emacs.d/elpa/async-20190503.656/dired-async.el"
+;;;;;;  "../../../../../.emacs.d/elpa/async-20190503.656/smtpmail-async.el")
+;;;;;;  (23936 61142 102025 486000))
 
 ;;;***
 
@@ -179,6 +160,5 @@ Run ‘dired-do-rename’ asynchronously.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; async-autoloads.el ends here

@@ -1,13 +1,11 @@
 ;;; paredit-autoloads.el --- automatically extracted autoloads
 ;;
 ;;; Code:
-
-(add-to-list 'load-path (directory-file-name
-                         (or (file-name-directory #$) (car load-path))))
-
+(add-to-list 'load-path (directory-file-name (or (file-name-directory #$) (car load-path))))
 
-;;;### (autoloads nil "paredit" "paredit.el" (0 0 0 0))
-;;; Generated autoloads from paredit.el
+;;;### (autoloads nil "paredit" "../../../../../.emacs.d/elpa/paredit-20171127.205/paredit.el"
+;;;;;;  "d92be181ca80dc4050ebc76ab028061b")
+;;; Generated autoloads from ../../../../../.emacs.d/elpa/paredit-20171127.205/paredit.el
 
 (autoload 'paredit-mode "paredit" "\
 Minor mode for pseudo-structurally editing Lisp code.
@@ -18,11 +16,6 @@ Paredit behaves badly if parentheses are unbalanced, so exercise
   fixing unbalanced parentheses instead.
 \\<paredit-mode-map>
 
-If called interactively, enable Paredit mode if ARG is positive, and
-disable it if ARG is zero or negative.  If called from Lisp,
-also enable the mode if ARG is omitted or nil, and toggle it
-if ARG is `toggle'; disable the mode otherwise.
-
 \(fn &optional ARG)" t nil)
 
 (autoload 'enable-paredit-mode "paredit" "\
@@ -30,7 +23,11 @@ Turn on pseudo-structural editing of Lisp code.
 
 \(fn)" t nil)
 
-(if (fboundp 'register-definition-prefixes) (register-definition-prefixes "paredit" '("?\\" "disable-paredit-mode" "paredit-")))
+;;;***
+
+;;;### (autoloads nil nil ("../../../../../.emacs.d/elpa/paredit-20171127.205/paredit-autoloads.el"
+;;;;;;  "../../../../../.emacs.d/elpa/paredit-20171127.205/paredit.el")
+;;;;;;  (23936 61148 538014 757000))
 
 ;;;***
 
@@ -38,6 +35,5 @@ Turn on pseudo-structural editing of Lisp code.
 ;; version-control: never
 ;; no-byte-compile: t
 ;; no-update-autoloads: t
-;; coding: utf-8
 ;; End:
 ;;; paredit-autoloads.el ends here
