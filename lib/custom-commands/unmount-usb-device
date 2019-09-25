@@ -1,0 +1,2 @@
+ruby $HOME/bin/_automounts.rb --mounted | rofi -dmenu | awk -F "\\t" '// { print "/dev/" $1; }' | xargs udisksctl unmount --block-device
+

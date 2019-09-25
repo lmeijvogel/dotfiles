@@ -33,6 +33,8 @@ focus_follows_mouse no
 
 # start rofi (program launcher)
 bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+slash exec --no-startup-id rofi -show window
+bindsym $mod+F1 exec --no-startup-id "$HOME/.lib/run-custom-command.sh"
 
 # change focus
 bindsym $mod+h focus left

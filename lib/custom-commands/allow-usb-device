@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# The first `cat` is necessary to get sudo privileges without the `fzf` UI interfering
+
+gksudo usbguard list-devices -b | rofi -dmenu| sed -E 's/^([^:]*):.*/\1/' | xargs gksudo usbguard allow-device
