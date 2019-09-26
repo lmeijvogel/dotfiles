@@ -1,0 +1,9 @@
+cd $HOME/.lib/custom-commands/layouts/`hostname`
+
+COMMAND=$(ruby $HOME/.lib/custom-commands/lib/list_executable_files.rb | rofi -dmenu)
+
+if [ "$COMMAND" != "" ]; then
+  sh -c ./$COMMAND
+
+  $HOME/bin/start-polybar-`hostname`.sh
+fi

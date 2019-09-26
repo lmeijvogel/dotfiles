@@ -1,3 +1,5 @@
-cd $HOME/.lib
+cd $HOME/.lib/custom-commands
 
-ls custom-commands | rofi -dmenu | xargs -I % sh -c custom-commands/%
+COMMAND=$(ruby lib/list_executable_files.rb | rofi -dmenu)
+
+sh -c ./$COMMAND
