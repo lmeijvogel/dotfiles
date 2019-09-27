@@ -1,9 +1,17 @@
-cd $HOME/.lib/custom-commands/layouts/`hostname`
+layouts_dir=$HOME/.lib/custom-commands/layouts/`hostname`
 
-COMMAND=$(ruby $HOME/.lib/custom-commands/lib/list_executable_files.rb | rofi -dmenu)
+echo $layouts_dir
+if [ -d "$layouts_dir" ]; then
 
-if [ "$COMMAND" != "" ]; then
-  sh -c ./$COMMAND
+  cd $layouts_dir
 
-  $HOME/bin/start-polybar-`hostname`.sh
+  COMMAND=$(ruby $HOME/.lib/custom-commands/lib/list_executable_files.rb | rofi -dmenu)
+
+  if [ "$COMMAND" != "" ]; then
+    sh -c ./$COMMAND
+
+    $HOME/bin/start-polybar-`hostname`.sh
+  fi
+else
+  notify-send "Could not find layouts for host $(hostname)"
 fi
