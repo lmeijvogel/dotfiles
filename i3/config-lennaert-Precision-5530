@@ -18,3 +18,5 @@ set $output_right_or_laptop eDP-1
 
 for_window [title="^Windows 10 .*: 1"] move container to workspace $ws6; workspace $ws6
 for_window [title="^Windows 10 .*: 2"] move container to workspace $ws5; workspace $ws5
+
+bindsym Control+$mod+Mod1+Escape exec --no-startup-id $HOME/.lib/custom-commands/layouts/$(hostname)/laptop-only.sh
