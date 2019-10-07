@@ -183,7 +183,7 @@ for_window [title="^Slack - .*"] move container to workspace $ws4; workspace $ws
 for_window [title="^DevTools - .*"] move container to workspace $ws3; workspace $ws3; layout stacking
 
 # Used for VirtualBox: Two virtual monitors on $ws5 and $ws6. Removes the status bar on both
-bindsym $mod+b workspace $ws5; fullscreen enable ; workspace $ws6 ; fullscreen enable
+bindsym $mod+b workspace $ws5; workspace $ws6
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #248fff #ffffff #2e9ef4   #dd0000
