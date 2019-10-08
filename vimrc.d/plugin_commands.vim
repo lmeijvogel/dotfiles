@@ -17,7 +17,7 @@ if executable('rg')
 elseif executable('ag')
   let g:ackprg = 'ag --vimgrep'
 else
-  let g:ackprg="/usr/bin/ack-grep"
+  let g:ackprg="/usr/bin/ack"
 endif
 
 nmap <leader>a :Ack! ""<C-b>
