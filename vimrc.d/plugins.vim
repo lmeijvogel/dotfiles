@@ -40,7 +40,8 @@ Plug 'lmeijvogel/nerdtree-copypaste'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'prettier/vim-prettier'
-Plug 'drewtempelmeyer/palenight.vim' " Dark color scheme
+Plug 'fmoralesc/molokayo' " Dark color scheme
+
 Plug 'jeetsukumaran/vim-indentwise' " Easy navigation based on indent level
 Plug 'Shougo/vimproc.vim'
 Plug 'Quramy/tsuquyomi'               " Typescript support (auto-completion, go to declaration). Used in oni, because it has a tag stack-like approach.

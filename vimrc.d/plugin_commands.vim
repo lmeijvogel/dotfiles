@@ -248,7 +248,7 @@ function! LMBackgroundDark()
 
   set background=dark
 
-  colorscheme palenight
+  colorscheme molokayo
 
   if (has("termguicolors"))
     set termguicolors
