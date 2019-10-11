@@ -29,11 +29,15 @@ start_suspend() {
 # Pixellate it 10x
 # mogrify -monochrome -scale 8% -scale 1250% /tmp/screen_locked.png
 
-PICTURE_FILE=$HOME/Pictures/lockscreen-background.png
+PICTURE_FILE=$HOME/Pictures/lockscreen-background.jpg
 
 # Lock screen displaying this image.
 if [[ -f $PICTURE_FILE ]]; then
-  i3lock -t -c 000000 -i $PICTURE_FILE
+  if [[ -e $HOME/git/i3lock-multimonitor/lock ]]; then
+    $HOME/git/i3lock-multimonitor/lock -i $PICTURE_FILE
+  else
+    i3lock -t -c 000000 -i $PICTURE_FILE
+  fi
 else
   i3lock -c 000000
 fi
