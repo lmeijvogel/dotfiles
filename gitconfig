@@ -151,3 +151,6 @@
 	required = true
 [diff]
 	noprefix = true
+
+[include]
+  path = .gitconfig_private
