@@ -224,11 +224,6 @@ ramp-capacity-1 = 
 ramp-capacity-2 = 
 ramp-capacity-foreground = ${colors.foreground}
 
-[module/ping]
-type = custom/script
-exec = ~/.config/polybar/scripts/ping
-interval = 15
-
 [module/ssl-status]
 type = custom/script
 exec = /usr/bin/env ruby $HOME/.config/polybar/scripts/check_ssl_validity.rb
