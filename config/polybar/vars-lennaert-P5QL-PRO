@@ -1,5 +1,6 @@
 sound-module = internal/alsa
-modules-right = filesystem memory cpu eth backup-status sound date 
+modules-right = filesystem memory cpu eth backup-status sound date
+
 eth-interface = enp3s0
 
 ; vim:ft=dosini

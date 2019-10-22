@@ -23,6 +23,9 @@ volume-high = #ff5555
 [bar/base]
 monitor = ${env:MONITOR}
 
+modules-left = powermenu i3
+modules-right = ${machine-specific.modules-right}
+
 bottom = true
 
 width = 100%
@@ -58,14 +61,8 @@ font-3 = siji:pixelsize=10;1
 [bar/left]
 inherit = bar/base
 
-modules-left = powermenu i3
-modules-right = sound date
-
 [bar/right]
 inherit = bar/base
-
-modules-left = powermenu i3
-modules-right = ${machine-specific.modules-right}
 
 tray-position = right
 tray-padding = 2
