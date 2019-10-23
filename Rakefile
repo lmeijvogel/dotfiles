@@ -82,13 +82,22 @@ task :update_all_symlinks do
     update_symlinks(Rake::FileList["#{nested_config_dir}/*"], DOTFILE_PATTERN)
   end
 
+  symlink_i3_compton
   initialize_oh_my_zsh
   initialize_zsh_plugins
   initialize_vim_bundle
 end
 
+def symlink_i3_compton
+  symlink_path = File.join(ENV['HOME'], ".config/i3/compton.conf")
+
+  delete_symlink symlink_path
+
+  FileUtils.ln_s(File.expand_path("i3/compton.conf"), symlink_path)
+end
+
 def delete_symlink(file)
-  return if !File.exist? file
+  return if !File.symlink? file
 
   if File.symlink? file
     FileUtils.rm(file)
