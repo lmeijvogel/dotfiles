@@ -41,7 +41,7 @@ def print(text, status)
                fg_color_running
              end
 
-  puts "%{F#{fg_color} B$#{bg_color}}#{text}%{F- B-}";
+  puts "%{F#{fg_color} B#{bg_color}}#{text}%{F- B-}";
 end
 
 def outdated?(timestamp)
