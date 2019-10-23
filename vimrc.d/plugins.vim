@@ -44,7 +44,6 @@ Plug 'fmoralesc/molokayo' " Dark color scheme
 
 Plug 'jeetsukumaran/vim-indentwise' " Easy navigation based on indent level
 Plug 'Shougo/vimproc.vim'
-Plug 'Quramy/tsuquyomi'               " Typescript support (auto-completion, go to declaration). Used in oni, because it has a tag stack-like approach.
 Plug 'nacitar/a.vim'                  " Easily alternate between related files
 Plug 'rakr/vim-one' " Light color scheme
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Protocol client

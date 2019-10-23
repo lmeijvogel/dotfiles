@@ -276,38 +276,24 @@ if !exists('g:config_already_loaded')
   endif
 endif
 
-" Tsuquyomi: Only keep the C-] and C-T mapping since they keep a local tag
-" stack. The other functions are handled well enough by nvim-typescript.
-let g:tsuquyomi_disable_default_mappings = 1
+" Completion: Used by nvim-typescript
+let g:deoplete#enable_at_startup = 1
 
-" Quickfix window for Tsuquyomi is generated synchronously and is slow.
-let g:tsuquyomi_disable_quickfix = 1
+let g:nvim_typescript#signature_complete = 1
+let g:nvim_typescript#max_completion_detail = 25
+let g:nvim_typescript#tsimport#template = 'import { %s } from "%s";'
 
-if !exists('g:gui_oni')
-    " Completion: Used by nvim-typescript
-    let g:deoplete#enable_at_startup = 1
+let g:prettier#config#print_width = 120
+let g:prettier#config#tab_width = 4
+let g:prettier#config#bracket_spacing = 'true'
+let g:prettier#config#single_quote = 'false'
+let g:prettier#config#trailing_comma = 'none'
 
-    let g:nvim_typescript#signature_complete = 1
-    let g:nvim_typescript#max_completion_detail = 25
-    let g:nvim_typescript#tsimport#template = 'import { %s } from "%s";'
+let g:prettier#quickfix_enabled = 0
 
-    let g:prettier#config#print_width = 120
-    let g:prettier#config#tab_width = 4
-    let g:prettier#config#bracket_spacing = 'true'
-    let g:prettier#config#single_quote = 'false'
-    let g:prettier#config#trailing_comma = 'none'
-
-    let g:prettier#quickfix_enabled = 0
-
-    " Run prettier on all specified files at save.
-    let g:prettier#autoformat = 0
-    autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
-else
-    autocmd FileType fzf tnoremap <nowait><buffer> <esc> <c-g> " Close FZF in Oni with esc
-
-    " Make C-6 (go to previous buffer) work again in Oni
-    noremap <C-6> <C-^>
-endif
+" Run prettier on all specified files at save.
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
 let g:alternateExtensions_{'tsx'} = "scss"
 let g:alternateExtensions_{'scss'} = "tsx"

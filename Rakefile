@@ -76,7 +76,7 @@ task :update_all_symlinks do
 
   update_symlinks(Rake::FileList["#{BIN_DIR}/*"], BIN_DIR_PATTERN)
 
-  NESTED_CONFIG_DIRS = Rake::FileList[*%w[config/dunst config/fish config/i3 config/polybar config/rofi config/nvim config/oni]]
+  NESTED_CONFIG_DIRS = Rake::FileList[*%w[config/dunst config/fish config/i3 config/polybar config/rofi config/nvim]]
   NESTED_CONFIG_DIRS.each do |nested_config_dir|
     mkdir_p nested_config_dir.pathmap(DOTFILE_PATTERN)
     update_symlinks(Rake::FileList["#{nested_config_dir}/*"], DOTFILE_PATTERN)
