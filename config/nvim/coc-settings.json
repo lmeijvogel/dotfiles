@@ -1,5 +1,29 @@
 {
   "diagnostic.checkCurrentLine": true,
   "diagnostic.virtualText": true,
-  "diagnostic.virtualTextPrefix": "!!! "
+  "diagnostic.virtualTextPrefix": "   !!! ",
+  "list.normalMappings": {
+    "t": "action:tabe",
+    "v": "action:vsplit",
+    "s": "action:split",
+    "d": "expr:GetDeleteAction"
+  },
+  "list.insertMappings": {
+    "<C-t>": "action:tabe",
+    "<C-w>": "command:wincmd k"
+  },
+  "rust-client.rustupPath": "/home/lennaert/.cargo/bin/rustup",
+
+  "languageserver": {
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cpp", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".vim/", ".git/", ".hg/"],
+      "initializationOptions": {
+         "cache": {
+           "directory": "/tmp/ccls"
+         }
+       }
+    }
+  }
 }
