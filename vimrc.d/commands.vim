@@ -49,10 +49,10 @@ nmap <silent> <S-Up> <C-w>+
 nmap <silent> <S-Down> <C-w>-
 nmap <silent> <S-Left> <C-w><
 nmap <silent> <S-Right> <C-w>>
-nmap <silent> <Up> <C-w>8+
-nmap <silent> <Down> <C-w>8-
-nmap <silent> <Left> <C-w>8<
-nmap <silent> <Right> <C-w>8>
+nmap <silent> <M-Up> <C-w>8+
+nmap <silent> <M-Down> <C-w>8-
+nmap <silent> <M-Left> <C-w>8<
+nmap <silent> <M-Right> <C-w>8>
 
 nmap <silent> <leader>gb :!git gui blame %
 
