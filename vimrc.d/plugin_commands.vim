@@ -113,6 +113,7 @@ nmap <silent> <F24> <Plug>(coc-references)
 nmap <silent> <leader>qf <Plug>(coc-fix-current)
 
 nmap <leader>rr <Plug>(coc-rename)
+nmap <leader>ra :CocAction<CR>
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
