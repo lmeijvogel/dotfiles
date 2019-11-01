@@ -205,7 +205,7 @@ hide_edge_borders horizontal
 bindsym $mod+F8        exec --no-startup-id pactl set-sink-mute   $outputSink toggle # mute/unmute sound
 
 # Open sound mixer in a floating window
-bindsym $mod+Shift+F8  exec gnome-terminal -e alsamixer; exec "bash -c 'sleep 0.2s;i3-msg floating enable;i3-msg resize set 800px 600px;i3-msg move position center'"
+bindsym $mod+Shift+F8  exec qpaeq; exec "bash -c 'sleep 0.2s;i3-msg floating enable;i3-msg resize set 800px 600px;i3-msg move position center'"
 
 bindsym $mod+F9        exec --no-startup-id pactl set-sink-volume $outputSink -5% # decrease sound volume
 bindsym $mod+Shift+F9  exec --no-startup-id pactl set-sink-volume $outputSink -1% # decrease sound volume (small step)
