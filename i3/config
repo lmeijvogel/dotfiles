@@ -36,6 +36,9 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+slash exec --no-startup-id rofi -show window
 bindsym $mod+F1 exec --no-startup-id $HOME/.lib/run-custom-command.sh
 
+# Open or show my notes
+bindsym $mod+Shift+slash exec --no-startup-id bash $HOME/.lib/open-notes.sh
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -184,6 +187,7 @@ for_window [title="^Slack - .*"] move container to workspace $ws4; workspace $ws
 for_window [title="^DevTools - .*"] move container to workspace $ws3; workspace $ws3; layout stacking
 for_window [window_role="gnome-calculator"] floating enable
 for_window [class="Gnome-system-monitor"] floating enable
+for_window [class="Gnote"] floating enable
 
 # Used for VirtualBox: Two virtual monitors on $ws5 and $ws6. Removes the status bar on both
 bindsym $mod+b workspace $ws5; workspace $ws6
