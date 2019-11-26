@@ -4,9 +4,9 @@ require 'json'
 def main(up_or_down)
   return if workspaces_on_current_output.one?
 
-  num = next_workspace(up_or_down)
+  name = next_workspace(up_or_down)
 
-  `i3-msg workspace #{num}`
+  `i3-msg workspace "#{name}"`
 end
 
 def workspaces
@@ -21,18 +21,20 @@ def focused_workspace
   workspaces.find { |ws| ws["focused"] }
 end
 
-def focused_workspace_num
-  focused_workspace["num"]
+def focused_workspace_name
+  focused_workspace["name"]
 end
 
 def workspaces_on_current_output
-  workspaces.select { |ws| ws["output"] == current_output }.map { |ws| ws["num"] }
+  workspaces
+    .select { |ws| ws["output"] == current_output }
+    .map { |ws| ws["name"] }
 end
 
 def next_workspace(direction)
   next_workspaces = next_workspaces(direction)
 
-  current_index = next_workspaces.index(focused_workspace_num)
+  current_index = next_workspaces.index(focused_workspace_name)
 
   # A #cycle feels a bit more robust than current + 1 % length
   next_workspaces.cycle(2).to_a[current_index + 1]
