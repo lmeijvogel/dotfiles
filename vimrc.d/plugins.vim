@@ -39,6 +39,7 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'prettier/vim-prettier'
 Plug 'fmoralesc/molokayo' " Dark color scheme
+Plug 'mhinz/vim-grepper'
 
 Plug 'jeetsukumaran/vim-indentwise' " Easy navigation based on indent level
 Plug 'Shougo/vimproc.vim'

@@ -1,4 +1,4 @@
-source ~/.vimrc.d/plugins/ack.vim.vim
+source ~/.vimrc.d/plugins/vim-grepper.vim
 source ~/.vimrc.d/plugins/coc.nvim.vim
 source ~/.vimrc.d/plugins/nerdtree.vim
 
