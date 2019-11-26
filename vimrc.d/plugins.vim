@@ -50,6 +50,7 @@ Plug 'ianks/vim-tsx' " Correctly set filetype for tsx files
 Plug 'mg979/vim-visual-multi'
 Plug 'rbgrouleff/bclose.vim' " Close buffers while keeping windows open
 Plug 'leafgarland/typescript-vim' " Syntax files for typescript
+Plug 'ruanyl/vim-sort-imports' " Sort typescript imports
 
 call plug#end()
 call yankstack#setup()
