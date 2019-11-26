@@ -28,7 +28,12 @@ end
 def workspaces_on_current_output
   workspaces
     .select { |ws| ws["output"] == current_output }
+    .reject { |ws| should_skip?(ws) }
     .map { |ws| ws["name"] }
+end
+
+def should_skip?(workspace)
+  workspace["name"].end_with?(" windows")
 end
 
 def next_workspace(direction)
