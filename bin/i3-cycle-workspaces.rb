@@ -2,11 +2,7 @@
 require 'json'
 
 def main(up_or_down)
-  return if workspaces_on_current_output.one?
-
-  name = next_workspace(up_or_down)
-
-  `i3-msg workspace "#{name}"`
+  `i3-msg workspace "#{next_workspace(up_or_down)}"`
 end
 
 def workspaces
