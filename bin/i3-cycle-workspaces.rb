@@ -5,33 +5,6 @@ def main(up_or_down)
   `i3-msg workspace "#{next_workspace(up_or_down)}"`
 end
 
-def workspaces
-  @workspaces ||= begin
-    workspaces_json = `i3-msg -t get_workspaces`
-
-    JSON.parse(workspaces_json)
-  end
-end
-
-def focused_workspace
-  workspaces.find { |ws| ws["focused"] }
-end
-
-def focused_workspace_name
-  focused_workspace["name"]
-end
-
-def workspaces_on_current_output
-  workspaces
-    .select { |ws| ws["output"] == current_output }
-    .reject { |ws| should_skip?(ws) }
-    .map { |ws| ws["name"] }
-end
-
-def should_skip?(workspace)
-  workspace_contains_virtualbox?(workspace["name"])
-end
-
 def next_workspace(direction)
   next_workspaces = next_workspaces(direction)
 
@@ -49,8 +22,31 @@ def next_workspaces(direction)
   end
 end
 
+def focused_workspace_name
+  focused_workspace["name"]
+end
+
+def focused_workspace
+  workspaces.find { |ws| ws["focused"] }
+end
+
+def workspaces_on_current_output
+  workspaces
+    .select { |ws| ws["output"] == current_output }
+    .reject { |ws| should_skip?(ws) }
+    .map { |ws| ws["name"] }
+end
+
+def workspaces
+  @workspaces ||= JSON.parse(`i3-msg -t get_workspaces`)
+end
+
 def current_output
   focused_workspace["output"]
+end
+
+def should_skip?(workspace)
+  workspace_contains_virtualbox?(workspace["name"])
 end
 
 def workspace_contains_virtualbox?(workspace_name)
