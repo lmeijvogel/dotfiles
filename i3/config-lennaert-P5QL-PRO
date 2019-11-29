@@ -1,7 +1,6 @@
 set $outputSink 0
 
 exec --no-startup-id exec redshift-gtk &
-exec --no-startup-id exec /opt/piavpn/bin/pia-client
 
 for_window [class="privateinternetaccess"] move container to workspace $ws10
 
