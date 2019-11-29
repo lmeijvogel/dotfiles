@@ -247,7 +247,11 @@ workspace 10 output $output_right
 
 workspace 9 output $output_right_or_laptop
 
-bindsym --release Print exec scrot -s
+# Screenshot selection
+bindsym --release Print exec scrot --select
+
+# Screenshot current window
+bindsym --release Shift+Print exec scrot --focused
 
 mode "volume" {
     # Lots of duplication, since i3wm doesn't support recursive variables :(
