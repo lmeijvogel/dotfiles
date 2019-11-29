@@ -29,7 +29,7 @@ def workspaces_on_current_output
 end
 
 def should_skip?(workspace)
-  workspace["name"].end_with?(" windows")
+  workspace_contains_virtualbox?(workspace["name"])
 end
 
 def next_workspace(direction)
@@ -51,6 +51,36 @@ end
 
 def current_output
   focused_workspace["output"]
+end
+
+def workspace_contains_virtualbox?(workspace_name)
+  workspace = find_workspace_in_tree(workspace_name)
+
+  recursive(workspace) do |node|
+    return true if node["name"]&.include? "[Running]"
+  end
+
+  false
+end
+
+def find_workspace_in_tree(name)
+  recursive(tree) do |node|
+    return node if node["name"] == name
+  end
+
+  nil
+end
+
+def recursive(node, depth = 0, ancestors = [], &block)
+  yield node, depth, ancestors
+
+  node['nodes'].each do |child_node|
+    recursive(child_node, depth + 2, ancestors + [node], &block)
+  end
+end
+
+def tree
+  @tree ||= JSON.parse(`i3-msg -t get_tree`)
 end
 
 if ARGV.length != 1
