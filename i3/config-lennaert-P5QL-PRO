@@ -1,6 +1,5 @@
 set $outputSink 0
 
-exec --no-startup-id exec bash $HOME/.fehbg &
 exec --no-startup-id exec redshift-gtk &
 exec --no-startup-id exec /opt/piavpn/bin/pia-client
 

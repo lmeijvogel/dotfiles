@@ -282,6 +282,8 @@ bindsym $mod+Shift+w exec --no-startup-id $HOME/bin/breaks_off
 exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
 exec_always --no-startup-id MONITOR_LEFT=$output_left MONITOR_RIGHT=$output_right $HOME/.config/polybar/launch.sh
 
+exec --no-startup-id exec bash $HOME/.fehbg &
+
 exec --no-startup-id ~/bin/start_xautolock &
 
 exec --no-startup-id nm-applet &

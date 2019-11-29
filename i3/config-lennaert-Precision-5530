@@ -3,8 +3,6 @@
 set $outputSink 1
 
 exec --no-startup-id exec $HOME/start.sh
-exec --no-startup-id exec ~/.fehbg
-
 exec --no-startup-id exec ~/bin/start_workrave
 
 exec firefox
