@@ -173,6 +173,10 @@ mode "resize" {
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
+        # Used for screenshots: Resulting images are 600x400 resp. 1280x800
+        bindsym Shift+h resize set 664 px 428 px
+        bindsym Shift+l resize set 1284 px 828 px
+
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
