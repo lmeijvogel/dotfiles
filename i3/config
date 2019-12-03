@@ -146,7 +146,7 @@ bindsym $mod+Control+Shift+r restart
 mode "exit: pow[e]roff, [s]uspend, [l]ogout, [r]eboot" {
   bindsym e exec poweroff
   bindsym s exec sudo pm-suspend
-  bindsym l exec i3-msg exit
+  bindsym l exec mate-session-save --logout
   bindsym r exec reboot
   bindsym Escape mode "default"
   bindsym Return mode "default"
@@ -286,11 +286,7 @@ bindsym $mod+Shift+w exec --no-startup-id $HOME/bin/breaks_off
 exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
 exec_always --no-startup-id MONITOR_LEFT=$output_left MONITOR_RIGHT=$output_right $HOME/.config/polybar/launch.sh
 
-exec --no-startup-id exec bash $HOME/.fehbg &
-
 exec --no-startup-id ~/bin/start_xautolock &
-
-exec --no-startup-id nm-applet &
 
 exec --no-startup-id dunst
 
