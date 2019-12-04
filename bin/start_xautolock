@@ -6,4 +6,4 @@
 # corners: topleft | topright | bottomleft | bottomright
 #          no lock |          |            | lock
 
-xautolock -corners -00+ -time 3 -notify 10 -notifier "i3-msg fullscreen disable ; notify-send --expire-time 9000 \"Screen lock\" \"Screen will be locked in 10 seconds\"" -locker '~/.lib/lock-screen.sh'
+xautolock -corners -00+ -time 6 -notify 30 -notifier "i3-msg fullscreen disable ; notify-send --expire-time 9000 \"Screen lock\" \"Screen will be locked in 30 seconds\"" -locker '~/.lib/lock-screen.sh'
