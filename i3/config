@@ -226,11 +226,11 @@ bindsym $mod+Shift+F10 exec --no-startup-id pactl set-sink-volume $outputSink +1
 bindsym $mod+F11        exec --no-startup-id gnome-calculator
 
 # Cycle between workspaces on the current display
-bindsym Control+Mod1+Right exec $HOME/bin/i3-cycle-workspaces.rb up
-bindsym Control+Mod1+l exec $HOME/bin/i3-cycle-workspaces.rb up
+bindsym Control+Mod1+Right exec --no-startup-id $HOME/bin/i3-cycle-workspaces.rb up
+bindsym Control+Mod1+l exec --no-startup-id $HOME/bin/i3-cycle-workspaces.rb up
 
-bindsym Control+Mod1+Left exec $HOME/bin/i3-cycle-workspaces.rb down
-bindsym Control+Mod1+h exec $HOME/bin/i3-cycle-workspaces.rb down
+bindsym Control+Mod1+Left exec --no-startup-id $HOME/bin/i3-cycle-workspaces.rb down
+bindsym Control+Mod1+h exec --no-startup-id $HOME/bin/i3-cycle-workspaces.rb down
 
 bindsym $mod+Tab workspace back_and_forth
 
