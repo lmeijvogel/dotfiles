@@ -1,9 +1,6 @@
 set $outputSink 0
 
-for_window [class="privateinternetaccess"] move container to workspace $ws10
-
 set $output_left DP-1
 set $output_right HDMI-1
 
 set $output_right_or_laptop HDMI-1
-
