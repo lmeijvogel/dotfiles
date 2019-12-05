@@ -22,7 +22,7 @@ task :i3 do
 
     puts "Found additional configuration in #{sanitized_filename}"
 
-    "#### Machine custom config starts here####\n\n" + base_additional_config
+    "#### Machine custom config starts here####\n\n" + base_additional_config + "\n\n#### Machine custom config ends here\n"
   else
     puts "No additional configuration found for this host: Create a config file dotfiles/i3/#{sanitized_filename} with options for this machine."
 
