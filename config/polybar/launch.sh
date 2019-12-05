@@ -7,7 +7,16 @@ killall -q polybar
 while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch polybars -- automatically reload on config changes
-MONITOR=$MONITOR_RIGHT polybar --reload right &
-MONITOR=$MONITOR_LEFT polybar --reload left &
+if [ "$MONITOR_RIGHT" != "" ]; then
+  MONITOR=$MONITOR_RIGHT polybar --reload right &
+fi
+
+if [ "$MONITOR_LEFT" != "" ]; then
+  MONITOR=$MONITOR_LEFT polybar --reload left &
+fi
+
+if [ "$MONITOR_LAPTOP" != "" ]; then
+  MONITOR=$MONITOR_LAPTOP polybar --reload left &
+fi
 
 echo "Bars launched..."
