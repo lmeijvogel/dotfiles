@@ -42,7 +42,6 @@ Plug 'fmoralesc/molokayo' " Dark color scheme
 Plug 'mhinz/vim-grepper'
 
 Plug 'jeetsukumaran/vim-indentwise' " Easy navigation based on indent level
-Plug 'Shougo/vimproc.vim'
 Plug 'nacitar/a.vim'                  " Easily alternate between related files
 Plug 'rakr/vim-one' " Light color scheme
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Language Server Protocol client
