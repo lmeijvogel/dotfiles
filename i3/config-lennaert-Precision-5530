@@ -11,6 +11,7 @@ bindsym $mod+grave [class="Firefox"] scratchpad show
 
 set $output_left DP-1-2
 set $output_right DP-1-1
+set $output_laptop eDP-1
 
 set $output_right_or_laptop eDP-1
 
