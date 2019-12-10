@@ -2,7 +2,7 @@
 # 1: Headphone
 set $outputSink 1
 
-exec --no-startup-id exec $HOME/start.sh
+exec_always --no-startup-id exec $HOME/start.sh
 exec --no-startup-id exec ~/bin/start_workrave
 
 exec firefox
