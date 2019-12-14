@@ -40,16 +40,16 @@ bindsym $mod+F1 exec --no-startup-id $HOME/.lib/run-custom-command.sh
 bindsym $mod+Shift+slash exec --no-startup-id bash $HOME/.lib/open-notes.sh
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+h exec --no-startup-id ruby $HOME/bin/i3-change-focus-with-floating-window.rb left
+bindsym $mod+j exec --no-startup-id ruby $HOME/bin/i3-change-focus-with-floating-window.rb down
+bindsym $mod+k exec --no-startup-id ruby $HOME/bin/i3-change-focus-with-floating-window.rb up
+bindsym $mod+l exec --no-startup-id ruby $HOME/bin/i3-change-focus-with-floating-window.rb right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Left exec --no-startup-id ruby $HOME/bin/i3-change-focus-with-floating-window.rb left
+bindsym $mod+Down exec --no-startup-id ruby $HOME/bin/i3-change-focus-with-floating-window.rb down
+bindsym $mod+Up exec --no-startup-id ruby $HOME/bin/i3-change-focus-with-floating-window.rb up
+bindsym $mod+Right exec --no-startup-id ruby $HOME/bin/i3-change-focus-with-floating-window.rb right
 
 # move focused window
 bindsym $mod+Shift+h move left
