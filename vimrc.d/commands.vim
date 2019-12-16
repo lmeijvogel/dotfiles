@@ -11,13 +11,15 @@ nmap <silent> <C-A-p> :cp<CR>
 
 " Add aliases to catch typos
 command! W w
-command! Wq w
-command! WQ w
+command! Wq wq
+command! WQ wq
 command! Q q
 
 command! Qa qa
+command! Wqa wqa
 command! -bang Qa qa<bang>
 command! -bang QA qa<bang>
+command! -bang Wqa wqa<bang>
 
 " Sudo write current file
 cmap w!! w !sudo tee % >/dev/null
