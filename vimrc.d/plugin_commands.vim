@@ -210,3 +210,5 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 
 let g:alternateExtensions_{'tsx'} = "scss"
 let g:alternateExtensions_{'scss'} = "tsx"
+
+nmap <leader>si :SortImport<CR>
