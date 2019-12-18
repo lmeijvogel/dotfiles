@@ -17,21 +17,26 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
+" Autocomplete the first item in the suggestions.
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
 
-" This does not work: For some reason it just prints 'pumvisible() ...' etc.
-" in the console on every enter press.
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Note: This used to clash with endwise.vim, causing the string to be
+" written to the buffer. I uninstalled endwise.
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 " Remap keys for gotos
 nmap <silent> <F12> <Plug>(coc-definition)
+
 " nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> <C-F12> <Plug>(coc-implementation)
+
 " For neovim-qt
 nmap <silent> <S-F12> <Plug>(coc-references)
+
 " For console usage
 nmap <silent> <F24> <Plug>(coc-references)
+
 " Perform the first quick fix
 nmap <silent> <leader>qf <Plug>(coc-fix-current)
 
