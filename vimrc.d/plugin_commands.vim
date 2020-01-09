@@ -70,11 +70,14 @@ let g:NERDSpaceDelims = 1
 " Use compact syntax for prettified multi-line comments
 let g:NERDCompactSexyComs = 1
 
+" Use C-/ for toggling comments (for some reason <C-/> is transmitted as <C-_> in vim)
+nmap <C-_>   <Plug>NERDCommenterToggle
+vmap <C-_>   <Plug>NERDCommenterToggle<CR>gv
+
 if has('nvim')
   " NeoTerm
   let g:neoterm_default_mod = 'horizontal'
   let g:neoterm_automap_keys = '<leader>tt'
-
 
   let test#strategy = "neoterm"
   let test#ruby#rspec#executable = 'sp'
