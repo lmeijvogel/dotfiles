@@ -47,6 +47,8 @@ nmap <leader>rr <Plug>(coc-rename)
 nmap <leader>ra :CocAction<CR>
 vmap <leader>ra :CocAction<CR>
 
+nmap <silent> <leader>cr :CocRestart<CR>
+
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
