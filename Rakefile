@@ -82,6 +82,11 @@ task :update_all_symlinks do
     update_symlinks(Rake::FileList["#{nested_config_dir}/*"], DOTFILE_PATTERN)
   end
 
+  FILES_IN_CONFIG = Rake::FileList[*%w[config/*]]
+  FILES_IN_CONFIG.exclude { |file| !File.file?(file) } # Only link files
+
+  update_symlinks(FILES_IN_CONFIG, DOTFILE_PATTERN)
+
   symlink_i3_compton
   initialize_oh_my_zsh
   initialize_zsh_plugins
