@@ -111,10 +111,10 @@ bindkey -s '\ea' 'git add -p\n'
 bindkey -s '\eg' 'gitl\n'
 # Bind <Esc>G to 'git log --oneline --decorate'
 bindkey -s '\eG' 'gitll\n'
-# Bind <Esc>r to 'br' (git branch)
-bindkey -s '\er' 'br\n'
-# Bind <Esc>R to 'brr' (git branch --remote)
-bindkey -s '\eR' 'brr\n'
+# Bind <Esc>r to 'gbr' (git branch)
+bindkey -s '\er' 'gbr\n'
+# Bind <Esc>R to 'gbrr' (git branch --remote)
+bindkey -s '\eR' 'gbrr\n'
 
 # Bind <Esc>c to 'git diff' (Previously: Uppercase sentence and move to next sentence)
 bindkey -s '\ec' 'git diff\n'
