@@ -28,6 +28,9 @@ alias sa='ssh-add'
 
 alias aptup='sudo apt-get update && sudo apt-get upgrade'
 
+# File browser: broot
+alias d=br
+
 cl() { if [ -d "$1" ]; then cd "$1"; ls -l; else echo "*** Directory not found ***" ; fi; }
 
 # Allow custom aliases per environment
