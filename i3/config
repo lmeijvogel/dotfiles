@@ -20,7 +20,7 @@ font pango:DejaVu Sans 13
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec mate-terminal
 
 # lock the screen
 bindsym $mod+Control+q exec $HOME/.lib/lock-screen.sh
