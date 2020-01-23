@@ -13,7 +13,7 @@ pushd $HOME/git
       exit 1
     fi
 
-    CMAKE_BUILD_TYPE=RelWithDebInfo make -j4
+    CMAKE_BUILD_TYPE=Release make -j4
   popd
 
   if [[ "$?" -ne "0" ]]; then
