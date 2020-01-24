@@ -1,2 +1,2 @@
-GuiFont Input\ Mono:h12
+GuiFont Input\ Mono:h14
 GuiTabline 0
