@@ -17,18 +17,20 @@ endfunction
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Autocomplete the first item in the suggestions.
+" DISABLED: Autocomplete the first item in the suggestions.
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
+"
+" It was disabled because it also autocompleted on whole word match, causing
+" it to "swallow" an enter press.
 
 " Note: This used to clash with endwise.vim, causing the string to be
 " written to the buffer. I uninstalled endwise.
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 " Remap keys for gotos
 nmap <silent> <F12> <Plug>(coc-definition)
 
-" nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> <C-F12> <Plug>(coc-implementation)
 
 " For neovim-qt
