@@ -22,7 +22,15 @@ function! AbsoluteToRelative()
 
       path_to_shared_base = Array.new(steps_to_shared_base, "..")
 
-      (path_to_shared_base + new_input_path_from_shared_base).join("/")
+      result = (path_to_shared_base + new_input_path_from_shared_base).join("/")
+
+      is_in_current_dir = !result.include?("/")
+
+      if is_in_current_dir
+        "./#{result}"
+      else
+        result
+      end
     end
 
     def determine_relative_current_path(input, current_path)
