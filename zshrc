@@ -124,7 +124,7 @@ bindkey -s '\eC' 'git diff --cached\n'
 
 unsetopt nomatch
 
-alias -g D=~/Downloads
+alias -g D=$HOME/Downloads
 
 # Eval these scripts: They set environment variables.
 function gitl () {
@@ -137,7 +137,7 @@ function gitll () {
 
 [ -s "$HOME/.scm_breeze/scm_breeze.sh" ] && source "$HOME/.scm_breeze/scm_breeze.sh"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -155,4 +155,4 @@ fi
 export HISTSIZE=10000000
 export SAVEHIST=10000000
 
-[ -f ~/.config/broot/launcher/bash/br ] && source ~/.config/broot/launcher/bash/br
+[ -f $HOME/.config/broot/launcher/bash/br ] && source $HOME/.config/broot/launcher/bash/br
