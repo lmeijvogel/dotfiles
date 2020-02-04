@@ -11,6 +11,9 @@ hostname = Socket.gethostname
 
 $dry_run = ENV.key?("DRY_RUN")
 
+# Mapping from e.g. zshrc to $HOME/.zshrc
+DOTFILE_PATTERN = "#{ENV['HOME']}/.%p"
+
 desc "Generate i3 configuration files"
 task :i3 do
   config_template = File.read(File.join(__dir__, "i3/config"))
@@ -32,7 +35,7 @@ task :i3 do
   end
 
   resulting_config = config_template.gsub(/^%include_private_config%$/, additional_config)
-  output_config_path = "#{ENV['HOME']}/.config/i3/config"
+  output_config_path = "config/i3/config".pathmap(DOTFILE_PATTERN)
 
   if $dry_run
     puts "Dry-run: Create dir #{File.dirname(output_config_path)}"
@@ -62,7 +65,7 @@ task :polybar do
   if File.exist?(sanitized_filename)
     puts "Found machine-specific polybar configuration in #{sanitized_filename}"
 
-    cp sanitized_filename, "#{ENV['HOME']}/.config/polybar/machine-specific"
+    cp sanitized_filename, "config/polybar/machine-specific".pathmap(DOTFILE_PATTERN)
   else
     puts "ERROR: No machine-specific configuration set! Create a configuration file in #{polybar_config_dir} with the name #{filename} to configure polybar (or to remove this warning :D)"
   end
@@ -74,7 +77,6 @@ task :update_all_symlinks do
   # If only the vim plugins and config interest you, just
   # link .vimrc and .vim to vimrc and vim in the parent directory.
 
-  DOTFILE_PATTERN = "#{ENV['HOME']}/.%p"
   CONFIG_FILES = Rake::FileList["*"]
   CONFIG_FILES.exclude("bin", "config", "i3", "scripts", "Gemfile", "Gemfile.lock", ".git", ".gitignore", "Rakefile", "README", "INSTALL.md")
 
@@ -104,7 +106,7 @@ task :update_all_symlinks do
 end
 
 def symlink_i3_compton
-  symlink_path = File.join(ENV['HOME'], ".config/i3/compton.conf")
+  symlink_path = "config/i3/compton.conf".pathmap(DOTFILE_PATTERN)
 
   delete_symlink symlink_path
 
@@ -183,7 +185,7 @@ def initialize_zsh_plugins
 end
 
 def initialize_vim_plug
-  plug_script_path = File.join(ENV["HOME"], ".config/nvim/autoload/plug.vim")
+  plug_script_path = "config/nvim/autoload/plug.vim".pathmap(DOTFILE_PATTERN)
 
   if $dry_run
     puts "Dry-run: Cloning vim-plug at #{plug_script_path}"
