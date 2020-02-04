@@ -9,6 +9,8 @@ task :default => [:update_all_symlinks, :i3, :polybar]
 
 hostname = Socket.gethostname
 
+$dry_run = ENV.key?("DRY_RUN")
+
 desc "Generate i3 configuration files"
 task :i3 do
   config_template = File.read(File.join(__dir__, "i3/config"))
@@ -32,12 +34,20 @@ task :i3 do
   resulting_config = config_template.gsub(/^%include_private_config%$/, additional_config)
   output_config_path = "#{ENV['HOME']}/.config/i3/config"
 
-  mkdir_p(File.dirname(output_config_path))
+  if $dry_run
+    puts "Dry-run: Create dir #{File.dirname(output_config_path)}"
+  else
+    mkdir_p(File.dirname(output_config_path))
+  end
 
-  rm_f(output_config_path)
+  if $dry_run
+    puts "Dry-run: Writing i3 config to #{output_config_path}"
+  else
+    rm_f(output_config_path)
 
-  open(output_config_path, "w") do |file|
-    file.write(resulting_config)
+    open(output_config_path, "w") do |file|
+      file.write(resulting_config)
+    end
   end
 end
 
@@ -98,16 +108,28 @@ def symlink_i3_compton
 
   delete_symlink symlink_path
 
-  FileUtils.ln_s(File.expand_path("i3/compton.conf"), symlink_path)
+  create_symlink(File.expand_path("i3/compton.conf"), symlink_path)
+end
+
+def create_symlink(source_path, symlink_path)
+  if $dry_run
+    puts "Dry-run: Symlink #{source_path} => #{symlink_path}"
+  else
+    FileUtils.ln_s(source_path, symlink_path)
+  end
 end
 
 def delete_symlink(file)
-  return if !File.symlink? file
-
-  if File.symlink? file
-    FileUtils.rm(file)
+  if $dry_run
+    puts "Dry-run: Deleting symlink #{file}"
   else
-    puts "File not a symlink: #{file}"
+    return if !File.symlink? file
+
+    if File.symlink? file
+      FileUtils.rm(file)
+    else
+      puts "File not a symlink: #{file}"
+    end
   end
 end
 
@@ -122,7 +144,7 @@ def update_symlinks(origs, pattern)
   target_files = original_files.pathmap(pattern)
 
   original_files.map { |file| File.expand_path(file) }.zip(target_files).each do |source, symlink|
-    FileUtils.ln_s(File.expand_path(source), symlink)
+    create_symlink(File.expand_path(source), symlink)
   end
 end
 
@@ -139,24 +161,35 @@ end
 
 def initialize_zsh_plugins
   zsh_custom_path = File.join(ENV.fetch("HOME"), ".oh-my-zsh/custom/plugins")
+  zsh_plugins = %w[zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search]
+  if $dry_run
+    puts "Dry-run: Initializing zsh plugins:"
+    zsh_plugins.each do |plugin|
+      puts "Dry-run: - #{plugin}"
+    end
+  else
+    mkdir_p zsh_custom_path
 
-  mkdir_p zsh_custom_path
+    zsh_plugins.each do |plugin|
+      target_path = File.join(zsh_custom_path, plugin)
 
-  %w[zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search].each do |plugin|
-    target_path = File.join(zsh_custom_path, plugin)
+      next if File.directory?(target_path)
 
-    next if File.directory?(target_path)
-
-    system("git", "clone",
-           "https://github.com/zsh-users/#{plugin}",
-           target_path)
+      system("git", "clone",
+             "https://github.com/zsh-users/#{plugin}",
+             target_path)
+    end
   end
 end
 
 def initialize_vim_bundle
   plug_script_path = File.join(ENV["HOME"], ".config/nvim/autoload/plug.vim")
 
-  unless File.exist?(plug_script_path)
-    `curl -fLo #{plug_script_path} --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+  if $dry_run
+    puts "Dry-run: Initializing vim bundle"
+  else
+    unless File.exist?(plug_script_path)
+      `curl -fLo #{plug_script_path} --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
+    end
   end
 end
