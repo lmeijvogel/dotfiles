@@ -100,7 +100,7 @@ task :update_all_symlinks do
   symlink_i3_compton
   initialize_oh_my_zsh
   initialize_zsh_plugins
-  initialize_vim_bundle
+  initialize_vim_plug
 end
 
 def symlink_i3_compton
@@ -182,11 +182,11 @@ def initialize_zsh_plugins
   end
 end
 
-def initialize_vim_bundle
+def initialize_vim_plug
   plug_script_path = File.join(ENV["HOME"], ".config/nvim/autoload/plug.vim")
 
   if $dry_run
-    puts "Dry-run: Initializing vim bundle"
+    puts "Dry-run: Cloning vim-plug at #{plug_script_path}"
   else
     unless File.exist?(plug_script_path)
       `curl -fLo #{plug_script_path} --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
