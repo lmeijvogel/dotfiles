@@ -272,10 +272,10 @@ workspace 10 output $output_right
 workspace 9 output $output_right_or_laptop
 
 # Screenshot selection
-bindsym --release Print exec mate-screenshot --interactive
+bindsym --release Print exec spectacle --gui
 
 # Screenshot current window
-bindsym --release Shift+Print exec mate-screenshot --area
+bindsym --release Shift+Print exec spectacle --region
 
 mode "volume" {
     # Lots of duplication, since i3wm doesn't support recursive variables :(
