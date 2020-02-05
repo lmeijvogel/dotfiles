@@ -22,8 +22,8 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec mate-terminal
 
-# lock the screen
-bindsym $mod+Control+q exec $HOME/.lib/lock-screen.sh
+# lock the screen - The `sleep` ensures that locking is not cancelled by releasing the keys.
+bindsym $mod+Control+q exec "sleep 0.3 ; /usr/bin/qdbus org.freedesktop.ScreenSaver /ScreenSaver Lock"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -144,10 +144,10 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Control+Shift+r restart
 
 mode "exit: pow[e]roff, [s]uspend, [l]ogout, [r]eboot" {
-  bindsym e exec poweroff
+  bindsym e exec qdbus org.kde.ksmserver /Shutdown logoutAndShutdown
   bindsym s exec sudo pm-suspend
-  bindsym l exec mate-session-save --logout
-  bindsym r exec reboot
+  bindsym l exec qdbus org.kde.ksmserver /Shutdown logout
+  bindsym r exec qdbus org.kde.ksmserver /Shutdown logoutAndReboot
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
@@ -305,10 +305,6 @@ bindsym $mod+Shift+w exec --no-startup-id $HOME/bin/breaks_off
 
 exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
 exec_always --no-startup-id MONITOR_LEFT=$output_left MONITOR_RIGHT=$output_right MONITOR_LAPTOP=$output_laptop $HOME/.config/polybar/launch.sh
-
-exec --no-startup-id ~/bin/start_xautolock &
-
-exec --no-startup-id dunst
 
 exec --no-startup-id i3-msg workspace $ws1
 exec --no-startup-id i3-msg workspace $ws4
