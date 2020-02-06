@@ -42,8 +42,8 @@ class Checkout
   def format_date(date)
     now = DateTime.now
     two_hours_ago = now - (2.0 / 24)
-    yesterday = DateTime.new(now.year, now.month, now.day - 1)
-    last_6_days = DateTime.new(now.year, now.month, now.day - 6)
+    yesterday = now - 1
+    last_6_days = now - 6
 
     if two_hours_ago < date
       minutes_ago(date)
