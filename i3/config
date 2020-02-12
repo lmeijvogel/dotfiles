@@ -143,11 +143,37 @@ bindsym $mod+Shift+r reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Control+Shift+r restart
 
+# Arguments for KDE KSMServer logout:
+# Copied from https://api.kde.org/4.x-api/kde-workspace-apidocs/plasma-workspace/html/kworkspace_8h_source.html
+# enum ShutdownConfirm {
+#   ShutdownConfirmDefault = -1,
+#   ShutdownConfirmNo = 0,
+#   ShutdownConfirmYes = 1
+# };
+#
+# enum ShutdownType {
+#   ShutdownTypeDefault = -1,
+#   ShutdownTypeNone = 0,
+#   ShutdownTypeReboot = 1,
+#   ShutdownTypeHalt = 2,
+#   // KDE5: kill this
+#   ShutdownTypeLogout = 3
+# };
+#
+# enum ShutdownMode {
+#   ShutdownModeDefault = -1,
+#   ShutdownModeSchedule = 0,
+#   ShutdownModeTryNow = 1,
+#   ShutdownModeForceNow = 2,
+#   ShutdownModeInteractive = 3
+# };
+
 mode "exit: pow[e]roff, [s]uspend, [l]ogout, [r]eboot" {
-  bindsym e exec qdbus org.kde.ksmserver /Shutdown logoutAndShutdown
+  bindsym e exec qdbus org.kde.ksmserver /KSMServer logout 0 2 -1 # Poweroff
   bindsym s exec sudo pm-suspend
-  bindsym l exec qdbus org.kde.ksmserver /Shutdown logout
-  bindsym r exec qdbus org.kde.ksmserver /Shutdown logoutAndReboot
+  bindsym l exec qdbus org.kde.ksmserver /KSMServer logout 0 0 -1 # Logout
+
+  bindsym r exec qdbus org.kde.ksmserver /KSMServer logout 0 1 -1 # Reboot
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
