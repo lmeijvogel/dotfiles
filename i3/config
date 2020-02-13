@@ -169,11 +169,11 @@ bindsym $mod+Control+Shift+r restart
 # };
 
 mode "exit: pow[e]roff, [s]uspend, [l]ogout, [r]eboot" {
-  bindsym e exec qdbus org.kde.ksmserver /KSMServer logout 0 2 -1 # Poweroff
+  bindsym e exec qdbus org.kde.ksmserver /KSMServer logout -1 2 -1 # Poweroff
   bindsym s exec sudo pm-suspend
-  bindsym l exec qdbus org.kde.ksmserver /KSMServer logout 0 0 -1 # Logout
+  bindsym l exec qdbus org.kde.ksmserver /KSMServer logout -1 0 -1 # Logout
 
-  bindsym r exec qdbus org.kde.ksmserver /KSMServer logout 0 1 -1 # Reboot
+  bindsym r exec qdbus org.kde.ksmserver /KSMServer logout -1 1 -1 # Reboot
   bindsym Escape mode "default"
   bindsym Return mode "default"
 }
