@@ -8,6 +8,7 @@
 --ignore-file=is:tags
 --ignore-file=is:TAGS
 --ignore-file=is:examples.txt
+--ignore-file=match:/.*\.snap/
 --ignore-dir=coverage
 --ignore-dir=public/system/dragonfly
 --ignore-dir=public/assets
