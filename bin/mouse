@@ -1,16 +1,12 @@
 #!/bin/bash
 
-mouse=`xinput --list | grep "\(Optical\|USB\) Mouse" | ruby -e 'STDIN.read.match(/id=(\d+)/) ; puts $1'`
-
 if [ "$1" = "left" ]; then
-  button_mapping="3 2 1"
+  xmodmap -e "pointer = 3 2 1"
 elif [ "$1" = "right" ]; then
-  button_mapping="1 2 3"
+  xmodmap -e "pointer = 1 2 3"
 else
   echo "Usage: $0 (left|right)"
   exit 1
 fi
 
-xinput --set-button-map $mouse $button_mapping
-
-# vim:ft=bash
+# nvim: ft=bash
