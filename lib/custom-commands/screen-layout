@@ -11,6 +11,9 @@ if [ -d "$layouts_dir" ]; then
     sh -c ./$COMMAND
 
     $HOME/bin/start-polybar-`hostname`.sh
+
+    # -b == daemonize
+    killall -q compton; compton -b --config ~/.config/i3/compton.conf
   fi
 else
   notify-send "Could not find layouts for host $(hostname)"
