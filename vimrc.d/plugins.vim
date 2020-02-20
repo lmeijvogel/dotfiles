@@ -41,6 +41,7 @@ Plug 'prettier/vim-prettier'
 Plug 'fmoralesc/molokayo' " Dark color scheme
 Plug 'mhinz/vim-grepper'
 Plug 'jceb/vim-orgmode'
+Plug 'mattn/calendar-vim'
 
 Plug 'jeetsukumaran/vim-indentwise' " Easy navigation based on indent level
 Plug 'nacitar/a.vim'                  " Easily alternate between related files
