@@ -341,5 +341,7 @@ exec_always --no-startup-id "sleep 10; killall -q compton; compton --config ~/.c
 exec_always --no-startup-id MONITOR_LEFT=$output_left MONITOR_RIGHT=$output_right MONITOR_LAPTOP=$output_laptop $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id kmix
 
+exec_always --no-startup-id $HOME/.fehbg &
+
 exec --no-startup-id i3-msg workspace $ws1
 exec --no-startup-id i3-msg workspace $ws4
