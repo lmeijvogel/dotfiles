@@ -1,3 +1,11 @@
 #!/bin/bash
 
-recent_checkouts.rb | fzf --exit-0 | awk '{ print $1; }' | xargs git checkout
+set -o pipefail
+
+CHOSEN_BRANCH=$(recent_checkouts.rb | fzf)
+
+if [[ "$?" = "0" ]]; then
+  echo $CHOSEN_BRANCH | awk '{ print $1; }' | xargs git checkout
+else
+  echo "Nothing chosen"
+fi
