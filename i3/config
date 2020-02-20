@@ -329,7 +329,8 @@ bindsym $mod+Shift+s mode "volume"
 
 bindsym $mod+Shift+w exec --no-startup-id $HOME/bin/breaks_off
 
-exec_always --no-startup-id "killall -q compton; compton --config ~/.config/i3/compton.conf"
+# The "sleep" is to (hopefully) ensure that compton is started long after all the monitor adjustments
+exec_always --no-startup-id "sleep 10; killall -q compton; compton --config ~/.config/i3/compton.conf"
 exec_always --no-startup-id MONITOR_LEFT=$output_left MONITOR_RIGHT=$output_right MONITOR_LAPTOP=$output_laptop $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id kmix
 
