@@ -297,6 +297,13 @@ workspace 10 output $output_right
 
 workspace 9 output $output_right_or_laptop
 
+# For i3-gaps: No border
+for_window [class=".*"] border pixel 2
+gaps outer 3
+gaps inner 10
+
+smart_gaps on
+
 # Screenshot selection
 bindsym --release Print exec spectacle --gui
 
