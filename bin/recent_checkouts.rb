@@ -11,6 +11,9 @@ def main
 
   branch_width = checkouts.map { |checkout| checkout.branch.length }.max
 
+  # Reverse first and second entry since we'll never want to switch to the current branch
+  checkouts = checkouts.values_at(1, 0) + checkouts[2..-1] if checkouts.length > 1
+
   puts checkouts.map { |checkout| checkout.to_displayable(branch_width) }
 end
 
