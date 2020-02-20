@@ -1,5 +1,3 @@
-set $outputSink 0
-
 set $output_left DP-1
 set $output_right HDMI-1
 
