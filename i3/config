@@ -193,15 +193,26 @@ mode "resize" {
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
 
+        bindsym Shift+h resize shrink width 50 px or 50 ppt
+        bindsym Shift+j resize grow height 50 px or 50 ppt
+        bindsym Shift+k resize shrink height 50 px or 50 ppt
+        bindsym Shift+l resize grow width 50 px or 50 ppt
+
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
 
+        # same bindings, but for the arrow keys
+        bindsym Shift+Left resize shrink width 50 px or 50 ppt
+        bindsym Shift+Down resize grow height 50 px or 50 ppt
+        bindsym Shift+Up resize shrink height 50 px or 50 ppt
+        bindsym Shift+Right resize grow width 50 px or 50 ppt
+
         # Used for screenshots: Resulting images are 600x400 resp. 1280x800
-        bindsym Shift+h resize set 664 px 428 px
-        bindsym Shift+l resize set 1284 px 828 px
+        bindsym Control+Shift+h resize set 664 px 428 px
+        bindsym Control+Shift+l resize set 1284 px 828 px
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
